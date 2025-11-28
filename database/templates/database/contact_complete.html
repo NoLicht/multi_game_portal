@@ -1,0 +1,14 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}問い合わせ送信完了{% endblock %}
+
+{% block content %}
+<div class="hero text-center" style="padding: 80px 20px;">
+    <h1 class="hero-title">問い合わせを送信しました</h1>
+    <p class="hero-subtitle">お問い合わせありがとうございました。<br>
+    内容を確認のうえ、返信が必要な場合は追ってご連絡いたします。</p>
+
+    <a href="{% url 'database:home' %}" class="submit mt-3">トップページに戻る</a>
+</div>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'database/base.html' %}
+{% load static %}
+{% block title %}MAP & レベル別攻略{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+  <img src="{% static 'database/images/repo/repo_cover1.jpg' %}" alt="REPO" class="top-image img-fluid w-100">
+</div>
+
+<div class="content-wrapper d-flex">
+  <!-- サイドメニュー -->
+    <aside class="sidebar bg-dark text-white p-3" style="min-width:220px;">
+        <h4 class="mb-3">目次</h4>
+        <ul class="toc-list list-unstyled">
+        <li class="mb-2"><a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:guide_repo' %}">▶ ホーム</a></li>
+        <li class="mb-2"><a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:item_list' %}">▶ 武器一覧</a></li>
+        <li class="mb-2"><a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:shop_item_list' %}">▶ ショップアイテム一覧</a></li>
+        <li class="mb-2"><a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:monster_list' %}">▶ エンティティ一覧</a></li>
+        <li class="mb-2"><a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:level_guide_list' %}">▶ MAP & レベル別攻略</a></li>
+        </ul>
+    </aside>
+
+  <!-- メインコンテンツ -->
+    <div class="main-content container my-4">
+        <!-- ステージ一覧ヘッダー -->
+        <div class="story-header text-center my-3">
+        <div class="black-yellow-band">ステージ一覧</div>
+        </div>
+        <p class="intro-text">
+        ステージは大まかな作りがそれぞれで違っていますが、内部は完全ランダムマップであるため、あまり意識する必要はありません。<br>
+        出現する収集アイテムはかなり変わってきます。
+        </p>
+        
+        <!-- ステージ一覧 -->
+        <div class="stage-gallery">
+            {% for stage in stages %}
+                <div class="stage-card step-content">
+                    <div class="stage-name">{{ stage.name }}</div>
+
+                    {% if stage.main_image %}
+                    <div class="area-place-table">
+                        <div class="apt-row">
+                            <div class="apt-cell">
+                                <img src="{{ stage.main_image.url }}" alt="{{ stage.name }}" class="main-img">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="stage-description">
+                        {{ stage.description|truncatechars:60 }}
+                    </div>
+
+                    <div class="area-place-table">
+                        <div class="apt-row">
+                            {% if stage.sub_image1 %}
+                            <div class="apt-cell">
+                                <img src="{{ stage.sub_image1.url }}" alt="{{ stage.name }} サブ画像1" class="step-image zoomable">
+                            </div>
+                            {% endif %}
+                            {% if stage.sub_image2 %}
+                            <div class="apt-cell">
+                                <img src="{{ stage.sub_image2.url }}" alt="{{ stage.name }} サブ画像2" class="step-image zoomable">
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="image-modal modal" id="image-modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- レベル別攻略 -->
+        <section id="level-effects" class="mb-5">
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">レベル別攻略</div>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead><tr><th>レベル</th><th>詳細</th></tr></thead>
+            <tbody>
+            {% for effect in level_effects %}
+            <tr>
+                <td>{{ effect.level_range }}</td>
+                <td>{{ effect.details|linebreaks }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p class="intro-text">
+        レベル10以降は、長時間モンスターを持つと、ゲージが貯まるようになります。そのまま掴んでいると、20ダメージとスタンを受けます。
+        </p>
+        <p class="intro-text">
+        レベル20からはモンスターが落とすオーブが、壊れる時に爆発するようになります。これはプレイヤーもモンスターもダメージを受けます。
+        </p>
+        </section>
+
+        <!-- オーブダメージ一覧 -->
+        <section id="orb-damage" class="mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">オーブダメージ一覧</div>
+            </div>
+            <table class="table table-bordered table-striped table-hover">
+                <thead><tr><th>ティア</th><th>ダメージ</th></tr></thead>
+                <tbody>
+                {% for orb in orb_damages %}
+                <tr>
+                    <td>{{ orb.tier }}</td>
+                    <td>{{ orb.damage }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer text-center py-3 bg-dark text-white mt-4">
+    <div class="footer-title">マルチ攻略データベース</div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> |
+        <a href="{% url 'database:item_list' %}">武器一覧</a> |
+        <a href="{% url 'database:shop_item_list' %}">ショップアイテム一覧</a> |
+        <a href="{% url 'database:monster_list' %}">エンティティ一覧</a> |
+        <a href="{% url 'database:level_guide_list' %}">MAP & レベル別攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+{% endblock %}

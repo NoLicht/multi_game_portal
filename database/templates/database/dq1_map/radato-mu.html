@@ -1,0 +1,1016 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ ラダトーム{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+
+
+    <!-- ===== メインコンテンツ ===== -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/map/radato-mu/banner.jpg' %}" class="step-image">
+        </div><br><br><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ラダトームとラダトーム城のマップと宝箱</div>
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">ラダトーム</div>
+                <img src="{% static 'database/images/dq1/map/radato-mu/1.jpg' %}" class="step-image">
+                <div class="step-text">ラダトームの町のマップです。<br>
+                    <br>
+                    鍵が必要な扉の先はゲーム開始直後は探索できないため、鍵を入手してから改めて探索しましょう。
+                </div><br><br>
+                <div class="step-number text-center">入手できる宝箱とアイテム</div><br>
+                <div class="area-block">
+                    <div class="area-title">ラダトーム</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/2.jpg' %}">
+                                        <div class="area-name">小さなメダル<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/3.jpg' %}">
+                                        <div class="area-name">やくそう</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/4.jpg' %}">
+                                        <div class="area-name">どくけしそう</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/5.jpg' %}">
+                                        <div class="area-name">ちからのたね</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/6.jpg' %}">
+                                        <div class="area-name">命のきのみ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/7.jpg' %}">
+                                        <div class="area-name">49ゴールド</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/8.jpg' %}">
+                                        <div class="area-name">53ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/9.jpg' %}">
+                                        <div class="area-name">16ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/10.jpg' %}">
+                                        <div class="area-name">うさぎのしっぽ</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/11.jpg' %}">
+                                        <div class="area-name">命のきのみ<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/12.jpg' %}">
+                                        <div class="area-name">まほうのせいすい<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/13.jpg' %}">
+                                        <div class="area-name">100ゴールド<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/14.jpg' %}">
+                                        <div class="area-name">きれいな水<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/15.jpg' %}">
+                                        <div class="area-name">あぶないエキス<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/16.jpg' %}">
+                                        <div class="area-name">3300ゴールド<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/17.jpg' %}">
+                                        <div class="area-name">342ゴールド<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/18.jpg' %}">
+                                        <div class="area-name">めざましリング<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/19.jpg' %}">
+                                        <div class="area-name">くもの巣<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                        <div id="imgModal" class="modal-new">
+                            <span class="close">&times;</span>
+                            <img class="modal-new-content" id="imgInModal">
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">ラダトームで入手できるアイテムです。<br>
+                    <br>
+                    「ちからのたね」や「命のきのみ」はゲーム開始直後にも拾えるので、回収してから冒険を始めるのがおすすめです。
+                </div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">ラダトーム城</div>
+                <img src="{% static 'database/images/dq1/map/radato-mu/20.jpg' %}" class="step-image">
+                <div class="step-text">ラダトーム城のマップです。<br>
+                    <br>
+                    城内部には鍵が必要な扉が多く存在するので、各種鍵を入手したらその度に探索し直しましょう。
+                </div><br><br>
+                <div class="step-number text-center">入手できる宝箱とアイテム</div><br>
+                <div class="area-block">
+                    <div class="area-title">ラダトーム城_1階</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/21.jpg' %}">
+                                        <div class="area-name">せいすい</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/22.jpg' %}">
+                                        <div class="area-name">すばやさのたね</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/23.jpg' %}">
+                                        <div class="area-name">8ゴールド</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/24.jpg' %}">
+                                        <div class="area-name">キメラのつばさ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/25.jpg' %}">
+                                        <div class="area-name">ステテコパンツ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/26.jpg' %}">
+                                        <div class="area-name">17ゴールド</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/27.jpg' %}">
+                                        <div class="area-name">いのりのゆびわ<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/28.jpg' %}">
+                                        <div class="area-name">すばやさのたね<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/29.jpg' %}">
+                                        <div class="area-name">まじんのオノ<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/30.jpg' %}">
+                                        <div class="area-name">12000ゴールド<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/31.jpg' %}">
+                                        <div class="area-name">エルフののみぐすり<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/32.jpg' %}">
+                                        <div class="area-name">レミラーマの巻物<br>
+                                            要：最後の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="area-title">ラダトーム城_裏庭</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/33.jpg' %}">
+                                        <div class="area-name">キメラのつばさ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/34.jpg' %}">
+                                        <div class="area-name">ラックのたね</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/35.jpg' %}">
+                                        <div class="area-name">どくけしそう</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="area-title">ラダトーム城_地下1階</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/36.jpg' %}">
+                                        <div class="area-name">小さなメダル<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/37.jpg' %}">
+                                        <div class="area-name">131ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/38.jpg' %}">
+                                        <div class="area-name">いぬぐるみ<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/39.jpg' %}">
+                                        <div class="area-name">ちからのたね<br>
+                                            要：魔法の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="area-title">ラダトーム城_2階②</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/40.jpg' %}">
+                                        <div class="area-name">まもりのたね</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/41.jpg' %}">
+                                        <div class="area-name">こんぼう</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="area-title">ラダトーム城_2階・隠し部屋</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/42.jpg' %}">
+                                        <div class="area-name">小さなメダル<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/43.jpg' %}">
+                                        <div class="area-name">434ゴールド<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/44.jpg' %}">
+                                        <div class="area-name">皮のよろい<br>
+                                            要：盗賊の鍵
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="area-title">ラダトーム城_2階・外観</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/45.jpg' %}">
+                                        <div class="area-name">32ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/46.jpg' %}">
+                                        <div class="area-name">ふしぎなきのみ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/radato-mu/47.jpg' %}">
+                                        <div class="area-name">やくそう</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="imgModal" class="modal-new">
+                            <span class="close">&times;</span>
+                            <img class="modal-new-content" id="imgInModal">
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">ラダトーム城の入手アイテムです。<br>
+                    <br>
+                    1階にある宝物個は入るのに最後の鍵が必要になりますが、「レミラーマの巻物」や「エルフののみぐすり」「まじんのオノ」といったレアアイテムを入手できるので、最後の鍵を入手したら忘れずに回収しましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ラダトームの小さなメダルの場所</div>
+            </div>
+
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">エリア</div>
+                        <div class="apt-cell header-cell">場所詳細</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/48.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム城_2階・隠し部屋</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/49.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム城隠し部屋の北東にあるツボ<br>
+                                ※盗賊の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/50.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム城_地下1階</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/51.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトームの城地下1階中央部屋のタンス<br>
+                                ※魔法の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/52.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/radato-mu/53.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム教会の2階鍵部屋中のツボ<br>
+                                ※最後の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+                </div>
+                <div class="step-text">ラダトームには3枚の小さなメダルがありますが、いずれも鍵が必要なので、ゲーム開始直後には回収できません。<br>
+                    <br>
+                    それぞれ盗賊の鍵・魔法の鍵・最後の鍵を入手してから回収しに戻りましょう。
+                </div><br>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ラダトームのショップと販売アイテム</div>
+            </div>
+
+            <div class="step-number text-center">道具屋</div>
+            
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/map/radato-mu/54.jpg' %}" class="step-image"><br><br>
+                <div class="area-place-table">
+
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">アイテム</div>
+                        <div class="apt-cell header-cell">価格</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">キメラのつばさ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">25G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">においぶくろ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">150G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">せいすい</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">20G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">どくけしそう</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">10G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">やくそう</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">8G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">おなべのフタ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">40G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">たけざお</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">10G</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">ラダトームの道具屋の販売アイテムです。<br>
+                    <br>
+                    『ドラクエ1リメイク』はゲーム開始時点から120G所持しているので、回復アイテムのやくそうをいくつか購入してから冒険を開始するのがおすすめです。
+                </div><br>
+            </div>
+
+            <div class="step-number text-center">武器と防具の店</div>
+            
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/map/radato-mu/55.jpg' %}" class="step-image"><br><br>
+                <div class="area-place-table">
+
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">アイテム</div>
+                        <div class="apt-cell header-cell">価格</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">布の服</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">20G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">皮の服</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">50G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">皮のよろい</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">180G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">皮のぼうし</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">65G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">きのぼうし</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">350G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">皮の盾</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">120G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">こんぼう</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">40G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">どうのつるぎ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">180G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">せいなるナイフ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">240G</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">てつのやり</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">660G</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">ラダトームの武器と防具の店の販売アイテムです。<br>
+                    <br>
+                    初期の町ということもありそこまで強力な装備は売っていません。<br>
+                    城や町でゴールドを拾えば開始直後から「せいなるナイフ」を購入することもできますが、すぐ次のダンジョンである「ロトの洞窟」に行けば拾えるため、無理に購入する必要はないでしょう。
+                </div><br>
+            </div>
+        </div><br>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-header">
+                <div class="text-center mb-4">
+                    <img src="{% static 'database/images/dq1_map_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+                </div>
+            </div>
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_map_list' %}" class="btn-story-link">
+                    ▶ マップ一覧
+                </a>
+            </div>
+
+            <div class="step-content">
+                <div class="area-block">
+                <div class="area-table-2col-wrapper">   
+                    <div class="area-title">ダンジョン</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map2.jpg' %}" class="area-image">
+                                    <div class="area-name">ロトの洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_amenohokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map3.jpg' %}" class="area-image">
+                                    <div class="area-name">雨のほこら</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map4.jpg' %}" class="area-image">
+                                    <div class="area-name">岩山の洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map5.jpg' %}" class="area-image">
+                                    <div class="area-name">沼地の洞窟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map6.jpg' %}" class="area-image">
+                                    <div class="area-name">ドワーフの洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_mayoinomori' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map7.jpg' %}" class="area-image">
+                                    <div class="area-name">迷いの森</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map8.jpg' %}" class="area-image">
+                                    <div class="area-name">岩泣き島</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_domudo-ra' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map9.jpg' %}" class="area-image">
+                                    <div class="area-name">ドムドーラ</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_garainohaka' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map10.jpg' %}" class="area-image">
+                                    <div class="area-name">ガライの墓</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map11.jpg' %}" class="area-image">
+                                    <div class="area-name">竜王の城</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-block">
+                <div class="area-table-2col-wrapper">
+                    <div class="area-title">町・村</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_radato-mu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map12.jpg' %}" class="area-image">
+                                    <div class="area-name">ラダトーム</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_maira' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map13.jpg' %}" class="area-image">
+                                    <div class="area-name">マイラ</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_garai' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map14.jpg' %}" class="area-image">
+                                    <div class="area-name">ガライ</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map15.jpg' %}" class="area-image">
+                                    <div class="area-name">妖精の隠れ里</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_rimuruda-ru' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map16.jpg' %}" class="area-image">
+                                    <div class="area-name">リムルダール</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_medaruounoshiro' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map17.jpg' %}" class="area-image">
+                                    <div class="area-name">メダル王の城</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_merukido' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map18.jpg' %}" class="area-image">
+                                    <div class="area-name">メルキド</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <div class="area-name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-block">
+                <div class="area-table-2col-wrapper">
+                    <div class="area-title">その他</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_tabibitonokyoukai' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map19.jpg' %}" class="area-image">
+                                    <div class="area-name">旅人の教会</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_wasureraretahaikyo' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map20.jpg' %}" class="area-image">
+                                    <div class="area-name">忘れられた廃墟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_kaidounoyadoya' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map21.jpg' %}" class="area-image">
+                                    <div class="area-name">街道の宿屋</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_namonakihaikyo' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map22.jpg' %}" class="area-image">
+                                    <div class="area-name">名もなき廃墟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_himitunohanabatake' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map23.jpg' %}" class="area-image">
+                                    <div class="area-name">ひみつの花畑</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_tabibitonoyadoya' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map24.jpg' %}" class="area-image">
+                                    <div class="area-name">旅人の宿屋</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_seireinohokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map25.jpg' %}" class="area-image">
+                                    <div class="area-name">精霊のほこら</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_seinaruhokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map26.jpg' %}" class="area-image">
+                                    <div class="area-name">聖なるほこら</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_radato-munishinoshima' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map27.jpg' %}" class="area-image">
+                                    <div class="area-name">ラダトーム西の島</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <div class="area-name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.zoomable').forEach(img => {
+  img.addEventListener('click', e => {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgInModal');
+    modal.style.display = 'flex';
+    modalImg.src = e.target.src;
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.querySelector('.modal-new .close').onclick = () => {
+  const modal = document.getElementById('imgModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+window.addEventListener('click', e => {
+  const modal = document.getElementById('imgModal');
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+</script>
+
+
+
+{% endblock %}

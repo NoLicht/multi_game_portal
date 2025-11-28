@@ -1,0 +1,742 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 第1章 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#story1">① ムービー後、ラダトーム王と会話する</a></li>
+            <li><a href="#story2">② システム設定を確認する</a></li>
+            <li><a href="#story3">③ ラダトーム城を探索する</a></li>
+            <li><a href="#story4">④ ラダトームを探索する</a></li>
+            <li><a href="#story5">⑤ 町から出て北のロトの洞窟へ向かう</a></li>
+            <li><a href="#story6">⑥「ひみつの場所」は積極的に寄る</a></li>
+            <li><a href="#story7">⑦ ロトの洞窟を探索しながら進む</a></li>
+            <li><a href="#story8">⑧ 地下2階でちいさなメダルを入手</a></li>
+            <li><a href="#story9">⑨ 地下2階の奥にある古い石板を調べる</a></li>
+            <li><a href="#story10">⑩ 東側にある「旅人の教会」に入る</a></li>
+            <li><a href="#story11">⑪ 忘れられた廃墟に入る</a></li>
+            <li><a href="#story12">⑫ 吟遊詩人のザライと話す</a></li>
+            <li><a href="#story13">⑬ マップ北東にある「マイラ」へ向かう</a></li>
+            <li><a href="#story14">⑭ 道具屋の2階のツボからメダルを入手</a></li>
+            <li><a href="#story15">⑮ 温泉で「ようせいのふえ」を拾う</a></li>
+            <li><a href="#story16">⑯ 西にある「雨のほこら」へ向かう</a></li>
+            <li><a href="#story17">⑰ 戻る前に探索するのがおすすめ</a></li>
+            <li><a href="#story18">⑱ ラダトーム城にいる王と話す</a></li>
+            <li><a href="#story19">⑲ 北西の海沿いにある「ガライ」へ向かう</a></li>
+            <li><a href="#story20">⑳ ガライで装備を整える</a></li>
+            <li><a href="#story21">㉑ 民家から「トラマナの巻物」を入手</a></li>
+            <li><a href="#story22">㉒ 南にある「街道の宿屋」へ向かう</a></li>
+            <li><a href="#story23">㉓ 毒沼近くの「名もなき廃墟」に入る</a></li>
+            <li><a href="#story24">㉔ ルビーのうでわを入手</a></li>
+            <li><a href="#story25">㉕ 吟遊詩人のザライと話す</a></li>
+            <li><a href="#story26">㉖ 南東にある「妖精の隠れ里」へ向かう</a></li>
+            <li><a href="#story27">㉗ 妖精の隠れ里を探索</a></li>
+            <li><a href="#story28">㉘ 岩山の洞窟へ向かう</a></li>
+            <li><a href="#story29">㉙ カンダタ戦の攻略</a></li>
+            <li><a href="#story30">㉚ 地下1階でとうぞくの巻物を入手</a></li>
+            <li><a href="#story31">㉛ 地下1階のマップ右下で武器を入手</a></li>
+            <li><a href="#story32">㉜ 地下2階でちからための巻物を入手</a></li>
+            <li><a href="#story33">㉝ 地下1階の中央階段から地下2階へ</a></li>
+            <li><a href="#story34">㉞ ようじゅつし戦の攻略</a></li>
+            <li><a href="#story35">㉟ 地下2階を探索してから1階へ戻る</a></li>
+            <li><a href="#story36">㊱ カンダタからとうぞくのかぎを入手</a></li>
+            <li><a href="#story37">㊲ 妖精の隠れ里でようせいの剣を入手</a></li>
+            <li><a href="#story38">㊳ 旅人の教会でちいさなメダルを回収</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#story" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+      <div class="story-header text-center my-3">
+            <div class="black-yellow-band">ラダトームの城から岩山の洞窟までの攻略チャート</div>
+      </div>
+      <div class="chart-image-wrapper">
+           <img src="{% static 'database/images/dq1/chart1.jpg' %}" alt="チャート1" class="story-top-image">
+      </div>
+
+      <div class="story-info-grid">
+            <div class="cell label">攻略目安</div>
+            <div class="cell value">3～4時間</div>
+            <div class="cell label">攻略レベル</div>
+            <div class="cell value">1～11</div>
+      </div>
+
+
+    <div id="story1" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">① ムービー後、ラダトーム王と会話する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_1.jpg' %}" class="step-image">
+            <div class="step-text">OPムービーを見たらラダトーム王との会話イベントに入り、次の目的について聞きます。</div>
+        </div>
+    </div><br>
+
+    <div id="story2" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">② システム設定を確認する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_2.jpg' %}" class="step-image">
+            <div class="step-text">イベント後、自由に動けるようになったらまずはシステム設定を確認してみましょう。<br>
+                「△ボタン→さくせん→システム設定」から設定を変更できます。<br>
+                <br>
+                基本的には初期設定でもOKですが、画面設定や便利機能設定などはお好みで変更しておくのがおすすめです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story3" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">③ ラダトーム城を探索する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_3.jpg' %}" class="step-image">
+            <div class="step-text">王さまと会話後はラダトーム城を探索してアイテムや装備を入手しましょう。<br>
+                この段階ではまだ鍵を持っていないので、入手できるものが限られていますが、入手できるものは回収するのがおすすめです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story4" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">④ ラダトームを探索する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_4.jpg' %}" class="step-image">
+            <div class="step-text">ラダトームから出てロトの洞窟に向かう前にラダトームの町も探索してアイテムを回収します。<br>
+                ラダトーム城と同様に鍵も持っていないため、入手できるアイテムは少ないです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story5" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑤ 町から出て北のロトの洞窟へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_5_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_1_5_2.jpg' %}" class="step-image">
+            <div class="step-text">ラダトームの町から出て、北にある「ロトの洞窟」へ向かいます。<br>
+                道中、モンスターとエンカウントしたら倒してレベル上げも忘れずにしておきましょう。<br>
+                <br>
+                また、道中にあるキラキラからはアイテムや装備などが入手できるため、見かけたら調べておきましょう。
+            </div>
+        </div>
+    </div><br>
+    
+    <div id="story6" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑥「ひみつの場所」は積極的に寄る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_6_1.jpg' %}" class="step-image">
+            <div class="step-text">今後、フィールド上にある「キラキラ」や「ひみつの場所」は積極的に寄りましょう。<br>
+                優秀な装備やアイテム、ちいさなメダルが入手できます。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_1_6_2.jpg' %}" class="step-image">
+            <div class="step-text">ひみつの場所は、システム設定でマップに表示するようにしておけば、マップ上で簡単に見つけることができます。</div>
+        </div>
+    </div><br>
+
+    <div id="story7" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑦ ロトの洞窟を探索しながら進む<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_7_1.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">推奨レベル</div>
+                <div class="level-value">3〜4</div>
+            </div>
+            <div class="step-text">ロトの洞窟・地下1階の宝箱からは、「皮の盾」「すなけむりの巻物」「せいなるナイフ」「竜のうろこ」が入手できます。<br>
+                すべて回収しながら、右下にある階段を目指しましょう。
+            </div>
+            <img src="{% static 'database/images/dq1/dq1_1_7_2.jpg' %}" class="step-image">
+            <div class="step-text">リメイクからの新要素「巻物」は、使うことで特技や呪文をすぐに覚えることができます。<br>
+                入手後はすぐ使って技を覚えましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story8" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑧ 地下2階でちいさなメダルを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_8.jpg' %}" class="step-image">
+            <div class="step-text">ロトの洞窟・地下2階の宝箱から「ちいさなメダル」を入手できます。<br>
+                オリジナル版にはなかった新要素となっており、ドムドーラ南部にある「メダル王の城」で装備品やアイテムと交換できます。<br>
+                <br>
+                メダルは全部で40枚あり、ちいさなメダルを40個集めると「グリンガムのムチ」と交換可能です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story9" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑨ 地下2階の奥にある古い石板を調べる<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_9.jpg' %}" class="step-image">
+            <div class="step-text">ロトの洞窟・地下2階の奥にある古い石板を調べましょう。ストーリーのヒントを教えてくれます。<br>
+                <br>
+                1度調べた後に「かけだしの冒険者」のイベントが始まり、終わった後にもう一度石板を調べると「ひかりのたま」の場所が分かります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story10" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑩ 東側にある「旅人の教会」に入る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_10_1.jpg' %}" class="step-image">
+            <div class="step-text">ロトの洞窟を出た後は、マップの東側にある「旅人の教会」に向かいます。<br>
+                マップの東部エリアへ進む際のルーラポイントになるので、一度入っておきましょう。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_1_10_2.jpg' %}" class="step-image">
+            <div class="step-text">旅人の教会では「においぶくろ」「スタミナのたね」「83G」を入手できます。<br>
+                <br>
+                「盗賊の鍵」を入手後は「小さなメダル」と「まもりのたね」も拾えます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story11" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑪ 忘れられた廃墟に入る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_11_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_1_11_2.jpg' %}" class="step-image">
+            <div class="step-text">旅人の教会から橋を渡って進むと「忘れられた廃墟」があります。<br>
+                施設などは何もありませんが、入り口のすぐ右にあるタルから「ちいさなメダル」を入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story12" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑫ 吟遊詩人のザライと話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_12.jpg' %}" class="step-image">
+            <div class="step-text">忘れられた廃墟の池の近くに「吟遊詩人のザライ」がいるので話しかけておきましょう。<br>
+                この吟遊詩人のイベントは、強力な頭防具「ロトのかぶと」入手に必要なイベントなので、話しかけておくのがおすすめです。<br>
+                <br>
+                ザライのイベントは、今後チャートの中で全て掲載してるので、チャート通り進んでいけば最後までイベントを進められます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story13" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑬ マップ北東にある「マイラ」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_13_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_1_13_2.jpg' %}" class="step-image">
+            <div class="step-text">忘れられた廃墟から出た後は、橋を経由してマップの北東にある「マイラ」へ向かいます。<br>
+                マイラは「雨のほこら」へ向かうルーラポイントとなり、道具屋や武器と防具の店で装備を整えることもできます。<br>
+                <br>
+                マイラまでの道中、ひみつの場所やキラキラから「とげのムチ」「たびびとの服」「竜のうろこ」「きのぼうし」などの装備類が入手できるので、寄り道して回収しましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story14" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑭ 道具屋の2階のツボからメダルを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_14.jpg' %}" class="step-image">
+            <div class="step-text">マイラの道具屋の2階にあるツボから「ちいさなメダル」を回収し、ついでに2階の道具屋でキメラのつばさも購入しておきましょう。<br>
+                <br>
+                マップ左上の毒沼にあるツボからも「ちいさなメダル」が入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story15" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑮ 温泉で「ようせいのふえ」を拾う<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_15.jpg' %}" class="step-image">
+            <div class="step-text">マイラの温泉に向かい、南側の地面に落ちている「ようせいのふえ」を拾いましょう。<br>
+                この笛は後々戦う「ゴーレム」に対して有効なアイテムなので、このタイミングで拾っておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story16" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑯ 西にある「雨のほこら」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_16_1.jpg' %}" class="step-image">
+            <div class="step-text">マイラを出た後は、マップの西側にある「雨のほこら」へ向かいます。<br>
+                道中、雨のほこらの南西あたりにあるキラキラで「うろこの盾」と「皮のよろい」を拾って装備しておきましょう。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_1_16_2.jpg' %}" class="step-image">
+            <div class="step-text">雨のほこら1階にいる雨の賢者に話しかけるとイベントが始まります。</div>
+        </div>
+    </div><br>
+
+    <div id="story17" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑰ 戻る前に探索するのがおすすめ<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_17.jpg' %}" class="step-image">
+            <div class="step-text">雨のほこらの先へ進むには「さいごのかぎ」が必要ですが、周辺は探索可能です。<br>
+                マップの右下にある宝箱から「ヒャドの巻物」を入手でき、マップの左側にあるツボから「ちいさなメダル」を入手できます。<br>
+                <br>
+                雨の賢者と話して探索を終えたら、キメラのつばさを使ってラダトーム城に戻りましょう。<br>
+                ルーラはレベル13で覚えられます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story18" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑱ ラダトーム城にいる王と話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_18.jpg' %}" class="step-image">
+            <div class="step-text">ラダトーム城に戻って王と話しましょう。<br>
+                城2階へ行くとカットシーンが流れ、次の目的地「ガライ」へ向かうことになります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story19" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑲ 北西の海沿いにある「ガライ」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_19_1.jpg' %}" class="step-image">
+            <div class="step-text">マップの西側にある「ガライ」を目指して進みましょう。<br>
+                ガライは、ロトの洞窟から北西方面の海沿いにあります。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_1_19_2.jpg' %}" class="step-image">
+            <div class="step-text">ガライに入るとカットシーンが流れ、「とうぞくのかぎ」に関するイベントが発生します。<br>
+                ちなみに、このイベントは雨のほこらに行かないと発生しないイベントなので、イベントが発生しない方は雨のほこらから先に行きましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story20" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑳ ガライで装備を整える<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_20.jpg' %}" class="step-image">
+            <div class="step-text">ガライに到着後は、武器と防具の店で装備を整えます。<br>
+                この後に向かう「岩山の洞窟」に出現するモンスターのレベルが高いので、「くさりかたびら」を購入して守備を上げるのがおすすめです。<br>
+                <br>
+                また、「せいどうの盾」は岩山の洞窟で入手できるため、ここで買うのはおすすめしません。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story21" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉑ 民家から「トラマナの巻物」を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_21.jpg' %}" class="step-image">
+            <div class="step-text">ガライの左下にある民家の本棚から「トラマナの巻物」を入手できます。<br>
+                トラマナは床ダメージを受けなくなる呪文です。<br>
+                <br>
+                ガライの西の海沿い、桟橋のツボから「ちいさなメダル」が入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story22" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉒ 南にある「街道の宿屋」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_22_1.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">推奨レベル</div>
+                <div class="level-value">8～9</div>
+            </div>
+            <div class="step-text">ガライを出た後は、マップの南にある「街道の宿屋」へ向かいましょう。<br>
+                街道の宿屋から南に進むとモンスターの強さが上がるので、街道の宿屋付近で8～9レベを目安にレベル上げをするのがおすすめです。<br>
+                ガライの南にあるひみつの場所で「ちいさなメダル」が入手できます。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_1_22_2.jpg' %}" class="step-image">
+            <div class="step-text">街道の宿屋に着くと悪徳商人のイベントが発生します。<br>
+                その後、ベッドルームのタンスから「ちいさなメダル」が入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story23" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉓ 毒沼近くの「名もなき廃墟」に入る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_23.jpg' %}" class="step-image">
+            <div class="step-text">街道の宿屋を出た後は、マップの南にある毒沼近くの「名もなき廃墟」に入ります。</div>
+        </div>
+    </div><br>
+
+    <div id="story24" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉔ ルビーのうでわを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_24.jpg' %}" class="step-image">
+            <div class="video-container">
+                <video controls autoplay loop muted>
+                    <source src="{% static 'database/images/dq1/dq1_1_24.mp4' %}" type="video/mp4">
+                    お使いのブラウザは動画再生に対応していません。
+                </video>
+            </div>
+            <div class="step-text">名もなき廃墟の右上にある倒壊した建物の裏手から中に入ると、アクセサリー「ルビーのうでわ」を入手できます。<br>
+                ルビーのうでわは、しゅび力が8上がる序盤重宝するアクセサリーなので、忘れずに回収して装備しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story25" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉕ 吟遊詩人のザライと話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_25.jpg' %}" class="step-image">
+            <div class="step-text">名もなき廃墟には「吟遊詩人ザライ」がおり、忘れられた廃墟で話しかけておけば、マップ中央あたりに出現します。<br>
+                ここでも一度話しかけておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story26" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉖ 南東にある「妖精の隠れ里」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_26.jpg' %}" class="step-image">
+            <div class="step-text">名もなき廃墟から出た後は、マップ南東にある「妖精の隠れ里」から先に向かいましょう。<br>
+                「ヒャダルコ」を覚えていればカンダタ戦を有利に進められるので、寄り道推奨です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story27" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉗ 妖精の隠れ里を探索<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_27.jpg' %}" class="step-image">
+            <div class="step-text">妖精の隠れ里の右側にある錬金室にあるタルからちいさなメダルを入手できます。<br>
+                また、他のタルから「まんげつのリング」「せいすい×2」とツボから「まほうのせいすい」を入手できます。<br>
+                <br>
+                妖精の隠れ里の左側の民家にある本棚から「マホステの巻物」、宝箱から「ヒャダルコの巻物」を入手できます。<br>
+                <br>
+                特にヒャダルコは、岩山の洞窟のボス「カンダタ」のこぶんを手早く倒せるので忘れずに回収しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story28" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉘ 岩山の洞窟へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_28.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">推奨レベル</div>
+                <div class="level-value">10</div>
+            </div>
+            <div class="step-text">妖精の隠れ里でアイテムを回収したら、「岩山の洞窟」へ向かいます。<br>
+                岩山の洞窟に入って少し進むと「カンダタ」と戦闘になるので、洞窟に入る前に回復などを済ませておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story29" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉙ カンダタ戦の攻略<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">カンダタ</div>
+            <img src="{% static 'database/images/dq1/dq1_1_29.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">10</div>
+                    <div class="info-value">岩山の洞窟</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">
+                    カンダタ：約180<br>
+                    カンダタこぶん：約90
+                    </div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title">カンダタ戦の攻略ポイント</h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>カンダタこぶんを「ヒャダルコ」で倒す</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>主人公のかえん斬りが有効</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>カンダタにラリホーをかける</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="step-text">カンダタ戦は、こぶんがホイミを使ってカンダタを回復するため、「ヒャダルコ」を使って先に倒すのがおすすめです。<br>
+                <br>
+                カンダタはメラ系が弱点なので、特技「かえん斬り」を中心に戦いましょう。<br>
+                HPが減ってきたらホイミややくそうを使って回復も忘れないようにしましょう。
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_kandata' %}" class="btn-story-link">
+                    ▶ カンダタの攻略と推奨レベルを見る
+                </a>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story30" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉚ 地下1階でとうぞくの巻物を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_30.jpg' %}" class="step-image">
+            <div class="step-text">岩山の洞窟・地下1階のマップの右上にある宝箱から「とうぞくの巻物」を入手できます。<br>
+                とうぞくのはなは、今いるマップに宝が何個あるか調べられる便利な特技なので必ず回収しましょう。<br>
+                地下1階のマップの中央付近にある宝箱から「ちいさなメダル」も入手可能です。<br>
+                <br>
+                まずは右下の階段から進みます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story31" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉛ 地下1階のマップ右下で武器を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_31.jpg' %}" class="step-image">
+            <div class="step-text">地下1階のマップ右下の階段から地下2階へ進み、右側にあるツボを調べると「てつのオノ」が入手できます。<br>
+                攻撃力が高い武器なので、入手して装備しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story32" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉜ 地下2階でちからための巻物を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_32.jpg' %}" class="step-image">
+            <div class="step-text">地下1階に戻り、左上にある階段を降りた先の宝箱から「ちからための巻物」が入手できます。<br>
+                ちからためは、次の攻撃のダメージを上げられる特技です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story33" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉝ 地下1階の中央階段から地下2階へ<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_33.jpg' %}" class="step-image">
+            <div class="step-text">地下1階の中央付近の階段から地下2階へ進みます。<br>
+                地下2階の宝箱から「せいどうの盾」「まほうのせいすい×2」を拾い、マップ左下の奥まで進みます。<br>
+                <br>
+                地下2階のマップ左下の奥まで進むとボス「ようじゅつし」と戦闘になるので、回復や装備確認は忘れずにしておきましょう。<br>
+                カンダタ戦で消耗している場合は、一回町に戻って出直すのも手です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story34" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉞ ようじゅつし戦の攻略<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">ようじゅつし</div>
+            <img src="{% static 'database/images/dq1/dq1_1_34.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">11</div>
+                    <div class="info-value">岩山の洞窟</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約360</div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title">ようじゅつし戦の攻略ポイント</h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>デインでダメージを与えていこう</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>マホトーンで呪文を封じながら戦えば楽</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ラリホーも有効</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-text">ようじゅつしは強力な呪文を使ってくるため、「マホトーン」で呪文を封じながら戦えば楽に勝てます。<br>
+                マホトーンで呪文を封じている間、「デイン」を使って大ダメージを与えていきましょう。
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_youjutsushi' %}" class="btn-story-link">
+                    ▶ ようじゅつしの攻略と推奨レベルを見る
+                </a>
+            </div>
+            
+        </div>
+    </div><br>
+
+    <div id="story35" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉟ 地下2階を探索してから1階へ戻る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_35.jpg' %}" class="step-image">
+            <div class="step-text">ようじゅつし撃破後は、地下2階の奥を探索して宝箱から「ゾンビメイル」、「死の首かざり」を入手しましょう。<br>
+                一通り探索が終わった後は、地下1階にいるカンダタのところまで戻ります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story36" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊱ カンダタからとうぞくのかぎを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_36.jpg' %}" class="step-image">
+            <div class="step-text">岩山の洞窟・地下1階の入り口付近にいるカンダタと話すと「とうぞくのかぎ」が入手できます。<br>
+                以降、赤い扉や宝箱が開けられるようになります。<br>
+                とうぞくのかぎで開けられる場所や入手アイテムのまとめについては以下の記事を参考にしてください。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story37" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊲ 妖精の隠れ里でようせいの剣を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_37.jpg' %}" class="step-image">
+            <div class="step-text">とうぞくのかぎを入手後、妖精の隠れ里へ向かいましょう。<br>
+                妖精の隠れ里の左の民家の中にある、とうぞくの鍵で開けられる宝箱から「ようせいの剣」を回収しましょう。<br>
+                <br>
+                ようせいの剣は武器として強力な上、道具として使用すると守備力を大きく上げられる優秀な武器なので、必ず回収しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story38" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊳ 旅人の教会でちいさなメダルを回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_1_38.jpg' %}" class="step-image">
+            <div class="step-text">旅人の教会の右の扉を盗賊の鍵で開けると、「ちいさなメダル」とまもりのたねが入手できます。</div>
+        </div>
+    </div><br>
+
+    <div class="text-center mt-4 ">
+        <a href="{% url 'database:dq1_section2_content' %}" class="text-decoration-none fw-bold ms-3">
+            次のチャートへ ▶
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="{% url 'database:dq1_story_list' %}" class="fw-bold text-primary text-decoration-none">
+            ▶ ストーリー一覧へ
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="javascript:history.back()" class="text-decoration-none fw-bold">
+            ◀ 戻る
+        </a>
+    </div>
+    </main>
+
+  </div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+
+{% endblock %}

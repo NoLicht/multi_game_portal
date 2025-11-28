@@ -1,0 +1,417 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ カンダタ 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#boss1">カンダタの推奨レベル・弱点</a></li>
+            <li><a href="#boss2">カンダタの行動パターン</a></li>
+            <li><a href="#boss3">カンダタの攻略ポイント</a></li>
+            <li><a href="#boss4">カンダタ戦のおすすめ装備</a></li>
+            <li><a href="#boss5">関連記事</a></li>
+            <li><a href="#boss6">ボス攻略一覧</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss_banner/kandata.jpg' %}" class="story-banner rounded shadow-lg">
+        </div><br><br><br>
+        <div id="boss1"></div><br>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">カンダタの推奨レベル・弱点</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/kandata.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">10</div>
+                    <div class="info-value">岩山の洞窟</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">
+                    カンダタ：約180<br>
+                    カンダタこぶん：約90
+                    </div>
+                    <div class="info-value">-</div>
+                </div>
+            </div>
+
+            <div class="boss-tab-wrapper">
+                <!-- ボス名タブ -->
+                <div class="boss-tab-header">
+                    <div class="boss-tab active" data-target="kandata">カンダタ</div>
+                    <div class="boss-tab" data-target="kobun">カンダタこぶん</div>
+                </div>
+
+                <!-- ボス情報 -->
+                <div class="boss-tab-content">
+
+                    <!-- カンダタ -->
+                    <div class="boss-tab-panel active" id="kandata">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">メラ、バギ、ギラ、炎</span></div>
+                        <div class="boss-info-row3"><span class="info-label3 text-center">無効</span><span class="info-value3">マヌーサ</span></div>
+                    </div>
+
+                    <!-- カンダタこぶん -->
+                    <div class="boss-tab-panel" id="kobun">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">ヒャド、イオ、吹雪</span></div>
+                        <div class="boss-info-row3"><span class="info-label3 text-center">無効</span><span class="info-value3">睡眠</span></div>
+                    </div>
+
+                </div>
+            </div><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_section1_content' %}" class="btn-story-link">
+                    ▶ チャート1攻略を見る
+                </a>
+            </div>
+        </div>
+
+        <div id="boss2"></div>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">カンダタの行動パターン</span></div>
+        </div>
+        <div class="step-number text-center">カンダタの行動</div>
+            <div class="area-place-table">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">単体物理攻撃</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">痛恨の一撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">単体物理攻撃（大ダメージ）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step-number text-center">カンダタこぶんの行動</div>
+            <div class="area-place-table">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">単体物理攻撃</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">メラ</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">メラ系ダメージ</div>
+                    </div>
+                </div>
+                
+                <!-- 3行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ホイミ</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">単体を小回復</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="boss3"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">カンダタの攻略ポイント</div>
+        </div>
+        <div class="step-header">
+            <div class="step-number text-center">カンダタこぶんを最優先で倒す</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/kandata1.jpg' %}" class="step-image">
+            <div class="step-text">まずは味方のHPを回復するカンダタこぶんを最優先で倒しておきましょう。<br>
+                カンダタこぶんはヒャド系の弱点を持っているので、岩山の洞窟の南東にある妖精の隠れ里で「ヒャダルコの巻物」を入手してれば簡単に処理できます。
+            </div>
+        </div><br>
+        <div class="step-header">
+            <div class="step-number text-center">主人公の火炎斬りが有効</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/kandata2.jpg' %}" class="step-image">
+            <div class="step-text">カンダタは炎が弱点なので、主人公の「火炎斬り」で火力を出すことができます。<br>
+                カンダタこぶんを倒し終わったあとは、主人公の火炎斬りでダメージを与えましょう。
+            </div>
+        </div><br>
+        <div class="step-header">
+            <div class="step-number text-center">カンダタにラリホーをかける</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/kandata3.jpg' %}" class="step-image">
+            <div class="step-text">カンダタには眠りの状態異常が効きます。<br>
+                カンダタの行動を止めることができるので、「ラリホー」で行動不能にすると安全に立ち回れます。
+            </div>
+        </div><br>
+
+        <div id="boss4"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">カンダタ戦のおすすめ装備</div>
+        </div><br>
+        <div class="area-place-table">
+
+            <!-- ヘッダー行 -->
+            <div class="apt-row header-row">
+                <div class="apt-cell header-cell">装備</div>
+                <div class="apt-cell header-cell">入手方法</div>
+            </div>
+
+            <!-- 1行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">はがねのつるぎ</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">ガライの武器屋で購入</div>
+                </div>
+            </div>
+
+            <!-- 2行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">皮の盾</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">ロトの洞窟で入手</div>
+                </div>
+            </div>
+            
+            <!-- 3行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">皮のぼうし</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">初期装備</div>
+                </div>
+            </div>
+
+            <!-- 4行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">皮のよろい</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">ガライの宿屋で入手</div>
+                </div>
+            </div>
+
+            <!-- 5行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">竜のうろこ</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">ロトの洞窟で入手</div>
+                </div>
+            </div>
+
+            <!-- 6行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ルビーのうでわ</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">岩山の洞窟の南西にある無もなき廃墟で入手</div>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="step-number text-center">ガライで装備を整えよう</div><br>
+        <div class="step-text">カンダタ戦に勝てない場合は、ガライの武器屋で装備を整えましょう。<br>
+            1700Gと高額ではありますが、はがねのつるぎを購入できるとカンダタにダメージを与えやすくなります。
+        </div><br><br>
+
+
+        <div id="boss5"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">関連記事</div>
+        </div><br>
+        <div class="text-center mb-4">
+            <img src="{% static 'database/images/dq1_boss_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+        </div>
+        <div class="text-center mb-5">
+            <a href="{% url 'database:dq1_boss_list' %}" class="btn-story-link">
+                ▶ ボス攻略一覧
+            </a>
+        </div>
+
+        <div id="boss6"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ボス攻略一覧</div><br>
+            <div class="toc-grid">
+                <a href="{% url 'database:dq1_kandata' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/kandata.jpg' %}" alt="カンダタ">
+                    <span class="toc-title">カンダタ</span>
+                </a>
+                <a href="{% url 'database:dq1_youjutsushi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/youjutsushi.jpg' %}" alt="ようじゅつし">
+                    <span class="toc-title">ようじゅつし</span>
+                </a>
+                <a href="{% url 'database:dq1_yoroinokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/yoroinokishi.jpg' %}" alt="よろいのきし">
+                    <span class="toc-title">よろいのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_dragon' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragon.jpg' %}" alt="ドラゴン">
+                    <span class="toc-title">ドラゴン</span>
+                </a>
+                <a href="{% url 'database:dq1_darkdreamer' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/darkdreamer.jpg' %}" alt="ダークドリーマー">
+                    <span class="toc-title">ダークドリーマー</span>
+                </a>
+                <a href="{% url 'database:dq1_golem' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/golem.jpg' %}" alt="ゴーレム">
+                    <span class="toc-title">ゴーレム</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonfly.jpg' %}" alt="ドラゴンフライ">
+                    <span class="toc-title">ドラゴンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonzombie' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonzombie.jpg' %}" alt="ドラゴンゾンビ">
+                    <span class="toc-title">ドラゴンゾンビ</span>
+                </a>
+                <a href="{% url 'database:dq1_alienfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/alienfly.jpg' %}" alt="エイリアンフライ">
+                    <span class="toc-title">エイリアンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_akumanokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/akumanokishi.jpg' %}" alt="あくまのきし">
+                    <span class="toc-title">あくまのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_murdergoyle' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/murdergoyle.jpg' %}" alt="マーダーゴイル">
+                    <span class="toc-title">マーダーゴイル</span>
+                </a>
+                <a href="{% url 'database:dq1_ekusodasu' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ekusodasu.jpg' %}" alt="エクソダス">
+                    <span class="toc-title">エクソダス</span>
+                </a>
+                <a href="{% url 'database:dq1_ryuou' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ryuou2.jpg' %}" alt="りゅうおう">
+                    <span class="toc-title">りゅうおう（竜王）</span>
+                </a>
+            </div>
+        </div>
+    </main>
+  </div>
+
+  <!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".boss-tab");
+    const panels = document.querySelectorAll(".boss-tab-panel");
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // 画像クリックでモーダル表示
+    if (modal && modalImg) {
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex'; // flexで中央表示
+                modalImg.src = img.src;
+            });
+        });
+    }
+
+    // 閉じるボタン
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // 背景クリックで閉じる
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    }
+
+    // タブ切り替え
+    if (tabs.length && panels.length) {
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const target = tab.dataset.target;
+                panels.forEach(panel => {
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    } else {
+                        panel.classList.remove("active");
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+
+{% endblock %}

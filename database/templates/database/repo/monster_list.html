@@ -1,0 +1,123 @@
+{% extends 'database/base.html' %}
+{% load static %}
+{% block title %}R.E.P.O. 攻略{% endblock %}
+{% block content %}
+
+<!-- メインビジュアル -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/repo/repo_cover1.jpg' %}" alt="REPO" class="top-image img-fluid w-100">
+</div>
+
+<div class="content-wrapper">
+  <!-- サイドメニュー -->
+  <aside class="col-md-3 sidebar bg-dark text-white p-3">
+        <h4 class="mb-3">目次</h4>
+        <ul class="toc-list list-unstyled">
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:guide_repo' %}">▶ ホーム</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:item_list' %}">▶ 武器一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:shop_item_list' %}">▶ ショップアイテム一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:monster_list' %}">▶ エンティティ一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:level_guide_list' %}">▶ レベル別攻略</a>
+            </li>
+        </ul>
+    </aside>
+
+    
+
+  <!-- メインコンテンツ -->
+    <main class="col-md-9 main-content">
+
+    <!-- モンスター一覧（グリッド表示） -->
+    <div class="repo-monster-list">
+        <div class="repo-monster-grid">
+        {% for monster in monsters %}
+            <div class="repo-monster-card">
+            {% if monster.image %}
+                <img src="{{ monster.image.url }}" alt="{{ monster.name }}" class="repo-monster-img">
+            {% else %}
+                <div class="repo-monster-placeholder">No image</div>
+            {% endif %}
+            <div class="repo-monster-name">{{ monster.name }}</div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <!-- モンスター詳細カード -->
+    <section id="monster" class="monster-section mb-5">
+        <div class="story-header text-center my-3">
+        <div class="black-yellow-band">エンティティ（モンスター）</div>
+        </div>
+
+        {% for monster in monsters %}
+        <div class="repo-monster-detail-card">
+            <div class="repo-monster-detail-left">
+                {% if monster.image %}
+                <img src="{{ monster.image.url }}" alt="{{ monster.name }}" class="repo-monster-detail-img">
+                {% else %}
+                <div class="repo-monster-placeholder">No image</div>
+                {% endif %}
+            </div>
+            <div class="repo-monster-detail-right">
+                <h3 class="repo-monster-name">{{ monster.name }}</h3>
+                <p class="repo-monster-hp">HP: {{ monster.hp }}</p>
+                <p class="repo-monster-danger">危険度: {{ monster.danger_level }}</p>
+                <p class="repo-monster-strength">必要筋力: {{ monster.required_strength }}</p>
+
+                {% if monster.strategy %}
+                <div class="repo-monster-methods">
+                    <strong>対処方法:</strong>
+                    <p>{{ monster.strategy|linebreaksbr }}</p>
+                </div>
+                {% endif %}
+
+                {% if monster.attacks.all %}
+                <div class="repo-monster-attacks">
+                    <strong>攻撃方法:</strong>
+                    <ul>
+                    {% for attack in monster.attacks.all %}
+                        <li>{{ attack.name }} ({{ attack.damage }})</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted">モンスター情報がまだ登録されていません。</p>
+        {% endfor %}
+
+        <div class="text-center mb-5">
+        <a href="{% url 'database:monster_list' %}" class="btn-story-link">
+            ▶ エンティティ一覧
+        </a>
+        </div>
+    </section>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:item_list' %}">武器一覧</a> |
+        <a href="{% url 'database:shop_item_list' %}">ショップアイテム一覧</a> | 
+        <a href="{% url 'database:monster_list' %}">エンティティ一覧</a> | 
+        <a href="{% url 'database:level_guide_list' %}">レベル別攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+{% endblock %}

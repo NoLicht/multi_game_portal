@@ -1,0 +1,72 @@
+{% extends 'database/base.html' %}
+{% block title %}{{ game.name }} 攻略{% endblock %}
+{% block content %}
+<div class="row">
+    <!-- 左サイドバー -->
+    <nav class="col-md-3 d-none d-md-block sticky-top" style="top:100px;">
+        <ul class="nav flex-column">
+            {% for sec in sections %}
+            <li class="nav-item"><a class="nav-link" href="#{{ sec.slug }}">{{ sec.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="col-md-9">
+        {% for sec in sections %}
+        <section id="{{ sec.slug }}" class="mb-5">
+            <h3>{{ sec.name }}</h3>
+            <p>{{ sec.description }}</p>
+            
+            <!-- キャラクター -->
+            {% if sec.slug == "characters" %}
+            <div class="row g-3">
+                {% for char in characters %}
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card hover-card">
+                        {% if char.image_hd2d %}
+                        <img src="{{ char.image_hd2d.url }}" class="card-img-top">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5>{{ char.name }}</h5>
+                            <p>{{ char.description|truncatewords:20 }}</p>
+                            {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-danger favorite-btn" data-type="character" data-id="{{ char.id }}">
+                                {% if user in char.favorited_by.all %}★{% else %}☆{% endif %}
+                            </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- アイテム -->
+            {% if sec.slug == "items" %}
+            <div class="row g-3">
+                {% for item in items %}
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="card hover-card">
+                        {% if item.image_hd2d %}
+                        <img src="{{ item.image_hd2d.url }}" class="card-img-top">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5>{{ item.name }}</h5>
+                            <p>{{ item.effect|truncatewords:20 }}</p>
+                            {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-danger favorite-btn" data-type="item" data-id="{{ item.id }}">
+                                {% if user in item.favorited_by.all %}★{% else %}☆{% endif %}
+                            </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </section>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

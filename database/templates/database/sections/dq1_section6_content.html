@@ -1,0 +1,383 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 第5章 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <ul class="toc-list main-toc">
+            <li><a href="#story1">ドラクエ1リメイクにクリア後要素はない</a></li>
+            <li><a href="#story2">セーブデータの名前の横に「ロト」がつく</a></li>
+            <li><a href="#story3">収集アイテムリストにひかりのたまが記録される</a></li>
+            <li><a href="#story4">同梱されているドラクエ2リメイクにはある</a></li>
+            <li><a href="#story5">エンディング前にできること</a></li>
+            <li><a href="#story6">住人との会話の変化を楽しむ</a></li>
+            <li><a href="#story7">モンスターが出現しないので探索し放題</a></li>
+            <li><a href="#story8">ドムドーラでガライやゆきのふと会話できる</a></li>
+            <li><a href="#story9">忘れられた廃墟にかけだし冒険者4人組が出現</a></li>
+            <li><a href="#story10">フィールドの毒沼が変化</a></li>
+            <li><a href="#story11">セーブや宿屋で休むことはできない</a></li>
+            <li><a href="#story12">クリア後・2周目のやり込み要素</a></li>
+            <li><a href="#story13">小さなメダルを全て集める</a></li>
+            <li><a href="#story14">ひみつの場所を探索する</a></li>
+            <li><a href="#story15">キラキラポイントを全て回収する</a></li>
+            <li><a href="#story16">モンスター図鑑・アイテム図鑑を完成させる</a></li>
+            <li><a href="#story17">ローラ姫を最後まで抱えてクリアを目指す</a></li>
+            <li><a href="#story18">難易度「いばらの道だぜ」でクリアを目指す</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#story" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+        <div id="story1" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラクエ1リメイクにクリア後要素はない<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_1.jpg' %}" class="step-image">
+                <div class="step-text">ドラクエ1リメイクは、クリア後の特別な解放要素がありません。<br>
+                    エンディング後は自動的にラスボス戦直前の状態に戻る仕様で、周回プレイや裏ダンジョンは存在しません。
+                </div><br>
+            </div>
+        </div><br>
+
+        <div id="story2" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">セーブデータの名前の横に「ロト」がつく<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_2.jpg' %}" class="step-image">
+                <div class="step-text">ラスボスを倒してエンディングを見たあと、セーブデータの名前の横に「ロト」の名前が記載されます。
+                </div><br>
+            </div>
+        </div><br>
+
+        <div id="story3" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">収集アイテムリストにひかりのたまが記録される<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_3.jpg' %}" class="step-image">
+                <div class="step-text">ゲームをクリアした後のクリアデータは、収集アイテムリストに「ひかりのたま」が記録されています。<br>
+                    クリアデータはラスボス戦前の状況に戻るため所持アイテムには残らず特に効果があるわけではありませんが、ゲームをクリアしたという証明の一つになります。
+                </div><br>
+            </div>
+        </div><br>
+
+        <div id="story4" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">同梱されているドラクエ2リメイクにはある<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">同梱されているドラクエ2リメイクにはクリア後の解放要素があります。<br>
+                    ドラクエ1リメイクをクリアしたら、そのままドラクエ2リメイクをプレイし始めて問題ありません。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story5" class="step-card"><br></div>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">エンディング前にできること</div>
+        </div>
+
+        <div class="battle-points-box">
+            <br>
+            <div class="battle-point"><span class="checkmark">✔</span>住人との会話の変化を楽しむ</div>
+            <div class="battle-point"><span class="checkmark">✔</span>モンスターが出現しないので探索し放題</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ドムドーラでガライやゆきのふと会話できる</div>
+            <div class="battle-point"><span class="checkmark">✔</span>フィールドの毒沼が変化</div>
+            <div class="battle-point"><span class="checkmark">✔</span>セーブや宿屋で休むことはできない</div>
+            <br>
+        </div>
+
+        <div id="story6" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">住人との会話の変化を楽しむ<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_4.jpg' %}" class="step-image">
+                <div class="step-text">ラスボス撃破後は町にいるNPCとの会話の内容が変化します。<br>
+                    エンディングを迎える前に各地でNPCとの会話を楽しんでみるのもおすすめです。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story7" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">モンスターが出現しないので探索し放題<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_5.jpg' %}" class="step-image">
+                <div class="step-text">ラスボス撃破後は世界が平和になるので、フィールド上にモンスターが出現しなくなります。<br>
+                    この間もフィールドのキラキラや秘密の場所、ダンジョンの探索は可能です。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story8" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドムドーラでガライやゆきのふと会話できる<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">吟遊詩人ガライ</div>
+                        <div class="apt-cell header-cell">ゆきのふ</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_6_4.jpg' %}" class="zoomable">
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_6_5.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+
+                </div>
+                <div class="step-text">竜王を倒したあと、エンディングを迎える前にドムドーラに行くと、幽霊の姿の吟遊詩人ガライとゆきのふが出現します。<br>
+                    ちょっとした会話イベントが発生するので、寄り道してみましょう。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story9" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">忘れられた廃墟にかけだし冒険者4人組が出現<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_6.jpg' %}" class="step-image">
+                <div class="step-text">ラスボス撃破後、忘れられた廃墟にストーリー中登場したかけだし冒険者4人組がいます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story10" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">フィールドの毒沼が変化<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">クリア前</div>
+                        <div class="apt-cell header-cell">クリア後</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_6_7.jpg' %}" class="zoomable">
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_6_8.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+
+                </div>
+                <div class="step-text">竜フィールド上にあった毒沼は、クリア後花畑に変化しています。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story11" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">セーブや宿屋で休むことはできない<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_9.jpg' %}" class="step-image">
+                <div class="step-text">クリア後からエンディングを迎える間、セーブや宿屋で休むことはできません。<br>
+                    武器屋なども利用できません。
+                </div>
+            </div>
+        </div><br>
+        
+            <div id="story12" class="step-card"><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">クリア後・2周目のやり込み要素</div>
+        </div>
+
+        <div class="battle-points-box">
+            <div class="battle-point"><span class="checkmark">✔</span>小さなメダルを全て集める</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ひみつの場所を探索する</div>
+            <div class="battle-point"><span class="checkmark">✔</span>キラキラポイントを全て回収する</div>
+            <div class="battle-point"><span class="checkmark">✔</span>モンスター図鑑・アイテム図鑑を完成させる</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ローラ姫を最後まで抱えてクリアを目指す</div>
+            <div class="battle-point"><span class="checkmark">✔</span>難易度「いばらの道だぜ」でクリアを目指す</div>
+        </div>
+
+        <div id="story13" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">小さなメダルを全て集める<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_10.jpg' %}" class="step-image">
+                <div class="step-text">クリア後のやり込み要素には、各地に散らばる小さなメダルを全て集めることが挙げられます。<br>
+                    全回収を目指すことで、メダル王から貴重な報酬アイテムを受け取ることができます。<br>
+                    <br>
+                    コンプリートするとトロフィー「メダルマスター」も獲得できます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story14" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ひみつの場所を探索する<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_11.jpg' %}" class="step-image">
+                <div class="step-text">ドラクエ1リメイクのクリア後のやり込み要素は、マップ上に点在するひみつの場所を探索することも含まれます。<br>
+                    通常プレイでは訪れない場所に、レア装備や特別なアイテムが隠されていることもあります。<br>
+                    すべてのエリアを巡り、隠し要素を探すことで新たな発見が得られます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story15" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">キラキラポイントを全て回収する<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_12.jpg' %}" class="step-image">
+                <div class="step-text">クリア後のやり込み要素には、フィールド上のキラキラポイントを全て回収することもあります。<br>
+                    装備だけでなく素材アイテムや換金用アイテムを入手できるため、装備強化や資金集めに役立ちます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story16" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">モンスター図鑑・アイテム図鑑を完成させる<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_13.jpg' %}" class="step-image">
+                <div class="step-text">ドラクエ1リメイクのクリア後のやり込み要素は、モンスター図鑑とアイテム図鑑のコンプリートです。<br>
+                    すべてのモンスターを討伐し、全アイテムを収集することで、完全攻略の達成感を味わえます。<br>
+                    <br>
+                    未登録のモンスターがいる場合は、特定のエリアを再探索して埋めていきましょう。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story17" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ローラ姫を最後まで抱えてクリアを目指す<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_6_14.jpg' %}" class="step-image">
+                <div class="step-text">1周目で、ローラ姫をラダトーム城に送り届けてエンディングを迎えた方は、2周目でローラ姫を最後まで抱えたままクリアを目指してみるのをおすすめします。<br>
+                    ローラ姫を最後まで抱えてクリアすると特殊エンディングを見ることができます。<br>
+                    さらに、ストーリー中はローラ姫が主人公の代わりに喋ってくれたり、バトルのサポートをしてくれるなど、追加要素がかなり用意されています。
+                </div>
+                <div class="step-header">
+                    <div class="step-number">ローラ姫救出前に「太陽の石」を回収する必要あり<span class="toggle-icon">-</span></div>
+                    <div class="step-text">ローラ姫を最後まで連れていくためには、魔法の鍵入手後にラダトーム城の地下で「太陽の石」をあらかじめ回収しておく必要があります。<br>
+                        ローラ姫救出後に太陽の石を回収しようとするとローラ姫が強制帰還してしまうため、事前にラダトーム城で太陽の石を回収しておくのが必須となります。
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story18" class="step-card"><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">難易度「いばらの道だぜ」でクリアを目指す<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">難易度「楽ちんプレイ」や「バッチリ冒険」でクリアした方は、ぜひ「いばらの道だぜ」でクリアを目指してみるのもおすすめです。<br>
+                    <br>
+                    今作ドラクエ1リメイクの難易度は比較的高いので、1周目からいばらの道だぜでやるのはおすすめしませんが、ある程度攻略法を把握した2周目で高難易度モードでクリアを目指してみましょう。
+                </div>
+        </div><br>
+
+        <div class="text-start mt-4 mb-5">
+            <a href="{% url 'database:dq1_story_list' %}" class="fw-bold text-primary text-decoration-none">
+                ◀ ストーリー一覧へ
+            </a>
+        </div>
+
+        <div class="text-start mt-4 mb-5">
+            <a href="javascript:history.back()" class="text-decoration-none fw-bold">
+                ◀ 戻る
+            </a>
+        </div>
+    </main>
+</div>
+
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+
+{% endblock %}

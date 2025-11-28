@@ -1,0 +1,486 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4 cropped-banner">
+    <img src="{% static 'database/cp2_images/craftopia_cover1.jpg' %}" style=" display: block; margin: 0 auto; width: 97%; height: auto; " class="story-banner">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【オオワタツ諸島の台地】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#tower">▶ 修復「オオワタツ諸島の塔」の必要素材</a></li>
+            <li><a href="#sumisu">▶ 商人スミス【諸島の集落】</a></li>
+            <li><a href="#worldlevel">▶ 時代進化</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョン＆ポータル<br>＆洞窟の位置</a></li>
+            <li><a href="#sekkeizu">▶ 設計図の位置</a></li>
+            <li><a href="#ganban">▶ 岩盤一覧</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#story" class="btn-story-link">▶ 戻る</a></li>
+    </aside>
+
+<!-- メインコンテンツ -->
+    <main class="main-content">
+            <div id="tower"></div><br>
+        <div style="margin-left: -15px; width: 104%;" class="story-header text-center my-3">
+            <div class="black-yellow-band">修復「オオワタツ諸島の塔」の必要素材</div>
+        </div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/oowatatu1.jpg' %}" style="width: 80%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+    <div class="step-content">
+        <div class="step-header">
+            <div class="step-number" style="margin-left: 5px;">修復「オオワタツ諸島の塔」の必要素材</div>
+               
+            <table class="tower-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tw-1">進行度</th>
+                        <th class="tw-2">必要素材1</th>
+                        <th class="tw-3">必要素材2</th>
+                        <th class="tw-4">必要素材3</th>
+                        <th class="tw-5">必要素材4</th>
+                    </tr>
+                </thead>
+                <tbody>
+					<tr>
+						<td>1/3</td>
+						<td>金のインゴット x20</td>
+						<td>リネンウールx10</td>
+                        <th></th>
+                        <th></th>
+					</tr>
+					<tr>
+						<td>2/3</td>
+						<td>紅蓮のハーブx5</td>
+						<td>群青のハーブx5</td>
+                        <th></th>
+                        <th></th>
+					</tr>
+					<tr>
+						<td>3/3</td>
+						<td>大容量バッテリーx20</td>
+						<td>エンジンパーツx20</td>
+                        <th></th>
+                        <th></th>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="sumisu"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">商人スミス【諸島の集落】</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/sumisu.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: 5px;">商人スミス（金）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr> 
+								<td>クレイモア</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>5000</td>
+								<td>WLV3～</td>
+							</tr>
+							<tr> 
+								<td>中容量ライフポーション</td>
+								<td>消費アイテム</td>
+								<td>100</td>
+								<td>500</td>
+								<td>WLV3～</td>
+							</tr>
+							<tr> 
+								<td>中容量マナポーション</td>
+								<td>消費アイテム</td>
+								<td>100</td>
+								<td>500</td>
+								<td>WLV3～</td>
+							</tr>
+							<tr> 
+								<td>ククリ</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>5000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>ハルバード</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>5000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>魔道士の杖</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>5000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>コテツ</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>5000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>鉄のインゴット</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>80</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>銀の矢</td>
+								<td>矢弾</td>
+								<td>100</td>
+								<td>25</td>
+								<td>WLV5～</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: 5px;">商人スミス（トマト）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr> 
+								<td>トマトの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>1トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>農園</td>
+								<td>建築物</td>
+								<td>20</td>
+								<td>1トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>スプリンクラーの設計図</td>
+								<td>設計図(建築物)</td>
+								<td>1</td>
+								<td>100トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>中型プランターの設計図</td>
+								<td>設計図(建築物)</td>
+								<td>1</td>
+								<td>50トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>ヘルペッパー</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>10トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>スノーミント</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>10トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>紅蓮のハーブ</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>10トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>群青のハーブ</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>10トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>EXPポーション1000ml</td>
+								<td>消費アイテム</td>
+								<td>1</td>
+								<td>150トマト</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>カボチャの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>5トマト</td>
+								<td>WLV2～</td>
+							</tr>
+							<tr> 
+								<td>ブドウの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>5トマト</td>
+								<td>WLV2～</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+    <div id="worldlevel"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">時代進化</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/oowatatu_zs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+    <div class="step-content">
+        <div class="step-header">
+            <div  class="step-number" style="margin-left: 5px;">時代進化(火の革新時代)</div>
+               
+            <table class="time-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tm-1">進行度</th>
+                        <th class="tm-2">ゴールド</th>
+                        <th class="tm-3">必要素材1</th>
+                        <th class="tm-4">必要素材2</th>
+                        <th class="tm-5">必要素材3</th>
+                        <th class="tm-6">必要素材4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5/10</td>
+                        <td>50,000ゴールド</td>
+                        <td>雷華x5</td>
+                        <td>諸島のモルガナイトx20</td>
+                        <td>竹x20</td>
+                        <td>諸島の古代人形の破片x5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+            <div id="boss"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ボス＆ダンジョン＆ポータル＆洞窟の位置</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/oowatatu_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスダンジョンの位置</div>         
+
+            <table class="doukutu-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="dc-1">激流の迷宮</th>
+                        <th class="dc-2">挑戦可能なLv</th>
+                        <th class="dc-3">雑魚lv</th>
+                        <th class="dc-4">ボス</th>
+                    </tr>
+                </thead>
+                <tbody>
+					<tr>
+						<td>Story</td>
+						<td>最初から</td>
+						<td>Lv45程度</td>
+						<td>ノーブルフロッグ Lv45</td>
+					</tr>
+					<tr>
+						<td>Easy(周回)</td>
+						<td>最初から</td>
+						<td>なし</td>
+						<td>ノーブルフロッグ Lv10</td>
+					</tr>
+					<tr>
+						<td>Normal(周回)</td>
+						<td>WLv3～</td>
+						<td>なし</td>
+						<td>ノーブルフロッグ Lv20</td>
+					</tr>
+					<tr>
+						<td>Hard(周回)</td>
+						<td>WLv5～</td>
+						<td>なし</td>
+						<td>ノーブルフロッグ Lv35</td>
+					</tr>
+					<tr>
+						<td>Hell(周回)</td>
+						<td>WLv7～</td>
+						<td>なし</td>
+						<td>ノーブルフロッグ Lv55</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+        <div id="boss"></div>
+    <div class="step-content">
+        <div class="step-header">
+            <div  class="step-number" style="margin-left: 5px;">洞窟の位置</div>
+               
+            <table class="doukutu-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="dc-1">ダンジョン名</th>
+                        <th class="dc-2">大体の座標</th>
+                        <th class="dc-3">ダンジョン内容</th>
+                        <th class="dc-4">報酬</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+						<td>暴虐の半獣の洞窟</td>
+						<td>-199, 1, -2278付近(A)</td>
+						<td>サテュロス(Lv40)<br>直後からフィールド閉鎖。逃げられない</td>
+						<td>鎖式拘束弾の設計図</td>
+					</tr>
+					<tr>
+						<td>壁渡りの洞窟</td>
+						<td>744, 10, -2250付近(B)</td>
+						<td>壁を伝って進むアスレチック</td>
+						<td>スプリンクラーの設計図</td>
+					</tr>
+					<tr>
+						<td>鷲獅子の洞窟</td>
+						<td>1985, 9, -1662付近(C)</td>
+						<td>グリフォン(Lv40)+ウィザード(Lv35程度)</td>
+						<td>痺れのペット秘伝書</td>
+					</tr>
+					<tr>
+						<td>すり抜けの洞窟</td>
+						<td>2016, 57, -1380付近(D)</td>
+						<td>縦横無尽のレーザーを避けて進む</td>
+						<td>Expポーション1000ml</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+     </div>
+            
+            <div id="sekkeizu"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">設計図の位置</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/oowatatu_sk.jpg' %}" style="width: 80%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+        
+    <div class="step-content">
+        <div class="step-header">
+            
+               
+                
+            <table class="treasure-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tz-1">設計図の位置</th>
+                        <th class="tz-2">座標</th>
+                        <th class="tz-3">備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+						<td>A | 与一の弓の設計図</td>
+						<td>-1110,27,-2290</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>B | モノホシザヲの設計図</td>
+						<td>-360,20,-1950</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>C | カラカンダの設計図</td>
+						<td>140,5,-2340</td>
+						<td>社前、焚き火なし</td>
+					</tr>
+                    <tr>
+						<td>D | 無心流鎖鎌の設計図</td>
+						<td>450,73,-1720</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>E | 野球ヘルメットの設計図</td>
+						<td>1200,18,-1870</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>F | 勇者の剣の設計図</td>
+						<td>1345,30,-1610</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>G | 馬のマスクの設計図</td>
+						<td>1600,7,-1920</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>H | 屠殺者の設計図</td>
+						<td>1790,52,-1270</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>I | 柘榴之袴・藍晶之袴・黄玉之袴の設計図</td>
+						<td>2100,62,-1800</td>
+						<td>3種</td>
+					</tr>
+					<tr>
+						<td>EXPポーション1000ml</td>
+						<td>-960,98,-2305</td>
+						<td>周辺にある3つのスイッチを起動</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+            <div id="ganban"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">岩盤の位置</div>
+            <br><br><div  class="step-number">「オオワタツ諸島」岩盤無いらしい</div>
+
+
+
+
+
+    </main>
+
+{% endblock %}

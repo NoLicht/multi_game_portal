@@ -1,0 +1,999 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 第4章 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <ul class="toc-list main-toc">
+            <li><a href="#story0">① 妖精の隠れ里でドラゴンゾンビと戦闘</a></li>
+            <li><a href="#story1">② マイラでエイリアンフライと戦闘</a></li>
+            <li><a href="#story2">③ 撃破後に最後の鍵を入手</a></li>
+            <li><a href="#story3">④ ラダトーム城1階の扉を開ける</a></li>
+            <li><a href="#story4">⑤ 岩泣き島の外観でロトの盾を入手</a></li>
+            <li><a href="#story5">⑥ メルキドにいる吟遊詩人ザライと話す</a></li>
+            <li><a href="#story6">⑦ 最後の鍵でちいさなメダルを集める</a></li>
+            <li><a href="#story7">⑧ 5つの紋章を全て作成する</a></li>
+            <li><a href="#story8">⑨ ガライへ向かう</a></li>
+            <li><a href="#story9">⑩ ガライの墓を探索する</a></li>
+            <li><a href="#story10">⑪ マップ右下から地下2階へ</a></li>
+            <li><a href="#story11">⑫ 地下2階と地下3階を探索</a></li>
+            <li><a href="#story12">⑬ 地下3階の銅像を調べてメダルを入手</a></li>
+            <li><a href="#story13">⑭ 地下3階で「ぎんのたてごと」を入手</a></li>
+            <li><a href="#story14">⑮ ガライにいる吟遊詩人ザライと話す</a></li>
+            <li><a href="#story15">⑯ 妖精の隠れ里へ向かう</a></li>
+            <li><a href="#story16">⑰ ドムドーラでロトの鎧を入手</a></li>
+            <li><a href="#story17">⑱ 雨のほこらへ向かう</a></li>
+            <li><a href="#story18">⑲ 雨のほこら3・4・5階を探索する</a></li>
+            <li><a href="#story19">⑳ 5階でボス「マーダーゴイル」と戦闘</a></li>
+            <li><a href="#story20">㉑ ボス撃破後にイベント発生</a></li>
+            <li><a href="#story21">㉒ 5階の中央の塔の左側でメダルを入手</a></li>
+            <li><a href="#story22">㉓ 雨の賢者からあまぐもの杖を入手</a></li>
+            <li><a href="#story23">㉔ ひみつの場所が新たに4箇所出現</a></li>
+            <li><a href="#story24">㉕ 南にある「精霊のほこら」へ向かう</a></li>
+            <li><a href="#story25">㉖ 2階でボス「エクソダス」と戦闘 </a></li>
+            <li><a href="#story26">㉗ 撃破後に「ロトのしるし」を入手 </a></li>
+            <li><a href="#story27">㉘ ひみつの花畑へ向かう</a></li>
+            <li><a href="#story28">㉙ 妖精と話して「ロトのかぶと」を入手</a></li>
+            <li><a href="#story29">㉚ リムルダールにいるザライと話す</a></li>
+            <li><a href="#story30">㉛ ラダトーム城の地下で太陽の石を入手 </a></li>
+            <li><a href="#story31">㉜ 南東にある「聖なるほこら」へ向かう </a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#story" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">竜王の城に行くための準備の攻略チャート</div>
+        </div>
+        <div class="chart-image-wrapper">
+           <img src="{% static 'database/images/dq1/chart4.jpg' %}" alt="チャート4" class="story-top-image">
+        </div>
+
+        <div class="story-info-grid">
+            <div class="cell label">攻略目安</div>
+            <div class="cell value">3～4時間</div>
+            <div class="cell label">攻略レベル</div>
+            <div class="cell value">31～37</div>
+        </div>
+
+        <div id="story0" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">① 妖精の隠れ里でドラゴンゾンビと戦闘<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">ドラゴンゾンビ</div>
+                <img src="{% static 'database/images/dq1/dq1_4_1.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+                        <div class="info-value">32</div>
+                        <div class="info-value">妖精の隠れ里</div>
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+                        <div class="info-value">約690</div>
+                        <div class="info-value">-</div>
+                    </div>
+                    <div class="battle-points-section">
+                        <h3 class="battle-points-title"><div class="step-number">ドラゴンゾンビ戦の攻略ポイント</div></h3>
+                        <div class="battle-points-box">
+                            <div class="battle-point"><span class="checkmark">✔</span>眠り対策で「めざましリング」を装備</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>吹雪耐性の防具を装備</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>フバーハで吹雪を軽減</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>ベギラゴンで弱点をつく</div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="step-text">妖精の隠れ里に移動するとボス「ドラゴンゾンビ」×2と戦闘になります。<br>
+                    妖精の隠れ里に移動する前に、眠り対策で「めざましリング」を装備するのがおすすめです。<br>
+                    めざましリングはメダル王の城の道具屋で買うか岩泣き島で入手できます。<br>
+                    <br>
+                    「ドラゴンシールド」「ドラゴンメイル」「炎のイヤリング」などの吹雪耐性防具もいくつか装備しておきましょう。<br>
+                    <br>
+                    また、主人公がレベル30になると覚える「ベギラゴン」があれば2体同時に大ダメージを与えられるので、レベル30以上で挑むのがおすすめです。
+                </div><br><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_dragonzombie' %}" class="btn-story-link">
+                        ▶ ドラゴンゾンビの攻略と推奨レベルを見る
+                    </a>
+                </div>
+            </div>
+        </div><br>
+    
+        <div id="story1" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">② マイラでエイリアンフライと戦闘<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">エイリアンフライ</div>
+                <img src="{% static 'database/images/dq1/dq1_4_2.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+
+                        <div class="info-value">32</div>
+                        <div class="info-value">マイラ</div>
+
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+
+                        <div class="info-value">
+                        約2050
+                        </div>
+                        <div class="info-value">-</div>
+                    </div>
+
+                    <div class="battle-points-section">
+                        <h3 class="battle-points-title"><div class="step-number">エイリアンフライ戦の攻略ポイント</div></h3>
+                        <div class="battle-points-box">
+                        <div class="battle-point"><span class="checkmark">✔</span>フバーハでブレスダメージを抑える</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>ドラゴン斬りの超絶技「竜王斬り」が有効</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>取り巻きは武器を持ち替えて全体攻撃で処理</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>行動パターンを覚えておけば対策しやすい</div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="step-text">マイラに移動して、マップ中央の井戸に近づくとボス「エイリアンフライ」と戦闘になります。<br>
+                    主人公がレベル32で覚える「フバーハ」で敵のブレス攻撃のダメージを抑えられるため、レベル32以上で挑むのがおすすめです。<br>
+                    <br>
+                    また、エイリアンフライは行動パターンが決まっています。<br>
+                    ブレスを2連続で使うタイミングも決まっているので、行動パターンを把握してそれに合わせて回復・攻撃・防御などで対応しましょう。
+                </div>
+
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/dq1_4_2.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+
+                <div class="step-text">敵が単体の時は「ドラゴン斬り」、取り巻きが出てきたら「ツインスワロー」の全体攻撃でダメージを与えていきましょう。<br>
+                    ツインスワローはちいさなメダル17枚で交換できます。
+                </div><br><br>
+                
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_alienfly' %}" class="btn-story-link">
+                        ▶ エイリアンフライの攻略と推奨レベルを見る
+                    </a>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story2" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">③ 撃破後に最後の鍵を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_3.jpg' %}" class="step-image">
+                <div class="step-text">エイリアンフライ撃破後に「最後の鍵」が入手できます。<br>
+                    これで全ての宝箱を開けることができるようになったので、緑色の宝箱を見かけた際は積極的に開けましょう。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story3" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">④ ラダトーム城1階の扉を開ける<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_4.jpg' %}" class="step-image">
+                <div class="step-text">最後の鍵でラダトーム城・1階の西側にある扉を開けると、その先の宝箱を回収できます。<br>
+                    中身は「12,000ゴールド」「エルフののみぐすり」「まじんのオノ」「レミラーマの巻物」です。<br>
+                    <br>
+                    ただし、ローラ姫を連れている方は、ラダトーム城に入るとローラ姫と離れることになるので注意してください。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story4" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑤ 岩泣き島の外観でロトの盾を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_5.jpg' %}" class="step-image">
+                <div class="step-text">岩泣き島・外観にある宝箱を最後の鍵で開けて「ロトの盾」を入手しましょう。<br>
+                    紋章の素材「星くずの砂」がある場所の近くです。<br>
+                    <br>
+                    ロトの盾は、守備力が高い上に呪文やブレス攻撃のダメージを軽減してくれる最強格の防具です。必ず回収しておきましょう。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story5" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑥ メルキドにいる吟遊詩人ザライと話す<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_3_6.jpg' %}" class="step-image">
+                <div class="step-text">最後の鍵を入手したあと、メルキドの中央に「吟遊詩人ザライ」がいます。<br>
+                    イベントを進めるためにザライに話しかけておきましょう。<br>
+                    ザライがいない場合は前提となる会話イベントをこなしていないので、各地を巡ってザライと話してください。
+                </div>
+            </div>
+        </div><br>
+        
+        <div id="story6" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑦ 最後の鍵でちいさなメダルを集める<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">エリア</div>
+                        <div class="apt-cell header-cell">場所詳細</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_1.jpg' %}" class="zoomable">
+                            <div class="apt-text">メルキド</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_2.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                メルキド北東側の民家の2階にある宝箱<br>
+                                ※最後の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_3.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_4.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                ラダトーム教会の2階鍵部屋中のツボ<br>
+                                ※最後の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_5.jpg' %}" class="zoomable">
+                            <div class="apt-text">ドワーフの洞窟_地下1階</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_6.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                地下1階左側の扉をさいごのカギで開けた先の宝箱<br>
+                                ※最後の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_7.jpg' %}" class="zoomable">
+                            <div class="apt-text">メダル王の城</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_7_8.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                左側の扉を開けた先の中央の宝箱<br>
+                                ※最後の鍵が必要
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+                </div>
+                <div class="step-text text-center">最後の鍵で開けられる扉や宝箱が増えたので、今まで訪れた町やダンジョンのちいさなメダルを回収しましょう。</div><br>
+            </div>
+        </div><br>
+
+        <div id="story7" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑧ 5つの紋章を全て作成する<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_8.jpg' %}" class="step-image">
+                <div class="step-text">まだ5つの紋章（いのち・みず・たいよう・つき・ほし）を作成していない場合は、素材を入手して紋章を全て作成しましょう。</div>
+            </div>
+        </div><br>
+
+        <div id="story8" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑨ ガライへ向かう<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_9.jpg' %}" class="step-image">
+                <div class="step-text">ガライに移動するとカンダタとのカットシーンが流れます。<br>
+                    カットシーン後はマップの北側にある大きな建物に入り、奥へ進んで「ガライの墓」に入ります。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story9" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑩ ガライの墓を探索する<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_10_1.jpg' %}" class="step-image">
+                <div class="step-text">ガライの墓に入ったら探索をしましょう。<br>
+                    地下1階のマップ北側にある宝箱から「くちぶえの巻物」や「にげにげリング」などを入手できます。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_10_2.jpg' %}" class="step-image">
+                <div class="step-text">地下1階の中央右側にある小部屋のツボから「ちいさなメダル」が入手できます。</div>
+            </div>
+        </div><br>
+
+        <div id="story10" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑪ マップ右下から地下2階へ<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_11.jpg' %}" class="step-image">
+                <div class="step-text">ガライの墓・地下1階の探索が終わったら、マップ右下の「最後の鍵」で開く扉から地下2階へ進みます。</div>
+            </div>
+        </div><br>
+
+        <div id="story11" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑫ 地下2階と地下3階を探索<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">地下1・2階</div>
+                        <div class="apt-cell header-cell">地下3・4階</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <!-- エリア -->
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_12_1.jpg' %}" class="zoomable">
+                        </div>
+
+                        <!-- 場所詳細 -->
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_12_2.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+
+                </div>
+                <br><div class="step-text">ガライの墓・地下2階と地下3階を行き来して探索をしましょう。<br>
+                    地下2階の北側にある左階段を降り、地下3階のマップ左上にある宝箱から「マヒャド斬りの巻物」を入手できます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story12" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑬ 地下3階の銅像を調べてメダルを入手<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_13.jpg' %}" class="step-image">
+                <div class="step-text">ガライの墓・地下2階のマップ左下の階段から地下3階に降り、道なりに進んだ先にある大きな銅像を調べると「ちいさなメダル」を入手できます。<br>
+                    そのまま銅像の奥の道を進み地下4階へ行きます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story13" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑭ 地下3階で「ぎんのたてごと」を入手 <span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_14.jpg' %}" class="step-image">
+                <div class="step-text">地下4階の右の宝箱から「まほうのせいすい×2」を回収して、マップ南側にある階段から地下3階へ上がりましょう。<br>
+                    地下3階に進むと「ぎんのたてごと」があります。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story14" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑮ ガライにいる吟遊詩人ザライと話す<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_15.jpg' %}" class="step-image">
+                <div class="step-text">ぎんのたてごとを入手後、ガライの海の近くに吟遊詩人ザライがいるので話しかけましょう。<br>
+                    ザライがいない場合は、前提の会話イベントを進めていないので、各地を巡ってザライに話しかけてください。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story15" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑯ 妖精の隠れ里へ向かう<span class="toggle-icon">+</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_16.jpg' %}" class="step-image">
+                <div class="step-text">「ようせいのふえ」「5つの紋章」「ぎんのたてごと」を入手後、妖精の隠れ里へ向かうとイベントが発生します。<br>
+                    イベント後、次は「雨のほこら」へ向かうことになります。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story16" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑰ ドムドーラでロトの鎧を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">マップ画像</div>
+                        <div class="apt-cell header-cell">現地画像</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <!-- エリア -->
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_17_1.jpg' %}" class="zoomable">
+                        </div>
+
+                        <!-- 場所詳細 -->
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_17_2.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+
+                </div>
+                <div class="step-text">雨のほこらに向かう前に、ドムドーラに寄り道して「ロトの鎧」を入手するのがおすすめです。<br>
+                    ロトの鎧はドムドーラのマップ中央東側の毒沼を過ぎたあたりに出現する「あくまのきし」倒すことで入手できます。<br>
+                    あくまのきしは強敵なので、レベル33以上かつ装備集めなどの準備をしっかりしてから挑戦しましょう。
+                </div><br>
+                <div class="step-number text-center">あくまのきし</div>
+                <img src="{% static 'database/images/dq1/dq1_4_17_3.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+
+                        <div class="info-value">33</div>
+                        <div class="info-value">ドムドーラ</div>
+
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+
+                        <div class="info-value">
+                        約2700
+                        </div>
+                        <div class="info-value">オーガシールド</div>
+                    </div>
+
+                    <div class="battle-points-section">
+                        <h3 class="battle-points-title"><div class="step-number">あくまのきし戦の攻略ポイント</div></h3>
+                        <div class="battle-points-box">
+                        <div class="battle-point"><span class="checkmark">✔</span>「やいばのよろい」は必ず装備しておきたい</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>「ようせいの剣」で守備力を上げる</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>ラリホーの眠り対策で「めざましリング」も装備</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>「あくま斬り」でダメージを与える</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text"><br>あくまのきしは物理攻撃のみでダメージを与えてくるので、「やいばのよろい」による反撃がかなり有効です。<br>
+                    やいばのよろいは、岩泣き島から南にあるひみつの場所で入手できるので必ず装備しておきましょう。<br>
+                    <br>
+                    基本的な立ち回りは、ようせいの剣で守備力を上げて攻撃を耐えつつ、やいばのよろいの反撃でダメージを稼いでいきます。<br>
+                    <br>
+                    ベホイムやリホイミでHPを回復して、余裕ができたらあくま斬りでこちらからもダメージを与えていきましょう。
+                </div><br><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_akumanokishi' %}" class="btn-story-link">
+                        ▶ あくまのきしの攻略と推奨レベルを見る
+                    </a>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story17" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑱ 雨のほこらへ向かう<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_18.jpg' %}" class="step-image">
+                <div class="step-text">ロトの鎧を入手後、雨のほこらへ向かいましょう。<br>
+                    雨のほこら1階の「最後の鍵」で開けられる扉の先へ進みます。<br>
+                    <br>
+                    雨のほこら1階・裏門の宝箱から「命の石」、2階のタルから「ささやきのみつ×2」を入手して3階まで登ります。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story18" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑲ 雨のほこら3・4・5階を探索する<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_19_1.jpg' %}" class="step-image">
+                <div class="step-text">雨のほこら・3階に登ってきた階段近くにあるタルから「ちいさなメダル」を入手できます。<br>
+                    左の広場の宝箱から「バイキルミン」を回収して4階に登ります。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_19_2.jpg' %}" class="step-image">
+                <div class="step-text">雨のほこら・4階、右広場の中央の床で「命のきのみ」、左の広場のツボから「ちからのたね・436ゴールド」を回収して5階を目指しましょう。<br>
+                    雨のほこら・5階、左中央のツボから「きれいな水・まもりのたね」、右中央の宝箱から「まんげつのリング・特やくそう×2」、右上のツボから「ラックのたね」が入手できます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story19" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">⑳  5階でボス「マーダーゴイル」と戦闘<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">マーダーゴイル</div>
+                <img src="{% static 'database/images/dq1/dq1_4_20_1.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+                        <div class="info-value">34</div>
+                        <div class="info-value">雨のほこら</div>
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+                        <div class="info-value">約2450</div>
+                        <div class="info-value">はかいのつるぎ</div>
+                    </div>
+                    <div class="battle-points-section">
+                        <h3 class="battle-points-title"><div class="step-number">マーダーゴイル戦の攻略ポイント</div></h3>
+                        <div class="battle-points-box">
+                            <div class="battle-point"><span class="checkmark">✔</span>やいばのよろいを装備する</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>「みかわしきゃく」と「うけながし」が有効</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>「ギガデイン」で大ダメージを与えられる</div>
+                            <div class="battle-point"><span class="checkmark">✔</span>呪文封じは回復アイテムか大ぼうぎょで対策</div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="step-text">雨のほこら・5階の中央に進むとボス「マーダーゴイル」と戦闘になります。<br>
+                    <br>
+                    マーダーゴイルはまじん斬りを多用するので、「みかわしきゃく」でみかわし率を上げつつ、「うけながし」を使ってマーダーゴイルにダメージを与えるのが効果的です。<br>
+                    また、被弾したとき用にやいばのよろいを装備して、反撃ダメージを効率よく与えていきましょう。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_20_2.jpg' %}" class="step-image">
+                <div class="step-text">主人公が35レベになっていればギガデインを覚えているので、ギガデインで大ダメージを与えることもできます。<br>
+                    どうしても勝てない場合、35レベまで上げるのがおすすめです。
+                </div><br><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_murdergoyle' %}" class="btn-story-link">
+                        ▶ マーダーゴイルの攻略と推奨レベルを見る
+                    </a>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story20" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉑ ボス撃破後にイベント発生<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_21_1.jpg' %}" class="step-image">
+                <div class="step-text">ボスのマーダーゴイルを撃破後にイベントが発生し、精霊ルビスが復活します。</div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_21_2.jpg' %}" class="step-image">
+                <div class="step-text">ローラ姫を連れている場合、ローラ姫がバトルサポートをしてくれるようになります。</div>
+            </div>
+        </div><br>
+
+        <div id="story21" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉒ 5階の中央の塔の左側でメダルを入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_22.jpg' %}" class="step-image">
+                <div class="step-text">精霊ルビスのイベント後、雨のほこら・5階の中央の塔の左側の宝箱から「ちいさなメダル」を入手できます。</div>
+            </div>
+        </div><br>
+
+        <div id="story22" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉓ 雨の賢者からあまぐもの杖を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_23.jpg' %}" class="step-image">
+                <div class="step-text">雨のほこら・1階にいる雨の賢者に話しかけて「あまぐもの杖」を入手しましょう。</div>
+            </div>
+        </div><br>
+
+        <div id="story23" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉔ ひみつの場所が新たに4箇所出現<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">あまぐもの杖入手後、フィールド上にひみつの場所が新たに4箇所出現します。<br>
+                    「やまびこのぼうし」や「大樹のマント」といった優秀な装備が入手できる他、ちいさなメダルも2枚入手できるので、寄り道しておくのがおすすめです。
+                </div>
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">マップ</div>
+                        <div class="apt-cell header-cell">場所／入手アイテム</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_1.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_2.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                岩山の洞窟周辺北<br>
+                                ※雨のほこらであまぐもの杖入手後に出現<br>
+                                <br>
+                                ミラーシールド×1<br>
+                                やまびこのぼうし×1
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_3.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_4.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                岩山の洞窟周辺東<br>
+                                ※雨のほこらであまぐもの杖入手後に出現<br>
+                                <br>
+                                ささや木の樹液×1<br>
+                                ちいさなメダル×1<br>
+                                ゴールド×7244
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_5.jpg' %}" class="zoomable">
+                            <div class="apt-text">リムルダール周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_6.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                リムルダール周辺の砂漠中央<br>
+                                ※雨のほこらであまぐもの杖入手後に出現<br>
+                                <br>
+                                ちからのたね×1<br>
+                                はかいのつるぎ×1
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_7.jpg' %}" class="zoomable">
+                            <div class="apt-text">ドムドーラ東部</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_24_8.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                ドムドーラ東部の西<br>
+                                ※雨のほこらであまぐもの杖入手後に出現<br>
+                                <br>
+                                ちいさなメダル×1<br>
+                                おなべのフタ×1<br>
+                                大樹のマント×1
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story24" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉕ 南にある「精霊のほこら」へ向かう<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">全体マップ</div>
+                        <div class="apt-cell header-cell">周辺画像</div>
+                    </div>
+
+                    <!-- 1行目 -->
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_25_1.jpg' %}" class="zoomable">
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/dq1_4_25_2.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+
+                </div>
+                <div class="step-text">あまぐもの杖を入手後は、全体マップの南端にある「精霊のほこら」へ向かいましょう。<br>
+                    旅人の宿屋から東の毒沼にあります。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_25_3.jpg' %}" class="step-image">
+                <div class="step-text">精霊のほこら・1階の左奥を調べると「ちいさなメダル」を入手できます。</div>
+            </div>
+        </div><br>
+
+        <div id="story25" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉖ 2階でボス「エクソダス」と戦闘<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">エクソダス</div>
+                <img src="{% static 'database/images/dq1/dq1_4_26.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+
+                        <div class="info-value">35</div>
+                        <div class="info-value">精霊のほこら</div>
+
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+
+                        <div class="info-value">約2600</div>
+                        <div class="info-value">-</div>
+                    </div>
+
+                    <div class="battle-points-section">
+                        <h3 class="battle-points-title"><div class="step-number">エクソダス戦の攻略ポイント</div></h3>
+                        <div class="battle-points-box">
+                        <div class="battle-point"><span class="checkmark">✔</span>「みかわしきゃく」を維持し続ける</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>基本はほのおのつるぎの通常攻撃でダメージを与える</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>超絶技「グランドクロス」で大ダメージも狙う</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>くろいきり対策で回復アイテムを持っておく</div>
+                        <div class="battle-point"><span class="checkmark">✔</span>まんげつのリングを装備してマヒ対策</div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="step-text">精霊のほこら・2階でボス「エクソダス」と戦闘になります。<br>
+                    エクソダスは炎系が弱点なので、メルキドの武器屋で購入できる「ほのおのつるぎ」を装備するのがおすすめです。<br>
+                    <br>
+                    基本はみかわしきゃくを維持しつつ、ほのおのつるぎの通常攻撃でMP節約しながらダメージを与えていきます。<br>
+                    <br>
+                    エクソダスはくろいきりで呪文を封じてくるため、上やくそうなどの呪文以外の回復手段を用意しましょう。<br>
+                    <br>
+                    余裕ができたタイミングで超絶技「グランドクロス」で大ダメージを与えましょう。
+                </div>
+
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/dq1_4_26.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div><br><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_ekusodasu' %}" class="btn-story-link">
+                        ▶ エクソダスの攻略と推奨レベルを見る
+                    </a>
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story26" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉗ 撃破後に「ロトのしるし」を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_27.jpg' %}" class="step-image">
+                <div class="step-text">エクソダスを撃破後、「ロトのしるし」を入手できます。<br>
+                    中央の椅子の裏にけんじゃのせいすいもあるので拾っておきましょう。</div>
+            </div>
+        </div><br>
+
+        <div id="story27" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉘ ひみつの花畑へ向かう<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_3_28.jpg' %}" class="step-image">
+                <div class="step-text">ロトのしるし入手後、ひみつの花畑に移動するとイベントが発生します。<br>
+                    雨のほこらに向かうように言われるので、そのまま雨のほこらに移動しましょう。<br>
+                    <br>
+                    このタイミングでイベントが発生しない場合、吟遊詩人ザライの前提イベントを進めないといけないため、各地にいるザライに順番に話しかけてください。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story28" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉙ 妖精と話して「ロトのかぶと」を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_29_1.jpg' %}" class="step-image">
+                <div class="step-text">雨のほこら・1階の大階段の前にいる妖精に話しかけるとラダトーム西の島にワープします。<br>
+                    イベント後、目の前のお墓を調べると「ロトのかぶと」を入手できます。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_29_2.jpg' %}" class="step-image">
+                <div class="step-text">マップ北側の埠頭の先端に「ちいさなメダル」があるので回収しておきましょう。<br>
+                    お墓から右下方向に歩いて壁際を調べると「いやしの双葉×2」も入手できます。<br>
+                    <br>
+                    ちなみに、一回帰ってしまった場合でもルーラで再訪できるので、取りこぼす心配はありません。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story29" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉚ リムルダールにいるザライと話す<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_30.jpg' %}" class="step-image">
+                <div class="step-text">ロトのかぶととちいさなメダルを入手したら妖精に話しかけて雨のほこらに戻ります。<br>
+                    <br>
+                    その後リムルダールに移動し、マップ中央西側にいる吟遊詩人ザライに話しかけるとトロフィー「新たなるロトの詩」を獲得し、吟遊詩人ザライのイベントは終了となります。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story30" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉛ ラダトーム城の地下で太陽の石を入手<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_31_1.jpg' %}" class="step-image">
+                <img src="{% static 'database/images/dq1/dq1_4_31_2.jpg' %}" class="step-image">
+                <div class="step-text">まだ「太陽の石」を入手していない場合、太陽の石を入手するためにラダトーム城の地下へ向かいます。</div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_31_3.jpg' %}" class="step-image">
+                <div class="step-text">太陽の石を未入手でローラ姫を連れている方は、ここでローラ姫とはお別れになります。<br>
+                    ローラ姫をストーリーの最後まで連れて行くためには、魔法の鍵入手直後にラダトーム城で太陽の石を回収することが必須条件となっています。<br>
+                    先に太陽の石を回収しておけばラダトーム城に寄る必要がないので、最後までローラ姫を連れていけます。
+                </div>
+            </div>
+        </div><br>
+
+        <div id="story31" class="step-card"><br>
+            <div class="step-header">
+                <div class="step-number">㉜ 南東にある「聖なるほこら」へ向かう<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/dq1_4_32_1.jpg' %}" class="step-image">
+                <div class="step-text">「たいようのいし」「あまぐものつえ」「ロトのしるし」の3つを入手したら、全体マップの南東にある「聖なるほこら」へ向かいます。<br>
+                    道中、ひみつの場所やキラキラにも寄り道しましょう。
+                </div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_32_2.jpg' %}" class="step-image">
+                <div class="step-text">聖なるほこらにいる虹の賢者に話しかけると「虹のしずく」を入手できます。</div><br>
+                <img src="{% static 'database/images/dq1/dq1_4_32_3.jpg' %}" class="step-image">
+                <div class="step-text">北側の水の裏の通路の足元を調べると、「ちいさなメダル」を入手できます。</div>
+            </div>
+        </div><br>
+
+    
+
+    <div class="text-center mt-4 ">
+        <a href="{% url 'database:dq1_section3_content' %}" class="text-decoration-none fw-bold ms-3">
+            ◀ 前のチャートへ
+        </a>
+        
+        <a href="{% url 'database:dq1_section5_content' %}" class="text-decoration-none fw-bold ms-3">
+            次のチャートへ ▶
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="{% url 'database:dq1_story_list' %}" class="fw-bold text-primary text-decoration-none">
+            ▶ ストーリー一覧へ
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="javascript:history.back()" class="text-decoration-none fw-bold">
+            ◀ 戻る
+        </a>
+    </div>
+    </main>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+
+
+
+{% endblock %}
+
+            

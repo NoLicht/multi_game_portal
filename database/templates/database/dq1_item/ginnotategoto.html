@@ -1,0 +1,330 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 ぎんのたてごと{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ぎんのたてごとの入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">ストーリー中にガライの墓の最奥で拾う</div><br>
+                <img src="{% static 'database/images/dq1/item/ginnotategoto/1.jpg' %}" class="step-image">
+
+
+                <!-- ▼ モーダル拡大 -->
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+
+                <div class="area-place-table">
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/ginnotategoto/2.jpg' %}" class="zoomable">
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/ginnotategoto/3.jpg' %}" class="zoomable">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-text">ぎんのたてごとは、<a href="{% url 'database:dq1_garainohaka' %}">ガライの墓</a>最奥である地下3階で拾って入手できます。<br>
+                    <br>
+                    ガライの墓には<a href="{% url 'database:item_detail' 'touzokunokagi' %}">盗賊の鍵</a>入手時点でも入れますが、ぎんのたてごとがある場所に進むには<a href="{% url 'database:item_detail' 'saigonokagi' %}">最後の鍵</a>が必要となります。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_garainohaka' %}" class="btn-story-link">
+                        ▶ ガライの墓のマップと入手できるアイテムを見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ぎんのたてごとの使い道・効果</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">雨のほこらで精霊ルビスを召喚するのに必要になる</div>
+                <img src="{% static 'database/images/dq1/item/ginnotategoto/4.jpg' %}" class="step-image">
+                <div class="step-text"><br>ようせいのふえは、ストーリー終盤に「<a href="{% url 'database:dq1_amenohokora' %}">雨のほこら</a>」を攻略した際の精霊ルビス召喚イベントに必要になります。</div><br><br>
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_section4_content' %}" class="btn-story-link">
+                        ▶ 竜王の城に行くための準備の攻略チャートを見る
+                    </a>
+                </div>
+                <div class="step-number text-center">道具として使用すると戦闘が即発生する</div>
+                <div class="step-text"><br>ぎんのたてごとは、フィールドで使用すると戦闘が即発生する「くちぶえ」と同じ効果があります。<br>
+                    <br>
+                    レベル上げや金策の際にくちぶえの代わりとして使用しましょう。
+                </div><br><br>
+            </div>
+
+             <div class="step-content">
+                <img src="{% static 'database/images/dq1/item/banner.jpg' %}">
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_items_list' %}" class="btn-story-link">
+                        ▶ アイテムトップへ戻る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">重要アイテム</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ほしの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">つきの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">みずの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'youseinohue' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ようせいのふえ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'ginnotategoto' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ぎんのたてごと</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'nizinosizuku' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">虹のしずく</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounoishi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの石</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hikarinotama' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ひかりのたま</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'touzokunokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">とうぞくのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mahounokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まほうのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'saigonokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">さいごのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-number text-center">たね・きのみ</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tikaranotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ちからのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mamorinotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まもりのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'sutaminanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">スタミナのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'kashikosanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">かしこさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'subayasanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">すばやさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'rakkunotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ラックのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinokinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちのきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hushiginakinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ふしぎなきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+{% endblock %}

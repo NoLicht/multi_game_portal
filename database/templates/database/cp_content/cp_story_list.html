@@ -1,0 +1,106 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【ギーザの台地】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+            <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【ミルウィン丘陵】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【ヤーデン草原・山地】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【ヤーデン草原・遺跡】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【オオワタツ諸島】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【ブリガンダイン渓谷】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【シャルバート氷山】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【ウンネフェル砂漠】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【マイアズマ湿原】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel"> ▶ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【火山の塔】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#map">▶ 地域マップ</a></li>
+            <li><a href="#tower">▶ 修復「ギーザ台地の塔」の必要素材</a></li>
+            <li><a href="#worldlevel">▶ ワールドレベル</a></li>
+            <li><a href="#portal">▶ ポータルの位置</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョンの位置</a></li>
+            <li><a href="#item">▶ 地域特有アイテム</a></li>
+    </aside>
+<!-- メインコンテンツ -->
+    <main class="main-content">
+        
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">ここを見ればわかるストーリー攻略のカギ!</div>
+        </div>
+        <div class="chart-image-wrapper">
+           <img src="{% static 'database/cp_images/sks(3).jpg' %}" alt="ストーリー" class="story-top-image">
+        </div>
+        
+
+{% endblock %}

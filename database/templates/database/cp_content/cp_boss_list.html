@@ -1,0 +1,460 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4 cropped-banner">
+    <img src="{% static 'database/cp2_images/craftopia_cover1.jpg' %}" style=" display: block; margin: 0 auto; width: 97%; height: auto; " class="story-banner">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">地域ごとのボス一覧</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#tower1">▶ ギーザ台地</a></li>
+            <li><a href="#tower2">▶ ミルウィン丘陵</a></li>
+            <li><a href="#tower3">▶ ヤーデン草原</a></li>
+            <li><a href="#tower4">▶ オオワタツ諸島</a></li>
+            <li><a href="#tower5">▶ ブリガンダイン渓谷</a></li>
+            <li><a href="#tower6">▶ シャルバート氷山</a></li>
+            <li><a href="#tower7">▶ ウンネフェル砂漠</a></li>
+            <li><a href="#tower8">▶ マイアズマ湿原</a></li>
+            <li><a href="#tower9">▶ インフェルノ火山</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#boss" class="btn-story-link">▶ 戻る</a></li>
+    </aside>
+
+<!-- メインコンテンツ -->
+    <main class="main-content">
+        
+        <div id="tower1"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ギーザ台地</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/giza_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>サテュロス</td>
+                        <td>はじまりの遺跡、暴虐の半獣の洞窟、オオワタツ諸島</td>
+                        <td>Lv1-19	サテュロスブレード(レア)、サテュロスシールド(レア)、鉄鉱石x5、埃だらけの古銅貨<br>Lv20-39	サテュロスブレード、サテュロスシールド、銀鉱石x5、歪んだ古銀貨<br>Lv40-59	サテュロスブレード、サテュロスシールド、金鉱石x5、赤黒い古金貨<br>Lv60-	サテュロスブレード、サテュロスシールド</td>
+                    </tr>
+                    <tr>
+                        <td>サイクロプス</td>
+                        <td>はじまりの遺跡・ウンネフェル砂漠・ボスラッシュダンジョン</td>
+                        <td>骨x3、牙x2</td>
+                    </tr>
+                    <tr>
+                        <td>ギガンテス・バリスタ</td>
+                        <td>各地</td>
+                        <td>Lv1-19	赤黒い古金貨、鉄のインゴットx5、ギガンテスの矢x5<br>Lv20-39	赤黒い古金貨、鉄のインゴットx5、ギガンテスの大弓、ギガンテスの矢x5<br>Lv40-59 赤黒い古金貨、鉄のインゴットx5、ギガンテスの大弓II、ギガンテスの矢x5<br>Lv60- 赤黒い古金貨、鉄のインゴットx5</td>
+                    </tr>
+                    <tr>
+                        <td>ギガンテス・ホプロン</td>
+                        <td>各地</td>
+                        <td>Lv1-19	赤黒い古金貨、鉄のインゴットx5<br>Lv20-39	赤黒い古金貨、鉄のインゴットx5、ギガンテスのハルバード<br>Lv40-59 赤黒い古金貨、鉄のインゴットx5、ギガンテスのハルバードII<br>Lv60- 赤黒い古金貨、鉄のインゴットx5</td>
+                    </tr>
+                    <tr>
+                        <td>ストーンゴーレム</td>
+                        <td>各地</td>
+                        <td>Lv1-19	石x10、鉄鉱石x20、銀鉱石x10<br>Lv20-39	石x10、鉄鉱石x40、銀鉱石x10<br>Lv40-59Lv60-	石x10、鉄鉱石x40、アダマン鉱石x10</td>
+                    </tr>
+                    <tr>
+                        <td>エンシェントゴーレム</td>
+                        <td>ギーザ台地、太古の巨兵の洞窟、シャルバート氷山、おわりの遺跡</td>
+                        <td>Lv1-19	鉄鉱石x10、銀鉱石x10<br>Lv20-39	金鉱石x10、鉄鉱石x50<br>Lv40-59	プラチナ鉱石x10、鉄鉱石x60<br>Lv60-	アダマン鉱石x10、鉄鉱石x70</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <div id="tower2"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ミルウィン丘陵</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/miruulin_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>冥界の使者</td>
+                        <td>亡者の古庭、インフェルノ火山</td>
+                        <td>Lv1-59 骨x6～12、ガラスx6～12、グリムリーパー、死神の霊鱗<br>Lv60-	骨x6～12、ガラスx6～12、グリムリーパー、死神の霊鱗x2</td>
+                    </tr>
+                    <tr>
+                        <td>キングモノ</td>
+                        <td>ミルウィン丘陵、烏合の王の洞窟、王子モノから変身</td>
+                        <td>Lv1-19	卵、世継ぎの王冠I、統治の王冠I、キングモノの体液<br>Lv20-39	卵、世継ぎの王冠I、統治の王冠I、キングモノの体液x2<br>Lv40-59	卵、世継ぎの王冠I、統治の王冠I、キングモノの体液x3<br>Lv60-	卵、世継ぎの王冠I、統治の王冠I、キングモノの体液x5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+        <div id="tower3"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ヤーデン草原</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>グリフォン</td>
+                        <td>暴風の古庭、鷲獅子の洞窟、オオワタツ諸島</td>
+                        <td>Lv1-39 鳥の羽根x5、グライフゾイフツァー<br>Lv40-59 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x1～9、希少な鳥の羽根<br>Lv60- 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x2～32、希少な鳥の羽根</td>
+                    </tr>
+                    <tr>
+                        <td>リザードガンナー</td>
+                        <td>狩人の遺跡、シャルバート氷山</td>
+                        <td>Lv1-19	ウエスタンハット、革、黒色火薬<br>Lv20-39	ウエスタンハット、革、黒色火薬、希少な革<br>Lv40-59	ウエスタンハット、革、黒色火薬、希少な革x2<br>Lv60- ウエスタンハット、革、黒色火薬、希少な革x3</td>
+                    </tr>
+                    <tr>
+                        <td>ドラゴン</td>
+                        <td>ヤーデン草原</td>
+                        <td>Lv1-19	鉄鉱石x30<br>Lv20-39 銀鉱石x5～55、竜の鱗<br>Lv40-59 金鉱石x5～55、竜の鱗x2<br>Lv60- プラチナ鉱石x5～55、竜の鱗x5</td>
+                    </tr>
+                    <tr>
+                        <td>Lv60- 天空のグリフォン</td>
+                        <td>暴風の古庭、鷲獅子の洞窟、オオワタツ諸島</td>
+                        <td>Lv60- 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x2～32、希少な鳥の羽根</td>
+                    </tr>
+                    <tr>
+                        <td>ファーヴニル</td>
+                        <td>ヤーデン草原（壊れた橋）</td>
+                        <td>Lv1-60 ファーヴニルの逆鱗、アダマン鉱石、フェルトクロス、希少な革、コハク</td>
+                    </tr>
+                    <tr>
+                        <td>封印を守護する聖騎士</td>
+                        <td>ヤーデン草原（壊れた橋）</td>
+                        <td>Lv1-19	革、卵、鉄のインゴット<br>Lv20-39 革、卵、金のインゴット<br>Lv40-59	革、卵、プラチナのインゴット<br>Lv60- 革、卵、アダマンタイトのインゴット</td>
+                    </tr>
+                    <tr>
+                        <td>王子モノ</td>
+                        <td>オオワタツ諸島など</td>
+                        <td>卵、コハク(レア)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+        <div id="tower4"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">オオワタツ諸島</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/oowatatu_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>サテュロス</td>
+                        <td>はじまりの遺跡、暴虐の半獣の洞窟、オオワタツ諸島</td>
+                        <td>Lv1-19	サテュロスブレード(レア)、サテュロスシールド(レア)、鉄鉱石x5、埃だらけの古銅貨<br>Lv20-39	サテュロスブレード、サテュロスシールド、銀鉱石x5、歪んだ古銀貨<br>Lv40-59	サテュロスブレード、サテュロスシールド、金鉱石x5、赤黒い古金貨<br>Lv60-	サテュロスブレード、サテュロスシールド</td>
+                    </tr>
+                    <tr>
+                        <td>Lv60- 天空のグリフォン</td>
+                        <td>暴風の古庭、鷲獅子の洞窟、オオワタツ諸島</td>
+                        <td>Lv60- 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x2～32、希少な鳥の羽根</td>
+                    </tr>
+                    <tr>
+                        <td>クラーケン</td>
+                        <td>オオワタツ諸島・激流の迷宮</td>
+                        <td>Lv1-19	魚の切り身x10、貝x10<br>Lv20-39 魚の切り身x10、貝x10、骨x10(レア)<br>Lv40-60 魚の切り身x10、貝x10、骨x10</td>
+                    </tr>
+                    <tr>
+                        <td>フルール</td>
+                        <td>オオワタツ諸島、精霊女王の洞窟</td>
+                        <td>Lv1-19	わらx5、原木x10、フルールの花びら<br>Lv20-39 わらx10、原木x15、フルールの花びらx2～5<br>Lv40-59 わらx15、原木x20、フルールの花びらx5～15<br>Lv60- わらx20、原木x25、フルールの花びらx10～30</td>
+                    </tr>
+                    <tr>
+                        <td>王子モノ</td>
+                        <td>オオワタツ諸島など</td>
+                        <td>卵、コハク(レア)</td>
+                    </tr>
+                    <tr>
+                        <td>金風の駆けるグリフォン</td>
+                        <td>ブリガンダイン渓谷フィールド上</td>
+                        <td>Lv1-39 鳥の羽根x5、グライフゾイフツァー<br>Lv40-59 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x3～8<br>Lv60- 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x5～27</td>
+                    </tr>
+                    <tr>
+                        <td>封印を守護する聖騎士 (将軍・刀)</td>
+                        <td>ヤーデン草原（壊れた橋） オオワタツ諸島</td>
+                        <td>Lv1-19	革、卵、鉄のインゴット<br>Lv20-39 革、卵、金のインゴット<br>Lv40-59	革、卵、プラチナのインゴット<br>Lv60- 革、卵、アダマンタイトのインゴット</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+        <div id="tower5"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ブリガンダイン渓谷</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/burigandain_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>リザードエクスキューショナー</td>
+                        <td>殺戮の古庭</td>
+                        <td>Lv1-39 エクスキューショナー(レア)、革x5、牙x5、処刑人の鱗、希少な革<br>Lv40-59	エクスキューショナー、革x5、牙x5、処刑人の鱗、希少な革x2<br>Lv60- エクスキューショナー、革x5、牙x5、処刑人の鱗x2、希少な革x3</td>
+                    </tr>
+                    <tr>
+                        <td>金風の駆けるグリフォン</td>
+                        <td>ブリガンダイン渓谷フィールド上</td>
+                        <td>Lv1-39 鳥の羽根x5、グライフゾイフツァー<br>Lv40-59 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x3～8<br>Lv60- 鳥の羽根x5、グライフゾイフツァー、グリフォンの翼(レア)、グリフォンの羽根x5～27</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+        <div id="tower6"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">シャルバート氷山</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/syarubato_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>フェンリル</td>
+                        <td>氷結の遺跡</td>
+                        <td>Lv1-19	フェンリルの氷晶x1~2、牙x2、希少な革<br>Lv20-39	フェンリルの氷晶x1～3、牙x2、希少な革<br>Lv40-59	フェンリルの氷晶x1～4、牙x2、希少な革x2、フロストローズエッジ(レア)<br>Lv60-	フェンリルの氷晶x1～6、牙x2、希少な革x3、フロストローズエッジ(レア)</td>
+                    </tr>
+                    <tr>
+                        <td>Lv60- 万古のボーンドラゴン</td>
+                        <td>シャルバート氷山、流砂の迷宮</td>
+                        <td>Lv1-19	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、銀鉱石x10、鉄鉱石x10<br>Lv20-39	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、金鉱石x10、鉄鉱石x10<br>Lv40-59	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、プラチナ鉱石x10、鉄鉱石x10<br>Lv60- 骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、アダマン鉱石x10、鉄鉱石x10</td>
+                    </tr>
+                    <tr>
+                        <td>Lv40-59	激戦のエンシェントゴーレム</td>
+                        <td>ギーザ台地、太古の巨兵の洞窟、シャルバート氷山、おわりの遺跡</td>
+                        <td>Lv1-19	鉄鉱石x10、銀鉱石x10<br>Lv20-39	金鉱石x10、鉄鉱石x50<br>Lv40-59	プラチナ鉱石x10、鉄鉱石x60<br>Lv60-	アダマン鉱石x10、鉄鉱石x70</td>
+                    </tr>
+                    <tr>
+                        <td>Lv40-59	海底から窺うクラーケン</td>
+                        <td>オオワタツ諸島・激流の迷宮</td>
+                        <td>Lv1-19	魚の切り身x10、貝x10<br>Lv20-39 魚の切り身x10、貝x10、骨x10(レア)<br>Lv40-60 魚の切り身x10、貝x10、骨x10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+        <div id="tower7"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ウンネフェル砂漠</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/unneferu_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ボーンドラゴン</td>
+                        <td>シャルバート氷山、流砂の迷宮</td>
+                        <td>Lv1-19	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、銀鉱石x10、鉄鉱石x10<br>Lv20-39	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、金鉱石x10、鉄鉱石x10<br>Lv40-59	骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、プラチナ鉱石x10、鉄鉱石x10<br>Lv60- 骨蜥蜴の盾、竜骸の盾、牙x10、骨x10、アダマン鉱石x10、鉄鉱石x10</td>
+                    </tr>
+                    <tr>
+                        <td>アースイーターアーム</td>
+                        <td>ウンネフェル砂漠</td>
+                        <td>Lv60-	希少な牙x3、革x3、骨x3、ミスリル鉱石x5、十字架の破片x5<br>Lv60-(部位破壊)	ヘルメットの破片、光のロザリオの設計図、光のロザリオの設計図</td>
+                    </tr>
+                    <tr>
+                        <td>デザートドラゴン</td>
+                        <td>ウンネフェル砂漠</td>
+                        <td>Lv60- ミスリル鉱石x5-10、砂x10、デザートドラゴンの逆鱗x1-3、ケモノ肉x10</td>
+                    </tr>
+                    <tr>
+                        <td>Lv60- 思慮深いストーンゴーレム</td>
+                        <td>各地</td>
+                        <td>Lv1-19	石x10、鉄鉱石x20、銀鉱石x10<br>Lv20-39	石x10、鉄鉱石x40、銀鉱石x10<br>Lv40-59Lv60-	石x10、鉄鉱石x40、アダマン鉱石x10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+        <div id="tower8"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">マイアズマ湿原</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/maiazuma_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ハイドラ</td>
+                        <td>汚濁の迷宮</td>
+                        <td>Lv1-59 ハイドラの逆鱗、ミスリル鉱石x5、ハイミスリル鉱石x5<br>Lv60- 汚染された逆鱗x1、ハイドラの逆鱗x1、ハイミスリル鉱石x5</td>
+                    </tr>
+                    <tr>
+                        <td>ポイズンワーム</td>
+                        <td>マイアズマ湿原</td>
+                        <td>Lv60- 希少な牙x3、皮x3、骨x3、ハイミスリル鉱石x5、蝕まれた宝石<br>Lv60-(部位破壊)	ヘルメットの破片、名工の砥石の設計図、清めの護符の設計図</td>
+                    </tr>
+                    <tr>
+                        <td>Lv60- 暴虐のタイラントスネーク</td>
+                        <td>マイアズマ湿原</td>
+                        <td>Lv60- 牙x3、骨x3、タイラントスネークの毒牙x10-20、蛇王槍 ナーガラジャ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        
+        <div id="tower9"></div><br><br>
+    <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">インフェルノ火山</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/kazan_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスの詳しい説明</div>         
+
+            <table class="cp-boss-table" style="margin-left :-43px;">
+                <thead>
+                    <tr>
+                        <th class="bs-1">ボス名</th>
+                        <th class="bs-2">生息地</th>
+                        <th class="bs-3">ドロップ品</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>神の御使い</td>
+                        <td>おわりの遺跡</td>
+                        <td>女神のルーンx1、オリハルコンインゴットx1</td>
+                    </tr>
+                    <tr>
+                        <td>インフェルノホエール</td>
+                        <td>乗り物ドラを叩く</td>
+                        <td>Lv全 鯨撃槍の設計図x1、巨獣の骨粉x10、スクラップパーツx5、高性能電子回路x3、希少なスクラップx5、高性能なエンジンx1</td>
+                    </tr>
+                    <tr>
+                        <td>ラヴァゴーレム</td>
+                        <td>インフェルノ火山</td>
+                        <td>Lv全 石x10・鉄鉱石x42・銀鉱石x12</td>
+                    </tr>
+                    <tr>
+                        <td>ダークアヌビス</td>
+                        <td>インフェルノ火山（空島）</td>
+                        <td>Lv全 アヌビスの免罪符x200~250、卵x1、アヌビスの動く銅像x1、殺る気スイッチx1</td>
+                    </tr>
+                    <tr>
+                        <td>冥界の使者</td>
+                        <td>亡者の古庭、インフェルノ火山</td>
+                        <td>Lv1-59 骨x6～12、ガラスx6～12、グリムリーパー、死神の霊鱗<br>Lv60-	骨x6～12、ガラスx6～12、グリムリーパー、死神の霊鱗x2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+
+    </main>
+
+{% endblock %}

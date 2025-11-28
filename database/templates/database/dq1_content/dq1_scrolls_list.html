@@ -1,0 +1,1114 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 街道の宿屋{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/scrolls/banner.jpg' %}" class="step-image">
+        </div><br><br><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">巻物一覧と入手方法</div>
+            </div>
+            <div class="spte-content">
+                <div class="step-number text-center">巻物の入手方法一覧</div><br>
+                
+                <table class="filter-table">
+                    <tr>
+                        <td><button onclick="filterTable('all')">すべて表示</button></td>
+                        <td><button onclick="filterTable('checked')">チェック済みのみ</button></td>
+                        <td><button onclick="filterTable('unchecked')">未チェックのみ</button></td>
+                    </tr>
+                </table>
+                
+                <table class="scroll-table">
+                    <thead>
+                        <tr>
+                            <th>☑</th>
+                            <th>巻物</th>
+                            <th>
+                                入手場所<br>
+                                習得呪文・特技
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'sunakemuri' %}" class="scroll-link">
+                                    すなけむりの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/1.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/2.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ロトの洞窟・地下1階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>すなけむり</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>3</span>
+                                    <div class="free-text">たまに敵1グループの攻撃の命中率を半減する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'hyado' %}" class="scroll-link">
+                                    ヒャドの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/3.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/4.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>雨のほこら・1階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ヒャド</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>3</span>
+                                    <div class="free-text">敵1体に約25〜35のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'toramana' %}" class="scroll-link">
+                                    トラマナの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/5.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/6.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ガライの民家の本棚</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>トラマナ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>3</span>
+                                    <div class="free-text">地面からのダメージが無効になる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'mahosute' %}" class="scroll-link">
+                                    マホステの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/7.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/8.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>妖精の隠れ里の民家の本棚</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>マホステ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>6</span>
+                                    <div class="free-text">味方1体にかけられた呪文を無効にする効果を付与する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'hyadaruko' %}" class="scroll-link">
+                                    ヒャダルコの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/9.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/10.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>妖精の隠れ里の民家の宝箱</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ヒャダルコ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>9</span>
+                                    <div class="free-text">敵1グループに約40〜60のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'touzoku' %}" class="scroll-link">
+                                    とうぞくの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/11.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/12.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>岩山の洞窟・地下1階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>とうぞくのはな</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>0</span>
+                                    <div class="free-text">現在いるマップの未入手アイテム、見つけていないキラキラの数がわかる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'tikaratame' %}" class="scroll-link">
+                                    ちからための巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/13.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/14.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>岩山の洞窟・地下2階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ちからため</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>3</span>
+                                    <div class="free-text">次のターンの攻撃力をかなりアップする。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'baria' %}" class="scroll-link">
+                                    バリアの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/15.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/16.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>リムルダールのカギの魔法使いの家の中</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>マジックバリア</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>6</span>
+                                    <div class="free-text">味方全体の呪文ダメージを半減する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'mirakuru' %}" class="scroll-link">
+                                    ミラクルの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/17.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/18.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ドワーフの洞窟・地下1階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ミラクルソード</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>13</span>
+                                    <div class="free-text">敵1体に通常攻撃の約1.3倍のダメージを与え、自身を回復する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'zonbigiri' %}" class="scroll-link">
+                                    ゾンビ斬りの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/19.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/20.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ドワーフの洞窟・地下2階</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ゾンビ斬り</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>7</span>
+                                    <div class="free-text">敵1体に通常攻撃の約1.2倍のダメージを与える。<br>
+                                        ゾンビ系の敵には、通常攻撃の約1.4倍のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'akumagiri' %}" class="scroll-link">
+                                    あくま斬りの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/21.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/22.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ドムドーラの武器屋にあるタル</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>あくま斬り</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>7</span>
+                                    <div class="free-text">敵1体に通常攻撃の約1.2倍のダメージを与える。<br>
+                                        あくま系の敵には通常攻撃の約1.4倍のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'shinobiashi' %}" class="scroll-link">
+                                    しのびあしの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/23.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/24.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ドムドーラの北東の毒沼近くの地面</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>しのびあし</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>4</span>
+                                    <div class="free-text">フィールドやダンジョン移動中の敵のエンカウント率が下がる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'rihoimi' %}" class="scroll-link">
+                                    リホイミの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/25.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/26.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>メダル王の城にある、盗賊の鍵で開ける宝箱</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>リホイミ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>6</span>
+                                    <div class="free-text">味方1体のHPを少しずつ回復する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'bi-suto' %}" class="scroll-link">
+                                    ビーストの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/27.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/28.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ちいさなメダル10枚目の報酬</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ビーストモード</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>30</span>
+                                    <div class="free-text">2回行動になり、すばやさがすこしアップする。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'seishin' %}" class="scroll-link">
+                                    せいしんの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/29.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/30.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>迷いの森2マップ目</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>せいしんとういつ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>8</span>
+                                    <div class="free-text">自分のMPを毎ターン回復する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'behoimi' %}" class="scroll-link">
+                                    ベホイムの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/31.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/32.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>メルキドの西側にある民家2階の本棚</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ベホイム</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>10</span>
+                                    <div class="free-text">味方1体のHPを約165〜185回復する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'yaibakudaki' %}" class="scroll-link">
+                                    やいばくだきの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/33.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/34.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>メルキドの西側にある民家2階のクローゼット</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>やいばくだき</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>6</span>
+                                    <div class="free-text">敵1体に通常攻撃と同等のダメージを与え、たまに攻撃力をダウンさせる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'hyadain' %}" class="scroll-link">
+                                    ヒャダインの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/35.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/36.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>岩泣き島・外観</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>ヒャダイン</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>12</span>
+                                    <div class="free-text">敵全体に約70〜85のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'remira-ma' %}" class="scroll-link">
+                                    レミラーマの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/37.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/38.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ラダトーム城・1階で、最後の鍵で開けた先の宝箱</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>レミラーマ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>2</span>
+                                    <div class="free-text">町やダンジョンで画面内にある未入手のアイテムの場所を光らせる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'kutibue' %}" class="scroll-link">
+                                    くちぶえの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/39.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/40.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ガライの墓・地下1階にある宝箱（盗賊の鍵）</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>くちぶえ</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>0</span>
+                                    <div class="free-text">フィールドで使うと敵を呼び寄せる。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'mahyadogiri' %}" class="scroll-link">
+                                    マヒャド斬りの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/41.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/42.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ガライの墓・地下3階にある宝箱（最後の鍵）</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>マヒャド斬り</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>14</span>
+                                    <div class="free-text">敵1体に通常攻撃の約1.4倍のダメージを与える。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="checkbox">
+                                </div>
+                            </td>
+
+                            <td class="center-text">
+                                <a href="{% url 'database:scroll_detail' 'meisou' %}" class="scroll-link">
+                                    めいそうの巻物
+                                </a>
+                            </td>
+                            
+                            <td class="third-column">
+                                <div class="row-block">
+                                    <div class="img-row">
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/43.jpg' %}" alt="img1" class="zoomable">
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="img-wrapper">
+                                            <img src="{% static 'database/images/dq1/scrolls/44.jpg' %}" alt="img2" class="zoomable">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="label label-place">場所</div>
+                                    <span>ちいさなメダル35枚目の報酬</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-learn">習得</div>
+                                    <span>めいそう</span>
+                                </div>
+
+                                <div class="row-block">
+                                    <div class="label label-mp">消費MP</div>
+                                    <span>30</span>
+                                    <div class="free-text">自分のHPを500回復する。</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                
+                <div class="step-text text-center">ドラクエ1リメイクの巻物は、フィールドやダンジョン探索、宝箱やちいさなメダルの交換で入手できます。<br>
+                    <br>
+                    使用すると特技や呪文を覚えることができ冒険に役立つので、近くに立ち寄ったら入手しておくのがおすすめです。
+                </div><br><br>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+    function filterTable(type) {
+    const rows = document.querySelectorAll('.scroll-table tbody tr');
+    rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if(type === 'all') {
+            row.style.display = '';
+        } else if(type === 'checked') {
+            row.style.display = checkbox.checked ? '' : 'none';
+        } else if(type === 'unchecked') {
+            row.style.display = checkbox.checked ? 'none' : '';
+        }
+    });
+}
+    function toggleCheck(el) {
+    el.textContent = el.textContent === "☐" ? "☑" : "☐";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+
+document.querySelectorAll('.scroll-table tbody input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+        const currentFilter = document.querySelector('.filter-buttons button.active');
+        if(currentFilter) filterTable(currentFilter.dataset.type);
+    });
+});
+
+</script>
+
+{% endblock %}

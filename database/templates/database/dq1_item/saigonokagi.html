@@ -1,0 +1,643 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 さいごのかぎ{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/item/saigonokagi/banner.jpg' %}">
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">さいごのかぎの入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">マイラでエイリアンフライ撃破後に入手</div>
+                <img src="{% static 'database/images/dq1/item/saigonokagi/1.jpg' %}">
+                <div class="area-place-table">
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/saigonokagi/2.jpg' %}" class="zoomable">
+                            <div class="apt-text">マップ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/saigonokagi/3.jpg' %}" class="zoomable">
+                            <div class="apt-text">詳細マップ</div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="step-text">ドラクエ1の最後の鍵は、マイラでエイリアンフライを撃破すると入手できます。<br>
+                    <br>
+                    エルフの隠れ里でドラゴンゾンビを倒した後にマイラへ行くとエイリアンフライと戦闘になります。
+                </div><br>
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_alienfly' %}" class="btn-story-link">
+                        ▶ エイリアンフライの攻略と推奨レベル
+                    </a>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">まほうのかぎの使用場所と宝箱のアイテム</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">ラダトームの使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/4.jpg' %}" alt="マップ" class="zoomable">
+                        <p>ラダトーム城・1階</p>
+                        </td>
+                        <td><br>
+                        宝物庫が開けられる<br>
+                        <br>
+                        <hr>
+                        ・12000ゴールド<br>
+                        ・<a href="{% url 'database:item_detail' 'eruhunonomigusuri' %}">エルフののみぐすり</a><br>
+                        ・<a href="#">まじんのオノ</a><br>
+                        ・<a href="{% url 'database:scroll_detail' 'remira-ma' %}">レミラーマの巻物</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/5.jpg' %}" alt="マップ" class="zoomable">
+                        <p>ラダトーム</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        教会2階の牢屋を開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="{% url 'database:dq1_medal_list' %}">ちいさなメダル</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/6.jpg' %}" alt="マップ" class="zoomable">
+                        <p>ラダトーム</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        民家2階の宝箱が開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="{% url 'database:item_detail' 'abunaiekisu' %}">あぶないエキス</a>
+                        <br>
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、ラダトームがあります。<br>
+                    <br>
+                    ラダトームでは、城内や町の各所で扉を開けられるようになり、貴重なアイテムを入手できます。<br>
+                    特にラダトーム城の宝物庫では、強力な武器「まじんのオノ」や便利な「レミラーマの巻物」など、終盤の冒険で役立つ装備や道具が手に入ります。<br>
+                    また、教会の2階にある牢屋では「小さなメダル」、町の民家の2階では「あぶないエキス」を入手可能です。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_radato-mu' %}" class="btn-story-link">
+                        ▶ ラダトームのマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">雨のほこらの使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/7.jpg' %}" alt="マップ" class="zoomable">
+                        <p>雨のほこら1階</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        ストーリー進行で開ける<br>
+                        <br>
+                        <hr>
+                        無し
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、雨のほこらがあります。<br>
+                    <br>
+                    ここではストーリー進行中に扉を開ける場面がありますが、特別な宝箱やアイテムは存在しません。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_amenohokora' %}" class="btn-story-link">
+                        ▶ 雨のほこらのマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">ドワーフの洞窟の使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/8.jpg' %}" alt="マップ" class="zoomable">
+                        <p>ドワーフの洞窟地下1階</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        奥にある宝箱を開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="{% url 'database:dq1_medal_list' %}">ちいさなメダル</a>
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、ドワーフの洞窟があります。<br>
+                    <br>
+                    地下1階の奥にある扉を開けると、宝箱からちいさなメダルを入手可能です。<br>
+                    この場所は序盤から訪れることができますが、扉の先には進めないため、最後の鍵を入手した後に再訪する必要があります。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}" class="btn-story-link">
+                        ▶ ドワーフの洞窟のマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">メダル王の城の使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/9.jpg' %}" alt="マップ" class="zoomable">
+                        <p>メダル王の城</p>
+                        </td>
+                        <td>
+                        <br>
+                        城の左右にある宝箱を開けられる<br>
+                        <br>
+                        <hr>
+                        左：<a href="{% url 'database:dq1_medal_list' %}">ちいさなメダル</a><br>
+                        右：<a href="#">あくまのムチ</a>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、メダル王の城があります。<br>
+                    <br>
+                    城の左右にある部屋の扉を開けることで、宝箱からちいさなメダルとあくまのムチを入手できます。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_medaruounoshiro' %}" class="btn-story-link">
+                        ▶ メダル王の城のマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">メルキドの使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/10.jpg' %}" alt="マップ" class="zoomable">
+                        <p>メルキド</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        民家2階の宝箱が開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="{% url 'database:dq1_medal_list' %}">ちいさなメダル</a>
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、メルキドがあります。<br>
+                    <br>
+                    町の民家2階にある扉を開けることで、宝箱からちいさなメダルを入手可能です。<br>
+                    見逃しやすい位置にあるため、最後の鍵を手に入れたら町を一通り探索しておくとよいでしょう。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_merukido' %}" class="btn-story-link">
+                        ▶ メルキドのマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">岩泣き島の使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/11.jpg' %}" alt="マップ" class="zoomable">
+                        <p>岩泣き島・外観</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        岩泣き島・外観の宝箱を開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="#">ロトの盾</a>
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、岩泣き島があります。<br>
+                    <br>
+                    島の外観部分にある扉を開けると、宝箱からロトの盾を入手できます。<br>
+                    ロトシリーズ装備のひとつであり、強力な防御力を持つ貴重なアイテムです。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_iwanakishima' %}" class="btn-story-link">
+                        ▶ 岩泣き島のマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">ガライの墓の使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/12.jpg' %}" alt="マップ" class="zoomable">
+                        <p>ガライの墓地下1階</p>
+                        </td>
+                        <td><br>
+                        <br>
+                        ストーリー進行で開ける<br>
+                        <br>
+                        <hr>
+                        無し
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、ガライの墓があります。<br>
+                    <br>
+                    地下1階でストーリー進行中に扉を開ける場面がありますが、宝箱や入手アイテムはありません。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_garainohaka' %}" class="btn-story-link">
+                        ▶ ガライの墓のマップを見る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">旅人の宿屋の使用場所と宝箱のアイテム</div><br>
+                
+                <table class="dw-map-table">
+                    <tr class="header-row">
+                        <td>マップ画像</td>
+                        <td>内容／入手できるもの</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <img src="{% static 'database/images/dq1/item/saigonokagi/13.jpg' %}" alt="マップ" class="zoomable">
+                        <p>旅人の宿屋</p>
+                        </td>
+                        <td><br>
+                        ドアの先の宝箱を開けられる<br>
+                        井戸の中の宝箱を開けられる<br>
+                        <br>
+                        <hr>
+                        ・<a href="{% url 'database:item_detail' 'kenjanoseisui' %}">けんじゃのせいすい</a><br>
+                        ・<a href="#">はんにゃのめん</a><br>
+                        ・<a href="{% url 'database:item_detail' 'staminanotane' %}">スタミナのたね</a>
+                        </td>
+                    </tr>
+                </table>
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+                <div class="step-text"><br>さいごのかぎの使用場所として、旅人の宿屋があります。<br>
+                    <br>
+                    宿屋の内部と井戸の中、どちらにも最後の鍵で開けられる扉があり、それぞれの先に宝箱があります。
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_tabibitonoyadoya' %}" class="btn-story-link">
+                        ▶ 旅人の宿屋のマップを見る
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/item/banner.jpg' %}">
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_items_list' %}" class="btn-story-link">
+                        ▶ アイテムトップへ戻る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">重要アイテム</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ほしの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">つきの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">みずの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'youseinohue' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ようせいのふえ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'ginnotategoto' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ぎんのたてごと</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'nizinosizuku' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">虹のしずく</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounoishi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの石</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hikarinotama' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ひかりのたま</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'touzokunokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">とうぞくのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mahounokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まほうのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'saigonokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">さいごのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-number text-center">たね・きのみ</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tikaranotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ちからのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mamorinotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まもりのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'sutaminanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">スタミナのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'kashikosanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">かしこさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'subayasanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">すばやさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'rakkunotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ラックのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinokinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちのきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hushiginakinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ふしぎなきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+{% endblock %}

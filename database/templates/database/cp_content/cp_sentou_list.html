@@ -1,0 +1,1047 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【戦闘スキル】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#skill1">▶ Tier1</a></li>
+            <li><a href="#skill2">▶ Tier2</a></li>
+            <li><a href="#skill3">▶ Tier3</a></li>
+            <li><a href="#skill4">▶ Tier4</a></li>
+            <li><a href="#skill5">▶ Tier5</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#skill" class="btn-story-link">▶ 戻る</a></li>
+        </ul>
+    </aside>
+
+
+
+<main class="main-content">
+        
+    <div id="skill"></div><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band" style="width: 102%; margin-left: -1%;">戦闘スキル一覧</div>
+        </div>
+
+    <div id="skill"></div>
+        <div class="step-content">
+            <div class="step-header">
+            </div>
+        
+            <div class="step-body">
+                <img src="{% static 'database/cp_images/sks(34).jpg' %}" style="width: 700px; margin-left: 15px;">
+            
+            <div id="skill1"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier1</div>
+                <table style="margin-left:-27px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>武具研磨?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>2</td>
+							<td>-</td>
+							<td>1</td>
+							<td>60</td>
+							<td>得物を研いで次の攻撃のATKを増加させる。複数回研いで更にATKを増加させることができる。</td>
+						</tr>
+						<tr>
+							<td>トリプルスラッシュ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>片手剣で素早く敵を3回切りつける。</td>
+						</tr>
+						<tr>
+							<td>咆哮?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30</td>
+							<td>-</td>
+							<td>45</td>
+							<td>-</td>
+							<td>大声を出して周囲を巻き込み攻撃する。</td>
+						</tr>
+						<tr>
+							<td>スタディエイム?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>-</td>
+							<td>60～50</td>
+							<td>20～30</td>
+							<td>効果時間中は、銃の反動を大きく低減させる。</td>
+						</tr>
+						<tr>
+							<td>デスペラード?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>15～5</td>
+							<td>-</td>
+							<td>20～5</td>
+							<td>-</td>
+							<td>後ろに飛び下がりながら銃撃する。</td>
+						</tr>
+						<tr>
+							<td>鉄壁?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>盾で敵の攻撃をガードした際のダメージが減少する。</td>
+						</tr>
+						<tr>
+							<td>ツーハンデッド?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>両手武器と刀を使えるようになる。スキルLvが上がると両手武器と刀のATKが増加し、スタミナ消費率を軽減する。両手剣では、(マウス右ボタン)で"溜め"ができる。</td>
+						</tr>
+						<tr>
+							<td>パリィ?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>タイミングよく盾攻撃を行うと敵の魔法や矢を跳ね返すことができるようになる。</td>
+						</tr>
+						<tr>
+							<td>マーシャルアーツ拳?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>素手のATKが増加する。</td>
+						</tr>
+						<tr>
+							<td>剛弓?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>弓を溜めた時の威力が高まる。</td>
+						</tr>
+						<tr>
+							<td>盾の半面?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>盾の重さによる攻撃力低下を軽減する。</td>
+						</tr>
+						<tr>
+							<td>トンボ切り?【未実装】</td>
+							<td>6</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill2"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier2</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>コンボストライク?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>15</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>連続で攻撃を叩き込んで敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>タウント?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>30</td>
+							<td>10～15</td>
+							<td>敵を挑発して敵を引き付ける。一定時間DEFと盾攻撃のATKが少し増加し、ガード中はDEFが更に増加する。</td>
+						</tr>
+						<tr>
+							<td>シールドチャージ?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>15</td>
+							<td>-</td>
+							<td>ガード状態で盾でダッシュ攻撃。盾のDEF増加。</td>
+						</tr>
+						<tr>
+							<td>ドラゴンフォール?</td>
+							<td>3</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>満腹度2</td>
+							<td>40～30</td>
+							<td>-</td>
+							<td>大ジャンプの後、落下中に空中制動して頭上から武器を突き立てる。敵に当たるともう一回ジャンプする。</td>
+						</tr>
+						<tr>
+							<td>マルチウェイ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>30～20</td>
+							<td>-</td>
+							<td>扇状に複数の矢を放ってダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>ラピッドファイア?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>素早く3本の矢を連射してダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>追い討ち?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>7</td>
+							<td>-</td>
+							<td>20</td>
+							<td>-</td>
+							<td>敵の前方まで移動して斬りつける。</td>
+						</tr>
+						<tr>
+							<td>バトルヒム?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>満腹度5</td>
+							<td>500</td>
+							<td>300</td>
+							<td>歌で仲間を鼓舞することで、自分と範囲内の仲間のATKを増加させる。</td>
+						</tr>
+						<tr>
+							<td>鼓舞?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>15</td>
+							<td>満腹度5</td>
+							<td>180</td>
+							<td>120</td>
+							<td>仲間を応援することで範囲内の仲間のATKを増加させる。</td>
+						</tr>
+						<tr>
+							<td>ジャンプアタック?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>6～5</td>
+							<td>-</td>
+							<td>敵にとびかかりダメージを与える。敵のシールドを削るのに効果が高い。</td>
+						</tr>
+						<tr>
+							<td>デュアルブレード?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>2本の剣から衝撃波を飛ばす遠距離攻撃。</td>
+						</tr>
+						<tr>
+							<td>魂の慟哭?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>5</td>
+							<td>-</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>魂の叫びを発し、周囲の敵を自身の近くに引き寄せる。</td>
+						</tr>
+						<tr>
+							<td>崩し?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>-</td>
+							<td>20～15</td>
+							<td>-</td>
+							<td>後方に回避しながら敵を切り伏せる刀技。</td>
+						</tr>
+						<tr>
+							<td>ハイグリップホールド?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>-</td>
+							<td>60</td>
+							<td>20～30</td>
+							<td>効果時間中は、有効射程距離を無視してダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>スプレッドショット?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25～10</td>
+							<td>-</td>
+							<td>25～5</td>
+							<td>-</td>
+							<td>360度周囲に銃弾をばらまく範囲攻撃。</td>
+						</tr>
+						<tr>
+							<td>サイズミック・チャージ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>80～70</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>地面に突き刺した剣へエネルギーを流し込み爆発させ、周囲の敵にダメージを与える。スタンバイ！</td>
+						</tr>
+						<tr>
+							<td>サイコガン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>精神力をエネルギーに換え撃ち出したダメージを与え続けるスキル。</td>
+						</tr>
+						<tr>
+							<td>フェザースコール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50～40</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>空から大量の羽根を矢のように降り注がせる。</td>
+						</tr>
+						<tr>
+							<td>二刀流?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>二刀流を使えるようになる。スキルLvが上がると、二刀流時のスキル攻撃力倍率が上がる。</td>
+						</tr>
+						<tr>
+							<td>ジャンピングショット?</td>
+							<td>1</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>弓を装備中、ジャンプ中に左クリックでエイムできるようになる。</td>
+						</tr>
+						<tr>
+							<td>回転斬り?</td>
+							<td>6</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>満腹度</td>
+							<td>-</td>
+							<td>-</td>
+							<td>しゃがみ＋左クリックで回転攻撃を行う。左クリックを押し続けるとスタミナを消費して回転しつづけ、回転時間に応じて徐々にATKがあがる。ただし、とても疲れるので満腹度が少し減る。</td>
+						</tr>
+						<tr>
+							<td>溜め斬り?</td>
+							<td>6</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>左クリック長押しで発動する片手剣限定の強力な一撃。発動時に一瞬無敵になる。</td>
+						</tr>
+						<tr>
+							<td>バッシュ強化?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>盾攻撃が強化され、与えるダメージが増加し、敵をスタンさせた時のスタン時間が延長される。</td>
+						</tr>
+						<tr>
+							<td>カウンター?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>敵の攻撃に合わせて盾攻撃が成功すると、次の一撃のATKが増加する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill3"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier3</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>バーサーク?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>満腹度2</td>
+							<td>120</td>
+							<td>45</td>
+							<td>一時的にバーサーク状態になりATKと攻撃速度が増加するが、DEFが低下する。</td>
+						</tr>
+						<tr>
+							<td>ストームアロー?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>扇状に3度矢を放つコンボ。また矢に当たった敵にスロウ効果を与える。</td>
+						</tr>
+						<tr>
+							<td>ブレードダンス?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>定点連撃。敵の近接攻撃に対するカウンター効果がある。</td>
+						</tr>
+						<tr>
+							<td>チャージスピア?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>5</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>渾身の一撃を当て、槍投げの威力を上げる。</td>
+						</tr>
+						<tr>
+							<td>背水の陣?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>35</td>
+							<td>-</td>
+							<td>180</td>
+							<td>60</td>
+							<td>DEFが下がる代わりに、ATKが大幅に増加する。</td>
+						</tr>
+						<tr>
+							<td>ジャッジメントショット?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30</td>
+							<td>-</td>
+							<td>15</td>
+							<td>-</td>
+							<td>敵に当たると雷が落ちる弾を放つ。</td>
+						</tr>
+						<tr>
+							<td>紫電一閃?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>コンボ攻撃の最後に武器を閃光させ、周囲の敵を目眩状態にする。</td>
+						</tr>
+						<tr>
+							<td>リープストライク?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>高く飛び上がりながら切りつけ、頭に当てられればDEFを減少させられる。</td>
+						</tr>
+						<tr>
+							<td>ジャンプアタック?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>6～5</td>
+							<td>-</td>
+							<td>敵にとびかかりダメージを与える。敵のシールドを削るのに効果が高い。</td>
+						</tr>
+						<tr>
+							<td>ブラッドファング?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～25</td>
+							<td>-</td>
+							<td>45～30</td>
+							<td>-</td>
+							<td>左右から切りつけ、敵にダメージを与えると同時に「出血」効果を与える。</td>
+						</tr>
+						<tr>
+							<td>スクラッチローズ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>20～10</td>
+							<td>-</td>
+							<td>連撃により敵に複数回ダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>脳天割り?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～25</td>
+							<td>-</td>
+							<td>20～15</td>
+							<td>-</td>
+							<td>フルパワーで槍を叩きつけ衝撃を起こし、周囲の敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>払車?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>5</td>
+							<td>-</td>
+							<td>周囲を切り払う刀技。ダメージ：10~</td>
+						</tr>
+						<tr>
+							<td>フルメタルジャケット?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>10</td>
+							<td>-</td>
+							<td>マガジン内の弾薬をすべて使いきって敵にダメージを与える。与えるダメージは残弾数に応じて変化する。</td>
+						</tr>
+						<tr>
+							<td>ホローポイント</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>60</td>
+							<td>15～30</td>
+							<td>特殊な弾頭を打ち出す。命中した弾丸の威力が0.1～2.0倍になる。</td>
+						</tr>
+						<tr>
+							<td>Fire in the hole!?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>15～5</td>
+							<td>-</td>
+							<td>75～60</td>
+							<td>-</td>
+							<td>後ろに飛び下がりながら、ちょっとした置き土産を敵に与える。</td>
+						</tr>
+						<tr>
+							<td>フロッグストンプ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>80～60</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>大きく跳躍し、落下の勢いを利用して周囲に大ダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>ドラゴンテイル?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>80～60</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>ドラゴンタイプのエネルギーを帯びた槍を尻尾の如く振るい、前方の敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>一刀両断?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>80～60</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>敵を凍らせ身動きが取れないところを切り付けることで大ダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>黄金の風?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>40～25</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>波動の力を身にまといクリティカル率*1が上昇する。</td>
+						</tr>
+						<tr>
+							<td>フォレスター?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>弓の通常攻撃のダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>ライフスティール?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>敵に近接攻撃をヒットさせた時、確率でライフを回復する。</td>
+						</tr>
+						<tr>
+							<td>サムライ?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>刀の攻撃において、部位への硬さをある程度無視できる。ただし、既に柔らかい部位への効果は限定的となる。</td>
+						</tr>
+						<tr>
+							<td>アンストッパブル?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>8</td>
+							<td>ダメージを受けるまで、近接攻撃する度に近接攻撃のダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>マーシャルアーツ頭?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>頭装備を装備していないとき、素手のATK、APSDと物理クリティカル率が増加する。</td>
+						</tr>
+						<tr>
+							<td>マーシャルアーツ胴?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>体装備を装備していないとき、素手のATK、移動速度と物理クリティカルダメージが増加する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill4"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier4</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>ランページ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>75</td>
+							<td>30</td>
+							<td>一定時間物理クリティカル率が上昇する。敵を倒すたびに継続時間がリフレッシュされ、物理クリティカル率がさらに上昇する。</td>
+						</tr>
+						<tr>
+							<td>電光石火?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>35</td>
+							<td>-</td>
+							<td>45</td>
+							<td>-</td>
+							<td>目にも止まらぬ速さで居合連撃を繰り出し、最初にヒットした敵一体にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>中華斬舞?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60</td>
+							<td>マナ消費</td>
+							<td>125～100</td>
+							<td>-</td>
+							<td>槍で連続突きを行う。しかし、徐々にマナを消費する。一定回数以上攻撃を継続すると最後に強突きを繰り出し、これをヒットさせると槍投げバフが最大まで溜まる。</td>
+						</tr>
+						<tr>
+							<td>ピアシングタロン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>30～20</td>
+							<td>-</td>
+							<td>敵に向かって突進し、貫通ダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>ブラッドシュレッダー?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～25</td>
+							<td>-</td>
+							<td>45～30</td>
+							<td>-</td>
+							<td>切り上げた勢いを利用して敵を切りつけ、ダメージを与える。「出血」状態の敵には効果が上昇する。</td>
+						</tr>
+						<tr>
+							<td>半月?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25～20</td>
+							<td>-</td>
+							<td>30～25</td>
+							<td>-</td>
+							<td>渾身の力で槍を横薙ぎに振りぬくことで、正面に立つ敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>虎口?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>55～50</td>
+							<td>-</td>
+							<td>50</td>
+							<td>-</td>
+							<td>前方へ突進して抜刀し斬撃。 ：100～300（恐らく威力）</td>
+						</tr>
+						<tr>
+							<td>クイックリロード?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>3</td>
+							<td>-</td>
+							<td>10</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>メタルジェット?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30</td>
+							<td>-</td>
+							<td>30</td>
+							<td>10</td>
+							<td>敵に一定時間ダメージを蓄積させて、その蓄積量の一定倍数のダメージを追って与える</td>
+						</tr>
+						<tr>
+							<td>バレルロール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>15～5</td>
+							<td>-</td>
+							<td>150～120</td>
+							<td>-</td>
+							<td>後ろに飛び下がりながら、素敵な置き土産を敵に与える。</td>
+						</tr>
+						<tr>
+							<td>アシッドリキッド?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60～40</td>
+							<td>-</td>
+							<td>60～40</td>
+							<td>-</td>
+							<td>あらゆるものを溶かす強力な酸を指定した位置へ浴びせかける。</td>
+						</tr>
+						<tr>
+							<td>邪龍の浸食?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50～40</td>
+							<td>ライフ</td>
+							<td>3</td>
+							<td>9999</td>
+							<td>自身の生命力を犠牲にし、強力な力を身に纏う。生命の危険が近づくと浸食は終了する。</td>
+						</tr>
+						<tr>
+							<td>ラース?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ライフが少なくなった時、ATKが大幅に上昇する。</td>
+						</tr>
+						<tr>
+							<td>ブルズアイ?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>弓のヘッドショット時のダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>達人?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>二刀流と刀の物理クリティカル率が増加する。</td>
+						</tr>
+						<tr>
+							<td>修羅?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>二刀流と刀の物理クリティカルダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>バックスタブ?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>一定時間ごとに背後からの近接攻撃がクリティカルになり、与えるダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>フォレスター2?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>弓の通常攻撃のダメージが更に増加する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill5"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier5</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            			<tr>
+							<td>マグナムショット?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>60</td>
+							<td>-</td>
+							<td>90</td>
+							<td>-</td>
+							<td>超高火力の矢や弾を打ち出す。</td>
+						</tr>
+						<tr>
+							<td>鎧袖一触?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50</td>
+							<td>-</td>
+							<td>60</td>
+							<td>-</td>
+							<td>全てを断ち切るほどの強力な斬撃で、範囲内の敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>居合切り?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>45</td>
+							<td>-</td>
+							<td>90</td>
+							<td>-</td>
+							<td>居合の一撃。</td>
+						</tr>
+						<tr>
+							<td>百花繚乱?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60</td>
+							<td>-</td>
+							<td>120</td>
+							<td>-</td>
+							<td>めっちゃコンボする。さらに、あまりの速さから敵の攻撃のほぼ全て無効化する。</td>
+						</tr>
+						<tr>
+							<td>エクスカリバー?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>200</td>
+							<td>-</td>
+							<td>1200</td>
+							<td>-</td>
+							<td>前方の敵をすべて薙ぎ払う。</td>
+						</tr>
+						<tr>
+							<td>双剣乱舞?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60</td>
+							<td>-</td>
+							<td>120～30</td>
+							<td>-</td>
+							<td>2本の剣を振り回して敵に切りかかり、周囲の敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>ブラッドスカージ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60</td>
+							<td>スタミナ</td>
+							<td>60</td>
+							<td>-</td>
+							<td>スタミナをすべて消費し、敵に大ダメージを与える。与えるダメージはスタミナの残量により変化し、「出血」状態の敵にはさらに効果が上昇する。</td>
+						</tr>
+						<tr>
+							<td>流星衝?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>45</td>
+							<td>-</td>
+							<td>60～45</td>
+							<td>-</td>
+							<td>流星の如き速度で敵を突き崩す。</td>
+						</tr>
+						<tr>
+							<td>溶岩噴火?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50～40</td>
+							<td>-</td>
+							<td>50～40</td>
+							<td>-</td>
+							<td>前方にランダムで溶岩を噴出させる。ダメージ：20~23、 発射数：1~4</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</main>
+
+{% endblock %}

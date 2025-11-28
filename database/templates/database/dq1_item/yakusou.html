@@ -1,0 +1,916 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 やくそう{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">やくそうの入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">ショップで購入</div><br>
+
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th class="shop-col-left">ショップ</th>
+                            <th class="shop-col-right">場所／値段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">旅人の宿屋の道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/1.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/2.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">メルキドの道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/3.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/4.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">メダル王の城</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/5.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/6.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">リムルダールの道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/7.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/8.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">マイラの道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/9.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/10.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">ガライの道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/11.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/12.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <!-- 左列 -->
+                            <td class="shop-col-left">
+                                <div class="shop-left-wrapper">ラダトームの道具屋</div>
+                            </td>
+
+                            <!-- 右列 -->
+                            <td class="shop-col-right">
+                                <div class="shop-icon-wrapper">
+                                    <!-- クリックでモーダル拡大 -->
+                                    <img src="{% static 'database/images/dq1/item/yakusou/13.jpg' %}" class="shop-icon zoomable"><br>
+                                    <span class="price-text">8G</span>
+                                    <hr class="shop-divider">
+                                    <!-- ホバーでポップアップ -->
+                                    <span class="popup-trigger">
+                                        場所詳細
+                                        <img src="{% static 'database/images/dq1/item/yakusou/14.jpg' %}" class="shop-popup">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <!-- ▼ モーダル拡大 -->
+                <div id="image-modal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+
+                <div class="step-number text-center">キラキラ・ひみつの場所で入手</div><br>
+
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">エリア</div>
+                        <div class="apt-cell header-cell">場所詳細</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/15.jpg' %}" class="zoomable">
+                            <div class="apt-text">ひみつの場所</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/16.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/17.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/18.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/19.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/20.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/21.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/22.jpg' %}" class="zoomable">
+                            <div class="apt-text">ラダトーム東部</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/23.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/24.jpg' %}" class="zoomable">
+                            <div class="apt-text">ガライ周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/25.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/26.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/27.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/28.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/29.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/30.jpg' %}" class="zoomable">
+                            <div class="apt-text">リムルダール周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/31.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/32.jpg' %}" class="zoomable">
+                            <div class="apt-text">ドワーフの洞窟周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/33.jpg' %}" class="zoomable">
+                            <div class="apt-text">キラキラ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/34.jpg' %}" class="zoomable">
+                            <div class="apt-text">メルキド周辺</div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="step-number text-center">フィールド探索で入手</div><br>
+
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">マップ</div>
+                        <div class="apt-cell header-cell">現地画像</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/35.jpg' %}" class="zoomable">
+                            <div class="apt-text">ツボ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/36.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下2階</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/37.jpg' %}" class="zoomable">
+                            <div class="apt-text">ツボ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/38.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/39.jpg' %}" class="zoomable">
+                            <div class="apt-text">宝箱</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/40.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下3階</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/41.jpg' %}" class="zoomable">
+                            <div class="apt-text">宝箱</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/42.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下6階</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/43.jpg' %}" class="zoomable">
+                            <div class="apt-text">タル</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/44.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_2階・外観</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/45.jpg' %}" class="zoomable">
+                            <div class="apt-text">タル</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/46.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/47.jpg' %}" class="zoomable">
+                            <div class="apt-text">ツボ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/48.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下1階<br>
+                                    （さいごの鍵）
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/49.jpg' %}" class="zoomable">
+                            <div class="apt-text">ツボ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/50.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_garai' %}">ガライ_船着き場<br>
+                                    （とうぞくの鍵）
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/51.jpg' %}" class="zoomable">
+                            <div class="apt-text">ツボ</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/item/yakusou/52.jpg' %}" class="zoomable">
+                            <div class="apt-text">
+                                <a href="{% url 'database:dq1_merukido' %}">メルキド</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="step-number text-center">モンスターからのドロップ</div><br>
+
+                <div class="monster-table-wrapper">
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster1.jpg' %}" alt="スライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suraimu' %}">スライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster2.jpg' %}" alt="スライムベス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suraimubesu' %}">スライムベス</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster7.jpg' %}" alt="やまねずみ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'yamanezumi' %}">やまねずみ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster28.jpg' %}" alt="ドロル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'dororu' %}">ドロル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster13.jpg' %}" alt="ホイミスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hoimisuraimu' %}">ホイミスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster24.jpg' %}" alt="おばけありくい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'obakearikui' %}">おばけありくい</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster31.jpg' %}" alt="ドラキーマ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doraki-ma' %}">ドラキーマ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster15.jpg' %}" alt="アニマルゾンビ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'animaruzonbi' %}">アニマルゾンビ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster17.jpg' %}" alt="リザードフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'riza-dohurai' %}">リザードフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster21.jpg' %}" alt="ぐんたいガニ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'guntaigani' %}">ぐんたいガニ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster33.jpg' %}" alt="おおねずみ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'oonezumi' %}">おおねずみ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster53.jpg' %}" alt="マドハンド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'madohando' %}">マドハンド</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster36.jpg' %}" alt="ベビーサタン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'bebi-satan' %}">ベビーサタン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster35.jpg' %}" alt="バリイドドッグ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'bariidodoggu' %}">バリイドドッグ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster45.jpg' %}" alt="てつのさそり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'tetunosasori' %}">てつのさそり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster46.jpg' %}" alt="アントベア">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'antobea' %}">アントベア</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster48.jpg' %}" alt="ヒートギズモ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hi-togizumo' %}">ヒートギズモ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster62.jpg' %}" alt="マッドオックス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'maddookkusu' %}">マッドオックス</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster63.jpg' %}" alt="シャドー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'syado-' %}">シャドー</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster77.jpg' %}" alt="しびれくらげ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shibirekurage' %}">しびれくらげ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">やくそうの効果</div><br>
+            </div>
+
+            <div class="item-info-table">
+                <div class="item-info-row">
+                    <div class="item-info-cell label">アイテム</div>
+                    <div class="item-info-cell value">やくそう</div>
+                </div>
+                <div class="item-info-row">
+                    <div class="item-info-cell label">種類</div>
+                    <div class="item-info-cell value">HP回復</div>
+                </div>
+                <div class="item-info-row">
+                    <div class="item-info-cell label">効果</div>
+                    <div class="item-info-cell value">HPを30〜回復</div>
+                </div>
+            </div><br>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/item/banner.jpg' %}">
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_items_list' %}" class="btn-story-link">
+                        ▶ アイテムトップへ戻る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">重要アイテム</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ほしの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">つきの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">みずの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'youseinohue' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ようせいのふえ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'ginnotategoto' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ぎんのたてごと</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'nizinosizuku' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">虹のしずく</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounoishi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの石</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hikarinotama' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ひかりのたま</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'touzokunokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">とうぞくのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mahounokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まほうのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'saigonokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">さいごのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-number text-center">たね・きのみ</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tikaranotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ちからのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mamorinotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まもりのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'sutaminanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">スタミナのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'kashikosanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">かしこさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'subayasanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">すばやさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'rakkunotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ラックのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinokinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちのきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hushiginakinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ふしぎなきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+{% endblock %}

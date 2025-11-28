@@ -1,0 +1,587 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【魔法スキル】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#skill1">▶ Tier1</a></li>
+            <li><a href="#skill2">▶ Tier2</a></li>
+            <li><a href="#skill3">▶ Tier3</a></li>
+            <li><a href="#skill4">▶ Tier4</a></li>
+            <li><a href="#skill5">▶ Tier5</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#skill" class="btn-story-link">▶ 戻る</a></li>
+        </ul>
+    </aside>
+
+
+
+<main class="main-content">
+        
+    <div id="skill"></div><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band" style="width: 102%; margin-left: -1%;">魔法スキル一覧</div>
+        </div>
+
+    <div id="skill"></div>
+        <div class="step-content">
+            <div class="step-header">
+            </div>
+        
+            <div class="step-body">
+                <img src="{% static 'database/cp_images/sks(34).jpg' %}" style="width: 700px; margin-left: 15px;">
+            
+            <div id="skill1"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier1</div>
+                <table style="margin-left:-27px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            			<tr>
+							<td>ヒール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>180</td>
+							<td>-</td>
+							<td>詠唱中は無敵になり、ライフを回復する。</td>
+						</tr>
+						<tr>
+							<td>ウィンドエッジ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>5</td>
+							<td>-</td>
+							<td>風の刃を飛ばす魔法。</td>
+						</tr>
+						<tr>
+							<td>クリエイトウォーター?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>3</td>
+							<td>-</td>
+							<td>-</td>
+							<td>15</td>
+							<td>無からバケツに入った水を生成する。</td>
+						</tr>
+						<tr>
+							<td>クリエイトファイヤー?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>3</td>
+							<td>-</td>
+							<td>-</td>
+							<td>15</td>
+							<td>無から焚き火を生成する。</td>
+						</tr>
+						<tr>
+							<td>ルーニックバレッジ?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>1</td>
+							<td>-</td>
+							<td>3</td>
+							<td>-</td>
+							<td>魔法弾を連続で打ち出す。通常攻撃と同じようにシールドを削ることができる。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill2"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier2</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>トニングボルト?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>-</td>
+							<td>15～10</td>
+							<td>-</td>
+							<td>指定した場所の周辺に雷を落として敵にダメージを与える。通常攻撃と同じようにシールドを削ることができる。</td>
+						</tr>
+						<tr>
+							<td>リフレッシュ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10～30</td>
+							<td>-</td>
+							<td>30～20</td>
+							<td>-</td>
+							<td>一定範囲内の邪悪な気を払い、無作為に自分にかけられたデバフ効果を無効にする。</td>
+						</tr>
+						<tr>
+							<td>リザレクション?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30</td>
+							<td>満腹度5</td>
+							<td>180</td>
+							<td>-</td>
+							<td>一定範囲内の仲間を復活させ、生きている仲間のライフを回復する。</td>
+						</tr>
+						<tr>
+							<td>魔法の矢筒?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>2～12%</td>
+							<td>満腹度0.1</td>
+							<td>1</td>
+							<td>9999</td>
+							<td>発動すると再度発動するまで弓で矢を放つ際にマナを消費して魔法の矢を放つ。また弓スキルのマナ消費率と与えるダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>サイクロン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>35</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>敵を巻き込み切り刻む竜巻を発生させる魔法。</td>
+						</tr>
+						<tr>
+							<td>アークヒール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>35</td>
+							<td>-</td>
+							<td>350</td>
+							<td>-</td>
+							<td>詠唱中は無敵になり、範囲内の味方のライフを回復する。</td>
+						</tr>
+						<tr>
+							<td>マジックブレード?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>35</td>
+							<td>-</td>
+							<td>180</td>
+							<td>60</td>
+							<td>一部の武器で攻撃する時、追加で魔法の斬撃を放つ。</td>
+						</tr>
+						<tr>
+							<td>マジックシールド?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50%</td>
+							<td>-</td>
+							<td>60</td>
+							<td>-</td>
+							<td>最大マナに応じた耐久度を持つ、ダメージを吸収するシールドを展開する。シールドは魔法ダメージを軽減して吸収する。</td>
+						</tr>
+						<tr>
+							<td>ファイアボール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>5</td>
+							<td>-</td>
+							<td>5～3</td>
+							<td>-</td>
+							<td>火の基本攻撃魔法。詠唱に時間をほとんど要さないため、短時間に連続で使用が可能。</td>
+						</tr>
+						<tr>
+							<td>ウィルオウィスプ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～20</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>全周囲の敵にダメージを与える。</td>
+						</tr>
+						<tr>
+							<td>グリモノワール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>40～25</td>
+							<td>-</td>
+							<td>60～30</td>
+							<td>-</td>
+							<td>大量のモノを召喚する。</td>
+						</tr>
+						<tr>
+							<td>ルーンストリーム?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>20</td>
+							<td>ダメージを受けるまで、魔法を使う度に魔法のダメージが増加する。</td>
+						</tr>
+						<tr>
+							<td>マジックグラスプ?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>20</td>
+							<td>近接攻撃する度に魔法攻撃スキルが与えるダメージを増加させるバフを獲得する。魔法攻撃スキルを使うとバフは解除される。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill3"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier3</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>マナサイフォン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>-</td>
+							<td>180</td>
+							<td>45</td>
+							<td>一定時間、スキル使用時のマナ消費率が増加するが、スキルのダメージが大幅に増加する。</td>
+						</tr>
+						<tr>
+							<td>ヘルズブレイズ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10～5</td>
+							<td>-</td>
+							<td>25～20</td>
+							<td>-</td>
+							<td>敵を焼き払う獄炎を放つ魔法。焼き払い続けると敵を獄炎状態にする。この世の炎と異なる獄炎の炎は、熱さはなく、水では消えず、命の量に応じてただ命を奪う。</td>
+						</tr>
+						<tr>
+							<td>フリージングレイ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>凍える冷たさのレザーを放つ魔法。しばらくの間、敵に当て続けると冷気や凍結の状態異常を発生させる。</td>
+						</tr>
+						<tr>
+							<td>タイムロック?</td>
+							<td>3</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>-</td>
+							<td>7～3</td>
+							<td>-</td>
+							<td>敵の時間を僅かに止める。ただし、連続使用すると敵は徐々にタイムロックに対する耐性を得る。</td>
+						</tr>
+						<tr>
+							<td>ネクロマンス?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50</td>
+							<td>ライフ50</td>
+							<td>60</td>
+							<td>-</td>
+							<td>NPCの死体をペットとして使役する。</td>
+						</tr>
+						<tr>
+							<td>ライフサイフォン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>1</td>
+							<td>-</td>
+							<td>発動すると再度発動するまでMATKが増加するが、魔法スキルを発動する度にライフを消費する。</td>
+						</tr>
+						<tr>
+							<td>プロテクション?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>25</td>
+							<td>-</td>
+							<td>60</td>
+							<td>45</td>
+							<td>範囲内の味方のDEFを上昇させる。</td>
+						</tr>
+						<tr>
+							<td>ピアシングライト?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20～10</td>
+							<td>-</td>
+							<td>25～15</td>
+							<td>-</td>
+							<td>敵のシールドを削るのに有効な光の魔法。</td>
+						</tr>
+						<tr>
+							<td>英知?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>マナ消費率を軽減する。</td>
+						</tr>
+						<tr>
+							<td>ファストキャスト?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>近接攻撃する度に魔法スキルのクールダウンを短縮する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill4"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier4</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            			<tr>
+							<td>サモンメテオ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>120</td>
+							<td>-</td>
+							<td>60</td>
+							<td>-</td>
+							<td>隕石を降らせて範囲内の敵にダメージを与える。ただし、ダンジョン内では使用できない。</td>
+						</tr>
+						<tr>
+							<td>フロストマイン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50</td>
+							<td>-</td>
+							<td>25</td>
+							<td>-</td>
+							<td>地面から突き出した氷で敵を貫く魔法。</td>
+						</tr>
+						<tr>
+							<td>ボールライトニング?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>50</td>
+							<td>-</td>
+							<td>45～35</td>
+							<td>-</td>
+							<td>雷の精霊を召喚して周囲の敵に継続的にダメージを与える。通常攻撃と同じようにシールドを削ることができる。</td>
+						</tr>
+						<tr>
+							<td>アンリミテッドフェイクブレード?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>120</td>
+							<td>-</td>
+							<td>70</td>
+							<td>-</td>
+							<td>「志した理想に溺れ、それでも答えを得た錬鉄の丘。物語に憧れ、しかし偽物であるわが身を自覚し、届かない憧れに手を伸ばした残滓。」</td>
+						</tr>
+						<tr>
+							<td>マントラ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>180</td>
+							<td>60</td>
+							<td>一定時間、最大ライフが減少し最大マナとマナ自然回復率が増加する。</td>
+						</tr>
+						<tr>
+							<td>ミアズマ?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>100</td>
+							<td>-</td>
+							<td>90</td>
+							<td>-</td>
+							<td>瘴気を放って周囲の敵に毒を付与する魔法。MATKが高いほど与える毒は強くなる。</td>
+						</tr>
+						<tr>
+							<td>グラビティフィールド?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>80～55</td>
+							<td>-</td>
+							<td>90</td>
+							<td>-</td>
+							<td>不明</td>
+						</tr>
+						<tr>
+							<td>ファイアストーム?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～20</td>
+							<td>-</td>
+							<td>30～15</td>
+							<td>-</td>
+							<td>火の応用攻撃魔法。巻き込まれた敵もダメージを食らう。</td>
+						</tr>
+						<tr>
+							<td>グランフルール?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>40～30</td>
+							<td>-</td>
+							<td>60</td>
+							<td>-</td>
+							<td>ランダムな花を呼び出し、一定時間の間正面方向に光弾を発射する魔法。</td>
+						</tr>
+						<tr>
+							<td>砂塵の呪縛?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30～10</td>
+							<td>-</td>
+							<td>180～150</td>
+							<td>-</td>
+							<td>命中した敵の行動を大きく制限する魔法。</td>
+						</tr>
+						<tr>
+							<td>マナの加護?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>10</td>
+							<td>-</td>
+							<td>非戦闘状態時、一定割合までマナが徐々に回復する。現在マナが少ないほど回復量は増加する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill5"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier5</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    					<tr>
+							<td>エクスキューション?</td>
+							<td>3</td>
+							<td>アクティブ</td>
+							<td>90</td>
+							<td>-</td>
+							<td>30</td>
+							<td>-</td>
+							<td>残りライフの少ない敵を一撃で倒す強力な技。ボスに対しては効果が低下する。</td>
+						</tr>
+						<tr>
+							<td>エクスプロージョン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>100%</td>
+							<td>ライフ99%</td>
+							<td>満腹度100%</td>
+							<td>86400</td>
+							<td>長時間詠唱した後に極大爆発を生む。その威力は凄まじく、全てが吹き飛び塵と化す。そして、使用者はすべての力を使い果たして動けなくなる。</td>
+						</tr>
+						<tr>
+							<td>ハイリザレクション?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>150</td>
+							<td>満腹度10</td>
+							<td>240</td>
+							<td>-</td>
+							<td>パーティー全員の回復と蘇生を行う究極魔法。</td>
+						</tr>
+						<tr>
+							<td>ファイアブレード?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>60～50</td>
+							<td>-</td>
+							<td>40～30</td>
+							<td>-</td>
+							<td>火の上級攻撃魔法。炎を龍の姿に出力し、敵を攻撃する。最初に命中した敵に対して高い効果を有する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'database/base.html' %}
+{% load static %}
+{% block title %}R.E.P.O. 攻略{% endblock %}
+{% block content %}
+
+<!-- メインビジュアル -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/repo/repo_cover1.jpg' %}" alt="REPO" class="top-image img-fluid w-100">
+</div>
+
+<!-- アイテムカテゴリナビ -->
+<div class="item-nav d-flex justify-content-center flex-wrap gap-3 mb-4">
+  <a href="#upgrade" class="btn btn-lg btn-dark px-5 py-3">アップグレードパック</a>
+  <a href="#heal" class="btn btn-lg btn-dark px-5 py-3">回復パック</a>
+  <a href="#drone" class="btn btn-lg btn-dark px-5 py-3">ドローン</a>
+  <a href="#other" class="btn btn-lg btn-dark px-5 py-3">その他</a>
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドメニュー -->
+    <aside class="col-md-3 sidebar bg-dark text-white p-3">
+        <h4 class="mb-3">目次</h4>
+        <ul class="toc-list list-unstyled">
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:guide_repo' %}">▶ ホーム</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:item_list' %}">▶ 武器一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:shop_item_list' %}">▶ ショップアイテム一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:monster_list' %}">▶ エンティティ一覧</a>
+            </li>
+            <li class="mb-2">
+                <a class="nav-link bg-light rounded px-3 py-2 d-block" href="{% url 'database:level_guide_list' %}">▶ MAP & レベル別攻略</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="col-md-9 main-content">
+        <section id="story" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">ショップアイテム</div>
+            </div>
+
+            <!-- アップグレードパック -->
+            <section id="upgrade" class="mb-5">
+                <h3>アップグレードパック</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>画像</th><th>名前</th><th>価格</th><th>説明</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in upgrade_items %}
+                        <tr>
+                            <td>
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="100">
+                                {% else %}
+                                    <span>画像なし</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                {% if item.min_price and item.max_price %}
+                                    {{ item.min_price }}k ～ {{ item.max_price }}k
+                                {% elif item.min_price %}
+                                    {{ item.min_price }}k
+                                {% else %}
+                                    価格未定
+                                {% endif %}
+                            </td>
+                            <td>{{ item.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 回復パック -->
+            <section id="heal" class="mb-5">
+                <h3>回復パック</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>画像</th><th>名前</th><th>価格</th><th>説明</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in heal_items %}
+                        <tr>
+                            <td>
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="100">
+                                {% else %}
+                                    <span>画像なし</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                {% if item.min_price and item.max_price %}
+                                    {{ item.min_price }}k～ {{ item.max_price }}k
+                                {% elif item.min_price %}
+                                    {{ item.min_price }}k
+                                {% else %}
+                                    価格未定
+                                {% endif %}
+                            </td>
+
+                            <td>{{ item.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ドローン -->
+            <section id="drone" class="mb-5">
+                <h3>ドローン</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>画像</th><th>名前</th><th>価格</th><th>説明</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in drone_items %}
+                        <tr>
+                            <td>
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="100">
+                                {% else %}
+                                    <span>画像なし</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                {% if item.min_price and item.max_price %}
+                                    {{ item.min_price }}k～ {{ item.max_price }}k
+                                {% elif item.min_price %}
+                                    {{ item.min_price }}k
+                                {% else %}
+                                    価格未定
+                                {% endif %}
+                            </td>
+                            <td>{{ item.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- その他 -->
+            <section id="other" class="mb-5">
+                <h3>その他</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr><th>画像</th><th>名前</th><th>価格</th><th>説明</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in other_items %}
+                        <tr>
+                            <td>
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="100">
+                                {% else %}
+                                    <span>画像なし</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                {% if item.min_price and item.max_price %}
+                                    {{ item.min_price }}k～ {{ item.max_price }}k
+                                {% elif item.min_price %}
+                                    {{ item.min_price }}k
+                                {% else %}
+                                    価格未定
+                                {% endif %}
+                            </td>
+
+                            <td>{{ item.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:item_list' %}">武器一覧</a> |
+        <a href="{% url 'database:shop_item_list' %}">ショップアイテム一覧</a> | 
+        <a href="{% url 'database:monster_list' %}">エンティティ一覧</a> | 
+        <a href="{% url 'database:level_guide_list' %}">MAP & レベル別攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+{% endblock %}

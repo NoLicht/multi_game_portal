@@ -1,0 +1,2526 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 ボス攻略一覧{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/monster/banner.jpg' %}" class="step-image">
+        </div><br><br><br>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">モンスター一覧と出現場所</div>
+            </div>
+
+            <div class="step-content">
+                <div class="monster-search-wrapper">
+                    <input type="text" id="monster-search-input" placeholder="検索ワードを入力して下さい">
+
+                    <div class="monster-search-labels">
+                        <input type="radio" id="type-all" name="monster-type" value="all" checked>
+                        <label for="type-all">すべて</label>
+
+                        <input type="radio" id="type-zako" name="monster-type" value="zako">
+                        <label for="type-zako">雑魚敵</label>
+
+                        <input type="radio" id="type-boss" name="monster-type" value="boss">
+                        <label for="type-boss">ボス</label>
+                    </div>
+                </div>
+
+                <table class="monster-table">
+                    <thead>
+                        <tr>
+                            <th class="monster-th-center">モンスター</th>
+                            <th class="monster-th-center">HP/EXP/G</th>
+                            <th class="monster-th-center">主な出現場所/ドロップ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster1.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'suraimu' %}">
+                                    <div class="monster-img-text">スライム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">8/2/1</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ラダトーム周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster2.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'suraimubesu' %}">
+                                    <div class="monster-img-text">スライムベス</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">9/2/1</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <li>・ラダトーム周辺</li>
+                                    <li>・ロトの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster3.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'doraki-' %}">
+                                    <div class="monster-img-text">ドラキー</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">10/4/4</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ラダトーム周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>キメラのつばさ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster4.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'zinmentyou' %}">
+                                    <div class="monster-img-text">じんめんちょう</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">11/3/3</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ラダトーム周辺</li>
+                                    <li>・ロトの洞窟周辺</li>
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster5.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'mahoutukai' %}">
+                                    <div class="monster-img-text">まほうつかい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">28/15/16</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ラダトーム周辺</li>
+                                    <li>・ロトの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster6.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'go-suto' %}">
+                                    <div class="monster-img-text">ゴースト</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">27/11/12</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ラダトーム周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>せいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster7.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'yamanezumi' %}">
+                                    <div class="monster-img-text">やまねずみ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">19/7/6</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ロトの洞窟周辺</li>
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster8.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'baburusuraimu' %}">
+                                    <div class="monster-img-text">バブルスライム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">16/8/6</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どくけしそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster9.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'me-da' %}">
+                                    <div class="monster-img-text">メーダ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">25/14/14</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下1階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster10.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'poizunto-do' %}">
+                                    <div class="monster-img-text">ポイズントード</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">24/10/8</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どくけしそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster11.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'gizumo' %}">
+                                    <div class="monster-img-text">ギズモ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">20/9/7</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster12.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'yuurei' %}">
+                                    <div class="monster-img-text">ゆうれい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">33/18/19</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                        <li>・ロトの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ラダトーム東部</li>
+                                    <li>・ガライ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>せいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster13.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hoimisuraimu' %}">
+                                    <div class="monster-img-text">ホイミスライム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">31/9/7</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <li>・ラダトーム東部</li>
+                                    <li>・岩山の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster14.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'obakekinoko' %}">
+                                    <div class="monster-img-text">おばけキノコ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">26/10/9</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ラダトーム東部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster15.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'animaruzonbi' %}">
+                                    <div class="monster-img-text">アニマルゾンビ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">37/17/10</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ラダトーム東部</li>
+                                    <li>・マイラ南部</li>
+                                    <li>・沼地の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster16.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'waraibukuro' %}">
+                                    <div class="monster-img-text">わらいぶくろ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">34/4/88</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下1階</li>
+                                    </a>
+                                    <li>・マイラ周辺</li>
+                                    <li>・マイラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>においぶくろ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster17.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'riza-dohurai' %}">
+                                    <div class="monster-img-text">リザードフライ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">28/13/10</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li>・マイラ南部</li>
+                                    <li>・沼地の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster18.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'oosasori' %}">
+                                    <div class="monster-img-text">おおさそり</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">31/26/27</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li>・マイラ南部</li>
+                                    <li>・沼地の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まだらくもいと</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster19.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'ribingudeddo' %}">
+                                    <div class="monster-img-text">リビングデッド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">44/28/20</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li>・マイラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>布の服</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster20.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'dokuimomushi' %}">
+                                    <div class="monster-img-text">どくイモムシ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">36/18/11</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li>・マイラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どくけしそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster21.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'guntaigani' %}">
+                                    <div class="monster-img-text">ぐんたいガニ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">30/21/14</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster22.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'meizidoraki-' %}">
+                                    <div class="monster-img-text">メイジドラキー</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">30/16/13</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・マイラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster23.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'ayashiikage' %}">
+                                    <div class="monster-img-text">あやしいかげ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">-/-/-</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster24.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'obakearikui' %}">
+                                    <div class="monster-img-text">おばけありくい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">39/27/21</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・岩山の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster25.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hitokuiga' %}">
+                                    <div class="monster-img-text">ひとくいが</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">33/25/19</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・岩山の洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どくけしそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster26.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'madoushi' %}">
+                                    <div class="monster-img-text">まどうし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">57/52/46</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster27.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'gaikotu' %}">
+                                    <div class="monster-img-text">がいこつ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">67/61/52</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>皮のよろい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster28.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'dororu' %}">
+                                    <div class="monster-img-text">ドロル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">55/44/30</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下1階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster29.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'metorogo-suto' %}">
+                                    <div class="monster-img-text">メトロゴースト</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">49/41/36</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>せいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster30.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'matango' %}">
+                                    <div class="monster-img-text">マタンゴ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">43/30/23</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>どくけしそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster31.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'doraki-ma' %}">
+                                    <div class="monster-img-text">ドラキーマ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">39/29/22</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster32.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'koumoriotoko' %}">
+                                    <div class="monster-img-text">こうもりおとこ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">55/57/30</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下1階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster33.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'oonezumi' %}">
+                                    <div class="monster-img-text">おおねずみ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">48/28/21</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下1階</li>
+                                    </a>
+                                    <li>・リムルダール周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster34.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hitokuibako' %}">
+                                    <div class="monster-img-text">ひとくいばこ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">-/303/92</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森①</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>いのりのゆびわ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster35.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'bariidodoggu' %}">
+                                    <div class="monster-img-text">バリイドドッグ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">60/56/21</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・リムルダール周辺</li>
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster36.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'bebi-satan' %}">
+                                    <div class="monster-img-text">ベビーサタン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">51/30/18</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・リムルダール周辺</li>
+                                    <li>・リムルダール西部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster37.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'rikanto' %}">
+                                    <div class="monster-img-text">リカント</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">82/74/39</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・リムルダール周辺</li>
+                                    <li>・リムルダール西部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>布の服</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster38.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shiryou' %}">
+                                    <div class="monster-img-text">しりょう</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">70/72/33</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・リムルダール周辺</li>
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>せいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster39.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'samayouyoroi' %}">
+                                    <div class="monster-img-text">さまようよろい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">66/80/44</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・リムルダール周辺</li>
+                                    <li>・リムルダール西部</li>
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どうのつるぎ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster40.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'doruido' %}">
+                                    <div class="monster-img-text">ドルイド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">69/61/29</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・リムルダール西部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster41.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shiryounokishi' %}">
+                                    <div class="monster-img-text">しりょうのきし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">113/93/46</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>皮のよろい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster42.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'medo-sabo-ru' %}">
+                                    <div class="monster-img-text">メドーサボール</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">62/62/26</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まだらくもいと</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster43.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kimera' %}">
+                                    <div class="monster-img-text">キメラ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">65/59/25</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>キメラのつばさ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster44.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'rikantomamuru' %}">
+                                    <div class="monster-img-text">リカントマムル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">102/90/45</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster45.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'tetunosasori' %}">
+                                    <div class="monster-img-text">てつのさそり</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">63/85/41</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li>・ドワーフの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster46.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'antobea' %}">
+                                    <div class="monster-img-text">アントベア</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">69/58/24</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                        <li>・ドワーフの洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster47.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hanta-hurai' %}">
+                                    <div class="monster-img-text">ハンターフライ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">68/52/19</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ北部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster48.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hi-togizumo' %}">
+                                    <div class="monster-img-text">ヒートギズモ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">73/66/23</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ北部</li>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster49.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kusattashitai' %}">
+                                    <div class="monster-img-text">くさったしたい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">106/77/16</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ北部</li>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>布の服</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster50.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'yoroinokishi' %}">
+                                    <div class="monster-img-text">よろいのきし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">105/104/58</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li>・ドムドーラ北部</li>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>てつのよろい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster51.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kagenokishi' %}">
+                                    <div class="monster-img-text">かげのきし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">92/116/49</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li>・ドムドーラ北部</li>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>くさりかたびら</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster52.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shinigami' %}">
+                                    <div class="monster-img-text">しにがみ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">89/91/46</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ北部</li>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>せいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster53.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'madohando' %}">
+                                    <div class="monster-img-text">マドハンド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">63/67/22</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster54.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'dororumeizi' %}">
+                                    <div class="monster-img-text">ドロルメイジ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">103/81/37</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster55.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'me-daro-do' %}">
+                                    <div class="monster-img-text">メーダロード</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">86/77/34</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>上やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster56.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kaenmukade' %}">
+                                    <div class="monster-img-text">かえんムカデ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">76/63/22</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まだらくもいと</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster57.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shinosasori' %}">
+                                    <div class="monster-img-text">しのさそり</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">81/132/51</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li>・ドムドーラ周辺</li>
+                                    <li>・ドムドーラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>どくがのこな</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster58.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'odoruhouseki' %}">
+                                    <div class="monster-img-text">おどるほうせき</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">93/19/404</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li>・聖なるほこら周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ルビーのうでわ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster59.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'desujakkaru' %}">
+                                    <div class="monster-img-text">デスジャッカル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">75/69/19</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li>・ドムドーラ東部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster60.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'suraimutumuri' %}">
+                                    <div class="monster-img-text">スライムつむり</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">66/81/26</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ東部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster61.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'meizikimera' %}">
+                                    <div class="monster-img-text">メイジキメラ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">85/86/33</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森②</li>
+                                    </a>
+                                    <li>・ドムドーラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ふしぎなぼうし</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster62.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'maddookkusu' %}">
+                                    <div class="monster-img-text">マッドオックス</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">110/91/38</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ南部</li>
+                                    <li>・ドムドーラ東部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster63.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'syado-' %}">
+                                    <div class="monster-img-text">シャドー</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">96/92/40</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ南部</li>
+                                    <li>・ドムドーラ東部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster64.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'metarusuraimu' %}">
+                                    <div class="monster-img-text">メタルスライム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">3/1035/6</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・ドムドーラ南部</li>
+                                    <li>・ドムドーラ東部</li>
+                                    <li>・岩泣き島周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>すばやさのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster65.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'genjutushi' %}">
+                                    <div class="monster-img-text">げんじゅつし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">101/92/37</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森②</li>
+                                    </a>
+                                    <li>・ドムドーラ南部</li>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster66.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'go-gonheddo' %}">
+                                    <div class="monster-img-text">ゴーゴンヘッド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">113/98/43</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>どくがのこな</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster67.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'zinmenju' %}">
+                                    <div class="monster-img-text">じんめんじゅ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">237/235/86</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森②</li>
+                                    </a>
+                                    <li>・メルキド周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster68.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shibireageha' %}">
+                                    <div class="monster-img-text">しびれあげは</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">97/99/44</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・メルキド周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster69.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'behomasuraimu' %}">
+                                    <div class="monster-img-text">ベホマスライム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">95/103/52</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・メルキド周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster70.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'zigokunoyoroi' %}">
+                                    <div class="monster-img-text">じごくのよろい</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">163/235/108</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・メルキド周辺</li>
+                                    <li>・岩泣き島周辺</li>
+                                    <li>・精霊のほこら周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>はめつの盾</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster71.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'andeddoman' %}">
+                                    <div class="monster-img-text">アンデッドマン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">153/219/98</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・メルキド周辺</li>
+                                    <li>・岩泣き島周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>はがねのつるぎ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster72.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'go-rudoman' %}">
+                                    <div class="monster-img-text">ゴールドマン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">313/62/1990</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・メルキド周辺</li>
+                                    <li>・岩泣き島周辺</li>
+                                    <li>聖なるほこら周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>命の石</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster73.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'go-dodon' %}">
+                                    <div class="monster-img-text">ゴートドン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">167/131/45</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・岩泣き島周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>上やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster74.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kimendoushi' %}">
+                                    <div class="monster-img-text">きめんどうし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">108/142/39</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>岩泣き島周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster75.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_dragonfly' %}">
+                                    <div class="monster-img-text">ドラゴンフライ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">132/195/50</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li>・岩泣き島周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>においぶくろ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster76.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'ganirasu' %}">
+                                    <div class="monster-img-text">ガニラス</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">102/167/42</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まもりのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster77.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shibirekurage' %}">
+                                    <div class="monster-img-text">しびれくらげ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">92/99/34</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>やくそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster78.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'minide-mon' %}">
+                                    <div class="monster-img-text">ミニデーモン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">112/111/36</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>命の石</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster79.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'akumanomedama' %}">
+                                    <div class="monster-img-text">あくまのめだま</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">123/138/28</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まんげつのリング</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster80.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'daimadou' %}">
+                                    <div class="monster-img-text">だいまどう</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">207/260/110</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まほうのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster81.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'ga-goiru' %}">
+                                    <div class="monster-img-text">ガーゴイル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">178/275/88</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_外観</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>はがねのつるぎ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster82.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'mimikku' %}">
+                                    <div class="monster-img-text">ミミック</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">-/845/47</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwanakishima' %}">
+                                        <li>・岩泣き島_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>けんじゃのせいすい</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster83.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'gaikotukenshi' %}">
+                                    <div class="monster-img-text">がいこつけんし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">260/286/117</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>はがねのつるぎ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster84.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'herugo-suto' %}">
+                                    <div class="monster-img-text">ヘルゴースト</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">140/207/49</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>かしこさのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster85.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'gu-ru' %}">
+                                    <div class="monster-img-text">グール</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">213/228/35</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster86.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shirueto' %}">
+                                    <div class="monster-img-text">シルエト</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">139/179/64</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・ガライの墓_地下3階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>しのびの服</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster87.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_dragonzombie' %}">
+                                    <div class="monster-img-text">ドラゴンゾンビ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">560/880/21</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <li>・ラダトーム周辺</li>
+                                    <li>・ロトの洞窟周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>命のきのみ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster88.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'maounokage' %}">
+                                    <div class="monster-img-text">まおうのかげ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">174/296/38</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_garainohaka' %}">
+                                        <li>・ガライの墓_地下3階①</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・ガライの墓_地下3階②</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・ガライの墓_地下4階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>ふしぎなきのみ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster89.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'sukarugon' %}">
+                                    <div class="monster-img-text">スカルゴン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">330/288/120</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_3階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>竜のうろこ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster90.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'hurosutogizumo' %}">
+                                    <div class="monster-img-text">フロストギズモ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">123/184/52</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_3階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>まだらくもいと</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster91.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'suto-nman' %}">
+                                    <div class="monster-img-text">ストーンマン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">262/306/146</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_3階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>ちからのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster92.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'suta-kimera' %}">
+                                    <div class="monster-img-text">スターキメラ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">158/211/57</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_2階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_3階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>ラックのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster93.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'buraddohando' %}">
+                                    <div class="monster-img-text">ブラッドハンド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">128/122/41</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・精霊のほこら周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>命の石</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster94.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'tororu' %}">
+                                    <div class="monster-img-text">トロル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">296/322/118</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・精霊のほこら周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>こんぼう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster95.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'ki-sudoragon' %}">
+                                    <div class="monster-img-text">キースドラゴン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">433/857/166</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>氷のイヤリング</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster96.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'sukarunaito' %}">
+                                    <div class="monster-img-text">スカルナイト</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">247/365/145</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・聖なるほこら周辺</li>
+                                    <li>・竜王の城周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ゾンビメイル</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster97.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'udora-' %}">
+                                    <div class="monster-img-text">ウドラー</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">351/403/157</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <li>・聖なるほこら周辺</li>
+                                    <li>・竜王の城周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>ささやきのみつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster98.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'kira-rikanto' %}">
+                                    <div class="monster-img-text">キラーリカント</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">267/484/62</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <li>・竜王の城周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>いぬぐるみ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster99.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'tororukingu' %}">
+                                    <div class="monster-img-text">トロルキング</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">384/695/88</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <li>・竜王の城周辺</li>
+                                    <li class="monster-divider"></li>
+                                    <li>まじんのオノ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster100.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'so-doido' %}">
+                                    <div class="monster-img-text">ソードイド</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">249/506/74</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>すばやさのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster101.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'haguremetaru' %}">
+                                    <div class="monster-img-text">はぐれメタル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">5/10050/17</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下4階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下5階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>しあわせのくつ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster102.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'da-kuai' %}">
+                                    <div class="monster-img-text">ダークアイ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">185/294/56</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>マヌーハそう</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster103.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'shinigaminokishi' %}">
+                                    <div class="monster-img-text">しにがみのきし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">427/794/44</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>スタミナのたね</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="zako">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster104.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:monster_detail' 'da-sudoragon' %}">
+                                    <div class="monster-img-text">ダースドラゴン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">570/921/199</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下1階</li>
+                                    </a>
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>炎のイヤリング</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster105.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_kandata' %}">
+                                    <div class="monster-img-text">カンダタ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">180/330/154</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster106.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_kandata' %}">
+                                    <div class="monster-img-text">カンダタこぶん</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">90/110/128</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下1階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster107.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_youjutsushi' %}">
+                                    <div class="monster-img-text">ようじゅつし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">360/700/360</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                        <li>・岩山の洞窟_地下2階②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster108.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_dragon' %}">
+                                    <div class="monster-img-text">ドラゴン</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2200/2540/2200</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                        <li>・沼地の洞窟_地下2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster109.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_akumanokishi' %}">
+                                    <div class="monster-img-text">あくまのきし</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2700/20510/7500</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_domudo-ra' %}">
+                                        <li>・ドムドーラ</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>オーガシールド</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster110.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_darkdreamer' %}">
+                                    <div class="monster-img-text">ダークドリーマー</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">230/490/82</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_mayoinomori' %}">
+                                        <li>・迷いの森②</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster111.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_golem' %}">
+                                    <div class="monster-img-text">ゴーレム</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2100/7665/759</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_merukido' %}">
+                                        <li>・メルキド</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>命の石</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster112.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_alienfly' %}">
+                                    <div class="monster-img-text">エイリアンフライ</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2050/11790/3850</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_maira' %}">
+                                        <li>・マイラ</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster113.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_murdergoyle' %}">
+                                    <div class="monster-img-text">マーダーゴイル</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2450/17370/5630</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_amenohokora' %}">
+                                        <li>・雨のほこら_5階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>はかいのつるぎ</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster114.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_ekusodasu' %}">
+                                    <div class="monster-img-text">エクソダス</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">2600/22060/6680</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_seireinohokora' %}">
+                                        <li>・精霊のほこら_2階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster115.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_ryuou' %}">
+                                    <div class="monster-img-text">りゅうおう</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">3200/19860/0</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下6階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr data-type="boss">
+                            <td class="monster-img-cell">
+                                <img src="{% static 'database/images/dq1/monster/monster116.jpg' %}" alt="モンスター" class="monster-img">
+                                <a href="{% url 'database:dq1_ryuou' %}">
+                                    <div class="monster-img-text">竜王</div>
+                                </a>
+                            </td>
+                            <td class="monster-center">4800/0/0</td>
+                            <td class="monster-drop-cell">
+                                <ul class="monster-drop-list">
+                                    <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                        <li>・竜王の城_地下6階</li>
+                                    </a>
+                                    <li class="monster-divider"></li>
+                                    <li>-</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById('monster-search-input');
+const typeRadios = document.querySelectorAll('input[name="monster-type"]');
+const monsterRows = document.querySelectorAll('.monster-table tbody tr');
+
+function filterMonsters() {
+    const keyword = searchInput.value.toLowerCase();
+    const selectedType = document.querySelector('input[name="monster-type"]:checked').value;
+
+    monsterRows.forEach(row => {
+        const name = row.querySelector('.monster-img-text').textContent.toLowerCase();
+        const type = row.dataset.type;
+
+        const matchKeyword = name.includes(keyword);
+        const matchType = selectedType === 'all' || selectedType === type;
+
+        row.style.display = (matchKeyword && matchType) ? '' : 'none';
+    });
+}
+
+searchInput.addEventListener('input', filterMonsters);
+typeRadios.forEach(radio => radio.addEventListener('change', filterMonsters));
+
+</script>
+
+{% endblock %}

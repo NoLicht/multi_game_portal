@@ -1,0 +1,359 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【テイマースキル】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#skill1">▶ Tier1</a></li>
+            <li><a href="#skill2">▶ Tier2</a></li>
+            <li><a href="#skill3">▶ Tier3</a></li>
+            <li><a href="#skill4">▶ Tier4</a></li>
+            <li><a href="#skill5">▶ Tier5</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#skill" class="btn-story-link">▶ 戻る</a></li>
+        </ul>
+    </aside>
+
+
+
+<main class="main-content">
+        
+    <div id="skill"></div><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band" style="width: 102%; margin-left: -1%;">テイマースキル一覧</div>
+        </div>
+
+    <div id="skill"></div>
+        <div class="step-content">
+            <div class="step-header">
+            </div>
+        
+            <div class="step-body">
+                <img src="{% static 'database/cp_images/sks(34).jpg' %}" style="width: 700px; margin-left: 15px;">
+            
+            <div id="skill1"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier1</div>
+                <table style="margin-left:-27px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+							<td>待機指示?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>登場中の全ペットを「待機」状態にする。「待機」状態のペットはその場に留まり、攻撃は行わない。</td>
+						</tr>
+						<tr>
+							<td>護衛指示?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>登場中の全ペットを「護衛」状態にする。「護衛」状態のペットはテイマーに追従し、周囲の敵を攻撃する。</td>
+						</tr>
+						<tr>
+							<td>追従指示?</td>
+							<td>1</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>登場中の全ペットを「追従」状態にする。「追従」状態のペットはテイマーに追従し、攻撃は行わない。</td>
+						</tr>
+						<tr>
+							<td>駆け出しトレーナー?</td>
+							<td>3</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ペットを調教し、ペットが獲得する経験値を僅かに上昇させる。</td>
+						</tr>
+						<tr>
+							<td>捕獲上手?【未実装】</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>モンスタープリズムの捕獲成功確率が上昇する。</td>
+						</tr>
+						<tr>
+							<td>獣医師?</td>
+							<td>3</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>インベントリ内のペットを早く治療できる。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill2"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier2</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tbody>
+                            <tr>
+                                <td>ペットヒール?</td>
+                                <td>6</td>
+                                <td>アクティブ</td>
+                                <td>35</td>
+                                <td>-</td>
+                                <td>35～20</td>
+                                <td>-</td>
+                                <td>範囲内のペットのライフを回復する。</td>
+                            </tr>
+                            <tr>
+                                <td>ペット鼓舞?</td>
+                                <td>6</td>
+                                <td>アクティブ</td>
+                                <td>15</td>
+                                <td>満腹度-5</td>
+                                <td>180</td>
+                                <td>120</td>
+                                <td>ペットを応援することで、自分の登場中のペット全てにバフをかける。</td>
+                            </tr>
+                            <tr>
+                                <td>野生の怒り?</td>
+                                <td>6</td>
+                                <td>パッシブ</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>ペットの中の野生を呼び起こし、ATKを僅かに上昇させる。</td>
+                            </tr>
+                            <tr>
+                                <td>野生の生命力?</td>
+                                <td>6</td>
+                                <td>パッシブ</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>ペットの中の野生を呼び起こし、最大ライフを僅かに上昇させる。</td>
+                            </tr>
+                        </tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill3"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier3</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+							<td>ペットリザレクション?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>30</td>
+							<td>満腹度-5</td>
+							<td>800</td>
+							<td>-</td>
+							<td>ライフが0のペットの中で最もレベルが高いペットを蘇生する。</td>
+						</tr>
+						<tr>
+							<td>駿馬の号令?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>範囲内のペットの移動速度とASPDを上昇させる。</td>
+						</tr>
+						<tr>
+							<td>熟練トレーナー?</td>
+							<td>3</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ペットを効率よく調教し、ペットが獲得する経験値を大幅に上昇させる。</td>
+						</tr>
+						<tr>
+							<td>ライダーの資質?【未実装】</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>騎乗中のペットの様々なステータスを上昇させる。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill4"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier4</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        				<tr>
+							<td>帰還指示?【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>登場中の全ペットをインベントリに戻す。</td>
+						</tr>
+						<tr>
+							<td>野生の憤怒?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ペットに野生を完全に思い出させ、ATKを大幅に上昇させる。</td>
+						</tr>
+						<tr>
+							<td>野生の剛健?</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ペットに野生を完全に思い出させ、最大ライフを大幅に上昇させる。</td>
+						</tr>
+						<tr>
+							<td>エリートテイマー?【未実装】</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>豊富な知識で扱えるペットの数を増やす。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill5"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier5</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            			<tr>
+							<td>【未実装】</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>0</td>
+							<td>-</td>
+							<td>登場中・インベントリ内問わず、全ペットを招集した軍勢を前方に突撃させる。</td>
+						</tr>
+						<tr>
+							<td>百獣夜行?【未実装】</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>多数のペットを率いる才覚を得て、扱えるペットの数を増やす。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</main>
+
+{% endblock %}

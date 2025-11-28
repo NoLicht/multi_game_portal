@@ -1,0 +1,392 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 いのちの紋章{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/item/inotinomonshou/banner.jpg' %}">
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">いのちの紋章の効果</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">HPが増加する</div>
+                
+                <div class="step-text"><br>いのちの紋章を入手すると最大HPが増加します。<br>
+                    <br>
+                    手に入れた瞬間から常に発動し続けるので、特に装備や使うなどの操作は必要ありません。
+                </div><br>
+
+                <div class="step-number text-center">バトル中にHP50％以下で超絶技を発動できる</div>
+
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/item/inotinomonshou/1.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div><br>
+
+                <div class="step-text">いのちの紋章を入手すると、HP50％以下のときに特定の呪文や特技を選択して四角(Y)ボタンを長押しすることで、超絶技を発動できるようになります。<br>
+                    <br>
+                    超絶技は通常よりも強力な効果を発揮するため、ピンチの状況から一気に形勢を逆転できる強力な能力です。
+                </div><br><br>
+
+                <div class="step-number text-center">超絶技を発動できる呪文と特技一覧</div><br>
+
+                <table class="dq-skill-table">
+                    <tr class="header-row">
+                        <th>変更前</th>
+                        <th>変更後</th>
+                        <th>呪文/特技</th>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">けもの突き</td>
+                        <td>まじゅう斬り</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">ドラゴン斬り</td>
+                        <td>竜王斬り</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">しんくう斬り</td>
+                        <td>空裂斬</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">いなずま斬り</td>
+                        <td>雷光一閃突き</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">はやぶさ斬り</td>
+                        <td>超はやぶさ斬り</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">大ぼうぎょ</td>
+                        <td>やいばのぼうぎょ</td>
+                        <td>特技</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">マホトーン</td>
+                        <td>災禍の陣</td>
+                        <td>呪文</td>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">ギガデイン</td>
+                        <td>ジゴスパーク</td>
+                        <td>呪文</td>
+                    </tr>
+                </table><br>
+
+                <div class="step-text">超絶技はHP50％以下でなくとも、「せいしんとういつ」や「リホイミ」の効果が付与された状態であれば使うことができます。<br>
+                    <br>
+                    また、特技ごとにどちらの状態になれば使えるかが決まっています。</div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">いのちの紋章の入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-number text-center">ひみつの花畑でひかるタネを手に入れて交換</div><br>
+                <img src="{% static 'database/images/dq1/item/inotinomonshou/1.jpg' %}"><br><br>
+                <div class="step-text">いのちの紋章は、ひみつの花畑で入手できる「ひかるタネ」を妖精の隠れ里にいる妖精に渡すことで入手できます。<br>
+                    <br>
+                    まずはひみつの花畑を探索して「ひかるタネ」を見つけ、その後に妖精の隠れ里へ向かいましょう。<br>
+                    ひかるタネはストーリーのドラゴン戦の準備段階で必ず入手できます。</div><br><br>
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_section2_content' %}" class="btn-story-link">
+                        ▶ 沼地の洞窟からドラゴン戦までの攻略
+                    </a>
+                </div>
+                
+                <div class="step-number text-center">ひみつの花畑の場所</div><br>
+                <img src="{% static 'database/images/dq1/item/inotinomonshou/2.jpg' %}">
+            </div>
+
+            
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/item/banner.jpg' %}">
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_items_list' %}" class="btn-story-link">
+                        ▶ アイテムトップへ戻る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">重要アイテム</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ほしの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">つきの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">みずの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちの紋章</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'youseinohue' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ようせいのふえ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'ginnotategoto' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ぎんのたてごと</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'nizinosizuku' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">虹のしずく</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'taiyounoishi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">たいようの石</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hikarinotama' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ひかりのたま</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'touzokunokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">とうぞくのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mahounokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まほうのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'saigonokagi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">さいごのかぎ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-number text-center">たね・きのみ</div><br>
+
+                <div class="text-2col-wrapper">
+                    <div class="text-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'tikaranotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ちからのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'mamorinotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">まもりのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'sutaminanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">スタミナのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'kashikosanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">かしこさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'subayasanotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">すばやさのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'rakkunotane' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ラックのたね</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'inotinokinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">いのちのきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:item_detail' 'hushiginakinomi' %}">
+                                    <div class="area-item">
+                                        <div class="area-name">ふしぎなきのみ</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+{% endblock %}

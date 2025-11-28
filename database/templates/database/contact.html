@@ -1,0 +1,25 @@
+{% extends 'database/base.html' %}
+
+{% block title %}お問い合わせ{% endblock %}
+
+{% block content %}
+<div class="contact-section">
+    <h2>お問い合わせ</h2>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="POST" action="{% url 'database:contact' %}" class="contact-form">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="お名前">
+        <input type="email" name="email" placeholder="メールアドレス">
+        <textarea name="message" rows="6" placeholder="お問い合わせ内容"></textarea>
+        <button type="submit">送信</button>
+    </form>
+</div>
+{% endblock %}

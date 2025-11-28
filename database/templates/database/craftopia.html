@@ -1,0 +1,248 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア 攻略{% endblock %}
+
+{% block content %}
+
+<!-- メインビジュアル -->
+<div class="main-banner mb-4 cropped-banner">
+    <img src="{% static 'database/images/craftopia_cover1.jpg' %}" width="100%" height="450" alt="CP" class="story-banner">
+</div>
+
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        
+        <ul class="toc-list">
+            <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【前提知識】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#syuzoku">▶ 種族</a></li>
+            <li><a href="#weapons-top">▶ どんな武器を使っていくか？</a></li>
+            <li><a href="#skill">▶ スキル</a></li>
+            <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【ストーリー】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#story">▶ ストーリー攻略</a></li>
+            <li><a href="#boss">▶ 全マップボス攻略</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+<!-- 種族によって育ち方が変わる？！ -->
+    <section id="syuzoku" class="story-section mb-5">
+        <div class="step-content">
+            <div class="step-header">
+                <div class="black-yellow-band">種族によって育ち方が変わる？！</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/cp_images/sks(1).jpg' %}" class="step-image2">
+            <table class="custom-table2" style="margin-left :-35px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">種族</th>
+                        <th class="col-exp">経験値倍率</th>
+                        <th class="col-weak">得意な武器</th>
+                        <th class="col-weak">短所</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>人間</td>
+                        <td>等倍</td>
+                        <td>成長が早い</td>
+                        <td>目立った補正がない</td>
+                    </tr>
+                    <tr>
+                        <td>エルフ</td>
+                        <td>x0.9</td>
+                        <td>マナが多い。魔法・弓が得意</td>
+                        <td>ライフが少ない。物理攻撃が苦手</td>
+                    </tr>
+                    <tr>
+                        <td>デーモン</td>
+                        <td>x0.9</td>
+                        <td>ライフが多い。素手・物理スキルが得意</td>
+                        <td>マナが少ない。魔法が苦手</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="step-text">上の表を見てもらえば分かると思いますが、
+            種族によって不得意または得意な武器があります。<br><br>【注意】はじめ選択した種族は変更できないので注意して選びましょう！
+        </div></br><br>
+    </section>
+
+        <!-- 武器一覧 -->
+
+        <section id="weapons-top" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">武器の種類・全8種</div>
+            </div>
+            <div class="text-center mb-4">
+                <img src="{% static 'database/cp_images/sks(4).jpg' %}"
+                    width="100%" height="70%"
+                    class="story-banner rounded shadow-lg">
+            </div>
+            <div class="text-center mb-5">
+                <a  href="{% url 'database:cp_bukisyu_list' %}" class="btn-story-link">
+                    ▶ 武器種一覧を確認
+                </a>
+            </div>
+        </section>
+
+        <!-- スキル一覧 -->
+        <section id="skill" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">スキル一覧表</div>
+            </div>
+            <div class="toc-grid">
+                <a href="{% url 'database:cp_kihon_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/kihon.jpg' %}" alt="チャート1">
+                    <span class="toc-title">【ーー基本スキルーー】</span>
+                </a>
+                <a href="{% url 'database:cp_sentou_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/sentou.jpg' %}" alt="チャート2">
+                    <span class="toc-title">【ーー戦闘スキルーー】</span>
+                </a>
+                <a href="{% url 'database:cp_mahou_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/mahou.jpg' %}" alt="チャート3">
+                    <span class="toc-title">【ーー魔法スキルーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp_seikatu_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/seikatu.jpg' %}" alt="チャート4">
+                    <span class="toc-title">【ーー生活スキルーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp_torikku_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/torikku.jpg' %}" alt="チャート5">
+                    <span class="toc-title">【ーートリックスキルーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp_teima_list' %}" class="toc-item">
+                    <img src="{% static 'database/cp_images/teima-.jpg' %}" alt="チャート6">
+                    <span class="toc-title">【ーーテイマースキルーー】</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ストーリー -->
+        <section id="story" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">全マップストーリー攻略</div>
+            </div>
+            <div class="toc-grid">
+                <a href="{% url 'database:cp1_story_giza' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/giza1.jpg' %}" alt="チャート1">
+                    <span class="toc-title">【ーーギーザ台地ーー】</span>
+                </a>
+                <a href="{% url 'database:cp2_story_miruulin' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/miruulin1.jpg' %}" alt="チャート2">
+                    <span class="toc-title">【ーーミルウィン丘陵ーー】</span>
+                </a>
+                <a href="{% url 'database:cp3_story_yaden' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/yaden1.jpg' %}" alt="チャート3">
+                    <span class="toc-title">【ーーヤーデン草原ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp4_story_oowatatu' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/oowatatu1.jpg' %}" alt="チャート4">
+                    <span class="toc-title">【ーーオオワタツ諸島ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp5_story_burigandain' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/burigandain1.jpg' %}" alt="チャート5">
+                    <span class="toc-title">【ーーブリガンダイン渓谷ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp6_story_syarubato' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/syarubato1.jpg' %}" alt="チャート6">
+                    <span class="toc-title">【ーーシャルバート氷山ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp7_story_unneferu' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/unneferu1.jpg' %}" alt="チャート6">
+                    <span class="toc-title">【ーーウンネフェル砂漠ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp8_story_maiazuma' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/maiazuma1.jpg' %}" alt="チャート6">
+                    <span class="toc-title">【ーーマイアズマ湿原ーー】</span>
+                </a>
+
+                <a href="{% url 'database:cp9_story_kazan' %}" class="toc-item">
+                    <img src="{% static 'database/cp2_images/kazan1.jpg' %}" alt="チャート6">
+                    <span class="toc-title">【ーーインフェルノ火山ーー】</span>
+                </a>
+                
+            </div>
+        </section>
+
+        <section id="boss" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <div class="black-yellow-band">全マップボス攻略</div>
+            </div>
+            <div class="text-center mb-4">
+                <img src="{% static 'database/cp_images/sks.jpg' %}" style="width: 100%; height: 370px;" class="story-banner rounded shadow-lg">
+
+                <br><div class="text-center mb-5"><br>
+                    <a  href="{% url 'database:cp_boss_list' %}" class="btn-story-link">▶クラフトピア・ボス一覧を確認</a>
+                </div>
+        </section>
+
+<!-- 
+        <section id="Armors" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <h2 class="story-title">防具一覧</h2>
+            </div>
+            <p>防具コンテンツをここに配置</p>
+        </section>
+
+       
+        <section id="Dungeon" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <h2 class="story-title">ダンジョン</h2>
+            </div>
+            <p>ダンジョンコンテンツをここに配置</p>
+        </section>
+
+       
+        <section id="Enchantments" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <h2 class="story-title">エンチャント一覧</h2>
+            </div>
+            <p>エンチャントコンテンツをここに配置</p>
+        </section>
+
+       
+        <section id="InfiniteItems" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <h2 class="story-title">アイテム無限化</h2>
+            </div>
+            <p>アイテム無限化コンテンツをここに配置</p>
+        </section>
+
+        
+        <section id="BossList" class="story-section mb-5">
+            <div class="story-header text-center my-3">
+                <h2 class="story-title">ボス一覧</h2>
+            </div>
+            <p>ボスコンテンツをここに配置</p>
+        </section> -->
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="{% url 'database:cp_guide' %}">CP 攻略</a> |
+        <a href="{% url 'database:home' %}">ホーム</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+{% endblock %}

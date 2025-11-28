@@ -1,0 +1,165 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラクエⅠ ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+
+
+    <!-- ===== メインコンテンツ ===== -->
+    <main class="main-content">
+
+        <!-- ストーリー攻略一覧 -->
+        <section id="story" class="story-section mb-5">
+            <div class="text-center mt-4">
+                <img src="{% static 'database/images/dq1_story_banner2.jpg' %}" 
+                     alt="ストーリー攻略イメージ" class="rounded shadow-lg" 
+                     style="width:90%; max-width:1000px;">
+            </div>
+        </section>
+
+        <!-- チャート別世界地図 -->
+        <section id="worldmap" class="story-section mb-5">
+            <div class="story-header text-center black-yellow-title">
+                <div class="black-yellow-band">ストーリー攻略一覧【ドラクエⅠ HD-2D】</div>
+            </div>
+            <div class="styled-header">
+                <h2>チャート別世界地図</h2>
+            </div>
+
+            <div class="text-center mt-4">
+                <img src="{% static 'database/images/dq1_world_map.jpg' %}" 
+                     alt="世界地図" class="rounded shadow-lg" 
+                     style="width:90%; max-width:1000px;">
+            </div>
+        </section>
+
+        <!-- ストーリー攻略記事一覧 -->
+        <section id="list" class="story-section">
+            <div class="styled-header">
+                <h2>ストーリー攻略記事一覧</h2>
+            </div>
+
+            <div class="toc-grid">
+                <a href="{% url 'database:dq1_section1_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image1.jpg' %}" alt="チャート1">
+                    <span class="toc-title">チャート1：ラダトームの城〜岩山の洞窟</span>
+                </a>
+
+                <a href="{% url 'database:dq1_section2_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image2.jpg' %}" alt="チャート2">
+                    <span class="toc-title">チャート2：沼地の洞窟〜ドラゴン戦</span>
+                </a>
+
+                <a href="{% url 'database:dq1_section3_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image3.jpg' %}" alt="チャート3">
+                    <span class="toc-title">チャート3：迷いの森〜岩泣き島</span>
+                </a>
+
+                <a href="{% url 'database:dq1_section4_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image4.jpg' %}" alt="チャート4">
+                    <span class="toc-title">チャート4：竜王の城までの準備</span>
+                </a>
+
+                <a href="{% url 'database:dq1_section5_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image5.jpg' %}" alt="チャート5">
+                    <span class="toc-title">チャート5：竜王の城〜ラスボス</span>
+                </a>
+
+                <a href="{% url 'database:dq1_section6_content' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/image6.jpg' %}" alt="チャート6">
+                    <span class="toc-title">クリア後</span>
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+
+<!-- ===== 特別スタイル ===== -->
+<style>
+/* 黒×黄タイトル帯（最初のセクション専用） */
+.gradient-header {
+  background: linear-gradient(to bottom, #000000 70%, #ffd700 100%);
+  padding: 20px 10px;
+  border-radius: 6px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  margin-bottom: 1.5em;
+}
+
+.gradient-header h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+/* 左黒線＋右に薄れる線スタイル */
+.styled-header {
+    width: 100%;
+    margin: 40px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    text-align: center;
+}
+
+.styled-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: bold;
+    display: inline-block;
+    padding-bottom: 6px;
+    position: relative;
+}
+
+.styled-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 105%;
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+
+</style>
+
+{% endblock %}

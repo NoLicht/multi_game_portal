@@ -1,0 +1,717 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 岩山の洞窟{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+
+
+    <!-- ===== メインコンテンツ ===== -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/banner.jpg' %}" class="step-image">
+        </div><br><br><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">岩山の洞窟のマップと宝箱・アイテム</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/1.jpg' %}" class="step-image">
+                <div class="step-text">岩山の洞窟のマップです。<br>
+                    <br>
+                    非常に多くのアイテムが入手できるので、探索の際は上記マップを参考にしてみてください。
+                </div><br><br>
+                <div class="step-number text-center">入手できる宝箱とアイテム</div><br>
+                <div class="area-block">
+                    <div class="area-title">岩山の洞窟_地下1階</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/2.jpg' %}">
+                                        <div class="area-name">小さなメダル</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/3.jpg' %}">
+                                        <div class="area-name">340ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/4.jpg' %}">
+                                        <div class="area-name">どくけしそう</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/5.jpg' %}">
+                                        <div class="area-name">ブーメラン</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/6.jpg' %}">
+                                        <div class="area-name">26ゴールド</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/7.jpg' %}">
+                                        <div class="area-name">まだらくもいと</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/8.jpg' %}">
+                                        <div class="area-name">いしのかつら</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/9.jpg' %}">
+                                        <div class="area-name">とうぞくの巻物</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="area-title">岩山の洞窟_地下2階①</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/10.jpg' %}">
+                                        <div class="area-name">上やくそう</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/11.jpg' %}">
+                                        <div class="area-name">てつのオノ</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="imgModal" class="modal-new">
+                            <span class="close">&times;</span>
+                            <img class="modal-new-content" id="imgInModal">
+                        </div>
+                    </div>
+
+                    <div class="area-title">岩山の洞窟_地下2階②</div>
+                    <div class="area-table-3col-wrapper">
+                        <div class="area-table-3col">
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/12.jpg' %}">
+                                        <div class="area-name">ちからための巻物</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/13.jpg' %}">
+                                        <div class="area-name">せいどうの盾</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/14.jpg' %}">
+                                        <div class="area-name">まほうのせいすい</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/15.jpg' %}">
+                                        <div class="area-name">上やくそう</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/16.jpg' %}">
+                                        <div class="area-name">スタミナのたね</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/17.jpg' %}">
+                                        <div class="area-name">37ゴールド</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area-row">
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/18.jpg' %}">
+                                        <div class="area-name">ゾンビメイル</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                        <img class="zoomable"  src="{% static 'database/images/dq1/map/iwayamanodoukutu/19.jpg' %}">
+                                        <div class="area-name">死の首かざり</div>
+                                    </div>
+                                </div>
+                                <div class="area-cell">
+                                    <div class="area-item">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="imgModal" class="modal-new">
+                            <span class="close">&times;</span>
+                            <img class="modal-new-content" id="imgInModal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-text">岩山の洞窟では、「てつのオノ」や「せいどうの盾」、「小さなメダル」など、合計で18個のアイテムを回収できます。<br>
+                    特にてつのオノとせいどうの盾はこの時点で入手できる装備の中ではステータスが高めなので、忘れずに回収しておくのがおすすめです。<br>
+                    <br>
+                    また、とうぞくの巻物ではそのマップの未取得のアイテムの数がわかる探索用特技「とうぞくのはな」を習得できるので、今後の探索のためにこちらも回収しておきましょう。
+                </div>
+            </div><br><br>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">岩山の洞窟の小さなメダルの場所</div>
+            </div>
+
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <!-- ヘッダー行 -->
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">エリア</div>
+                        <div class="apt-cell header-cell">場所詳細</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/20.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟_地下1階</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/21.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟地下1階十字路を上に進んで右にある宝箱</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/22.jpg' %}" class="zoomable">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <img src="{% static 'database/images/dq1/map/iwayamanodoukutu/23.jpg' %}" class="zoomable">
+                            <div class="apt-text">妖精の隠れ里北西の秘密の場所のタル<br>
+                                ※雨のほこらを攻略してあまぐもの杖を入手した後
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 拡大モーダル -->
+                    <div id="image-modal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="modal-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">雨のほこらのモンスターとドロップアイテム</div>
+            </div>
+
+            <div class="step-number text-center">岩山の洞窟_地下1階</div>
+            
+            <div class="step-content">
+                <div class="area-place-table-new">
+                    
+                    <div class="area-place-table-new-row are-place-tablenew-header">
+                        <div class="area-place-table-new-cell">モンスター</div>
+                        <div class="area-place-table-new-cell">ドロップアイテム</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster23.jpg' %}">
+                            <span>あやしいかげ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">- 別の魔物がドロップするアイテムをランダムで落とす</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster26.jpg' %}">
+                            <span>まどうし</span>
+                        </div>
+                        <div class="area-place-table-new-cell">まほうのせいすい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster27.jpg' %}">
+                            <span>がいこつ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">	皮のよろい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster29.jpg' %}">
+                            <span>メトロゴースト</span>
+                        </div>
+                        <div class="area-place-table-new-cell">せいすい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster30.jpg' %}">
+                            <span>マタンゴ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">	どくけしそう</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster13.jpg' %}">
+                            <span>ホイミスライム</span>
+                        </div>
+                        <div class="area-place-table-new-cell">やくそう</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster105.jpg' %}">
+                            <span>カンダタ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">-</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster106.jpg' %}">
+                            <span>カンダタこぶん</span>
+                        </div>
+                        <div class="area-place-table-new-cell">-</div>
+                    </div>
+                </div>
+                
+                <div class="step-text">岩山の洞窟地下1階に出現するモンスターです。<br>
+                    <br>
+                    がいこつとまどうしは他のモンスターと比べてHPが高めなので注意しましょう。
+                </div>
+            </div>
+
+            <div class="step-number text-center">岩山の洞窟_地下2階</div>
+            
+            <div class="step-content">
+                <div class="area-place-table-new">
+                    
+                    <div class="area-place-table-new-row are-place-tablenew-header">
+                        <div class="area-place-table-new-cell">モンスター</div>
+                        <div class="area-place-table-new-cell">ドロップアイテム</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster23.jpg' %}">
+                            <span>あやしいかげ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">- 別の魔物がドロップするアイテムをランダムで落とす</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster26.jpg' %}">
+                            <span>まどうし</span>
+                        </div>
+                        <div class="area-place-table-new-cell">まほうのせいすい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster27.jpg' %}">
+                            <span>がいこつ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">	皮のよろい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster29.jpg' %}">
+                            <span>メトロゴースト</span>
+                        </div>
+                        <div class="area-place-table-new-cell">せいすい</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster30.jpg' %}">
+                            <span>マタンゴ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">	どくけしそう</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster28.jpg' %}">
+                            <span>ドロル</span>
+                        </div>
+                        <div class="area-place-table-new-cell">やくそう</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster31.jpg' %}">
+                            <span>ドラキーマ</span>
+                        </div>
+                        <div class="area-place-table-new-cell">やくそう</div>
+                    </div>
+
+                    <div class="area-place-table-new-row">
+                        
+                        <div class="area-place-table-new-cell area-place-table-new-text">
+                            <img src="{% static 'database/images/dq1/monster/monster107.jpg' %}">
+                            <span>ようじゅつし</span>
+                        </div>
+                        <div class="area-place-table-new-cell">-</div>
+                    </div>
+                </div>
+                
+                <div class="step-text">岩山の洞窟地下2階に出現するモンスターです。<br>
+                    <br>
+                    地下1階と同じくがいこつとまどうしが要注意モンスターとなっています。
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-header">
+                <div class="text-center mb-4">
+                    <img src="{% static 'database/images/dq1_map_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+                </div>
+            </div>
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_map_list' %}" class="btn-story-link">
+                    ▶ マップ一覧
+                </a>
+            </div>
+
+            <div class="step-content">
+                <div class="area-block">
+                <div class="area-table-2col-wrapper">   
+                    <div class="area-title">ダンジョン</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map2.jpg' %}" class="area-image">
+                                    <div class="area-name">ロトの洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_amenohokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map3.jpg' %}" class="area-image">
+                                    <div class="area-name">雨のほこら</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map4.jpg' %}" class="area-image">
+                                    <div class="area-name">岩山の洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_numatinodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map5.jpg' %}" class="area-image">
+                                    <div class="area-name">沼地の洞窟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map6.jpg' %}" class="area-image">
+                                    <div class="area-name">ドワーフの洞窟</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_mayoinomori' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map7.jpg' %}" class="area-image">
+                                    <div class="area-name">迷いの森</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map8.jpg' %}" class="area-image">
+                                    <div class="area-name">岩泣き島</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_domudo-ra' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map9.jpg' %}" class="area-image">
+                                    <div class="area-name">ドムドーラ</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_garainohaka' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map10.jpg' %}" class="area-image">
+                                    <div class="area-name">ガライの墓</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map11.jpg' %}" class="area-image">
+                                    <div class="area-name">竜王の城</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-block">
+                <div class="area-table-2col-wrapper">
+                    <div class="area-title">町・村</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_radato-mu' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map12.jpg' %}" class="area-image">
+                                    <div class="area-name">ラダトーム</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_maira' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map13.jpg' %}" class="area-image">
+                                    <div class="area-name">マイラ</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_garai' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map14.jpg' %}" class="area-image">
+                                    <div class="area-name">ガライ</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map15.jpg' %}" class="area-image">
+                                    <div class="area-name">妖精の隠れ里</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_rimuruda-ru' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map16.jpg' %}" class="area-image">
+                                    <div class="area-name">リムルダール</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_medaruounoshiro' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map17.jpg' %}" class="area-image">
+                                    <div class="area-name">メダル王の城</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_merukido' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map18.jpg' %}" class="area-image">
+                                    <div class="area-name">メルキド</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <div class="area-name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-block">
+                <div class="area-table-2col-wrapper">
+                    <div class="area-title">その他</div>
+                    <div class="area-table-2col">
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_tabibitonokyoukai' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map19.jpg' %}" class="area-image">
+                                    <div class="area-name">旅人の教会</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_wasureraretahaikyo' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map20.jpg' %}" class="area-image">
+                                    <div class="area-name">忘れられた廃墟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_kaidounoyadoya' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map21.jpg' %}" class="area-image">
+                                    <div class="area-name">街道の宿屋</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_namonakihaikyo' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map22.jpg' %}" class="area-image">
+                                    <div class="area-name">名もなき廃墟</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_himitunohanabatake' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map23.jpg' %}" class="area-image">
+                                    <div class="area-name">ひみつの花畑</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_tabibitonoyadoya' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map24.jpg' %}" class="area-image">
+                                    <div class="area-name">旅人の宿屋</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_seireinohokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map25.jpg' %}" class="area-image">
+                                    <div class="area-name">精霊のほこら</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_seinaruhokora' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map26.jpg' %}" class="area-image">
+                                    <div class="area-name">聖なるほこら</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area-row">
+                            <div class="area-cell">
+                                <a href="{% url 'database:dq1_radato-munishinoshima' %}">
+                                    <img src="{% static 'database/images/dq1/map/dq1_map27.jpg' %}" class="area-image">
+                                    <div class="area-name">ラダトーム西の島</div>
+                                </a>
+                            </div>
+                            <div class="area-cell">
+                                <div class="area-name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.zoomable').forEach(img => {
+  img.addEventListener('click', e => {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('imgInModal');
+    modal.style.display = 'flex';
+    modalImg.src = e.target.src;
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.querySelector('.modal-new .close').onclick = () => {
+  const modal = document.getElementById('imgModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+window.addEventListener('click', e => {
+  const modal = document.getElementById('imgModal');
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+</script>
+
+
+
+{% endblock %}

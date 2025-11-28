@@ -1,0 +1,457 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【トリックスキル】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#skill1">▶ Tier1</a></li>
+            <li><a href="#skill2">▶ Tier2</a></li>
+            <li><a href="#skill3">▶ Tier3</a></li>
+            <li><a href="#skill4">▶ Tier4</a></li>
+            <li><a href="#skill5">▶ Tier5</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#skill" class="btn-story-link">▶ 戻る</a></li>
+        </ul>
+    </aside>
+
+
+
+<main class="main-content">
+        
+    <div id="skill"></div><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band" style="width: 102%; margin-left: -1%;">トリックスキル一覧</div>
+        </div>
+
+    <div id="skill"></div>
+        <div class="step-content">
+            <div class="step-header">
+            </div>
+        
+            <div class="step-body">
+                <img src="{% static 'database/cp_images/sks(34).jpg' %}" style="width: 700px; margin-left: 15px;">
+            
+            <div id="skill1"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier1</div>
+                <table style="margin-left:-27px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>死んだふり?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>300</td>
+                              <td>15～20</td>
+                              <td>一定時間動けなくなるが、敵から狙われなくなりライフとマナが徐々に回復する。</td>
+                         </tr>
+                         <tr>
+                              <td>エアリアル?</td>
+                              <td>6</td>
+                              <td>コマンド</td>
+                              <td>-</td>
+                              <td>スタミナ100～70%<br>満腹度5.5～3</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>ジャンプ中にしゃがみボタンを押すと前方へダッシュする。しかしとても疲れるので満腹度が少し減る。</td>
+                         </tr>
+                         <tr>
+                              <td>ハイタッチ?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>120</td>
+                              <td>仲間のプレイヤーを近接攻撃した時、一定時間自身と仲間のATKとMATKを増加させる。一部の遠距離攻撃でも発動する。</td>
+                         </tr>
+                         <tr>
+                              <td>リーンフォース?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>バフが発動したとき、自身のライフを僅かに回復する。</td>
+                         </tr>
+                         <tr>
+                              <td>マナドレイン?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>遠距離攻撃をガードしたとき、マナを僅かに回復する。</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill2"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier2</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>攻撃命令?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>10</td>
+                              <td>-</td>
+                              <td>1</td>
+                              <td>-</td>
+                              <td>近くのペットとチャーム状態のエネミーにジャンプ攻撃させる。</td>
+                         </tr>
+                         <tr>
+                              <td>満腹感?</td>
+                              <td>1</td>
+                              <td>アクティブ</td>
+                              <td>5</td>
+                              <td>-</td>
+                              <td>600</td>
+                              <td>180</td>
+                              <td>一定時間、満腹度が減らなくなる。</td>
+                         </tr>
+                         <tr>
+                              <td>酒池肉林?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>45</td>
+                              <td>-</td>
+                              <td>300</td>
+                              <td>-</td>
+                              <td>空いているインベントリを肉で埋める奥義。</td>
+                         </tr>
+                         <tr>
+                              <td>フルムーン?【未実装】</td>
+                              <td>1</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>180</td>
+                              <td>60</td>
+                              <td>狼に変身する。</td>
+                         </tr>
+                         <tr>
+                              <td>ファスティング?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>9999</td>
+                              <td>-</td>
+                              <td>日の出から日没まで断食して、食事するか日没までMATK、魔法クリティカル率と魔法クリティカルダメージが増加する。</td>
+                         </tr>
+                         <tr>
+                              <td>ドライバー?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>乗り物の攻撃力が増加する。</td>
+                         </tr>
+                         <tr>
+                              <td>ワイルドマイト?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>生のケモノ肉を食べたとき、一定時間攻撃力が増加する。</td>
+                         </tr>
+                         <tr>
+                              <td>ワープシフト?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>45</td>
+                              <td>-</td>
+                              <td>50～5</td>
+                              <td>-</td>
+                              <td>剣を投げ、刺さった位置に自身を転移させ、瞬間移動を行う。</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill3"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier3</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>ステルス?</td>
+                              <td>1</td>
+                              <td>アクティブ</td>
+                              <td>15</td>
+                              <td>-</td>
+                              <td>60</td>
+                              <td>20</td>
+                              <td>一定時間、敵、味方から見えなくなる。</td>
+                         </tr>
+                         <tr>
+                              <td>トリックボックス?【未実装】</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>900～600</td>
+                              <td>120</td>
+                              <td>次にダメージを受けた時、ランダムで1つアイテムを獲得する。</td>
+                         </tr>
+                         <tr>
+                              <td>太陽の恵み?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>300</td>
+                              <td>120</td>
+                              <td>一定時間、頭に葉っぱが生えるがライフ・マナ・スタミナの自然回復量が増加する。効果時間中は移動速度が低下し、満腹度が継続的に減少する。</td>
+                         </tr>
+                         <tr>
+                              <td>自爆?【未実装】</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>600</td>
+                              <td>-</td>
+                              <td>死亡するが、自爆して大ダメージを与える。</td>
+                         </tr>
+                         <tr>
+                              <td>デコイドール?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>30</td>
+                              <td>-</td>
+                              <td>60</td>
+                              <td>10～21</td>
+                              <td>敵の注意を引き付ける人形を生み出す。</td>
+                         </tr>
+                         <tr>
+                              <td>鉄人スイマー?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>溶岩や毒沼で受けるダメージを軽減する</td>
+                         </tr>
+                         <tr>
+                              <td>ハングリー精神?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>満腹度が少なくなったとき攻撃力が増加する。</td>
+                         </tr>
+                         <tr>
+                              <td>巨人の肩?【未実装】</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>建物を投げられるようになる。</td>
+                         </tr>
+                         <tr>
+                              <td>暴食?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>30</td>
+                              <td>食べれば食べるほど、クリティカル率が増加する。</td>
+                         </tr>
+                         <tr>
+                              <td>絨毯爆撃?</td>
+                              <td>6</td>
+                              <td>コマンド</td>
+                              <td>-</td>
+                              <td>爆破タル?</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>グライダー搭乗中、右クリックを押すと持っている爆破タルを消費して爆破タルを投下する。稀に爆破タルを消費しないことがある。</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill4"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier4</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                	     <tr>
+                              <td>アニマルボマー?</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>15</td>
+                              <td>-</td>
+                              <td>15</td>
+                              <td>-</td>
+                              <td>使役しているペットとチャーム状態のモブを爆破して周囲にダメージを与える。</td>
+                         </tr>
+                         <tr>
+                              <td>舞空術?【未実装】</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>60</td>
+                              <td>-</td>
+                              <td>自由に空を飛べる。飛んでいる間はマナを消費し続ける。</td>
+                         </tr>
+                         <tr>
+                              <td>巨人化?【未実装】</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>360</td>
+                              <td>60</td>
+                              <td>巨人に変身する。</td>
+                         </tr>
+                         <tr>
+                              <td>ルートハンター?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>敵を倒したとき更に追加でアイテムがドロップすることがある。</td>
+                         </tr>
+                         <tr>
+                              <td>メンテナンス?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>乗り物の耐久度減少が軽減される。</td>
+                         </tr>
+                         <tr>
+                              <td>闇討ち?</td>
+                              <td>6</td>
+                              <td>パッシブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>ステルス状態の時、近接攻撃のダメージと移動速度が増加する。</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill5"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier5</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		  <tr>
+                              <td>釣りバカ一代記?【未実装】</td>
+                              <td>6</td>
+                              <td>アクティブ</td>
+                              <td>-</td>
+                              <td>-</td>
+                              <td>120</td>
+                              <td>-</td>
+                              <td>クジラかゴミが釣れる。</td>
+                         </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</main>
+
+{% endblock %}

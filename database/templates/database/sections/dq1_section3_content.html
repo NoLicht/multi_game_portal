@@ -1,0 +1,618 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 第3章 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#story1">① ローラ姫をラダトーム城に送り届ける(任意)</a></li>
+            <li><a href="#story2">② ローラ姫を送り届けなくてもいい</a></li>
+            <li><a href="#story3">③ 南にある「迷いの森」へ向かう</a></li>
+            <li><a href="#story4">④ 迷いの森で2回以上マップ移動する</a></li>
+            <li><a href="#story5">⑤ 右上の地点に行くとイベントが発生し霧が晴れる</a></li>
+            <li><a href="#story6">⑥ 霧を払うとマップが開ける</a></li>
+            <li><a href="#story7">⑦ 2マップ目に進むとボス戦</a></li>
+            <li><a href="#story8">⑧ ボス戦後は妖精の隠れ里に強制移動</a></li>
+            <li><a href="#story9">⑨ 迷いの森にルーラで移動</a></li>
+            <li><a href="#story10">⑩ アイテムを回収して迷いの森を抜ける</a></li>
+            <li><a href="#story11">⑪ 旅人の宿屋で休んでから進む</a></li>
+            <li><a href="#story12">⑫ 井戸から小さなメダルを入手</a></li>
+            <li><a href="#story13">⑬ メルキドへ向かう</a></li>
+            <li><a href="#story14">⑭ メルキドに入るとボス戦「ゴーレム」</a></li>
+            <li><a href="#story15">⑮ メルキドを探索する</a></li>
+            <li><a href="#story16">⑯ メルキドで装備更新をしよう</a></li>
+            <li><a href="#story17">⑰ ロトのよろいのサブイベント</a></li>
+            <li><a href="#story18">⑱ ドワーフの洞窟に移動</a></li>
+            <li><a href="#story19">⑲ メルキドに入るとボス戦「ゴーレム」</a></li>
+            <li><a href="#story20">⑳ 橋を渡って岩泣き島へ向かう</a></li>
+            <li><a href="#story21">㉑ 1階の北西にある宝箱からメダル入手</a></li>
+            <li><a href="#story22">㉒ 2階の南東にある宝箱からメダル入手</a></li>
+            <li><a href="#story23">㉓ 外観で紋章の素材を回収</a></li>
+            <li><a href="#story24">㉔ ロトの盾は最後の鍵を入手後に再訪しよう</a></li>
+            <li><a href="#story25">㉕ 2階の奥でボス戦「ドラゴンフライ」</a></li>
+            <li><a href="#story26">㉖ ドラゴンフライ撃破後は墓へ向かう</a></li>
+            <li><a href="#story27">㉗ 岩泣き島に戻って宝箱を回収</a></li>
+            <li><a href="#story28">㉘ 墓イベント後、ドワーフの洞窟に武器屋が開店</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#story" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+      <div class="story-header text-center my-3">
+            <div class="black-yellow-band">迷いの森から岩泣き島までの攻略チャート</div>
+      </div>
+      <div class="chart-image-wrapper">
+           <img src="{% static 'database/images/dq1/chart3.jpg' %}" alt="チャート3" class="story-top-image">
+      </div>
+
+      <div class="story-info-grid">
+            <div class="cell label">攻略目安</div>
+            <div class="cell value">3～4時間</div>
+            <div class="cell label">攻略レベル</div>
+            <div class="cell value">21～30</div>
+      </div>
+
+
+    <div id="story1" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">① ローラ姫をラダトーム城に送り届ける(任意)<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_1.jpg' %}" class="step-image">
+            <div class="step-text">ドラゴン戦後にローラ姫を救出したら、ラダトームに移動して王に送り届けましょう。<br>
+                ※送り届けるかどうかは任意なので、送り届けずに一緒にストーリーを進めることもできます。<br>
+                <br>
+                ローラ姫を送り届けると「おうじょの首かざり」を入手でき、次に向かうことになる「迷いの森」の霧を払うことができます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story2" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">② ローラ姫を送り届けなくてもいい<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_2.jpg' %}" class="step-image">
+            <div class="step-text">ローラ姫をラダトーム城に送り届けなくてもストーリーは問題なく進行します。<br>
+                迷いの森にローラ姫を抱えた状態でも霧を払うことができます。<br>
+                <br>
+                ローラ姫と一緒に冒険をしたい方は送り届けずに以下のストーリーを進めましょう。<br>
+                ローラ姫を抱えたままストーリーを進めると、ストーリー中に喋ってくれたりバトルサポートをしてくれるので、こだわりがなければ連れて進めるのがおすすめです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story3" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">③ 南にある「迷いの森」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_3.jpg' %}" class="step-image">
+            <div class="step-text">全体マップの南にある「迷いの森」へ向かいます。<br>
+                メダル王の城にルーラで移動し、東に進んで橋を渡った先に迷いの森があります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story4" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">④ 迷いの森で2回以上マップ移動する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_4.jpg' %}" class="step-image">
+            <div class="step-text">迷いの森に着いたら、迷いの森内でマップ移動を繰り返しましょう。<br>
+                上記の画像の「A・B・C・D・E」の地点に行くとマップが切り替わり矢印の先に移動するため、これを2回以上繰り返しましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story5" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑤ 右上の地点に行くとイベントが発生し霧が晴れる<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_5_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_3_5_2.jpg' %}" class="step-image">
+            <div class="step-text">マップ移動を2回以上繰り返した後にマップの右上に行くとローラ姫が霧を晴らすイベントが発生し、迷いの森が抜けられるようになります。</div>
+        </div>
+    </div><br>
+    
+    <div id="story6" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑥ 霧を払うとマップが開ける<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_6.jpg' %}" class="step-image">
+            <div class="step-text">迷いの森でイベントが発生するとマップを開けるようになります。<br>
+                <br>
+                迷いの森の1マップ目には「ちいさなメダル」や「ゆうわくの剣」が入った宝箱があります。</div>
+        </div>
+    </div><br>
+
+    <div id="story7" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑦ 2マップ目に進むとボス戦<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">ダークドリーマー</div>
+            <img src="{% static 'database/images/dq1/dq1_3_7.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">23</div>
+                    <div class="info-value">迷いの森</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">
+                    約230
+                    </div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title"><div class="step-number">ダークドリーマー戦の攻略ポイント</div></h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>初手にマジックバリアを唱えて被ダメ軽減</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>全体攻撃でバランスよくダメージを与える</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>しんくう斬りの超絶技「空裂斬」が有効</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-text"><br>迷いの森の2マップ目に行き少し進むと、ボス「ダークドリーマー」と戦闘になります。<br>
+                ダークドリーマーは倒すと仲間を呼ぶため、全体攻撃で一気に倒すのがおすすめです。
+            </div>
+            <div class="video-container">
+                <video conrtols autoplay loop muted>
+                    <source src="{% static 'database/images/dq1/dq1_3_7.mp4' %}" type="video/mp4">
+                    お使いのブラウザは動画再生に対応していません。
+                </video>
+            </div>
+            <div class="step-text">主人公のHPを50％以下に調整し、超絶技「空裂斬」を使えば敵を一掃できます。<br>
+                空裂斬は、しんくう斬りを▢ボタン長押しで選択すると発動します。
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_darkdreamer' %}" class="btn-story-link">
+                    ▶ ダークドリーマーの攻略と推奨レベルを見る
+                </a>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story8" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑧ ボス戦後は妖精の隠れ里に強制移動<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_8.jpg' %}" class="step-image">
+            <div class="step-text">ダークドリーマーを撃破後、妖精の隠れ里に強制的に移動になります。<br>
+                族長が目覚めるまで里の妖精たちと会話して待ちましょう。<br>
+                <br>
+                族長が目を覚ますとストーリーが進行するので、左の民家に入ってイベントを進めましょう。</div>
+        </div>
+    </div><br>
+
+    <div id="story9" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑨ 迷いの森にルーラで移動<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_9_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_3_9_2.jpg' %}" class="step-image">
+            <div class="step-text">迷いの森へもう一度向かいます。<br>
+                迷いの森の2マップ目に進み、まずは右上にある「不滅の炎」を回収しましょう。<br>
+                <br>
+                不滅の炎は、妖精の隠れ里で「たいようの紋章」と交換することができ、特技でも会心の一撃が出るようになります。</div>
+        </div>
+    </div><br>
+
+    <div id="story10" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑩ アイテムを回収して迷いの森を抜ける<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_10.jpg' %}" class="step-image">
+            <div class="step-text">2マップ目には「かげのターバン」や「せいしんの巻物」が入った宝箱があるので、探索してから左上のルートへ進みましょう。<br>
+                左下の宝箱からはひとくいばこが出現するので、倒していのりのゆびわも入手しておきましょう。<br>
+                <br>
+                せいしんの巻物を使って覚える「せいしんとういつ」は、超絶技の発動条件になっている特技なので、取っておくのがおすすめです。</div>
+        </div>
+    </div><br>
+
+    <div id="story11" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑪ 旅人の宿屋で休んでから進む<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_11_1.jpg' %}" class="step-image">
+            <div class="step-text">迷いの森を抜けた後は、東側にある橋を通った先の「旅人の宿屋」で休んで回復しましょう。<br>
+                最後の鍵を入手後に開けられる宝箱から「はんにゃのめん」を入手することができるので、最後の鍵を入手したら再度訪れましょう。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_3_11_2.jpg' %}" class="step-image">
+            <div class="step-text">ちなみに、ローラ姫を抱えたまま宿宿で休むと、「ゆうべはおたのしみでしたね」というイベントが発生し、トロフィーも獲得できます。</div>
+        </div>
+    </div><br>
+
+    <div id="story12" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑫ 井戸から小さなメダルを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_12.jpg' %}" class="step-image">
+            <div class="step-text">旅人の宿屋の井戸から降り、中央付近の地面に落ちているちいさなメダルを拾いましょう。</div>
+        </div>
+    </div><br>
+
+    <div id="story13" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑬ メルキドへ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_13.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">推奨レベル</div>
+                <div class="level-value">25～27</div>
+            </div>
+            <div class="step-text">旅人の宿屋で休んだ後は東側にある「メルキド」へ向かいます。<br>
+                <br>
+                メルキドに入るとゴーレムと強制戦闘になるので、事前に軽くレベル上げをしておき、「ようせいのふえ」を持っていない場合はマイラで入手しておきましょう。
+            </div>
+        </div>
+    </div>
+
+    <div id="story14" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑲ メルキドに入るとボス戦「ゴーレム」<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">ゴーレム</div>
+            <img src="{% static 'database/images/dq1/dq1_3_14_1.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">27</div>
+                    <div class="info-value">メルキド</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約2100</div>
+                    <div class="info-value">命の石</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title"><div class="step-number">ゴーレム戦の攻略ポイント</div></h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>マイラで「ようせいのふえ」を入手しておく</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ようせいのふえで眠らせながら戦う</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>起きるタイミングに気をつけながら攻撃</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-text"><br>メルキドに入るとボス「ゴーレム」と戦闘になります。<br>
+                ようせいのふえを入手している場合は、事前に袋から取り出して主人公に持たせるのを忘れないように注意してください。
+            </div>
+            <img src="{% static 'database/images/dq1/dq1_3_14_2.jpg' %}" class="step-image">
+            <div class="step-text">ようせいのふえでゴーレムを眠らせながら戦えば、ほとんど攻撃を受けることなく楽に倒すことができます。</div><br><br>
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_golem' %}" class="btn-story-link">
+                    ▶ ゴーレムの攻略と推奨レベルを見る
+                </a>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story15" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑮ メルキドを探索する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_15.jpg' %}" class="step-image">
+            <div class="step-text">ストーリーを進める前にメルキドを探索しましょう。<br>
+                西側にある民家の1階で「かしこさのたね」、2階で「てつのよろい」「やいばくだきの巻物」「ベホイムの巻物」が入手できます。<br>
+                <br>
+                メルキドの中央東側の一番右の墓を調べると「ちいさなメダル」を入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story16" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑯ メルキドで装備更新をしよう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_16.jpg' %}" class="step-image">
+            <div class="step-text">メルキドから先のモンスターはかなり強敵です。<br>
+                メルキドで装備更新をしておかないとすぐ全滅してしまうため、ここはゴールドを惜しみなく使って装備更新をするのがおすすめです。<br>
+                ゴールドが足りない場合は、町周辺に出現するゴールドマンを狩って金策しましょう。<br>
+                <br>
+                また、推奨レベルも29～30に上がるので、メルキド周辺の雑魚敵か、岩泣き島周辺の「メタルスライム」を狩ってレベリングしましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story17" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑰ ロトのよろいのサブイベント<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_17.jpg' %}" class="step-image">
+            <div class="step-text">メルキドの右下あたりで歩いている商人に話しかけるとサブイベントが進行します。<br>
+                会話後、ドムドーラの中央右あたりの毒沼に向かうと「あくまのきし」との戦闘が発生します。<br>
+                <br>
+                あくまのきしを撃破すると「ロトのよろい」が入手できますが、レベル35前後ないと太刀打ちできないため、この段階ではまだドムドーラに行くことはおすすめしません。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story18" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑱ ドワーフの洞窟に移動<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_18.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟に移動し、青色の帽子を被ったドワーフと話します。<br>
+                <br>
+                岩泣き島に繋がる橋を修理してくれるので、先へ進めるようになります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story19" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑳ 橋を渡って岩泣き島へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_19_1.jpg' %}" class="step-image">
+            <div class="step-text">メダル王の城から北東に進んで橋を渡って岩泣き島へ向かいましょう。<br>
+                <br>
+                岩泣き島周辺には「メタルスライム」や「ゴールドマン」が出現するので、経験値稼ぎとゴールド稼ぎを並行して行えます。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_3_19_2.jpg' %}" class="step-image">
+            <div class="step-text">道中、山間にあるひみつの場所で、「ちからのゆびわ」「ちいさなメダル」「やいばのよろい」が入手できます。<br>
+                最後の鍵で開けられる宝箱「はやてのリング」もあるので、鍵入手後にまた訪れましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story20" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑳ 岩泣き島を探索しながら進む<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_20.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">推奨レベル</div>
+                <div class="level-value">29～30</div>
+            </div>
+            <div class="step-text">岩泣き島のマップは広く、入手できるアイテムや装備が多いため、入念に探索しながら先へ進みましょう。<br>
+                <br>
+                2階の北側まで行くとボス戦になるので、先に1階と外観の探索から済ませましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story21" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉑ 1階の北西にある宝箱からメダル入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_21.jpg' %}" class="step-image">
+            <div class="step-text">岩泣き島・1階の北西にある宝箱から「ちいさなメダル」を入手できます。</div>
+        </div>
+    </div><br>
+
+    <div id="story22" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉒ 2階の南東にある宝箱からメダル入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_22.jpg' %}" class="step-image">
+            <div class="step-text">岩泣き島・2階の南東にある宝箱から「ちいさなメダル」を入手できます。</div>
+        </div>
+    </div><br>
+
+    <div id="story23" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉓ 外観で紋章の素材を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_23.jpg' %}" class="step-image">
+            <div class="step-text">岩泣き島・外観で紋章の素材となる「星くずの砂」を回収しましょう。<br>
+                星くずの砂は妖精の隠れ里で「ほしの紋章」と交換することができます。<br>
+                <br>
+                ほしの紋章は、ぼうぎょをすると少しだけMPを回復することができます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story24" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉔ ロトの盾は最後の鍵を入手後に再訪しよう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_24.jpg' %}" class="step-image">
+            <div class="step-text">近くにある宝箱から「ヒャダインの巻物」も入手できます。<br>
+                最後の鍵で開けられる緑色の宝箱の中身は「ロトの盾」です。最後の鍵入手後に再訪しましょう。<br>
+                ツボやタルのアイテムも回収してから2階の奥を目指します。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story25" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉕ 2階の奥でボス戦「ドラゴンフライ」<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">ドラゴンフライ</div>
+            <img src="{% static 'database/images/dq1/dq1_3_25.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">30</div>
+                    <div class="info-value">岩泣き島</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約140</div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title"><div class="step-number">ドラゴンフライ戦の攻略ポイント</div></h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>炎軽減装備を複数着けて炎攻撃を無効化に</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ドラゴン斬りで1体ずつ攻撃</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ゾンビ斬りの超絶技「グランドクロス」が有効</div>
+                    </div>
+                </div>
+                <div class="step-text"><br>岩泣き島・2階の奥でボス「ドラゴンフライ」×6体と戦闘になります。<br>
+                    ドラゴン斬りで攻撃しつつ、主人公のHPが50％以下の時orせいしんとういつの効果中にゾンビ斬りの超絶技「グランドクロス」で攻撃するのが有効です。<br>
+                    <br>
+                    また、炎軽減装備の「氷の盾」「ガイアのよろい」「氷のイヤリング」「ドラゴンシールド」などを複数装備していれば炎攻撃を無効化できるので、楽に攻略できます。
+                </div><br><br>
+
+                <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_dragonfly' %}" class="btn-story-link">
+                    ▶ ドラゴンフライの攻略と推奨レベルを見る
+                </a>
+            </div>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story26" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉖ ドラゴンフライ撃破後は墓へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_26.jpg' %}" class="step-image">
+            <div class="step-text">ドラゴンフライを撃破すると強制的にメルキドに移動になります。<br>
+                メルキドの中央東側にあるお墓へ向かうとイベントが発生します。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story27" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉗ 岩泣き島に戻って宝箱を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_27.jpg' %}" class="step-image">
+            <div class="step-text">お墓のイベントが終わったら、ストーリーを進める前に岩泣き島に戻って宝箱を回収しましょう。<br>
+                ドラゴンフライと戦闘した岩泣き島・2階の奥に「海賊王の首かざり」「ルビーの腕輪」「はでな服」「こおりの盾」「めざましリング」「うさぎのしっぽ」「どうのつるぎ」などがあります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story28" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉘ 墓イベント後、ドワーフの洞窟に武器屋が開店<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_3_28.jpg' %}" class="step-image">
+            <div class="step-text">メルキドでお墓のイベントを見たあと、ドワーフの洞窟地下3階に武器・防具屋が開店します。<br>
+                かなり高額ではあるものの、「ふぶきのつるぎ」「知力のかぶと」「バンデッドメイル」など、かなり強力な装備が販売されています。<br>
+                <br>
+                特にふぶきのつるぎは、ロトの剣を入手するまでの武器候補となります。
+            </div>
+        </div>
+    </div><br>
+
+    
+
+    <div class="text-center mt-4 ">
+        <a href="{% url 'database:dq1_section2_content' %}" class="text-decoration-none fw-bold ms-3">
+            ◀ 前のチャートへ
+        </a>
+        
+        <a href="{% url 'database:dq1_section4_content' %}" class="text-decoration-none fw-bold ms-3">
+            次のチャートへ ▶
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="{% url 'database:dq1_story_list' %}" class="fw-bold text-primary text-decoration-none">
+            ▶ ストーリー一覧へ
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="javascript:history.back()" class="text-decoration-none fw-bold">
+            ◀ 戻る
+        </a>
+    </div>
+    </main>
+
+  </div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+
+{% endblock %}

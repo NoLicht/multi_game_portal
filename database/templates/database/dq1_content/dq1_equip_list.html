@@ -1,0 +1,1267 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 装備一覧{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title main-nav-title">【 DQⅠ 全体ナビ 】</h3>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ 小さなメダル場所一覧</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/equip/banner.jpg' %}">
+        </div><br><br><br>
+
+        <div class="step-card">
+            <div class="header">
+                <div class="black-yellow-band text-center">装備一覧と入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <table class="equip-search-wrapper">
+                    <tr class="equip-search-row">
+                        <td class="equip-search-left">自由入力</td>
+                        <td class="equip-search-right">
+                            <input type="text" placeholder="検索ワードを入力してください" class="equip-input">
+                        </td>
+                    </tr>
+                    <tr class="equip-search-row">
+                        <td class="equip-search-left">種類</td>
+                        <td class="equip-search-right">
+                            <input type="radio" name="equip-type" id="type-all" value="all" checked>
+                            <label for="type-all">すべて</label>
+
+                            <input type="radio" name="equip-type" id="type-weapon" value="weapon">
+                            <label for="type-weapon">武器</label>
+
+                            <input type="radio" name="equip-type" id="type-armor" value="armor">
+                            <label for="type-armor">防具</label>
+
+                            <input type="radio" name="equip-type" id="type-accessory" value="accessory">
+                            <label for="type-accessory">アクセサリー</label>
+                        </td>
+                    </tr>
+                    <tr class="equip-search-row">
+                        <td class="equip-search-left">防具種</td>
+                        <td class="equip-search-right">
+                            <input type="radio" name="equip-armor" id="armor-all" value="all" checked>
+                            <label for="armor-all">すべて</label>
+
+                            <input type="radio" name="equip-armor" id="armor-body" value="armor">
+                            <label for="armor-body">鎧</label>
+
+                            <input type="radio" name="equip-armor" id="armor-head" value="head">
+                            <label for="armor-head">頭</label>
+
+                            <input type="radio" name="equip-armor" id="armor-shield" value="shield">
+                            <label for="armor-shield">盾</label>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+                <div class="equip-table-wrapper">
+                    <table class="equip-table">
+                        <thead>
+                            <tr>
+                                <th>装備</th>
+                                <th>性能</th>
+                                <th>効果／入手方法</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'dounoturugi' %}">どうのつるぎ</a></td>
+                                <td>攻+9</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（180G）<br>マイラの装備屋（189G）<br>マイラ南部 のキラキラ<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> のタル<br><a href="{% url 'database:monster_detail' 'samayouyoroi' %}">さまようよろい</a>からドロップ
+                                    </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'haganenoturugi' %}">はがねのつるぎ</a></td>
+                                <td>攻+23</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（1700G）<br>リムルダールの装備屋（1700G）<br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_1階</a> のじめん<br><a href="{% url 'database:monster_detail' 'gaikotukenshi' %}">がいこつけんし</a>からドロップ<br><a href="{% url 'database:monster_detail' 'andeddoman' %}">アンデッドマン</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'youseinoturugi' %}">ようせいの剣</a></td>
+                                <td>攻+58</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うとしゅび力があがる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'kusanaginoturugi' %}">くさなぎの剣</a></td>
+                                <td>攻+70</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループのしゅび力を下げる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_maira' %}">マイラ</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'yuuwakunoturugi' %}">ゆうわくの剣</a></td>
+                                <td>攻+79</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1体を混乱させられる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_mayoinomori' %}">迷いの森①</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'honoonoturugi' %}">ほのおのつるぎ</a></td>
+                                <td>攻+84</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>攻撃時に炎属性の追加ダメージを与える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋2（23000G）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'hubukinoturugi' %}">ふぶきのつるぎ</a></td>
+                                <td>攻+101</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループにダメージを与える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（34000G）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'rotonoturugi' %}">ロトのつるぎ</a></td>
+                                <td>攻+140</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループにダメージを与える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下1階</a> のじめん
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'morohanoturugi' %}">もろはのつるぎ</a></td>
+                                <td>攻+148</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>攻撃するたびにダメージを受ける
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下5階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'haganenoturugi' %}">はかいのつるぎ</a></td>
+                                <td>攻+135</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>会心の一撃が出やすくなる。装備すると呪われ、教会で解呪することでしか外せなくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダール周辺 のひみつの場所<br><a href="{% url 'database:dq1_murdergoyle' %}">マーダーゴイル</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'seinarunaihu' %}">せいなるナイフ</a></td>
+                                <td>攻+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>ゾンビ系に与えるダメージが上がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ラダトームの装備屋（240G）<br>ドムドーラ北部 のキラキラ<br>ラダトーム東部 のキラキラ<br><a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下1階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'konbou' %}">こんぼう</a></td>
+                                <td>攻+5</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（40G）<br>マイラの装備屋（40G）<br>ラダトーム周辺 のキラキラ<br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_2階②</a> のツボ<br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a> のタル<br><a href="{% url 'database:monster_detail' 'tororu' %}">トロル</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'tetunoono' %}">てつのオノ</a></td>
+                                <td>攻+29</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（2700G）<br>メダル王の城の道具屋（2700G）<br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階①</a> のツボ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'mazinnoono' %}">まじんのオノ</a></td>
+                                <td>攻+110</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>会心の一撃が出やすいがミスも多くなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a> の宝箱<br><a href="{% url 'database:monster_detail' 'tororukingu' %}">トロルキング</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'takezao' %}">たけざお</a></td>
+                                <td>攻+3</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ラダトームの道具屋（10G）<br>ガライ周辺 のキラキラ<br><a href="{% url 'database:dq1_rimuruda-ru' %}">リムルダール</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'tetunoyari' %}">てつのやり</a></td>
+                                <td>攻+17</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（660G）<br>リムルダールの装備屋（660G）<br><a href="{% url 'database:dq1_numatinodoukutu' %}">沼地の洞窟_地下1階</a> の宝箱<br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下3階</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'doragonkira-' %}">ドラゴンキラー</a></td>
+                                <td>攻+87</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>ドラゴン系に与えるダメージが上がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>旅人の宿屋の道具屋（18000G）<br>メダル王の城の道具屋（18000G）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'sabakinotue' %}">さばきの杖</a></td>
+                                <td>攻+36</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループにダメージを与える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダールの装備屋（3180G）<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_外観</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'amagumonotue' %}">あまぐもの杖</a></td>
+                                <td>攻+16</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループの呪文を封じる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>精霊ルピス召喚後、雨のほこらで雨の賢者から貰って入手
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'tenbatunotue' %}">てんばつの杖</a></td>
+                                <td>攻+55</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に使うと敵1グループにダメージを与える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>聖なるほこら周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'eiyuunotue' %}">えいゆうの杖</a></td>
+                                <td>攻+91</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘で使うとブレスダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（30枚）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'togenomuti' %}">とげのムチ</a></td>
+                                <td>攻+12</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵1グループをまとめて攻撃できる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ラダトーム東部 のひみつの場所<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_外観</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'haganenomuti' %}">はがねのムチ</a></td>
+                                <td>攻+40</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵1グループをまとめて攻撃できる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの道具屋（4400G）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'basuta-wippu' %}">バスターウィップ</a></td>
+                                <td>攻+82</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵1グループをまとめて攻撃できる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（25枚）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'akumanomuti' %}">あくまのムチ</a></td>
+                                <td>攻+90</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵1グループをまとめて攻撃できる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（25枚）
+                                    </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'guringamunomuti' %}">グリンガムのムチ</a></td>
+                                <td>攻+118</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵1グループをまとめて攻撃できる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（40枚）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'bu-meran' %}">ブーメラン</a></td>
+                                <td>攻+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵全体に攻撃できるがヒットするにつれて威力が下がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下1階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'yaibanobu-meran' %}">やいばのブーメラン</a></td>
+                                <td>攻+16</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵全体に攻撃できるがヒットするにつれて威力が下がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダール周辺 のひみつの場所<br>メルキド周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'tuinsuwaro-' %}">ツインスワロー</a></td>
+                                <td>攻+52</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>虫系に与えるダメージが上がる。敵全体に攻撃できるがヒットするにつれて威力が下がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（17枚）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'honoonobu-meran' %}">ほのおのブーメラン</a></td>
+                                <td>攻+71</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵全体に攻撃できるがヒットするにつれて威力が下がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（26000G）
+                                </td>
+                            </tr>
+                            <tr data-type="weapon" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'metaruwingu' %}">メタルウィング</a></td>
+                                <td>攻+102</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>メタル系の敵にダメージを与えやすくなる。<br>敵全体に攻撃できるがヒットするにつれて威力が下がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（37枚）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'kawanotate' %}">皮の盾</a></td>
+                                <td>守+4</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの装備屋（120G）<br>ラダトームの装備屋（120G）<br>ラダトーム周辺 のキラキラ<br><a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下1階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'urokonotate' %}">うろこの盾</a></td>
+                                <td>守+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの装備屋（350G）<br>ガライの装備屋（350G）<br>マイラ周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'tetunotate' %}">てつの盾</a></td>
+                                <td>守+20</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（900G）<br>リムルダールの装備屋（900G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'raitoshi-rudo' %}">ライトシールド</a></td>
+                                <td>守+32</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（2050G）<br>メダル王の城の道具屋（2050G）<br>メルキド周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'koorinotate' %}">こおりの盾</a></td>
+                                <td>守+35</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃とブレスによる炎属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a> の宝箱<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'mahounotate' %}">まほうの盾</a></td>
+                                <td>守+38</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>攻撃呪文のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（4300G）<br>メダル王の城の道具屋（4300G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'huuzinnotate' %}">ふうじんの盾</a></td>
+                                <td>守+52</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>爆発系の呪文ダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'honoonotate' %}">ほのおの盾</a></td>
+                                <td>守+56</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃やブレスによる氷属性と吹雪属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>旅人の宿屋の道具屋（10600G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'mikagaminotate' %}">みかがみの盾</a></td>
+                                <td>守+63</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋2（13700G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'mira-shi-rudo' %}">ミラーシールド</a></td>
+                                <td>守+81</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文をはね返すことがあるが、自分にもはね返ることがあるので注意
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（26000G）<br>岩山の洞窟周辺 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'rotonotate' %}">ロトの盾</a></td>
+                                <td>守+85</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>あらゆる呪文・ブレス系のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_外観</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'seidounotate' %}">せいどうの盾</a></td>
+                                <td>守+15</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（680G）<br>ガライの装備屋（680G）<br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'doragonshi-rudo' %}">ドラゴンシールド</a></td>
+                                <td>守+47</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>炎・吹雪属性のブレスダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（15枚）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'o-gashi-rudo' %}">オーガシールド</a></td>
+                                <td>守+97</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_akumanokishi' %}">あくまのきし</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'hametunotate' %}">はめつの盾</a></td>
+                                <td>守+45</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>敵から受ける呪文やブレスによるあらゆる属性ダメージが増加する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_domudo-ra' %}">ドムドーラ</a> のタル<br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下2階</a> の宝箱<br><a href="{% url 'database:monster_detail' 'zigokunoyoroi' %}">じごくのよろい</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="shield">
+                                <td><a href="{% url 'database:equip_detail' 'onabenohuta' %}">おなべのフタ</a></td>
+                                <td>守+2</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ラダトームの道具屋（40G）<br>ドムドーラ東部 のひみつの場所<br><a href="{% url 'database:dq1_garai' %}">ガライの町</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'tetukabuto' %}">てつかぶと</a></td>
+                                <td>守+20</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダールの装備屋（1100G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'tekkamen' %}">てっかめん</a></td>
+                                <td>守+31</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（3600G）<br>メダル王の城の道具屋（3600G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'mougyuuherumu' %}">猛牛ヘルム</a></td>
+                                <td>守+45</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（8800G）<br>ドワーフの洞窟_地下3階の装備屋（8800G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'tiryokunokabuto' %}">知力のかぶと</a></td>
+                                <td>守+60<br>賢+40</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（17700G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'rotonokabuto' %}">ロトのかぶと</a></td>
+                                <td>守+76</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>眠り・混乱・幻惑・マヒ・即死などの効果にかかりにくくなり、雷属性の呪文や特技が強化される
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_radato-munishinoshima' %}">ラダトーム西の島</a> のじめん
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'hannyanomen' %}">はんにゃのめん</a></td>
+                                <td>守+255</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>常に混乱状態になってしまう。<br>装備すると呪われ、教会で解呪することでしか外せなくなる。
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_tabibitonoyadoya' %}">旅人の宿屋</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'hukounokabuto' %}">ふこうのかぶと</a></td>
+                                <td>守+69</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>運が0になる。<br>装備すると呪われ、教会で解呪することでしか外せなくなる。
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>聖なるほこら周辺 のキラキラ<br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下2階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'kawanoboushi' %}">皮のぼうし</a></td>
+                                <td>守+4</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ガライの装備屋（65G）<br>ラダトームの装備屋（65G）<br>ガライ周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'kinoboushi' %}">きのぼうし</a></td>
+                                <td>守+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダールの装備屋（350G）<br>マイラの装備屋（350G）<br>マイラ周辺 のキラキラ<br><a href="{% url 'database:dq1_merukido' %}">メルキド</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'kazenoboushi' %}">風のぼうし</a></td>
+                                <td>守+28</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>風属性の呪文ダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メダル王の城の道具屋（2500G）<br><a href="{% url 'database:dq1_domudo-ra' %}">ドムドーラ</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'hushiginaboushi' %}">ふしぎなぼうし</a></td>
+                                <td>守+18</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文や特技の消費MPを減らす
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_numatinodoukutu' %}">沼地の洞窟_地下2階</a> の宝箱<br><a href="{% url 'database:monster_detail' 'meizikimera' %}">メイジキメラ</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'yamabikonoboushi' %}">やまびこのぼうし</a></td>
+                                <td>守+25</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘中に唱えた呪文が2回連続で発動する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>岩山の洞窟周辺 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'ta-ban' %}">ターバン</a></td>
+                                <td>守+6</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ガライの装備屋（190G）<br>ガライ周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'kagenota-ban' %}">かげのターバン</a></td>
+                                <td>守+36</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_mayoinomori' %}">迷いの森②</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'kegawanohu-do' %}">毛皮のフード</a></td>
+                                <td>守+14</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの装備屋（510G）<br>リムルダール周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="head">
+                                <td><a href="{% url 'database:equip_detail' 'fantomumasuku' %}">ファントムマスク</a></td>
+                                <td>守+34</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵の物理攻撃をかわしやすくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_medaruounoshiro' %}">メダル王の城</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'kawanoyoroi' %}">皮のよろい</a></td>
+                                <td>守+12</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの装備屋（180G）<br>ラダトームの装備屋（180G）<br>マイラ周辺 のキラキラ<br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_2階・隠し部屋</a> のタル<br><a href="{% url 'database:dq1_garai' %}">ガライの町</a> のタンス<br><a href="{% url 'database:monster_detail' 'gaikotu' %}">がいこつ</a>からドロップ<br><a href="{% url 'database:monster_detail' 'shiryounokishi' %}">しりょうのきし</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'tetunoyoroi' %}">てつのよろい</a></td>
+                                <td>守+30</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの装備屋（1800G）<br>ドムドーラ南部 のキラキラ<br><a href="{% url 'database:dq1_merukido' %}">メルキド</a> のタンス<br><a href="{% url 'database:monster_detail' 'yoroinokishi' %}">よろいのきし</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'haganenoyoroi' %}">はがねのよろい</a></td>
+                                <td>守+37</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの道具屋（3500G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'mahounoyoroi' %}">まほうのよろい</a></td>
+                                <td>守+50</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>あらゆる攻撃呪文のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（7700G）<br>メダル王の城の道具屋（7700G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'zonbimeiru' %}">ゾンビメイル</a></td>
+                                <td>守+49</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>歩くごとにHPが減っていく
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a> の宝箱<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_1階</a> のじめん<br><a href="{% url 'database:monster_detail' 'sukarunaito' %}">スカルナイト</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'doragonmeiru' %}">ドラゴンメイル</a></td>
+                                <td>守+80</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃やブレスによる炎属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋3（13800G）<br>メダル王の城の道具屋（13800G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'gaianoyoroi' %}">ガイアのよろい</a></td>
+                                <td>守+68</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文やブレスによる炎系のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下3階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'yaibanoyoroi' %}">やいばのよろい</a></td>
+                                <td>守+88</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>受けた物理ダメージの半分を敵にはね返す
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（18550G）<br>岩泣き島周辺 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'bandeddomeiru' %}">バンデッドメイル</a></td>
+                                <td>守+104</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドワーフの洞窟_地下3階の装備屋（39800G）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'honoonoyoroi' %}">ほのおのよろい</a></td>
+                                <td>守+94</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃やブレスによる氷属性と吹雪属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>旅人の宿屋の道具屋（34300G
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'rotonoyoroi' %}">ロトのよろい</a></td>
+                                <td>守+118</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>歩くたびに少しずつHPが回復する。<br>毒の沼地やバリア床から受けるダメージを無効化する。<br>あらゆる呪文・ブレス系のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドムドーラであくまのきしを倒した後、光っている地面を調べると入手
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'zigokunoyoroi' %}">じごくのよろい</a></td>
+                                <td>守+110</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>攻撃呪文のダメージを軽減するが、戦闘中にときどきマヒ状態になる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下4階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'nunonohuku' %}">布の服</a></td>
+                                <td>守+4</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ガライの道具屋（20G）<br>ラダトームの装備屋（20G）<br>ラダトーム周辺 のキラキラ<br>マイラ周辺 のキラキラ<br><a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下1階</a> のタル<br><a href="{% url 'database:monster_detail' 'ribingudeddo' %}">リビングデッド</a>からドロップ<br><a href="{% url 'database:monster_detail' 'rikanto' %}">リカント</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'kawanohuku' %}">皮の服</a></td>
+                                <td>守+6</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（50G）<br>ガライの装備屋（50G）<br>ラダトーム周辺 のキラキラ<br>リムルダール周辺 のキラキラ<br><a href="{% url 'database:dq1_merukido' %}">メルキド</a> のタンス<br><a href="{% url 'database:dq1_kaidounoyadoya' %}">街道の宿屋</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'tabibitonohuku' %}">たびびとの服</a></td>
+                                <td>守+8</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ラダトーム周辺 のキラキラ<br>マイラ南部 のキラキラ<br><a href="{% url 'database:dq1_merukido' %}">メルキド</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'kusarikatabira' %}">くさりかたびら</a></td>
+                                <td>守+18</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの装備屋1（520G）<br>ガライの装備屋（520G）<br><a href="{% url 'database:dq1_merukido' %}">メルキド</a> のタンス<br><a href="{% url 'database:monster_detail' 'kagenokishi' %}">かげのきし</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'mikawashinohuku' %}">みかわしの服</a></td>
+                                <td>守+25</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵の物理攻撃をかわしやすくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダールの装備屋（1200G）<br>ドムドーラ北部 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'hadenahuku' %}">はでな服</a></td>
+                                <td>守+43</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>リムルダール周辺 のひみつの場所<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> の宝箱
+                                    </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'haganenoturugi' %}">しのびの服</a></td>
+                                <td>守+64</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵の物理攻撃をかわしやすくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドムドーラ周辺 のひみつの場所<br><a href="{% url 'database:monster_detail' 'shirueto' %}">シルエト</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'hushiginaborero' %}">ふしぎなボレロ</a></td>
+                                <td>守+50</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文・特技の消費MPが半分になる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（12枚）
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'haganenoturugi' %}">やみのころも</a></td>
+                                <td>守+97</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵の物理攻撃をかわしやすくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下3階①</a> のツボ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'narikinbesuto' %}">なりきんベスト</a></td>
+                                <td>守+28</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>戦闘後に入手するゴールドが増える
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_garai' %}">ガライ_船着き場</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'kegawanobesuto' %}">毛皮のベスト</a></td>
+                                <td>守+36</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>炎系や吹雪系のダメージを軽減してくれる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'hayatenobesuto' %}">はやてのベスト</a></td>
+                                <td>守+52<br>早+30</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>聖なるほこら周辺 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'taijunomanto' %}">大樹のマント</a></td>
+                                <td>守+112</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>敵の呪文封印やMP吸収、混乱から逃れやすくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドムドーラ東部 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'sutetekopantu' %}">ステテコパンツ</a></td>
+                                <td>守+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a> のじめん<br><a href="{% url 'database:dq1_maira' %}">マイラ</a> のツボ
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'nekogurumi' %}">ねこぐるみ</a></td>
+                                <td>守+33</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>装備するとキャラの見た目がネコに変化する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_garai' %}">ガライ_船着き場</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="armor" data-armor="armor">
+                                <td><a href="{% url 'database:equip_detail' 'inugurumi' %}">いぬぐるみ</a></td>
+                                <td>守+33</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>装備するとキャラの見た目がイヌに変化する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_地下1階</a> のタンス<br><a href="{% url 'database:monster_detail' 'kira-rikanto' %}">キラーリカント</a>からドロップ<br>HD-2D版『ドラゴンクエスト3　そして伝説へ…』のセーブデータがあるとラダトームの宿屋にある宝箱から入手
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'hayatenoringu' %}">はやてのリング</a></td>
+                                <td>早+22</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>岩泣き島周辺 のひみつの場所<br>ドムドーラ周辺 のキラキラ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'mezamashiringu' %}">めざましリング</a></td>
+                                <td>運+7</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>眠りの攻撃に強くなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メダル王の城の道具屋（550G）<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> のツボ<br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'mangetunoringu' %}">まんげつのリング</a></td>
+                                <td>運+7</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>マヒの攻撃に強くなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メダル王の城の道具屋（990G）<br><a href="{% url 'database:dq1_amenohokora' %}">雨のほこら_5階</a> の宝箱<br><a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a> のタル<br><a href="{% url 'database:monster_detail' 'akumanomedama' %}">あくまのめだま</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'riseinoringu' %}">りせいのリング</a></td>
+                                <td>運+7</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>混乱の攻撃に強くなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドムドーラ南部 のキラキラ<br><a href="{% url 'database:dq1_garai' %}">ガライ_船着き場</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'nigenigeringu' %}">にげにげリング</a></td>
+                                <td>早+12</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>戦闘中に逃げ出してしまうことがある。<br>装備すると呪われ、教会で解呪することでしか外せなくなる。
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'tikaranoyubiwa' %}">ちからのゆびわ</a></td>
+                                <td>攻+9</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>岩泣き島周辺 のひみつの場所<br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下3階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'rubi-noudewa' %}">ルビーのうでわ</a></td>
+                                <td>守+8</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの道具屋（2050G）<br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a> のじめん<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> の宝箱<br><a href="{% url 'database:monster_detail' 'odoruhouseki' %}">おどるほうせき</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'ishinokatura' %}">いしのかつら</a></td>
+                                <td>守+18</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>戦闘中に勝手に防御してしまうことがある。<br>装備すると呪われ、教会で解呪することでしか外せなくなる。
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下1階</a> の宝箱<br><a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a> のタル
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'interimegane' %}">インテリめがね</a></td>
+                                <td>賢+15</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ちいさなメダル（8枚）
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'suraimupiasu' %}">スライムピアス</a></td>
+                                <td>守+5</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>旅人の宿屋の道具屋（950G）<br>ガライの道具屋（950G）<br><a href="{% url 'database:dq1_tabibitonoyadoya' %}">旅人の宿屋</a> のタンス
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'honoonoiyaringu' %}">炎のイヤリング</a></td>
+                                <td>賢+8</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃やブレスによる氷属性と吹雪属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>精霊のほこら周辺 のキラキラ<br><a href="{% url 'database:monster_detail' 'da-sudoragon' %}">ダースドラゴン</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'koorinoiyaringu' %}">氷のイヤリング</a></td>
+                                <td>賢+8</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>呪文攻撃やブレスによる炎属性のダメージを軽減する
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>ドムドーラ南部 のキラキラ<br><a href="{% url 'database:monster_detail' 'ki-sudoragon' %}">キースドラゴン</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'kaizokuounokubikazari' %}">海賊王の首かざり</a></td>
+                                <td>守+10</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>モンスターからアイテムがドロップする確率が上がる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> の宝箱<br><a href="{% url 'database:dq1_medaruounoshiro' %}">メダル王の城</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'shinokubikazari' %}">死の首かざり</a></td>
+                                <td>守+5</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>行動終了時にHPがすこし減る。<br>装備すると呪われ、教会で解呪することでしか外せなくなる。
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a> の宝箱<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_1階</a> のじめん
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'noroinoberuto' %}">呪いのベルト</a></td>
+                                <td>守+8</td>
+                                <td>
+                                    <div class="curse-label">呪い</div>
+                                    <div class="effect-label">効果</div><br>行動終了時にMPがすこし減る。<br>装備すると呪われ、教会で解呪することでしか外せなくなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下6階</a> の宝箱
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'usaginoshippo' %}">うさぎのしっぽ</a></td>
+                                <td>運+8</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>マイラの道具屋（270G）<br><a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a> のツボ<br><a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a> のふくろ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'shiawasenokutu' %}">しあわせのくつ</a></td>
+                                <td>運+50</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>歩くごとに経験値が手に入る
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br><a href="{% url 'database:monster_detail' 'haguremetaru' %}">はぐれメタル</a>からドロップ<br>予約特典としてラダトームの宿屋にある宝箱から入手
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'ryuunouroko' %}">竜のうろこ</a></td>
+                                <td>守+5</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>なし
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>メルキドの道具屋（200G）<br>マイラの道具屋（200G）<br>マイラ南部 のキラキラ<br><a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下1階</a> の宝箱<br><a href="{% url 'database:monster_detail' 'sukarugon' %}">スカルゴン</a>からドロップ
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'mayokenosuzu' %}">まよけのすず</a></td>
+                                <td>-</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>状態異常の攻撃に強くなる
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>旅人の宿屋の道具屋（1640G）<br>ちいさなメダル（20枚）<br>聖なるほこら周辺 のひみつの場所
+                                </td>
+                            </tr>
+                            <tr data-type="accessory" data-armor="">
+                                <td><a href="{% url 'database:equip_detail' 'rotonoshirushi' %}">ロトのしるし</a></td>
+                                <td>運+30</td>
+                                <td>
+                                    <div class="effect-label">効果</div><br>死の呪文や即死攻撃を完全に防ぐ
+                                    <div class="divider"></div>
+                                    <div class="effect-label">入手方法</div>
+                                    <br>精霊のほこらでボス「エクソダス」を倒したあとのイベントで入手
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+function filterEquip() {
+  const type = document.querySelector('input[name="equip-type"]:checked').value;
+  const armor = document.querySelector('input[name="equip-armor"]:checked').value;
+  const keyword = document.querySelector('.equip-input').value.trim().toLowerCase();
+
+  document.querySelectorAll('.equip-table tbody tr').forEach(tr => {
+    const trType = tr.dataset.type;       // 例: "weapon", "armor", "accessory"
+    const trArmor = tr.dataset.armor;     // 例: "body", "head", "shield"
+    const text = tr.innerText.toLowerCase();
+
+    // 条件判定
+    const matchType = (type === 'all' || trType === type);
+    const matchArmor = (armor === 'all' || trArmor === armor);
+    const matchKeyword = (!keyword || text.includes(keyword));
+
+    tr.style.display = (matchType && matchArmor && matchKeyword) ? '' : 'none';
+  });
+}
+
+// ラジオボタンでフィルター
+document.querySelectorAll('input[name="equip-type"], input[name="equip-armor"]').forEach(radio => {
+  radio.addEventListener('change', filterEquip);
+});
+
+// キーワード検索でフィルター
+document.querySelector('.equip-input').addEventListener('input', filterEquip);
+
+// 初期表示
+filterEquip();
+
+</script>
+
+{% endblock %}

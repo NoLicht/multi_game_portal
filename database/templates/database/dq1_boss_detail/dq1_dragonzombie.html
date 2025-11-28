@@ -1,0 +1,576 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ ドラゴンゾンビ 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#boss1">ドラゴンゾンビの推奨レベル・弱点</a></li>
+            <li><a href="#boss2">ドラゴンゾンビの行動パターン</a></li>
+            <li><a href="#boss3">ドラゴンゾンビの攻略ポイント</a></li>
+            <li><a href="#boss4">ドラゴンゾンビ戦のおすすめ装備</a></li>
+            <li><a href="#boss5">ドラゴンゾンビ（雑魚敵）の出現場所</a></li>
+            <li><a href="#boss6">ドラゴンゾンビ（雑魚敵）のドロップアイテム</a></li>
+            <li><a href="#boss7">ドラゴンゾンビ（雑魚敵）のステータス</a></li>
+            <li><a href="#boss8">関連記事</a></li>
+            <li><a href="#boss9">ボス攻略一覧</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss_banner/dragonzombie.jpg' %}" class="story-banner rounded shadow-lg">
+        </div><br><br><br>
+        <div id="boss1"></div><br>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ドラゴンゾンビの推奨レベル・弱点</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/dragonzombie.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">32</div>
+                    <div class="info-value">妖精の隠れ里</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約690</div>
+                    <div class="info-value">-</div>
+                </div>
+            </div>
+
+            <div class="boss-tab-wrapper">
+
+                <!-- ボス情報 -->
+                <div class="boss-tab-content">
+
+                    <!-- ドラゴンゾンビ -->
+                    <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">メラ、ギラ、炎</span></div>
+                    <div class="boss-info-row3"><span class="info-label3 text-center">無効</span><span class="info-value3">睡眠</span></div>
+                </div>
+            </div><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_section4_content' %}" class="btn-story-link">
+                    ▶ チャート4攻略を見る
+                </a>
+            </div>
+        </div>
+
+        <div id="boss2"></div>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ドラゴンゾンビの行動パターン</div>
+        </div>
+        <div class="step-number text-center">ドラゴンゾンビの行動</div>
+            <div class="area-place-table">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動（1～2回行動）</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">物理ダメージ</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">こおりのいき</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">吹雪中ダメージ</div>
+                    </div>
+                </div>
+                
+                <!-- 3行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">こごえるふぶき</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">吹雪大ダメージ</div>
+                    </div>
+                </div>
+
+                <!-- 4行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">あまいいき</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率で眠りを付与</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="boss3"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ドラゴンゾンビの攻略ポイント</div>
+        </div>
+        <div class="battle-points-box">
+            <div class="battle-point"><span class="checkmark">✔</span>めざましリングを装備</div>
+            <div class="battle-point"><span class="checkmark">✔</span>吹雪耐性の防具を装備</div>
+            <div class="battle-point"><span class="checkmark">✔</span>フバーハで吹雪を軽減</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ベギラゴンで弱点をつく</div>
+        </div>
+        <div class="step-header">
+            <div class="step-number text-center">めざましリングを装備</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/dragonzombie1.jpg' %}" class="step-image">
+            <div class="step-text">ドラゴンゾンビは「あまいいき」で眠りを付与します。<br>
+                眠ってしまうと何もできないので、「めざましリング」を装備して眠りにかかりにくくしましょう。<br>
+                <br>
+                めざましリングは「岩泣き島」2Fの宝箱から入手できます。
+            </div>
+        </div><br>
+
+        <div class="step-header">
+            <div class="step-number text-center">吹雪軽減の防具を装備</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/dragonzombie2.jpg' %}" class="step-image">
+            <div class="step-text">ドラゴンゾンビは吹雪系のブレスを使用し、とくに「こごえるふぶき」は耐性無しだと大ダメージをもらってしまいます。<br>
+                メダル王の城で入手できる「ドラゴンシールド」や「ドラゴンメイル」を装備して吹雪ダメージを軽減しましょう。
+            </div><br>
+            <div class="step-number text-center">吹雪軽減の防具</div><br>
+            <div class="area-place-table">
+
+            <!-- ヘッダー行 -->
+            <div class="apt-row header-row">
+                <div class="apt-cell header-cell">装備</div>
+                <div class="apt-cell header-cell">場所／入手方法</div>
+            </div>
+
+            <!-- 1行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンシールド</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※ちいさなメダル15枚
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンメイル</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">毛皮のベスト</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">ドワーフの洞窟<br>
+                        ※B2Fの宝箱から入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">炎のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋周辺<br>
+                        ※旅人の宿屋から外に出て東の海岸沿いにあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-header">
+            <div class="step-number text-center">フバーハで吹雪を軽減</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/dragonzombie3.jpg' %}" class="step-image">
+            <div class="step-text">レベル32で覚える「フバーハ」があればブレスダメージを軽減することができます。<br>
+                どうしてもクリアが難しい場合はレベルを32まであげましょう。
+            </div>
+        </div><br>
+
+        <div class="step-header">
+            <div class="step-number text-center">ベギラゴンで弱点をつく</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/dragonzombie4.jpg' %}" class="step-image">
+            <div class="step-text">ドラゴンゾンビはメラ、ギラ、炎系が弱点なのでレベル30で覚える「ベギラゴン」を習得していれば2体に大ダメージを与えることができます。<br>
+                レベルが30に達していない場合は、「ドラゴン斬り」や「火炎斬り」で弱点をつきましょう。
+            </div>
+        </div><br>
+
+        <div id="boss4"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ドラゴンゾンビ戦のおすすめ装備</div>
+        </div><br>
+        <div class="area-place-table">
+
+            <!-- ヘッダー行 -->
+            <div class="apt-row header-row">
+                <div class="apt-cell header-cell">装備</div>
+                <div class="apt-cell header-cell">場所／入手方法</div>
+            </div>
+
+            <!-- 1行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ゆうわくの剣</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">迷いの森<br>
+                        ※宝箱から入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンシールド</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※ちいさなメダル15枚
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ファントムマスク</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※宝箱から入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンメイル</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">炎のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋周辺<br>
+                        ※旅人の宿屋から外に出て東の海岸沿いにあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">めざましリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">岩泣き島<br>
+                        ※2Fの宝箱から入手
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br>
+
+        <div id="boss5"></div><br>
+        <div class="step-header">
+                <div class="black-yellow-band text-center">ドラゴンゾンビ（雑魚敵）の出現場所</div>
+            </div>
+
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text"><a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_1階</a></div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ラダトーム周辺</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ロトの洞窟周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ラダトーム東部</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">岩山の洞窟周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">リムルダール西部</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ドムドーラ北部</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ドムドーラ東部</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">岩泣き島周辺</div>
+                        </div>
+                        <div class="apt-cell">
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_map_list' %}" class="btn-story-link">
+                        ▶ ドラクエⅠのマップ（地図）を見る
+                    </a>
+                </div>
+            </div>
+
+            <div id="boss6"></div><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラゴンゾンビ（雑魚敵）のドロップアイテム</div>
+            </div>
+
+            <div class="step-content">
+
+                <div class="single-row-wrapper">
+                    <div class="single-row">
+                        <div class="single-cell">
+                            <div class="text"><a href="{% url 'database:item_detail' 'inotinokinomi' %}">命のきのみ</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="boss7"></div><br>
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラゴンゾンビ（雑魚敵）のステータス</div><br>
+            </div>
+
+            <div class="unique-table-wrapper">
+                <!-- 1行目 -->
+                <div class="unique-row-1">
+                    <img src="{% static 'database/images/dq1/monster/monster87.jpg' %}" alt="画像">
+                    <div class="unique-text">ドラゴンゾンビ</div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="unique-row-2">
+                    <div class="unique-cell">HP</div>
+                    <div class="unique-cell">経験値</div>
+                    <div class="unique-cell">ゴールド</div>
+                </div>
+
+                <!-- 3行目 -->
+                <div class="unique-row-3">
+                    <div class="unique-cell">560</div>
+                    <div class="unique-cell">880</div>
+                    <div class="unique-cell">21</div>
+                </div>
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_monster_list' %}" class="btn-story-link">
+                    ▶ 通常モンスター一覧と出現場所を見る
+                </a>
+            </div>
+        </div>
+
+        <div id="boss8"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">関連記事</div>
+        </div><br>
+        <div class="text-center mb-4">
+            <img src="{% static 'database/images/dq1_boss_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+        </div>
+        <div class="text-center mb-5">
+            <a href="{% url 'database:dq1_boss_list' %}" class="btn-story-link">
+                ▶ ボス攻略一覧
+            </a>
+        </div>
+        <div id="boss9"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ボス攻略一覧</div><br>
+            <div class="toc-grid">
+                <a href="{% url 'database:dq1_kandata' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/kandata.jpg' %}" alt="カンダタ">
+                    <span class="toc-title">カンダタ</span>
+                </a>
+                <a href="{% url 'database:dq1_youjutsushi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/youjutsushi.jpg' %}" alt="ようじゅつし">
+                    <span class="toc-title">ようじゅつし</span>
+                </a>
+                <a href="{% url 'database:dq1_yoroinokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/yoroinokishi.jpg' %}" alt="よろいのきし">
+                    <span class="toc-title">よろいのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_dragon' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragon.jpg' %}" alt="ドラゴン">
+                    <span class="toc-title">ドラゴン</span>
+                </a>
+                <a href="{% url 'database:dq1_darkdreamer' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/darkdreamer.jpg' %}" alt="ダークドリーマー">
+                    <span class="toc-title">ダークドリーマー</span>
+                </a>
+                <a href="{% url 'database:dq1_golem' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/golem.jpg' %}" alt="ゴーレム">
+                    <span class="toc-title">ゴーレム</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonfly.jpg' %}" alt="ドラゴンフライ">
+                    <span class="toc-title">ドラゴンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonzombie' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonzombie.jpg' %}" alt="ドラゴンゾンビ">
+                    <span class="toc-title">ドラゴンゾンビ</span>
+                </a>
+                <a href="{% url 'database:dq1_alienfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/alienfly.jpg' %}" alt="エイリアンフライ">
+                    <span class="toc-title">エイリアンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_akumanokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/akumanokishi.jpg' %}" alt="あくまのきし">
+                    <span class="toc-title">あくまのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_murdergoyle' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/murdergoyle.jpg' %}" alt="マーダーゴイル">
+                    <span class="toc-title">マーダーゴイル</span>
+                </a>
+                <a href="{% url 'database:dq1_ekusodasu' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ekusodasu.jpg' %}" alt="エクソダス">
+                    <span class="toc-title">エクソダス</span>
+                </a>
+                <a href="{% url 'database:dq1_ryuou' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ryuou2.jpg' %}" alt="りゅうおう">
+                    <span class="toc-title">りゅうおう（竜王）</span>
+                </a>
+            </div>
+        </div>
+    </main>
+  </div>
+
+  <!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".boss-tab");
+    const panels = document.querySelectorAll(".boss-tab-panel");
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // 画像クリックでモーダル表示
+    if (modal && modalImg) {
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex'; // flexで中央表示
+                modalImg.src = img.src;
+            });
+        });
+    }
+
+    // 閉じるボタン
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // 背景クリックで閉じる
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    }
+
+    // タブ切り替え
+    if (tabs.length && panels.length) {
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const target = tab.dataset.target;
+                panels.forEach(panel => {
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    } else {
+                        panel.classList.remove("active");
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+
+{% endblock %}

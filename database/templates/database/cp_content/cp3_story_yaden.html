@@ -1,0 +1,940 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+
+<div class="main-banner mb-4 cropped-banner">
+    <img src="{% static 'database/cp2_images/craftopia_cover1.jpg' %}" style=" display: block; margin: 0 auto; width: 97%; height: auto; " class="story-banner">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:26px;">【ヤーデン草原】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#tower">▶ 修復「ヤーデン草原の塔」の必要素材</a></li>
+            <li><a href="#sumisu">▶ 商人スミス【草原の集落】</a></li>
+            <li><a href="#sumisu2">▶ 商人スミス【草原の集落】</a></li>
+            <li><a href="#worldlevel">▶ 時代進化</a></li>
+            <li><a href="#boss">▶ ボス＆ダンジョン＆ポータル<br>＆洞窟の位置</a></li>
+            <li><a href="#sekkeizu">▶ 設計図の位置</a></li>
+            <li><a href="#ganban">▶ 岩盤一覧</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#story" class="btn-story-link">▶ 戻る</a></li>
+    </aside>
+
+<!-- メインコンテンツ -->
+    <main class="main-content">
+            <div id="tower"></div><br>
+        <div style="margin-left: -15px; width: 104%;" class="story-header text-center my-3">
+            <div class="black-yellow-band">修復「ヤーデン草原の塔」の必要素材</div>
+        </div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden1.jpg' %}" style="width: 80%; height: 500px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+    <div class="step-content">
+        <div class="step-header">
+            <div class="step-number" style="margin-left: 5px;">修復「ヤーデン草原の塔」の必要素材</div>
+               
+        <br><br><br><div class="step-number" style="margin-left: 5px;">南の塔</div>
+        
+            <table class="tower-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tw-1">進行度</th>
+                        <th class="tw-2">必要素材1</th>
+                        <th class="tw-3">必要素材2</th>
+                        <th class="tw-4">必要素材3</th>
+                        <th class="tw-5">必要素材4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+						<td>1/3</td>
+						<td>銀鉱石 50個</td>
+						<td>木炭 10個</td>
+						<td></td>
+                        <td></td>
+					</tr>
+					<tr>
+						<td>2/3</td>
+						<td>牙 10個</td>
+						<td>鳥の羽根 10個</td>
+						<td>骨 10個</td>
+                        <td></td>
+					</tr>
+					<tr>
+						<td>3/3</td>
+						<td>水晶 20個</td>
+						<td>硫黄 20個</td>
+						<td>エレメンタルダスト 20個</td>
+                        <td></td>
+					</tr>
+                </tbody>
+            </table>
+
+        <div class="step-number" style="margin-left: 5px;">北の塔</div>
+
+            <table class="tower-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tw-1">進行度</th>
+                        <th class="tw-2">必要素材1</th>
+                        <th class="tw-3">必要素材2</th>
+                        <th class="tw-4">必要素材3</th>
+                        <th class="tw-5">必要素材4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+						<td>1/3</td>
+						<td>銀インゴット 30個</td>
+						<td>ゴム 10個</td>
+						<td></td>
+                        <td></td>
+					</tr>
+					<tr>
+						<td>2/3</td>
+						<td>スクラップパーツ 10個</td>
+						<td>ガラス 10個</td>
+						<td></td>
+                        <td></td>
+					</tr>
+					<tr>
+						<td>3/3</td>
+						<td>黒色火薬 20個</td>
+						<td>電子回路 20個</td>
+						<td></td>
+                        <td></td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="sumisu"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">商人スミス【草原の集落】</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/sumisu.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: 5px;">商人スミス（金）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            							<tr> 
+								<td>原木</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>石</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>ぼろ布</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>わら</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>100</td>
+								<td>WLV2～</td>
+							</tr>
+							<tr> 
+								<td>カットラス</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>1500</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>グレイブ</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>1500</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>バッデッドスタッフ</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>300</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>野太刀</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>1500</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>騎士剣</td>
+								<td>武器</td>
+								<td>1</td>
+								<td>1500</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>銅のインゴット</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>鉄の矢</td>
+								<td>矢弾</td>
+								<td>100</td>
+								<td>20</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>中容量ライフポーション</td>
+								<td>消費アイテム</td>
+								<td>100</td>
+								<td>500</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>中容量マナポーション</td>
+								<td>消費アイテム</td>
+								<td>100</td>
+								<td>500</td>
+								<td>WLV4～</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: 5px;">商人スミス（キャベツ）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr> 
+								<td>キャベツの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>1キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>リンゴの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>農園</td>
+								<td>建築物</td>
+								<td>20</td>
+								<td>5キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>畜産場の設計図</td>
+								<td>設計図(建築物)</td>
+								<td>1</td>
+								<td>50キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>交配所Ｓの設計図</td>
+								<td>設計図(建築物)</td>
+								<td>1</td>
+								<td>50キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>羊毛</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>1キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>鳥の羽根</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>1キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>硫黄</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>水晶</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>毒きのこ</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>EXPポーション500ml</td>
+								<td>消費アイテム</td>
+								<td>1</td>
+								<td>100キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>トマトの種</td>
+								<td>種</td>
+								<td>1</td>
+								<td>5キャベツ</td>
+								<td>最初から</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="sumisu2"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">商人スミス【遺跡の集落】</div>
+            
+
+            <div class="step-content">
+                <div class="step-header">
+                    <br><br><div class="step-number" style="margin-left: 5px;">商人スミス（金）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr> 
+								<td>硫黄</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>水晶</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>バイク</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>5000</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>気球</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>5000</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>ボルト</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>100</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>スプリング</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>100</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>セラミック</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>100</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>火の矢</td>
+								<td>矢弾</td>
+								<td>100</td>
+								<td>50</td>
+								<td>WLV4～</td>
+							</tr>
+							<tr> 
+								<td>ヘリ</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>100000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>バギー</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>10000</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>車輪</td>
+								<td>乗り物</td>
+								<td>50</td>
+								<td>500</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>エンジンパーツ</td>
+								<td>素材</td>
+								<td>25</td>
+								<td>500</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>燃料タンク</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>500</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>冷気の矢</td>
+								<td>矢弾</td>
+								<td>100</td>
+								<td>50</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>毒の矢</td>
+								<td>矢弾</td>
+								<td>100</td>
+								<td>50</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>エレメンタルダスト</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>50</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>毒きのこ</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>250</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>複葉機</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>500000</td>
+								<td>WLV5～</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: 5px;">商人スミス（キャベツ）</div>
+                    
+                    <table class="sumisu1-table" style="margin-left :-40px;">
+                        <thead>
+                            <tr>
+                                <th class="ys-1">商品名</th>
+                                <th class="ys-2">分類</th>
+                                <th class="ys-3">在庫数</th>
+                                <th class="ys-4">値段</th>
+                                <th class="ys-5">販売開始</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<tr> 
+								<td>キャベツの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>1キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>黒色火薬</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>手榴弾</td>
+								<td>消費アイテム</td>
+								<td>10</td>
+								<td>5キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>バイオエタノール</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>トマトの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>5キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>メカニックスカーゴ♂</td>
+								<td>装備</td>
+								<td>1</td>
+								<td>50キャベツ</td>
+								<td>最初から</td>
+							</tr>
+							<tr> 
+								<td>トウガラシの種</td>
+								<td>種</td>
+								<td>100</td>
+								<td>2キャベツ</td>
+								<td>WLV2～</td>
+							</tr>
+							<tr> 
+								<td>スクラップパーツ</td>
+								<td>素材</td>
+								<td>100</td>
+								<td>5キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>電子回路</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>5キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>エンジンパーツ</td>
+								<td>素材</td>
+								<td>25</td>
+								<td>5キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>燃料タンク</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>5キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>車輪</td>
+								<td>素材</td>
+								<td>50</td>
+								<td>5キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>EXPポーション1000ml</td>
+								<td>消費アイテム</td>
+								<td>1</td>
+								<td>200キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>バギー</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>200キャベツ</td>
+								<td>WLV5～</td>
+							</tr>
+							<tr> 
+								<td>ヘリ</td>
+								<td>乗り物</td>
+								<td>10</td>
+								<td>800キャベツ</td>
+								<td>WLV6～</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+    <div id="worldlevel"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">時代進化</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden_zs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+    <div class="step-content">
+        <div class="step-header">
+            <div  class="step-number" style="margin-left: 5px;">時代進化(産業の時代)</div>
+               
+            <table class="time-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tm-1">進行度</th>
+                        <th class="tm-2">ゴールド</th>
+                        <th class="tm-3">必要素材1</th>
+                        <th class="tm-4">必要素材2</th>
+                        <th class="tm-5">必要素材3</th>
+                        <th class="tm-6">必要素材4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4/10</td>
+                        <td>20,000ゴールド</td>
+                        <td>食虫植物x5</td>
+                        <td>草原のアレキサンドライトx20</td>
+                        <td>珪化木x20</td>
+                        <td>草原の古代人形の破片x5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+            <div id="boss"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">ボス＆ダンジョン＆ポータル＆洞窟の位置</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden_bs.jpg' %}" style="width: 100%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+        
+    <div class="step-content">
+        <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">ボスダンジョンの位置</div>         
+
+            <table class="doukutu-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="dc-1">狩人の遺跡</th>
+                        <th class="dc-2">挑戦可能なLv</th>
+                        <th class="dc-3">雑魚lv</th>
+                        <th class="dc-4">ボス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   	<tr>
+						<td>Story</td>
+						<td>最初から</td>
+						<td>Lv25～29</td>
+						<td>リザードガンナーLv35</td>
+					</tr>
+					<tr>
+						<td>Easy(周回)</td>
+						<td>最初から</td>
+						<td>なし</td>
+						<td>リザードガンナーLv10</td>
+					</tr>
+					<tr>
+						<td>Normal(周回)</td>
+						<td>WLv3～</td>
+						<td>なし</td>
+						<td>リザードガンナーLv20</td>
+					</tr>
+					<tr>
+						<td>Hard(周回)</td>
+						<td>WLv5～</td>
+						<td>なし</td>
+						<td>リザードガンナーLv30</td>
+					</tr>
+					<tr>
+						<td>Hell(周回)</td>
+						<td>WLv7～</td>
+						<td>なし</td>
+						<td>リザードガンナーLv50</td>
+					</tr>
+                </tbody>
+            </table>
+
+
+            
+
+
+            <table class="doukutu-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="dc-1">暴風の古庭</th>
+                        <th class="dc-2">挑戦可能なLv</th>
+                        <th class="dc-3">雑魚lv</th>
+                        <th class="dc-4">ボス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   	<tr>
+						<td>Story</td>
+						<td>最初から</td>
+						<td>Lv30～34</td>
+						<td>グリフォンLv35</td>
+					</tr>
+					<tr>
+						<td>Easy(周回)</td>
+						<td>最初から</td>
+						<td>なし</td>
+						<td>グリフォンLv10</td>
+					</tr>
+					<tr>
+						<td>Normal(周回)</td>
+						<td>WLv3～</td>
+						<td>なし</td>
+						<td>グリフォンLv20</td>
+					</tr>
+					<tr>
+						<td>Hard(周回)</td>
+						<td>WLv5～</td>
+						<td>なし</td>
+						<td>グリフォンLv30</td>
+					</tr>
+					<tr>
+						<td>Hell(周回)</td>
+						<td>WLv7～</td>
+						<td>なし</td>
+						<td>グリフォンLv50</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+        <div id="boss"></div>
+    <div class="step-content">
+        <div class="step-header">
+            <div  class="step-number" style="margin-left: 5px;">洞窟の位置</div>
+               
+            <table class="doukutu-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="dc-1">ダンジョン名</th>
+                        <th class="dc-2">大体の座標</th>
+                        <th class="dc-3">ダンジョン内容</th>
+                        <th class="dc-4">報酬</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+						<td>烏合の王達の洞窟</td>
+						<td>-655, 4, -1037付近(A)</td>
+						<td>キングモノ(Lv25)x2</td>
+						<td>交配所Sの設計図</td>
+					</tr>
+					<tr>
+						<td>深き岩運びの洞窟</td>
+						<td>-998, 5, -84付近(B)</td>
+						<td>動く足場と鉄球をかいくぐって運ぶ</td>
+						<td>畜産場の設計図</td>
+					</tr>
+					<tr>
+						<td>床渡りの洞窟</td>
+						<td>657, 7, 337付近(C)</td>
+						<td>乗ると消える足場をすべて消す<br>火炎砲台多数</td>
+						<td>毒太刀の設計図</td>
+					</tr>
+					<tr>
+						<td>太古の巨兵の洞窟</td>
+						<td>771, 146, -530付近(D)</td>
+						<td>エンシェントゴーレム(Lv30)<br>スタミナ倍増フィールド</td>
+						<td>Expポーション1000ml</td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+     </div>
+            
+            <div id="sekkeizu"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">設計図の位置</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden_sk.jpg' %}" style="width: 80%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+        
+    <div class="step-content">
+        <div class="step-header">
+            
+               
+                
+            <table class="treasure-table" style="margin-left :-40px;">
+                <thead>
+                    <tr>
+                        <th class="tz-1">設計図の位置</th>
+                        <th class="tz-2">座標</th>
+                        <th class="tz-3">備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+						<td>A | イノシシの被り物の設計図</td>
+						<td>-70,124,10</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>B | シュヴァルツランシェンレイターの設計図</td>
+						<td>280,131,130</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>C | ブラックブレードの設計図</td>
+						<td>480,177,-230</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>D | カタールの設計図</td>
+						<td>800,200,-275</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>E | ファーレンフリードの設計図</td>
+						<td>300,195,-620</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>F | モミジガリの設計図</td>
+						<td>330,125,-680</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>G | フランキスカの設計図</td>
+						<td>80,85,-1025</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>H | 玄人のバンダナの設計図</td>
+						<td>680,115,-970</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>I | ホーリースタッフの設計図</td>
+						<td>870,58,-800</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>J | ストームブリンガーの設計図</td>
+						<td>940,180,-777</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>K | 斬馬刀の設計図</td>
+						<td>970,175,-650</td>
+						<td></td>
+					</tr>
+                    <tr>
+						<td>手榴弾x10</td>
+						<td>-900,26,-40</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>泥だらけの古銅貨袋</td>
+						<td>-860,57,-160</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>EXPポーション500ml</td>
+						<td>-1170,79,-200</td>
+						<td>ギガンテス・ホプロンLv20</td>
+					</tr>
+					<tr>
+						<td>木の矢</td>
+						<td>-902,51,-700</td>
+						<td>古代のエンチャント付与</td>
+					</tr>
+					<tr>
+						<td>泥だらけの古銅貨袋</td>
+						<td>-645,47,-730</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>火の矢x20</td>
+						<td>-370,118,-800</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>木の樽x3</td>
+						<td>-400,1,-900</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>毒の矢x20</td>
+						<td>-155,0,-1020</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>自動組立機</td>
+						<td>210,75,-1060</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>超合金のチェスト</td>
+						<td>20,147,-800</td>
+						<td></td>
+					</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+            <div id="ganban"></div><br><br>
+        <div style="margin-left: -15px; width: 104%;" class="black-yellow-band">岩盤の位置</div>
+            <div class="chart-image-wrapper">
+                <img src="{% static 'database/cp2_images/yaden_gb.jpg' %}" style="width: 80%; height: 400px;" alt="ストーリー" class="story-top-image">
+            </div>
+
+
+
+
+
+    </main>
+
+{% endblock %}

@@ -1,0 +1,1018 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 ボス攻略一覧{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title main-nav-title">【 DQⅠ 全体ナビ 】</h3>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ 小さなメダル場所一覧</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/item/banner.jpg' %}">
+        </div><br><br><br>
+
+        <div class="step-card">
+            <div class="header">
+                <div class="black-yellow-band text-center">アイテム一覧と入手方法</div>
+            </div>
+
+            <div class="step-content">
+                <div class="item-search-wrapper">
+                    <input type="text" id="item-search-input" placeholder="検索ワードを入力して下さい" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 12px; padding: 8px;">
+                </div>
+
+                <!-- ラジオボタン -->
+                <div class="item-search-wrapper">
+                    <input type="radio" id="type-all" name="item-type" value="all" checked>
+                    <label for="type-all">すべて</label>
+
+                    <input type="radio" id="type-dougu" name="item-type" value="dougu">
+                    <label for="type-dougu">道具</label>
+
+                    <input type="radio" id="type-tane" name="item-type" value="tane">
+                    <label for="type-tane">たね・きのみ</label>
+
+                    <input type="radio" id="type-makimono" name="item-type" value="makimono">
+                    <label for="type-makimono">巻物</label>
+
+                    <input type="radio" id="type-renkin" name="item-type" value="renkin">
+                    <label for="type-renkin">錬金素材</label>
+
+                    <input type="radio" id="type-daizi" name="item-type" value="daizi">
+                    <label for="type-daizi">だいじなもの</label>
+                </div>
+
+                <!-- アイテムテーブル -->
+                <table class="item-table-2new">
+                    <thead>
+                        <tr>
+                            <th class="item-left-2new">アイテム</th>
+                            <th class="item-right-2new">入手方法／効果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'yakusou' %}">やくそう</a>
+                            </td>
+                            <td class="item-right-2new">
+                                旅人の宿屋の道具屋（8G）<br>
+                                メルキドの道具屋（8G）<br>
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下2階</a>のツボ<br>
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'sraimu' %}">スライム</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'suraimubesu' %}">スライムベス</a>からドロップ
+                                <hr class="item-divider-2new">
+                                HPを30〜回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'jouyakusou' %}">上やくそう</a>
+                            </td>
+                            <td class="item-right-2new">
+                                メルキドの道具屋（48G）<br>
+                                マイラの道具屋（48G）<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階①</a>のツボ<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'me-daro-do' %}">メーダロード</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'go-dodon' %}">ゴードドン</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'jouyakusou' %}">上やくそう</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                HPを50〜回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'tokuyakusou' %}">特やくそう</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_numatinodoukutu' %}">沼地の洞窟_地下2階</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_amenohokora' %}">雨のほこら_5階</a>の宝箱
+                                <hr class="item-divider-2new">
+                                HPを80〜回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'mahounoseisui' %}">まほうのせいすい</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下2階</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a>の宝箱<br>
+                                <a href="{% url 'database:monster_detail' 'mahoutukai' %}">まほうつかい</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'madoushi' %}">まどうし</a>からドロップ
+                                <hr class="item-divider-2new">
+                                MPを15〜回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'kenjanoseisui' %}">けんじゃのせいすい</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_medaruounoshiro' %}">メダル王の城</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_tabibitonoyadoya' %}">旅人の宿屋</a>の宝箱<br>
+                                <a href="{% url 'database:monster_detail' 'mimikku' %}">ミミック</a>からドロップ
+                                <hr class="item-divider-2new">
+                                MPを100ほど回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'eruhunonomigusuri' %}">エルフののみぐすり</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>の宝箱
+                                <hr class="item-divider-2new">
+                                MPを完全に回復
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'inorinoyubiwa' %}">いのりのゆびわ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（5枚）<br>
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下6階</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'hitokuibako' %}">ひとくいばこ</a>からドロップ
+                                <hr class="item-divider-2new">
+                                MPを少し回復。使うとたまに壊れる
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'dokukeshisou' %}">どくけしそう</a>
+                            </td>
+                            <td class="item-right-2new">
+                                旅人の宿屋の道具屋（10G）<br>
+                                メルキドの道具屋（10G）<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_裏庭</a>のツボ<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下1階</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'baburusuraimu' %}">バブルスライム</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'poizunto-do' %}">ポイズントード</a>からドロップ
+                                <hr class="item-divider-2new">
+                                どくを治す
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'manu-hasou' %}">マヌーハそう</a>
+                            </td>
+                            <td class="item-right-2new">
+                                メルキドの道具屋（120G）<br>
+                                マイラの道具屋（120G）<br>
+                                <a href="{% url 'database:monster_detail' 'zinmentyou' %}">じんめんちょう</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'me-da' %}">メーダ</a>からドロップ
+                                <hr class="item-divider-2new">
+                                幻惑を治す
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'sasayakinomitu' %}">ささやきのみつ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ガライの道具屋（150G）<br>
+                                <a href="{% url 'database:dq1_amenohokora' %}">雨のほこら</a>のタル<br>
+                                <a href="{% url 'database:dq1_maira' %}">マイラ</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'koumoriotoko' %}">こうもりおとこ</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'meizidoraki-' %}">メイジドラキー</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'sasayakinomitu' %}">ささやきのみつ</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                呪文封印を治す
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'seisui' %}">せいすい</a>
+                            </td>
+                            <td class="item-right-2new">
+                                旅人の宿屋の道具屋（20G）<br>
+                                メルキドの道具屋（20G）<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>のツボ<br>
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'go-suto' %}">ゴースト</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'yuurei' %}">ゆうれい</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'seisui' %}">せいすい</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                弱い魔物を寄せつけない水
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'madarakumoito' %}">まだらくもいと</a>
+                            </td>
+                            <td class="item-right-2new">
+                                メルキドの道具屋（35G）<br>
+                                マイラの道具屋（35G）<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下1階</a>のタル<br>
+                                <a href="{% url 'database:dq1_rimuruda-ru' %}">リムルダール</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'oosasori' %}">おおさそり</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'hurosutogizumo' %}">フロストギズモ</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'madarakumoito' %}">まだらくもいと</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                敵1グループのすばやさを下げる
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'dokuganokona' %}">どくがのこな</a>
+                            </td>
+                            <td class="item-right-2new">
+                                メルキドの道具屋（310G）<br>
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_1階</a>の宝箱<br>
+                                <a href="{% url 'database:monster_detail' 'shinosasori' %}">しのさそり</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'go-gonheddo' %}">ゴーゴンヘッド</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'dokuganokona' %}">どくがのこな</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                敵1体を混乱させる毒粉
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'baikirumin' %}">バイキルミン</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（5枚）<br>
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下3階</a>のタンス<br>
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a>のツボ<br>
+                                <a href="{% url 'database:item_detail' 'baikirumin' %}">バイキルミン</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                攻撃力をかなり上げる
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'kimeranotubasa' %}">キメラのつばさ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                旅人の宿屋の道具屋（25G）<br>
+                                メルキドの道具屋（25G）<br>
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下2階</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'doraki-' %}">ドラキー</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'kimera' %}">キメラ</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'kimeranotubasa' %}">キメラのつばさ</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                訪れたことがある町やダンジョンへ瞬時に移動する
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'inotinoishi' %}">命の石</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a>のツボ<br>
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下6階</a>の宝箱<br>
+                                <a href="{% url 'database:monster_detail' 'go-rudoman' %}">ゴールドマン</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'minide-mon' %}">ミニデーモン</a>からドロップ
+                                <hr class="item-divider-2new">
+                                持ち主の代わりに死の攻撃を受ける身代わりの石
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'youseinohue' %}">ようせいのふえ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_maira' %}">マイラ</a>の温泉の南側で拾う
+                                <hr class="item-divider-2new">
+                                メルキドのゴーレムとの戦闘で使用すると眠らせることができる
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'ginnotategoto' %}">ぎんのたてごと</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ストーリー中に<a href="{% url 'database:dq1_garainohaka' %}">ガライの墓</a>の最奥で拾う
+                                <hr class="item-divider-2new">
+                                使用すると魔物との戦闘になる。何度でも使用可能
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'nioibukuro' %}">においぶくろ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                メルキドの道具屋（150G）<br>
+                                リムルダールの道具屋（150G）<br>
+                                <a href="{% url 'database:dq1_tabibitonokyoukai' %}">旅人の教会</a>のツボ<br>
+                                <a href="{% url 'database:dq1_domudo-ra' %}">ドムドーラ</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'waraibukuro' %}">わらいぶくろ</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'dragonhurai' %}">ドラゴンフライ</a>からドロップ<br>
+                                <a href="{% url 'database:item_detail' 'nioibukuro' %}">においぶくろ</a>を妖精の隠れ里で錬金する
+                                <hr class="item-divider-2new">
+                                独特なにおいで魔物と遭遇しやすくなる
+                            </td>
+                        </tr>
+                        <tr data-type="dougu">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'tatakainodoramu' %}">たたかいのドラム</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（39枚）
+                                <hr class="item-divider-2new">
+                                こうげき力を高めるパワフルなドラム。戦闘中に何度でも使える
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'tikaranotane' %}">ちからのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_地下1階</a>のタル<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'suto-nman' %}">ストーンマン</a>からドロップ
+                                <hr class="item-divider-2new">
+                                ちからが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'mamorinotane' %}">まもりのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_2階②</a>のツボ<br>
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'ganirasu' %}">ガニラス</a>からドロップ
+                                <hr class="item-divider-2new">
+                                みのまもりが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'sutaminanotane' %}">スタミナのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_tabibitonokyoukai' %}">旅人の教会</a>のふくろ<br>
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'shinigaminokishi' %}">しにがみのきし</a>からドロップ
+                                <hr class="item-divider-2new">
+                                たいりょくが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'kashikosanotane' %}">かしこさのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下1階</a>のタル<br>
+                                <a href="{% url 'database:dq1_garai' %}">ガライの町</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'herugo-suto' %}">ヘルゴースト</a>からドロップ
+                                <hr class="item-divider-2new">
+                                かしこさが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'subayasanotane' %}">すばやさのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>のタル<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>のタル<br>
+                                <a href="{% url 'database:monster_detail' 'metarusuraimu' %}">メタルスライム</a>からドロップ<br>
+                                <a href="{% url 'database:monster_detail' 'so-doido' %}">ソードイド</a>からドロップ
+                                <hr class="item-divider-2new">
+                                すばやさが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'rakkunotane' %}">ラックのたね</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（5枚）<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_裏庭</a>のツボ<br>
+                                <a href="{% url 'database:dq1_numatinodoukutu' %}">沼地の洞窟_地下1階</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'suta-kimera' %}">スターキメラ</a>からドロップ
+                                <hr class="item-divider-2new">
+                                うんのよさが少しだけあがる魔法の種
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'inotinokinomi' %}">いのちのきのみ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>のじめん<br>
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>のツボ<br>
+                                <a href="{% url 'database:monster_detail' 'doragonzonbi' %}">ドラゴンゾンビ</a>からドロップ
+                                <hr class="item-divider-2new">
+                                さいだいHPが少しだけあがる魔法の実
+                            </td>
+                        </tr>
+                        <tr data-type="tane">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'hushiginakinomi' %}">ふしぎなきのみ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_2階</a>のじめん<br>
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_地下6階</a>の宝箱<br>
+                                <a href="{% url 'database:monster_detail' 'maounokage' %}">まおうのかげ</a>からドロップ
+                                <hr class="item-divider-2new">
+                                さいだいMPが少しだけあがる魔法の実
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'mirakuru' %}">ミラクルの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下1階</a>の宝箱<br>
+                                ドワーフの洞窟・地下1階
+                                <hr class="item-divider-2new">
+                                使用するとミラクルソードを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'yaibakudaki' %}">やいばくだきの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_merukido' %}">メルキド</a>のタンス<br>
+                                メルキドの西側にある民家2階のクローゼット
+                                <hr class="item-divider-2new">
+                                使用するとやいばくだきを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'zonbigiri' %}">ゾンビ斬りの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a>の宝箱<br>
+                                ドワーフの洞窟・地下2階
+                                <hr class="item-divider-2new">
+                                使用するとゾンビ斬りを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'akumagiri' %}">あくま斬りの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_domudo-ra' %}">ドムドーラ</a>のタル<br>
+                                ドムドーラの武器屋にあるタル
+                                <hr class="item-divider-2new">
+                                使用するとあくま斬りを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'mahyadogiri' %}">マヒャド斬りの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下3階①</a>の宝箱<br>
+                                ガライの墓・地下3階にある宝箱（最後の鍵）
+                                <hr class="item-divider-2new">
+                                使用するとマヒャド斬りを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'meisou' %}">めいそうの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（35枚）<br>
+                                ちいさなメダル35枚目の報酬
+                                <hr class="item-divider-2new">
+                                使用するとめいそうを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'seishin' %}">せいしんの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_mayoinomori' %}">	迷いの森②</a>の宝箱<br>
+                                迷いの森2マップ目
+                                <hr class="item-divider-2new">
+                                使用するとせいしんとういつを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'tikaratame' %}">ちからための巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a>の宝箱<br>
+                                岩山の洞窟・地下2階
+                                <hr class="item-divider-2new">
+                                使用するとちからためを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'bi-suto' %}">ビーストの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ちいさなメダル（10枚）<br>
+                                ちいさなメダル10枚目の報酬
+                                <hr class="item-divider-2new">
+                                使用するとビーストモードを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'sunakemuri' %}">すなけむりの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_rotonodoukutu' %}">ロトの洞窟_地下1階</a>の宝箱<br>
+                                ロトの洞窟・地下1階
+                                <hr class="item-divider-2new">
+                                使用するとすなけむりを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'touzoku' %}">とうぞくの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下1階</a>の宝箱<br>
+                                岩山の洞窟・地下1階
+                                <hr class="item-divider-2new">
+                                使用するととうぞくのはなを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'shinobiashi' %}">しのびあしの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_domudo-ra' %}">ドムドーラ</a>のじめん<br>
+                                ドムドーラの北東の毒沼近くの地面
+                                <hr class="item-divider-2new">
+                                使用するとしのびあしを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'kutibue' %}">くちぶえの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下1階</a>の宝箱<br>
+                                ガライの墓・地下1階にある宝箱（盗賊の鍵）
+                                <hr class="item-divider-2new">
+                                使用するとくちぶえを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'toramana' %}">トラマナの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_garai' %}">ガライの町</a>の本棚<br>
+                                ガライの民家の本棚
+                                <hr class="item-divider-2new">
+                                使用するとトラマナを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'remira-ma' %}">レミラーマの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム城_1階</a>の宝箱<br>
+                                ラダトーム城・1階で、最後の鍵で開けた先の宝箱
+                                <hr class="item-divider-2new">
+                                使用するとレミラーマを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'hyado' %}">ヒャドの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_amenohokora' %}">雨のほこら_1階</a>の宝箱<br>
+                                雨のほこら・1階
+                                <hr class="item-divider-2new">
+                                使用するとヒャドを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'hyadaruko' %}">ヒャダルコの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a>の宝箱<br>
+                                妖精の隠れ里の民家の宝箱
+                                <hr class="item-divider-2new">
+                                使用するとヒャダルコを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'hyadain' %}">ヒャダインの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_外観</a>の宝箱<br>
+                                岩泣き島・外観
+                                <hr class="item-divider-2new">
+                                使用するとヒャダインを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'beihoimu' %}">ベホイムの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_merukido' %}">メルキド</a>の本棚<br>
+                                メルキドの西側にある民家2階の本棚
+                                <hr class="item-divider-2new">
+                                使用するとベホイムを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'rihoimi' %}">リホイミの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_medaruounoshiro' %}">メダル王の城</a>の宝箱<br>
+                                メダル王の城にある、盗賊の鍵で開ける宝箱
+                                <hr class="item-divider-2new">
+                                使用するとリホイミを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'baria' %}">バリアの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_rimuruda-ru' %}">リムルダール</a>の宝箱<br>
+                                リムルダールのカギの魔法使いの家の中
+                                <hr class="item-divider-2new">
+                                使用するとマジックバリアを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="makimono">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:scroll_detail' 'mahosute' %}">マホステの巻物</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a>の本棚<br>
+                                妖精の隠れ里の民家の本棚
+                                <hr class="item-divider-2new">
+                                使用するとマホステを覚える
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'kireinamizu' %}">きれいな水</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>のタル<br>
+                                <a href="{% url 'database:dq1_amenohokora' %}">雨のほこら_5階</a>のツボ
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとせいすいを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'kumonosu' %}">くもの巣</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_radato-mu' %}">ラダトーム</a>のタル<br>
+                                <a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下2階</a>のタル
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとまだらくもいとを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'nazonokona' %}">なぞのこな</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下2階</a>のツボ
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとどくがのこなを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'abunaiekisu' %}">あぶないエキス</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟_地下3階</a>のツボ<br>
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_1階</a>の宝箱
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとバイキルミンを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'yakekogetahane' %}">焼けこげた羽根</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_ryuounoshiro' %}">竜王の城_1階</a>のじめん
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとキメラのつばさを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'matatabisou' %}">マタタビ草</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島_外観</a>のツボ
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとにおいぶくろを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'sasayakinojueki' %}">ささや木の樹液</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_mayoinomori' %}">迷いの森①</a>の宝箱<br>
+                                <a href="{% url 'database:dq1_youseinokakurezato' %}">妖精の隠れ里</a>のツボ
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金するとささやきのみつを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="renkin">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'iyashinohutaba' %}">いやしの双葉</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_merukido' %}">メルキド</a>のツボ<br>
+                                <a href="{% url 'database:dq1_radato-munishinoshima' %}">ラダトーム西の島</a>のじめん
+                                <hr class="item-divider-2new">
+                                妖精の隠れ里の錬金すると上やくそうを作れる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                せかいの地図
+                            </td>
+                            <td class="item-right-2new">
+                                初期から所持
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'touzokunokagi' %}">とうぞくのかぎ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                岩山の洞窟でボス「ようじゅつし」を倒した後のイベントで入手
+                                <hr class="item-divider-2new">
+                                赤い扉や赤い宝箱を開けられる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'mahounokagi' %}">まほうのかぎ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ドワーフの洞窟でドワーフを助けた後、リムルダールの魔法使いから入手
+                                <hr class="item-divider-2new">
+                                青色の扉や青い宝箱を開けられる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'saigonokagi' %}">さいごのかぎ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                マイラでボス「エイリアンフライ」を倒すと入手
+                                <hr class="item-divider-2new">
+                                緑色の扉や緑の宝箱を開けられる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'hikarinotama' %}">ひかりのたま</a>
+                            </td>
+                            <td class="item-right-2new">
+                                りゅうおうを倒してクリアすると入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'taiyounoishi' %}">たいようの石</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ラダトームの城の地下1階で魔法の鍵の扉を開けた先でおじいさんから貰う
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'nizinoshizuku' %}">虹のしずく</a>
+                            </td>
+                            <td class="item-right-2new">
+                                たいようの石・あまぐもの杖・ロトのしるしを入手した後、聖なるほこらに行くとイベントが発生して入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">たいようの紋章</a>
+                            </td>
+                            <td class="item-right-2new">
+                                不滅の炎を妖精の隠れ里で錬金すると入手
+                                <hr class="item-divider-2new">
+                                特技で会心ダメージが出るようになる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">ほしの紋章</a>
+                            </td>
+                            <td class="item-right-2new">
+                                星くずの砂を妖精の隠れ里で錬金すると入手
+                                <hr class="item-divider-2new">
+                                戦闘中に防御コマンドを使用するとMPが回復する
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">つきの紋章</a>
+                            </td>
+                            <td class="item-right-2new">
+                                月光のしずくを妖精の隠れ里で錬金すると入手
+                                <hr class="item-divider-2new">
+                                一定確率で呪文が暴走して強化される
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">みずの紋章</a>
+                            </td>
+                            <td class="item-right-2new">
+                                湧き水の結晶を妖精の隠れ里で錬金すると入手
+                                <hr class="item-divider-2new">
+                                道具の効果が強化される
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">いのちの紋章</a>
+                            </td>
+                            <td class="item-right-2new">
+                                ひかるタネを妖精の隠れ里で錬金すると入手
+                                <hr class="item-divider-2new">
+                                戦闘中に超絶技を放てるようになる
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                おうじょのくびかざり
+                            </td>
+                            <td class="item-right-2new">
+                                ローラ姫を救出しラダトームに送り届けるとイベントで入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                かがやき草
+                            </td>
+                            <td class="item-right-2new">
+                                ひみつの花畑で光っている場所を調べると入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                目覚めの花
+                            </td>
+                            <td class="item-right-2new">
+                                ひみつの花畑で光っている場所を調べると入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                灯火のシロップ
+                            </td>
+                            <td class="item-right-2new">
+                                かがやき草と目覚めの花を入手した後、妖精の隠れ里でボスを倒すと入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'inotinomonshou' %}">ひかるタネ</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_himitunohanabatake' %}">ひみつの花畑</a>でかがやき草・目覚めの花と同時に入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'taiyounomonshou' %}">不滅の炎</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_mayoinomori' %}">迷いの森</a>の最奥で拾って入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'tukinomonshou' %}">月光のしずく</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_numatinodoukutu' %}">沼地の洞窟</a>の最奥で拾って入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'hoshinomonshou' %}">星くずの砂</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_iwanakishima' %}">岩泣き島</a>の最奥で拾って入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                        <tr data-type="daizi">
+                            <td class="item-left-2new">
+                                <a href="{% url 'database:item_detail' 'mizunomonshou' %}">湧き水の結晶</a>
+                            </td>
+                            <td class="item-right-2new">
+                                <a href="{% url 'database:dq1_dowa-hunodoukutu' %}">ドワーフの洞窟</a>の井戸内で拾って入手
+                                <hr class="item-divider-2new">
+                                -
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+function filterItems() {
+    const selectedType = document.querySelector('input[name="item-type"]:checked').value;
+    const keyword = document.getElementById('item-search-input').value.trim().toLowerCase();
+    document.querySelectorAll('.item-table-2new tbody tr').forEach(tr => {
+        const type = tr.dataset.type;
+        const text = tr.innerText.toLowerCase();
+        const typeMatch = (selectedType === 'all' || type === selectedType);
+        const keywordMatch = (!keyword || text.includes(keyword));
+        tr.style.display = (typeMatch && keywordMatch) ? '' : 'none';
+    });
+}
+
+// ラジオボタンでフィルター
+document.querySelectorAll('input[name="item-type"]').forEach(radio => {
+    radio.addEventListener('change', filterItems);
+});
+
+// 検索ボックスでフィルター
+document.getElementById('item-search-input').addEventListener('input', filterItems);
+</script>
+
+{% endblock %}

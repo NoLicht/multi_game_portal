@@ -1,0 +1,387 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【基本スキル】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#skill1">▶ Tier1</a></li>
+            <li><a href="#skill2">▶ Tier2</a></li>
+            <li><a href="#skill3">▶ Tier3</a></li>
+            <li><a href="#skill4">▶ Tier4</a></li>
+            <li><a href="#skill5">▶ Tier5</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#skill" class="btn-story-link">▶ 戻る</a></li>
+        </ul>
+    </aside>
+
+
+
+<main class="main-content">
+        
+    <div id="skill"></div><br>
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band" style="width: 102%; margin-left: -1%;">基本スキル一覧</div>
+        </div>
+
+    <div id="skill"></div>
+        <div class="step-content">
+            <div class="step-header">
+            </div>
+        
+            <div class="step-body">
+                <img src="{% static 'database/cp_images/sks(34).jpg' %}" style="width: 700px; margin-left: 15px;">
+            
+            <div id="skill1"></div><br><br>    
+            <div class="black-yellow-band" >Tier1</div>
+                <table style="margin-left:-27px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+							<td>瞑想</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>マナの自然回復量を僅かに増加させる。</td>
+						</tr>
+						<tr>
+							<td>活力</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>満腹度が一定以上の時、ライフが徐々に回復する。</td>
+						</tr>
+						<tr>
+							<td>ラビットジャンプ</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>スキルレベルに応じてジャンプ力が上昇する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill2"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier2</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>ダブルジャンプ</td>
+							<td>6</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>2段ジャンプできるようになる。スキルレベルに応じてジャンプ力が上昇する。</td>
+						</tr>
+						<tr>
+							<td>ダッキング</td>
+							<td>1</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>しゃがんだとき、僅かな時間無敵になる。</td>
+						</tr>
+						<tr>
+							<td>アクロバティック</td>
+							<td>1</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ジャンプしたとき、僅かな時間無敵になる。</td>
+						</tr>
+						<tr>
+							<td>ドルフィンスイム</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>海や川を泳ぐスピードが大幅に上昇する。</td>
+						</tr>
+						<tr>
+							<td>忍道</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>回避後に、追加で僅かな無敵時間を得る。</td>
+						</tr>
+						<tr>
+							<td>ウォールクライマー</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>壁ジャンプのスタミナ消費率を軽減する。</td>
+						</tr>
+						<tr>
+							<td>収集家</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>敵を倒したとき追加でアイテムがドロップすることがある。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill3"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier3</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>大脱走</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>20</td>
+							<td>満腹度-1</td>
+							<td>90</td>
+							<td>15</td>
+							<td>範囲内の味方の移動速度を僅かに上昇させる。</td>
+						</tr>
+						<tr>
+							<td>フェザーフォール</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>落下ダメージを軽減する。</td>
+						</tr>
+						<tr>
+							<td>癒しの景色</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>グライダー搭乗中、ライフが徐々に回復する。</td>
+						</tr>
+						<tr>
+							<td>虹の向こうへ</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>グライダー搭乗中、スタミナ消費量を軽減する。</td>
+						</tr>
+						<tr>
+							<td>ショックアブソーバー</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>グライダー搭乗中、DEFが僅かに増加する。</td>
+						</tr>
+						<tr>
+							<td>瞑想2</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>マナの自然回復量をさらに僅かに増加させる。</td>
+						</tr>
+						<tr>
+							<td>ガッツ</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>ライフが一定以上の時にダメージを受けて死亡しても、ライフが1残る。一度発動すると消滅するが、死亡復帰時、もしくはベッドで一定時間寝るとガッツ状態が復帰する。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill4"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier4</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>追い風</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>10</td>
+							<td>満腹度-5</td>
+							<td>240</td>
+							<td>180</td>
+							<td>一定時間、自身の移動速度が上昇する。増加速度：20~35％。</td>
+						</tr>
+						<tr>
+							<td>ストームラン?</td>
+							<td>6</td>
+							<td>アクティブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>180~150</td>
+							<td>10~30</td>
+							<td>一定時間、スタミナが減らなくなる。</td>
+						</tr>
+						<tr>
+							<td>スキルファイター</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>スキルクールダウンを短縮する。90~75％。</td>
+						</tr>
+						<tr>
+							<td>ジャンプチャージ?</td>
+							<td>1</td>
+							<td>コマンド</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>しゃがみ+ジャンプで大ジャンプができるようになる。</td>
+						</tr>
+						<tr>
+							<td>早足</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>移動速度が上昇する。増加速度：5~10％。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step-content">
+            <div class="step-header">
+                <div id="skill5"></div><br><br>    
+            <div class="black-yellow-band" style="width: 110%; margin-left: -5%;">Tier5</div>
+                <table style="margin-left: -35px;" class="cp-custom-table3">
+                    <thead>
+                        <tr>
+                            <th class="col-1">スキル名</th>
+                            <th class="col-2">Max<br>Lv</th>
+                            <th class="col-3">種別</th>
+                            <th class="col-4">消費<br>マナ</th>
+                            <th class="col-5">その他コスト</th>
+                            <th class="col-6">クールダウン</th>
+                            <th class="col-7">効果時間</th>
+                            <th class="col-8">簡易説明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr>
+							<td>持久力</td>
+							<td>6</td>
+							<td>パッシブ</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+							<td>徐々にスタミナを消費する行動のスタミナ消費率を軽減する。スタミナ消費量：90~80％。</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+</main>
+
+{% endblock %}

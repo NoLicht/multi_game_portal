@@ -1,0 +1,689 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ エイリアンフライ 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#boss1">エイリアンフライの推奨レベル・弱点</a></li>
+            <li><a href="#boss2">エイリアンフライの行動パターン</a></li>
+            <li><a href="#boss3">エイリアンフライの攻略ポイント</a></li>
+            <li><a href="#boss4">エイリアンフライ戦のおすすめ装備</a></li>
+            <li><a href="#boss5">関連記事</a></li>
+            <li><a href="#boss6">ボス攻略一覧</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss_banner/alienfly.jpg' %}" class="story-banner rounded shadow-lg">
+        </div><br><br><br>
+        <div id="boss1"></div><br>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">エイリアンフライの推奨レベル・弱点</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/alienfly.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">32</div>
+                    <div class="info-value">マイラ</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約2050</div>
+                    <div class="info-value">-</div>
+                </div>
+            </div>
+
+            <div class="boss-tab-wrapper">
+                <!-- ボス名タブ -->
+                <div class="boss-tab-header">
+                    <div class="boss-tab active" data-target="alienfly">エイリアンフライ</div>
+                    <div class="boss-tab" data-target="dragonfly">ドラゴンフライ</div>
+                </div>
+
+                <!-- ボス情報 -->
+                <div class="boss-tab-content">
+
+                    <!-- エイリアンフライ -->
+                    <div class="boss-tab-panel active" id="alienfly">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">バギ</span></div>
+                    </div>
+
+                    <!-- ドラゴンフライ -->
+                    <div class="boss-tab-panel" id="dragonfly">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">-</span></div>
+                    </div>
+
+                </div>
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_section4_content' %}" class="btn-story-link">
+                    ▶ チャート4攻略を見る
+                </a>
+            </div>
+        </div>
+
+        <div id="boss2"></div>
+        <div class="step-card">
+        <div class="step-header">
+            <div class="black-yellow-band text-center">エイリアンフライの行動パターン</span></div>
+        </div>
+            <div class="area-place-table">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動（1～2回行動）</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">物理ダメージ</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ピオリム</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">全体の素早さを上昇</div>
+                    </div>
+                </div>
+                
+                <!-- 3行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">スクルト</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">全体の守備力を上昇</div>
+                    </div>
+                </div>
+
+                <!-- 4行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ベホマラー</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">全体を回復</div>
+                    </div>
+                </div>
+
+                <!-- 5行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">おたけび</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率で1ターン行動不能を付与</div>
+                    </div>
+                </div>
+
+                <!-- 6行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">仲間呼び</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">ドラゴンフライを呼ぶ</div>
+                    </div>
+                </div>
+
+                <!-- 7行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">こごえるふぶき</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">吹雪系大ダメージ</div>
+                    </div>
+                </div>
+
+                <!-- 8行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">はげしいほのお</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">炎系大ダメージ</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="step-text">エイリアンフライは、ドラクエ1リメイク終盤で登場する強力なボスモンスターです。<br>
+                行動回数が1〜2回と多く、強力なブレス攻撃と補助呪文を組み合わせてくるのが特徴です。
+            </div><br>
+            <div class="step-number text-center">行動パターン</div>
+            <div class="area-place-table1">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">HP黄色まで</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">① ランダム→仲間呼びとブレスを除く</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">② ランダム→同上</div>
+                    </div>
+                </div>
+                
+                <!-- 3行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">③ ランダム→同上</div>
+                    </div>
+                </div>
+
+                <!-- 4行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">④ 仲間呼び</div>
+                    </div>
+                </div>
+
+                <!-- 5行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑤ ランダム</div>
+                    </div>
+                </div>
+
+                <!-- 6行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑥ こごえるふぶき×2</div>
+                    </div>
+                </div>
+
+                <!-- 7行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑦ こごえるふぶき×2</div>
+                    </div>
+                </div>
+
+                <!-- 8行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑧ ①に戻る</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-place-table1">
+
+                <!-- ヘッダー行 -->
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">HP黄色以降</div>
+                </div>
+
+                <!-- 1行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">① はげしいほのお×2</div>
+                    </div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">② はげしいほのお×2</div>
+                    </div>
+                </div>
+                
+                <!-- 3行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">③ ランダム→仲間呼びとブレスを除く</div>
+                    </div>
+                </div>
+
+                <!-- 4行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">④ ランダム→同上</div>
+                    </div>
+                </div>
+
+                <!-- 5行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑤ ランダム→同上</div>
+                    </div>
+                </div>
+
+                <!-- 6行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑥ ランダム → ①に戻ることも有り</div>
+                    </div>
+                </div>
+
+                <!-- 7行目 -->
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑦ ①に戻る</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="boss3"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">エイリアンフライの攻略ポイント</div>
+        </div>
+        <div class="battle-points-box">
+            <div class="battle-point"><span class="checkmark">✔</span>行動パターンを把握する</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ブレス軽減防具を装備</div>
+            <div class="battle-point"><span class="checkmark">✔</span>2連ブレスは2ターン連続で大ぼうぎょ</div>
+            <div class="battle-point"><span class="checkmark">✔</span>取り巻きは武器を持ち替えて全体攻撃で処理</div>
+            <div class="battle-point"><span class="checkmark">✔</span>ドラゴン斬り、しんくう斬りが有効</div>
+        </div>
+        <div class="step-header">
+            <div class="step-number text-center">行動パターンを把握する</div>
+        </div>
+        <div class="step-content">
+            <div class="step-text">エイリアンフライは、序盤とHPを黄色まで削ったあとの行動パターンがある程度決まっています。<br>
+                次に何をしてくるかが把握できているだけで、攻撃や防御のタイミングを合わせることができるので、行動パターンを把握しておきましょう。
+            </div>
+        </div><br>
+
+        <div class="step-header">
+            <div class="step-number text-center">ブレス軽減防具を装備</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/alienfly1.jpg' %}" class="step-image">
+            <div class="step-text">エイリアンフライは、炎と吹雪のブレスを使用します。<Br>
+                また、ブレスは2ターンで2回連続の計4回使用するので、ブレスを軽減できる防具や装飾品を装備しておきましょう。
+            </div><br>
+            <div class="step-number text-center">ブレスを軽減できる防具</div><br>
+            <div class="area-place-table">
+
+            <!-- ヘッダー行 -->
+            <div class="apt-row header-row">
+                <div class="apt-cell header-cell">装備</div>
+                <div class="apt-cell header-cell">場所／入手方法</div>
+            </div>
+
+            <!-- 1行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンシールド</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※ちいさなメダル15枚
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンメイル</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">氷のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城周辺<br>
+                        ※メダル王の城から外に出て北にあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">炎のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋周辺<br>
+                        ※旅人の宿屋から外に出て東の海岸沿いにあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ほのおの盾</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ほのおのよろい</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-header">
+            <div class="step-number text-center">2連ブレスは2ターン連続で大ぼうぎょ</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/alienfly2.jpg' %}" class="step-image">
+            <div class="step-text"><br>ブレスは2ターンで2回連続の計4回使用するので、2ターン連続で「大ぼうぎょ」を使いましょう。<br>
+                <br>
+                特にHPを黄色に削るまでは仲間呼びの2ターン後に必ずこごえるふぶきを使ってくるので必ず発動タイミングを把握しておきましょう。<br>
+                <br>
+                また、主人公がレベル32で習得する「フバーハ」でも軽減はできますが、その分MP消費も多くなってしまい、火力を出すためのMPが枯渇しがちになるので、大ぼうぎょでやり過ごすのがおすすめです。
+            </div>
+        </div><br>
+
+        <div class="step-header">
+            <div class="step-number text-center">取り巻きは武器を持ち替えて全体攻撃で処理</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/alienfly3.jpg' %}" class="step-image">
+            <div class="step-text"><br>取り巻きは全体攻撃で処理しましょう。<br>
+                <br>
+                取り巻きは都度仲間呼びで追加されるので、出現したらちいさなメダル17枚で手に入る「ツインスワロー」に装備を持ち替えて倒すのがおすすめです。
+            </div>
+        </div><br>
+
+        <div class="step-header">
+            <div class="step-number text-center">ドラゴン斬り、しんくう斬りが有効</div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss/alienfly4.jpg' %}" class="step-image">
+            <div class="step-text"><br>エイリアンフライは、「ドラゴン斬り」と「しんくう斬り」で弱点をつけます。<br>
+                取り巻きを処理してエイリアンフライが単体のときは「ドラゴンキラー」等の攻撃力の高い武器に持ち替えてダメージを稼ぎましょう。<br>
+                超絶技はMP消費が重いので通常の特技でMPを節約しながら立ち回ることをおすすめします。<br>
+                <br>
+                ドラゴンキラーは、メダル王の城の道具屋で購入できます。
+            </div>
+        </div><br>
+
+        <div id="boss4"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">エイリアンフライ戦のおすすめ装備</div>
+        </div><br>
+        <div class="area-place-table">
+
+            <!-- ヘッダー行 -->
+            <div class="apt-row header-row">
+                <div class="apt-cell header-cell">装備</div>
+                <div class="apt-cell header-cell">場所／入手方法</div>
+            </div>
+
+            <!-- 1行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンキラー</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ツインスワロー</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※ちいさなメダル17枚
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンシールド</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※ちいさなメダル15枚
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ファントムマスク</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※宝箱から入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">ドラゴンメイル</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城<br>
+                        ※道具屋で購入
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">炎のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">旅人の宿屋周辺<br>
+                        ※旅人の宿屋から外に出て東の海岸沿いにあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7行目 -->
+            <div class="apt-row">
+                <div class="apt-cell">
+                    <div class="apt-text">氷のイヤリング</div>
+                </div>
+                <div class="apt-cell">
+                    <div class="apt-text">メダル王の城周辺<br>
+                        ※メダル王の城から外に出て北にあるキラキラから入手
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br>
+
+        <div id="boss5"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">関連記事</div>
+        </div><br>
+        <div class="text-center mb-4">
+            <img src="{% static 'database/images/dq1_boss_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+        </div>
+        <div class="text-center mb-5">
+            <a href="{% url 'database:dq1_boss_list' %}" class="btn-story-link">
+                ▶ ボス攻略一覧
+            </a>
+        </div>
+        <div id="boss6"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ボス攻略一覧</div><br>
+            <div class="toc-grid">
+                <a href="{% url 'database:dq1_kandata' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/kandata.jpg' %}" alt="カンダタ">
+                    <span class="toc-title">カンダタ</span>
+                </a>
+                <a href="{% url 'database:dq1_youjutsushi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/youjutsushi.jpg' %}" alt="ようじゅつし">
+                    <span class="toc-title">ようじゅつし</span>
+                </a>
+                <a href="{% url 'database:dq1_yoroinokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/yoroinokishi.jpg' %}" alt="よろいのきし">
+                    <span class="toc-title">よろいのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_dragon' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragon.jpg' %}" alt="ドラゴン">
+                    <span class="toc-title">ドラゴン</span>
+                </a>
+                <a href="{% url 'database:dq1_darkdreamer' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/darkdreamer.jpg' %}" alt="ダークドリーマー">
+                    <span class="toc-title">ダークドリーマー</span>
+                </a>
+                <a href="{% url 'database:dq1_golem' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/golem.jpg' %}" alt="ゴーレム">
+                    <span class="toc-title">ゴーレム</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonfly.jpg' %}" alt="ドラゴンフライ">
+                    <span class="toc-title">ドラゴンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonzombie' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonzombie.jpg' %}" alt="ドラゴンゾンビ">
+                    <span class="toc-title">ドラゴンゾンビ</span>
+                </a>
+                <a href="{% url 'database:dq1_alienfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/alienfly.jpg' %}" alt="エイリアンフライ">
+                    <span class="toc-title">エイリアンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_akumanokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/akumanokishi.jpg' %}" alt="あくまのきし">
+                    <span class="toc-title">あくまのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_murdergoyle' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/murdergoyle.jpg' %}" alt="マーダーゴイル">
+                    <span class="toc-title">マーダーゴイル</span>
+                </a>
+                <a href="{% url 'database:dq1_ekusodasu' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ekusodasu.jpg' %}" alt="エクソダス">
+                    <span class="toc-title">エクソダス</span>
+                </a>
+                <a href="{% url 'database:dq1_ryuou' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ryuou2.jpg' %}" alt="りゅうおう">
+                    <span class="toc-title">りゅうおう（竜王）</span>
+                </a>
+            </div>
+        </div>
+    </main>
+  </div>
+
+  <!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".boss-tab");
+    const panels = document.querySelectorAll(".boss-tab-panel");
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // 画像クリックでモーダル表示
+    if (modal && modalImg) {
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex'; // flexで中央表示
+                modalImg.src = img.src;
+            });
+        });
+    }
+
+    // 閉じるボタン
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // 背景クリックで閉じる
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    }
+
+    // タブ切り替え
+    if (tabs.length && panels.length) {
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const target = tab.dataset.target;
+                panels.forEach(panel => {
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    } else {
+                        panel.classList.remove("active");
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+
+{% endblock %}

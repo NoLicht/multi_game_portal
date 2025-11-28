@@ -1,0 +1,23 @@
+<div class="monster-card mb-4 p-3 border rounded bg-light">
+  {% if monster.image %}
+    <img src="{{ monster.image.url }}" alt="{{ monster.name }}" class="img-fluid mb-2" style="max-width: 300px;">
+  {% endif %}
+  <h3 class="monster-name">{{ monster.name }}</h3>
+  <hr>
+  <div class="monster-info">
+    <p><strong>HP:</strong> {{ monster.hp }}</p>
+    <p><strong>危険度:</strong> {{ monster.get_danger_level_display }}</p>
+    <p><strong>必要筋力:</strong> {{ monster.required_strength|default:"-" }}</p>
+    <hr>
+    <p><strong>対処方法:</strong><br>{{ monster.strategy|linebreaksbr }}</p>
+  </div>
+  <hr>
+  <div class="monster-attacks">
+    <strong>攻撃方法:</strong>
+    <ul class="list-unstyled">
+      {% for attack in monster.attacks.all %}
+        <li class="mb-1">{{ attack.name }}: {{ attack.damage|default:"-" }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

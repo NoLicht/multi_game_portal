@@ -1,0 +1,1046 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ りゅうおう 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#boss1">りゅうおうの推奨レベル・弱点</a></li>
+            <li><a href="#boss2">りゅうおうの行動パターン</a></li>
+            <li><a href="#boss3">りゅうおうの攻略ポイント</a></li>
+            <li><a href="#boss4">竜王の攻略ポイント</a></li>
+            <li><a href="#boss5">りゅうおうのおすすめ装備</a></li>
+            <li><a href="#boss6">関連記事</a></li>
+            <li><a href="#boss7">ボス攻略一覧</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/boss_banner/ryuou.jpg' %}" class="story-banner rounded shadow-lg">
+        </div>
+
+        <div id="boss1"></div><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">りゅうおう（竜王）の推奨レベル・弱点</div> 
+            </div>
+            <div class="step-content">
+                <div class="step-number text-center">りゅうおうの推奨レベル・弱点</div>
+                <img src="{%static 'database/images/dq1/boss/ryuou1.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+
+                        <div class="info-value">40</div>
+                        <div class="info-value">竜王の城</div>
+
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+
+                        <div class="info-value">約3200</div>
+                        <div class="info-value">-</div>
+                    </div>
+                </div>
+
+                <div class="boss-tab-wrapper">
+                    <div class="boss-tab-content">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">デイン</span></div>
+                    </div>
+                </div>
+
+                <div class="step-number text-center"><br>竜王の推奨レベル・弱点</div>
+                <img src="{%static 'database/images/dq1/boss/ryuou2.jpg' %}" class="step-image">
+                <div class="battle-info">
+                    <div class="info-grid">
+                        <div class="info-label">推奨レベル</div>
+                        <div class="info-label">出現場所</div>
+
+                        <div class="info-value">40</div>
+                        <div class="info-value">竜王の城</div>
+
+                        <div class="info-label">HP</div>
+                        <div class="info-label">宝</div>
+
+                        <div class="info-value">約4800</div>
+                        <div class="info-value">-</div>
+                    </div>
+                </div>
+
+                <div class="boss-tab-wrapper">
+                    <div class="boss-tab-content">
+                        <div class="boss-info-row3"><span class="info-label3 text-center">弱点</span><span class="info-value3">なし</span></div>
+                    </div>
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_section5_content' %}" class="btn-story-link">
+                        ▶ チャート5攻略を見る
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="boss2"></div><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">りゅうおう（竜王）の行動パターン</div>
+            </div>
+            <div class="step-number text-center">りゅうおうの行動</div>
+            <div class="area-place-table">
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">物理ダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ラリホー</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率で眠る</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">マホトーン</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率で呪文を封じる</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">マホカンタ</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">呪文をはね返す</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ぶきみなひかり</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率で呪文耐性が下がる</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ベギラゴン</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">ギラ系大ダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">べホイム</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">HPを大回復する</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">魔力集中<br>
+                            ※HP50%未満で使用
+                        </div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">呪文の威力がアップ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">いてつくはどう<br>
+                            ※HP50%未満で使用
+                        </div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">バフ全解除</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-number text-center">竜王の行動</div>
+            <div class="area-place-table">
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">行動</div>
+                    <div class="apt-cell header-cell">効果</div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">通常攻撃</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">物理ダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">かみくだく</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">物理特大ダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">べホイム</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">HPを大回復する</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">バイキルト</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">こうげき力をかなり上げる</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">おたけび</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">確率でやすみ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">スクルト</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">しゅび力を上げる</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ピオリム</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">すばやさを上げる</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">はげしいほのお</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">炎ブレスダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ベギラゴン</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">ギラ系大ダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">しゃくねつのほのお<br>
+                            ※HP50%未満で使用
+                        </div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">炎ブレスダメージ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">メラゾーマ<br>
+                            ※HP50%未満で使用
+                        </div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">メラ系大ダメージ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-number text-center">竜王の行動パターン</div>
+            <div class="area-place-table1">
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">HP黄色まで</div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">① 通常攻撃</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">② バフ呪文を2つ(バイキルト/スクルト/ピオリム/べホイム)</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">③ かみくだく×2 ← ここは必ず大ぼうぎょ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">④ 通常攻撃+はげしいほのお</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑤ 通常攻撃+ベギラゴン</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑥ 様子を見ている(何もしてこない)</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑦ ベギラゴン+はげしいほのお</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑧ 様子を見ている(何もしてこない)</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑨ おたけび×2</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑩ ①に戻る</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-place-table1">
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">HP黄色以降</div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">① 通常攻撃+おたけび</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">② バフ呪文を2つ(バイキルト/スクルト/ピオリム/べホイム)</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">③ かみくだく×2 ← ここは必ず大ぼうぎょ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">④ 通常攻撃+はげしいほのお</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑤ 通常攻撃+メラゾーマ</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑥ かみくだく</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑦ メラゾーマ+しゃくねつのほのお</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑧ 様子を見ている(何もしてこない)</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑨ おたけび×2</div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text1">⑩ ①に戻る</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="boss3"></div><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">りゅうおうの攻略ポイント</div>
+            </div>
+
+            <div class="battle-points-box">
+                <div class="battle-point"><span class="checkmark">✔</span>炎軽減装備でダメージを抑える</div>
+                <div class="battle-point"><span class="checkmark">✔</span>ラリホーとマホトーンに注意する</div>
+                <div class="battle-point"><span class="checkmark">✔</span>ようせいの剣で守備力を上げる</div>
+                <div class="battle-point"><span class="checkmark">✔</span>2回行動に注意</div>
+                <div class="battle-point"><span class="checkmark">✔</span>HPが50%を切ると火力が上がる</div>
+                <div class="battle-point"><span class="checkmark">✔</span>竜王戦に向けてMPを温存する</div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">炎軽減装備でダメージを抑える</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/boss/ryuou3.jpg' %}" class="step-image">
+                <div class="step-text">竜王(りゅうおう)は炎攻撃を多用してくるため、装備で耐性を取るのがおすすめです。<br>
+                    特に「ガイアのよろい」は他の炎軽減装備よりも多く耐性を取ることができるため、かなり優秀な装備となっています。
+                </div><br>
+                <div class="step-number text-center">その他炎軽減できるおすすめの装備</div><br>
+                <div class="area-place-table">
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">装備</div>
+                        <div class="apt-cell header-cell">入手方法</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">こおりの盾</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ドワーフの洞窟_地下1階の宝箱<br>
+                                岩泣き島_2階の宝箱
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ロトの盾</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">岩泣き島・外観の宝箱</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ドラゴンシールド</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ちいさなメダル15枚の報酬</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ドラゴンメイル</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">メダル王の城の道具屋<br>
+                                メルキドの装備屋
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">氷のイヤリング</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">メダル王の城の北にあるキラキラで入手<br>
+                                キースドラゴンからドロップ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">ラリホーとマホトーンに注意する</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/boss/ryuou4.jpg' %}" class="step-image">
+                <div class="step-text">りゅうおうは頻繁に「ラリホー」と「マホトーン」を使用してきます。<br>
+                    そのため、装備は「めざましリング」で眠り対策をするのをおすすめします。<br>
+                    <br>
+                    また、マホトーンで呪文封印を受けてしまった場合は「ささやきのみつ」で封印を解除するか、「大ぼうぎょ」でターン切れを待つのがおすすめです。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">ようせいの剣で守備力を上げる</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/boss/ryuou5.jpg' %}" class="step-image">
+                <div class="step-text">りゅうおうの物理攻撃は通常攻撃のみですが、攻撃力が高いため「ようせいの剣」で守備力を上げておくのがおすすめです。<br>
+                    りゅうおうのHPが半分を越えてからは頻繁に「いてつくはどう」を使用してくるので、自身のHPを管理しつつ守備力を上げましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">2回行動に注意</div>
+            </div>
+            <div class="step-content">
+                <div class="area-place-table">
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">残りHP</div>
+                        <div class="apt-cell header-cell">行動回数</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">50%以上</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">1回→2回→1回→2回と交互</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">50%未満</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">毎ターン2回行動</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">りゅうおうのHPが50%以上の場合は、1ターンおきに行動回数が2回になるため、HPの管理が重要になります。<br>
+                    また、りゅうおうのHPが50%を切ると毎ターンの行動回数が2回になってしまうので、2回分の攻撃を受けられるように自身のHP管理をしっかり行いましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">りゅうおうのHPが50%を切ると火力が上がる</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/boss/ryuou6.jpg' %}" class="step-image">
+                <div class="step-text">りゅうおうはHPが50%未満になると魔力集中により呪文の威力が上がります。<br>
+                    持続ターンは使用してから2ターンとなっているので、効果が切れるまでは回復に専念して耐え切りましょう。<br>
+                    <br>
+                    また、50%未満からは行動回数も2回に増えてしまうので注意しましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">竜王戦に向けてMPを温存する</div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">りゅうおう戦が終わるとそのまま第2形態の竜王戦となります。<br>
+                    そのため、HPやMPを回復してから戦うことができないので、りゅうおう戦でMPを温存しておくか、「エルフののみぐすり」または「けんじゃのせいすい」で回復する必要があります。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">LvUPで回復できるように調整しておくのがおすすめ</div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/boss/ryuou7.jpg' %}" class="step-image">
+                <div class="step-text">レベルアップでHPとMPを回復する設定にしている方は、りゅうおう戦の前に必要な残り経験値を「19860」以下にしておくのがおすすめです。<br>
+                    りゅうおう討伐時に経験値を獲得することができるため、そこにレベルアップを合わせて第2形態の竜王戦に備えましょう。<br>
+                    <br>
+                    必要な残り経験値は教会で知ることが可能です。
+                </div>
+            </div>
+        </div>
+
+        <div id="boss4"></div><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">竜王の攻略ポイント</div>
+            </div>
+            <div class="battle-points-box">
+                <div class="battle-point"><span class="checkmark">✔</span>炎軽減装備で被ダメージを抑える<br>
+                    ┗複数部位装備すれば無効化も可能
+                </div>
+                <div class="battle-point"><span class="checkmark">✔</span>バフ行動後の「かみくだく」は大ぼうぎょ<br>
+                    ┗うけながしで反撃も有効
+                </div>
+                <div class="battle-point"><span class="checkmark">✔</span>やまびこのぼうしで攻守を安定させる</div>
+                <div class="battle-point"><span class="checkmark">✔</span>ギガデインの超絶技「ジゴスパーク」のマヒ付与が強力</div>
+                <div class="battle-point"><span class="checkmark">✔</span>みかわしきゃくでみかわし率を上げる</div>
+                <div class="battle-point"><span class="checkmark">✔</span>HPが50%を切ると技が増える</div>
+            </div>
+            <div class="step-text">竜王戦は、炎軽減装備で炎攻撃を無効化して生存力を高めるのがおすすめです。<br>
+                攻撃手段は、やまびこのぼうしを装備したギガデインの超絶技「ジゴスパーク」連発で大ダメージと麻痺を与えていき、強力なかみくだく2連攻撃に合わせて「うけながし」で反撃ダメージを与えていきましょう。
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">炎軽減装備でダメージを抑える</div>
+            </div>
+            <div class="step-content">
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/boss/ryuou1.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="step-text">りゅうおう戦同様に竜王も炎攻撃を多用してくるため、装備で耐性を取るのがおすすめです。<br>
+                    りゅうおう戦よりも強力なメラゾーマや炎ブレス攻撃が多くなるので、必ず装備しておきましょう。<br>
+                    <br>
+                    竜王の炎攻撃は「ガイアのよろい」を含む他2つの炎軽減装備で無効化することができます。<br>
+                    「ガイアのよろい」は炎軽減装備の中でも耐性値がかなり高いため、必ず装備する様にしましょう。
+                </div><br>
+                <div class="step-number text-center">その他炎軽減できるおすすめの装備</div><br>
+                <div class="area-place-table">
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">装備</div>
+                        <div class="apt-cell header-cell">入手方法</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">こおりの盾</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ドワーフの洞窟_地下1階の宝箱<br>
+                                岩泣き島_2階の宝箱
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ロトの盾</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">岩泣き島・外観の宝箱</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ドラゴンシールド</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">ちいさなメダル15枚の報酬</div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ドラゴンメイル</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">メダル王の城の道具屋<br>
+                                メルキドの装備屋
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">氷のイヤリング</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">メダル王の城の北にあるキラキラで入手<br>
+                                キースドラゴンからドロップ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">バフ行動後の「かみくだく」は大ぼうぎょ</div>
+            </div>
+            <div class="step-content">
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/boss/ryuou2.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="step-text">竜王は行動パターンが決まっており、竜王が1ターンで「スクルト」「バイキルト」「ピオリム」「べホイム」のいずれかを2個連続で使用した後は確定で「かみくだく」攻撃をしてくるため、そこのタイミングに合わせて「大ぼうぎょ」を使用するのがおすすめです。<br>
+                    また、その次の行動も「通常攻撃」を2回使用してくるため、「ぼうぎょ」を使用してMPを回復しつつ耐えるようにしましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">「うけながし」で反撃ダメージを与えるのもおすすめ</div>
+            </div>
+            <div class="step-content">
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/boss/ryuou3.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="step-text">かみくだくの強力な攻撃は、「うけながし」で反撃して大ダメージを与えるのもおすすめです。<br>
+                    うけながしに失敗したら大ダメージを受けてしまうので、HPは高めに保っておきましょう。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">やまびこのぼうしで攻守を安定させる</div>
+            </div>
+            <div class="step-content">
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/boss/ryuou4.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="step-text">頭装備はやまびこのぼうしがおすすめです。<br>
+                    ギガデイン（ジゴスパーク）2連による火力と、ベホイム2連による生存力を両立できる優秀な頭防具です。<br>
+                    <br>
+                    竜王戦に入ったら頭装備をやまびこのぼうしに変更するのがおすすめです。
+                </div>
+            </div>
+            
+            <div class="step-header">
+                <div class="step-number text-center">ギガデインの超絶技「ジゴスパーク」のマヒ付与が強力</div>
+            </div>
+            <div class="step-content">
+                <div class="video-container">
+                    <video controls autoplay loop muted>
+                        <source src="{% static 'database/images/dq1/boss/ryuou5.mp4' %}" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="area-place-table">
+                    <div class="apt-row header-row">
+                        <div class="apt-cell header-cell">呪文・特技</div>
+                        <div class="apt-cell header-cell">消費MP／効果</div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text">ジゴスパーク</div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text">36／敵全体にダメージを与え、たまにマヒ状態にさせる<br>
+                                ※条件：HP50％以下orせいしんとういつの時に、ギガデイン
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-text">ギガデインの超絶技「ジゴスパーク」は、竜王を麻痺状態にすることができます。<br>
+                    竜王を行動させることなく完封することも可能な強力な呪文なので、ジゴスパークを連発するだけで勝つこともできます。<br>
+                    <br>
+                    また、やまびこのぼうしと合わせることでほぼ確定で麻痺付与+大ダメージを与えることができます。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">みかわしきゃくでみかわし率を上げる</div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">竜王の物理攻撃はかなり攻撃力が高いため「みかわしきゃく」で常にみかわし率を上げておくのがおすすめです。<br>
+                    さらに装備で「ファントムマスク」を装備することでみかわし率を大幅に上げることが可能です。<br>
+                    また、HPが怪しくなったら「やまびこのぼうし」に変えて回復するのがおすすめです。
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">HPが50%を切ると技が増える</div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">竜王はHPを50%切ると「メラゾーマ」と「しゃくねつのほのお」が追加され、行動パターンも多少変化します。<br>
+                    しかし、炎攻撃を無効にしておくことでどちらの攻撃もダメージを受けないため、「かみつく」と「通常攻撃」だけ意識していればそこまで問題ではありません。
+                </div>
+            </div>
+        </div>
+
+        <div id="boss5"></div><br>
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">りゅうおう（竜王）戦のおすすめ装備</div>
+            </div>
+            <div class="area-place-table">
+                <div class="apt-row header-row">
+                    <div class="apt-cell header-cell">装備</div>
+                    <div class="apt-cell header-cell">場所/入手方法</div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ロトのつるぎ</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">竜王の城_地下1階<br>
+                            ※竜王の城_地下1階に刺さっている
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">やまびこのぼうし</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">岩山の洞窟周辺<br>
+                            ※ひみつの場所
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ガイアのよろい</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">ドワーフの洞窟_地下3階<br>
+                            ※宝箱
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">ロトの盾</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">岩泣き島_外観<br>
+                            ※宝箱
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">氷のイヤリング</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">ドムドーラ南部<br>
+                            ※キラキラ
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apt-row">
+                    <div class="apt-cell">
+                        <div class="apt-text">めざましリング</div>
+                    </div>
+                    <div class="apt-cell">
+                        <div class="apt-text">メダル王の城<br>
+                            ※道具屋（550G）
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">炎攻撃を無効にしつつ眠り対策をする</div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">りゅうおうには上記の装備セットがおすすめです。<br>
+                    炎攻撃を無効にすることで強力なベギラゴンを無効化することができます。<br>
+                    またりゅうおうはマホトーンとラリホーもし要してくるため、眠りは「めざましリング」で対策をし、呪文封印は「大ぼうぎょ」で耐えるか「ささやきのみつ」で解除しましょう。<br>
+                    <br>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="step-number text-center">炎攻撃を無効にしつつやまびこの帽子で攻守を安定</div>
+            </div>
+            <div class="step-content">
+                <div class="step-text">竜王の炎攻撃は「はげしいほのお/ベギラゴン/しゃくねつのほのお/メラゾーマ」と多く、無効化しないとほぼ耐えることができなくなっているので、必ず炎攻撃は無効にできる装備で挑みましょう。<br>
+                    また、頭装備は「やまびこのぼうし」がおすすめで、火力では「ギガデイン」、回復では「べホイム」を使用することで攻守共に安定させることができます。
+                </div>
+            </div><br>
+
+            <div id="boss6"></div><br>
+            <div class="step-header">
+            <div class="black-yellow-band text-center">関連記事</div>
+        </div><br>
+        <div class="text-center mb-4">
+            <img src="{% static 'database/images/dq1_boss_banner1.jpg' %}" class="story-banner rounded shadow-lg">
+        </div>
+        <div class="text-center mb-5">
+            <a href="{% url 'database:dq1_boss_list' %}" class="btn-story-link">
+                ▶ ボス攻略一覧
+            </a>
+        </div>
+
+        <div id="boss7"></div><br>
+        <div class="step-header">
+            <div class="black-yellow-band text-center">ボス攻略一覧</div><br>
+            <div class="toc-grid">
+                <a href="{% url 'database:dq1_kandata' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/kandata.jpg' %}" alt="カンダタ">
+                    <span class="toc-title">カンダタ</span>
+                </a>
+                <a href="{% url 'database:dq1_youjutsushi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/youjutsushi.jpg' %}" alt="ようじゅつし">
+                    <span class="toc-title">ようじゅつし</span>
+                </a>
+                <a href="{% url 'database:dq1_yoroinokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/yoroinokishi.jpg' %}" alt="よろいのきし">
+                    <span class="toc-title">よろいのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_dragon' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragon.jpg' %}" alt="ドラゴン">
+                    <span class="toc-title">ドラゴン</span>
+                </a>
+                <a href="{% url 'database:dq1_darkdreamer' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/darkdreamer.jpg' %}" alt="ダークドリーマー">
+                    <span class="toc-title">ダークドリーマー</span>
+                </a>
+                <a href="{% url 'database:dq1_golem' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/golem.jpg' %}" alt="ゴーレム">
+                    <span class="toc-title">ゴーレム</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonfly.jpg' %}" alt="ドラゴンフライ">
+                    <span class="toc-title">ドラゴンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_dragonzombie' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/dragonzombie.jpg' %}" alt="ドラゴンゾンビ">
+                    <span class="toc-title">ドラゴンゾンビ</span>
+                </a>
+                <a href="{% url 'database:dq1_alienfly' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/alienfly.jpg' %}" alt="エイリアンフライ">
+                    <span class="toc-title">エイリアンフライ</span>
+                </a>
+                <a href="{% url 'database:dq1_akumanokishi' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/akumanokishi.jpg' %}" alt="あくまのきし">
+                    <span class="toc-title">あくまのきし</span>
+                </a>
+                <a href="{% url 'database:dq1_murdergoyle' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/murdergoyle.jpg' %}" alt="マーダーゴイル">
+                    <span class="toc-title">マーダーゴイル</span>
+                </a>
+                <a href="{% url 'database:dq1_ekusodasu' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ekusodasu.jpg' %}" alt="エクソダス">
+                    <span class="toc-title">エクソダス</span>
+                </a>
+                <a href="{% url 'database:dq1_ryuou' %}" class="toc-item">
+                    <img src="{% static 'database/images/dq1/boss/ryuou2.jpg' %}" alt="りゅうおう">
+                    <span class="toc-title">りゅうおう（竜王）</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</div>
+
+  <!-- フッター -->
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".boss-tab");
+    const panels = document.querySelectorAll(".boss-tab-panel");
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // 画像クリックでモーダル表示
+    if (modal && modalImg) {
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex'; // flexで中央表示
+                modalImg.src = img.src;
+            });
+        });
+    }
+
+    // 閉じるボタン
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // 背景クリックで閉じる
+    if (modal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    }
+
+    // タブ切り替え
+    if (tabs.length && panels.length) {
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                const target = tab.dataset.target;
+                panels.forEach(panel => {
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    } else {
+                        panel.classList.remove("active");
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+
+{% endblock %}

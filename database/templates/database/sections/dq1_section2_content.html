@@ -1,0 +1,769 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}ドラゴンクエストⅠ 第2章 攻略{% endblock %}
+
+{% block content %}
+
+  <!-- ページトップのカバー画像 -->
+  <div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+  </div>
+
+  <div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="#story1">① マイラでようせいのふえを入手</a></li>
+            <li><a href="#story2">② マップの左上のツボからメダルを入手</a></li>
+            <li><a href="#story3">③ 南にある「沼地の洞窟」へ向かう</a></li>
+            <li><a href="#story4">④ 沼地の洞窟内は真っ直ぐ下に進む</a></li>
+            <li><a href="#story5">⑤ 南にある「リムルダール」へ向かう</a></li>
+            <li><a href="#story6">⑥ カギの魔法使いと話す</a></li>
+            <li><a href="#story7">⑦ 民家のタンスからメダルを入手</a></li>
+            <li><a href="#story8">⑧ 南にある「ドワーフの洞窟」へ向かう</a></li>
+            <li><a href="#story9">⑨ ドワーフの洞窟は入念に探索する</a></li>
+            <li><a href="#story10">⑩ 地下1階の宝箱</a></li>
+            <li><a href="#story11">⑪ 地下2階の宝箱</a></li>
+            <li><a href="#story12">⑫ 地下3階の部屋にいるドワーフと話す</a></li>
+            <li><a href="#story13">⑬ 妖精の隠れ里に入る</a></li>
+            <li><a href="#story14">⑭ 南西にある「ドムドーラ」に寄り道</a></li>
+            <li><a href="#story15">⑮ ちいさなメダルと巻物を回収</a></li>
+            <li><a href="#story16">⑯ 南西にある「ひみつの花畑」へ向かう</a></li>
+            <li><a href="#story17">⑰ ひみつの花畑で材料を探す</a></li>
+            <li><a href="#story18">⑱ ボス「よろいのきし」戦の準備をしよう</a></li>
+            <li><a href="#story19">⑲ ボス戦「よろいのきし」</a></li>
+            <li><a href="#story20">⑳ ボス撃破後に灯火のシロップを入手</a></li>
+            <li><a href="#story21">㉑ カギの魔法使いからまほうの鍵を入手</a></li>
+            <li><a href="#story22">㉒ ラダトーム城で「太陽の石」を入手</a></li>
+            <li><a href="#story23">㉓ ドムドーラでザライと話す</a></li>
+            <li><a href="#story24">㉔ 妖精の隠れ里でいのちの紋章を入手</a></li>
+            <li><a href="#story25">㉕ 湧き水の結晶を渡して水の紋章を入手</a></li>
+            <li><a href="#story26">㉖ 青い宝箱からふうじんの盾を回収</a></li>
+            <li><a href="#story27">㉗ マイラでくさなぎの剣を入手</a></li>
+            <li><a href="#story28">㉘ ドワーフの洞窟地下3階で宝箱を回収</a></li>
+            <li><a href="#story29">㉙ ひみつの花畑周辺でレベル上げをする</a></li>
+            <li><a href="#story30">㉚ メダル王の城に寄り道</a></li>
+            <li><a href="#story31">㉛ メダル王の城の宝箱から装備品を回収</a></li>
+            <li><a href="#story32">㉜ ちいさなメダルを10枚集める</a></li>
+            <li><a href="#story33">㉝ 準備ができたら沼地の洞窟へ向かう</a></li>
+            <li><a href="#story34">㉞ 地下2階を探索しながら進む</a></li>
+            <li><a href="#story35">㉟ 「月光のしずく」は忘れずに入手</a></li>
+            <li><a href="#story36">㊱ ボス戦「ドラゴン」の準備をする</a></li>
+            <li><a href="#story37">㊲ ドラゴンの攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#story" class="btn-story-link">▶dq1ホームに戻る</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+
+      <div class="story-header text-center my-3">
+            <div class="black-yellow-band">沼地の洞窟からドラゴン戦までの攻略チャート</div>
+      </div>
+      <div class="chart-image-wrapper">
+           <img src="{% static 'database/images/dq1/chart2.jpg' %}" alt="チャート2" class="story-top-image">
+      </div>
+
+      <div class="story-info-grid">
+            <div class="cell label">攻略目安</div>
+            <div class="cell value">3～4時間</div>
+            <div class="cell label">攻略レベル</div>
+            <div class="cell value">12～21</div>
+      </div>
+
+
+    <div id="story1" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">① マイラでようせいのふえを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_1.jpg' %}" class="step-image">
+            <div class="step-text">ようじゅつし戦後、「マイラ」に移動します。<br>
+                マップ中央付近にある温泉の前で「ようせいのふえ」を入手できるので、まだの方は取っておきましょう。<br>
+                <br>
+                ようせいのふえはメルキドに入る前に出現する「ゴーレム」を眠らせることができるので必ず回収しましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story2" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">② マップの左上のツボからメダルを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_2.jpg' %}" class="step-image">
+            <div class="step-text">マイラの左上の毒沼にあるツボから「ちいさなメダル」を入手できます。<br>
+                毒沼は呪文「トラマナ」を使うとダメージを受けません。<br>
+                <br>
+                また、マイラの左にある「とうぞくのかぎ」で開けられる民家のツボから「ラックのたね」も入手可能です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story3" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">③ 南にある「沼地の洞窟」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_3.jpg' %}" class="step-image">
+            <div class="step-text">マイラから出た後は、マイラの真南にある「沼地の洞窟」へ向かいます。<br>
+                毒沼は呪文「トラマナ」を使用するとダメージを受けません。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story4" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">④ 沼地の洞窟内は真っ直ぐ下に進む<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_4.jpg' %}" class="step-image">
+            <div class="step-text">沼地の洞窟はまほうのかぎを入手するまで奥まで探索できないので、右上のちいさなメダルを回収したら真っ直ぐ下に進みます。<br>
+                下に進むとカットシーンが流れ、目的地が更新されます。<br>
+                <br>
+                沼地の洞窟のマップの右下にある宝箱から「てつのやり」を入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story5" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑤ 南にある「リムルダール」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_5_1.jpg' %}" class="step-image">
+            <div class="item-table">
+
+                <div class="item-row">
+                    <div class="item-cell title-cell">やいばのブーメラン</div>
+                    <div class="item-cell title-cell">はでな服</div>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-cell">
+                        <img src="{% static 'database/images/dq1/dq1_2_5_2.jpg' %}" class="zoomable">
+                    </div>
+                    <div class="item-cell">
+                        <img src="{% static 'database/images/dq1/dq1_2_5_3.jpg' %}" class="zoomable">
+                    </div>
+                </div>
+
+                <div class="item-row">
+                    <div class="item-cell">ヤシの根本</div>
+                    <div class="item-cell">岩の陰</div>
+                </div>
+
+            </div>
+
+            <!-- モーダルHTML -->
+            <div id="image-modal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-img">
+            </div>
+
+
+
+
+            <div class="step-text"><br>沼地の洞窟を出た後は、マップの南にあるリムルダールへ向かいましょう。<br>
+                道中の砂地にあるひみつの場所から「やいばのブーメラン」と「はでな服」などのアイテムが入手できるので寄り道しておきましょう。<br>
+                <br>
+                ちなみにリムルダール北の砂地の秘密の場所は、1箇所ストーリー進行で解放されます。
+            </div>
+        </div>
+    </div><br>
+    
+    <div id="story6" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑥ カギの魔法使いと話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_6_1.jpg' %}" class="step-image">
+            <div class="step-text">リムルダールに入るとカットシーンが流れ、マップ左上の民家に入るように言われます。<br>
+                左上にある民家に入るにはマップの外周から回り込む必要があります。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_2_6_2.jpg' %}" class="step-image">
+            <div class="step-text">カギの魔法使いの家から「バリアの巻物」を入手できるので忘れずに回収しましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story7" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑦ 民家のタンスからメダルを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_7.jpg' %}" class="step-image">
+            <div class="step-text">リムルダールのマップの北側にある民家のタンスからちいさなメダルを入手できます。</div>
+        </div>
+    </div><br>
+
+    <div id="story8" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑧ 南にある「ドワーフの洞窟」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_8.jpg' %}" class="step-image">
+            <div class="step-text">リムルダールから出た後は、マップの南にあるドワーフの洞窟へ向かいます。<br>
+                ただ、ドワーフの洞窟周辺に出現するモンスターが手強いので、リムルダールを拠点にしてレベル上げや装備の見直しをするのがおすすめです。<br>
+                <br>
+                「ライトシールド」や「てつかぶと」などの比較的安価な装備を買って守備力を上げておくのがおすすめです。<br>
+                やくそうなども買い込んでMP節約できるよう準備しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story9" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑨ ドワーフの洞窟は入念に探索する<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_9.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟は非常に広く、階段の数も多いので迷いやすいです。<br>
+                マップ探索を入念にしないとアイテムや装備を取り逃がすため、上記マップも参考にしながらまだ行っていない場所を確認しながら進みましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story10" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑩ 地下1階の宝箱<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-text">ドワーフの洞窟・地下1階にある宝箱から「こおりの盾」「ちいさなメダル」「ミラクルの巻物」を入手できます。<br>
+                こおりの盾は今後のボス戦でも活躍する強力な装備なので、忘れずに回収しておきましょう。<br>
+                <br>
+                なお、左の扉は最後の鍵を入手するまで開けられないので、一旦はスルーでOKです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story11" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑪ 地下2階の宝箱<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_11_1.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟・地下2階にある宝箱から「ゾンビ斬りの巻物」「ちいさなメダル」を入手できます。</div><br>
+            <img src="{% static 'database/images/dq1/dq1_2_11_2.jpg' %}" class="step-image">
+            <div class="step-text">地下2階の右にある宝箱はひとくいばこです。<br>
+                通常難易度で遊んでいる場合は全滅させられるほどの強敵なので、スルーが安定です。<br>
+                ただ、倒すと「いのりのゆびわ」をドロップするため、難易度を一時的に下げて倒すのも一つの手です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story12" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑫ 地下3階の部屋にいるドワーフと話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_12_1.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟・地下3階の奥の部屋のベッドにいるドワーフと話すとイベントが発生します。<br>
+                妖精の隠れ里に向かうことになるので、「ルーラ」を使って妖精の隠れ里へ向かいましょう。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_2_12_2.jpg' %}" class="step-image">
+            <div class="step-text">地下3階の井戸から地下4階に行くと奥で「湧き水の結晶」が入手できるので、ルーラを使う前に回収しておきましょう。<br>
+                ちなみに、以降はルーラでドワーフの洞窟を選ぶと、地下3階へ直接飛べるようになります。<br>
+                <br>
+                湧き水の結晶は「みずの紋章」と交換するためのアイテムで、今後のストーリーを進行するために必要なアイテムです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story13" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑬ 妖精の隠れ里に入る<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_13.jpg' %}" class="step-image">
+            <div class="step-text">妖精の隠れ里に入るとイベントが発生します。<br>
+                イベント発生後、マップの左側にある民家に入り、花の妖精に話しかけて休みましょう。<br>
+                <br>
+                これ以降から妖精の隠れ里の民家で無料で休むことができます。</div>
+        </div>
+    </div><br>
+
+    <div id="story14" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑭ 南西にある「ドムドーラ」に寄り道<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_14.jpg' %}" class="step-image">
+            <div class="step-text">次の目的地「ひみつの花畑」に入る前に、ドムドーラに寄り道をしてルーラポイントを登録しましょう。<br>
+                ストーリーの後半で訪れることになります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story15" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑮ ちいさなメダルと巻物を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_15.jpg' %}" class="step-image">
+            <div class="step-text">左の民家（武器屋）のツボと、エリア右下にあるツボから「ちいさなメダル」が入手できます。<br>
+                <br>
+                左の民家（武器屋）のタルから「あくま斬りの巻物」、エリア右上の毒沼付近の地面から「しのびあしの巻物」が入手できます。<br>
+                <br>
+                また、町の中央右の毒沼を超えると「あくまのきし」との戦闘が発生します。<br>
+                倒すとロトのよろいが入手できますが、現段階では勝ち目がないので避けましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story16" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑯ 南西にある「ひみつの花畑」へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_16_1.jpg' %}" class="step-image">
+            <div class="step-text">「灯火のシロップ」の材料を集めるためにドムドーラから「ひみつの花畑」へ向かいましょう。<br>
+                道中のキラキラとひみつの場所で装備が拾えます。<br>
+                ひみつの場所のアイテムは分かりづらいので、上記画像を参考にしてください。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story17" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑰ ひみつの花畑で材料を探す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_17.jpg' %}" class="step-image">
+            <div class="step-text">ひみつの花畑で灯火のシロップの材料になる「かがやき草」と「目覚めの花」を入手しましょう。<br>
+                どちらも光っていて目立つ場所にあります。<br>
+                <br>
+                かがやき草と目覚めの花を入手すると、強制的に「ひかるタネ」2個も入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story18" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑱ ボス「よろいのきし」戦の準備をしよう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-text">ひみつの花畑で「灯火のシロップ」の材料を入手後に妖精の隠れ里に入ると、ボス「よろいのきし」と戦闘になります。<br>
+                HPとMPを回復していない場合、宿屋で休んでから妖精の隠れ里へ向かいましょう。</div>
+            <img src="{% static 'database/images/dq1/dq1_2_18.jpg' %}" class="step-image">
+            <div class="step-text">また、よろいのきし戦の推奨レベルはライデインを覚える21なので、レベル上げが必要な場合はひみつの花畑周辺の「メタルスライム」を狩ってレベル上げをしましょう。<br>
+                メタルスライムが集団で出てきた場合は、武器をブーメランやムチに持ち替えて戦うのがおすすめです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story19" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑲ ボス戦「よろいのきし」<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">よろいのきし</div>
+            <img src="{% static 'database/images/dq1/dq1_2_19.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">21</div>
+                    <div class="info-value">妖精の隠れ里</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">
+                    よろいのきし：約110<br>
+                    かげのきし：約100
+                    </div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title"><div class="step-number">よろいのきし戦の攻略ポイント</div></h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>よろいのきしを最優先で倒す<br>
+                        　　┗21レベで覚えるライデインで一撃</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>特技「うけながし」も有効</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ベホイミで回復しつつ敵を減らそう</div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-text"><br>よろいのきし戦は対複数戦となるため、強力な呪文で短期戦に持ち込むのがおすすめです。<br>
+                主人公がレベル21で覚えるライデインは敵単体に大ダメージを与えられるため、全員を一撃で倒すことができます。<br>
+                まずは初手でよろいのきしをライデインで倒しましょう。<br>
+                <br>
+                よろいのきしを倒した後は、ベホイミでHPを保ちつつかげのきしをライデインなどの呪文で処理していきましょう。
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_yoroinokishi' %}" class="btn-story-link">
+                    ▶ よろいのきしの攻略と推奨レベルを見る
+                </a>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story20" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">⑳ ボス撃破後に灯火のシロップを入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_20.jpg' %}" class="step-image">
+            <div class="step-text">ボスの「よろいのきし」撃破後、灯火のシロップを2個入手できます。<br>
+                ルーラでリムルダールに戻るとイベントが発生し、「おうじょのくびかざり」がもらえます。<br>
+                <br>
+                ドワーフの洞窟にルーラし、部屋にいるドワーフに話しかけるとイベントが進行します。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story21" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉑ カギの魔法使いからまほうの鍵を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_21.jpg' %}" class="step-image">
+            <div class="step-text">リムルダールに移動し、カギの魔法使いがいる民家に入ると「まほうの鍵」を入手できます。<br>
+                青色の宝箱や扉を開けられるようになります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story22" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉒ ラダトーム城で「太陽の石」を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_22_1.jpg' %}" class="step-image">
+            <div class="step-text">魔法の鍵を入手したらラダトーム城の地下へ行き、太陽の賢者に話しかけて「太陽の石」を入手します。<br>
+                また、できるだけラダトーム城内のアイテムを回収しておくのがおすすめです。<br>
+                <br>
+                ※ローラ姫を助ける前に太陽の石を入手しておかないと、後で太陽の石を入手する際にローラ姫の帰還イベントが強制発生し、ローラ姫と一緒に冒険が続けられなくなるので、必ずローラ姫を助ける前に太陽の石を入手しましょう。
+            </div><br>
+            <img src="{% static 'database/images/dq1/dq1_2_22_2.jpg' %}" class="step-image">
+            <div class="step-text">ラダトーム城内には、2階隠し部屋と地下1階にちいさなメダルが2枚あります。<br>
+                上記マップ画像を参考にして回収しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story23" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉓ ドムドーラでザライと話す<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_23.jpg' %}" class="step-image">
+            <div class="step-text">魔法の鍵入手後、ドムドーラにルーラしてマップ中央にいる「吟遊詩人ザライ」と話してイベントを進めておきましょう。<br>
+                ザライは次、最後の鍵入手後にメルキドに行くと会えます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story24" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉔ 妖精の隠れ里でいのちの紋章を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_24.jpg' %}" class="step-image">
+            <div class="step-text">妖精の隠れ里のマップの右側にある建物に入るとイベントが発生し、「いのちの紋章」を入手できます。<br>
+                いのちの紋章は所持しているだけで最大HPが上昇します。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story25" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉕ 湧き水の結晶を渡して水の紋章を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_25_1.jpg' %}" class="step-image">
+            <img src="{% static 'database/images/dq1/dq1_2_25_2.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟にルーラで移動し、地下3階の左上にある井戸から地下4階へ進みます。<br>
+                奥にある泉から「湧き水の結晶」を入手し、錬金の妖精に渡すと「みずの紋章」が作れます。<br>
+                <br>
+                みずの紋章は道具の効果を上げることができ、やくそうは約HPが30回復だったところ、HPが50回復するようになります。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story26" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉖ 青い宝箱からふうじんの盾を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_26.jpg' %}" class="step-image">
+            <div class="step-text">妖精の隠れ里のマップの北側にある魔法の鍵で開けられる青い宝箱から「ふうじんの盾」を回収しましょう。<br>
+                ふうじんの盾はしゅび力+52になり、非常に強力です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story27" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉗ マイラでくさなぎの剣を入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_27.jpg' %}" class="step-image">
+            <div class="step-text">マイラに移動してマップの中央にある井戸の中に入り、宝箱から「くさなぎの剣」を入手しましょう。<br>
+                くさなぎの剣もかなり強力な武器なので、回収しておくのがおすすめです。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story28" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉘ ドワーフの洞窟地下3階で宝箱を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_28.jpg' %}" class="step-image">
+            <div class="step-text">ドワーフの洞窟・地下3階のマップの右上に「まほうの鍵」で入れる部屋があり、部屋の中にある宝箱から「ちからの指輪」と「ガイアのよろい」が入手できます。<br>
+                <br>
+                特にガイアのよろいは、ドラゴンやラスボス戦で必須級とも言える強力な装備です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story29" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉙ ひみつの花畑周辺でレベル上げをする<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_29.jpg' %}" class="step-image">
+            <div class="level-box">
+                <div class="level-label">ドラゴン戦の推奨レベル</div>
+                <div class="level-value">21～22</div>
+            </div>
+            <div class="step-text">魔法の鍵を使って装備類を回収したら、次はレベル上げをしましょう。<br>
+                この後のストーリーで非常に強力な「ドラゴン」と戦闘になるため、レベル上げはしっかり行いましょう。<br>
+                ひみつの花畑周辺では「メタルスライム」が出現するため、レベル上げに最適と言えます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story30" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉚ メダル王の城に寄り道<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_30.jpg' %}" class="step-image">
+            <div class="step-text">ひみつの花畑の南東に「メダル王の城」があるので寄り道をして、集めたちいさなメダルをアイテムや装備品に交換してもらいましょう。<br>
+                また、メダル王の城の北にあるキラキラから「氷のイヤリング」が入手できます。<br>
+                ドラゴン戦でかなり有効なので、取っておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story31" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉛ メダル王の城の宝箱から装備品を回収<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_31.jpg' %}" class="step-image">
+            <div class="step-text">メダル王の城1階に「盗賊の鍵」「魔法の鍵」「最後の鍵」で開けられる宝箱があるので、中から「ファントムマスク」と「海賊王の首かざり」を回収しておきましょう。<br>
+                <br>
+                1階左側の赤い宝箱は「リホイミの巻物」があるのでこちらも忘れずに回収して習得しておきましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story32" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉜ ちいさなメダルを10枚集める<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_32.jpg' %}" class="step-image">
+            <div class="step-text">ちいさなメダルを10枚集めてメダル王に話しかけると「ビーストの巻物」がもらえます。<br>
+                特技「ビーストモード」は1ターンに2回行動できるようになる強力な特技で、ドラゴン戦で非常に有効です。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story33" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉝ 準備ができたら沼地の洞窟へ向かう<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_33.jpg' %}" class="step-image">
+            <div class="step-text">レベル上げや装備の準備ができたら沼地の洞窟にルーラで移動し、マップの右下にある「まほうの鍵」で開けられる扉の先へ進みます。</div>
+        </div>
+    </div><br>
+
+    <div id="story34" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉞ 地下2階を探索しながら進む<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_34.jpg' %}" class="step-image">
+            <div class="step-text">沼地の洞窟・地下2階の宝箱からは「ふしぎなぼうし」や「ちいさなメダル」が入手できます。<br>
+                ちいさなメダルはマップの一番上の通路の先にあるので忘れずに入手しましょう。<br>
+                <br>
+                また、右上の宝箱はひとくいばこで、倒すといのりのゆびわが入手できます。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story35" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㉟ 「月光のしずく」は忘れずに入手<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_35.jpg' %}" class="step-image">
+            <div class="step-text">沼地の洞窟・地下2階のマップ中央付近で「月光のしずく」を入手できます。<br>
+                月光のしずくは紋章の素材となっており、妖精の隠れ里で「つきの紋章」と交換できます。<br>
+                <br>
+                月の紋章は一部の呪文を使った時にまれに「ぼうそう」になり、ダメージが増加したり、回復量が上がったりします。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story36" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊱ ボス戦「ドラゴン」の準備をする<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_36.jpg' %}" class="step-image">
+            <div class="step-text">沼地の洞窟を道なりに進み、沼地の洞窟・地下1階の奥に進むとドラゴンとの戦闘が始まります。<br>
+                改めて回復や装備の確認をしましょう。
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story37" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊲ ドラゴンの攻略<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <div class="step-number text-center">ドラゴン</div>
+            <img src="{% static 'database/images/dq1/dq1_2_37.jpg' %}" class="step-image">
+            <div class="battle-info">
+                <div class="info-grid">
+                    <div class="info-label">推奨レベル</div>
+                    <div class="info-label">出現場所</div>
+
+                    <div class="info-value">21</div>
+                    <div class="info-value">沼地の洞窟</div>
+
+                    <div class="info-label">HP</div>
+                    <div class="info-label">宝</div>
+
+                    <div class="info-value">約2200</div>
+                    <div class="info-value">-</div>
+                </div>
+
+                <div class="battle-points-section">
+                    <h3 class="battle-points-title"><div class="step-number">ドラゴン戦の攻略ポイント</div></h3>
+                    <div class="battle-points-box">
+                    <div class="battle-point"><span class="checkmark">✔</span>炎軽減の防具を装備</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>主ビーストモード→ドラゴン斬りで火力を出す</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>相手のビーストモードは大ぼうぎょでやり過ごす</div>
+                    <div class="battle-point"><span class="checkmark">✔</span>ようせいの剣で守備力を上げる</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="step-text"><br>ドラゴン戦では、「こおりの盾」や「ガイアのよろい」のような炎ダメージ軽減の防具を装備して被ダメージを減らしましょう。<br>
+                「こおりの盾」「ガイアのよろい」「氷のイヤリング」を装備すればドラゴンの炎ブレスを無効化できるので、比較的楽に攻略できます。<br>
+                <br>
+                こちらが攻撃する際は、特技「ビーストモード→ドラゴン斬り」で攻撃するのがおすすめです。<br>
+                <br>
+                ドラゴンもHPが少なくなるとビーストモードを使用します。<br>
+                その間、こちらは防御や回復に専念して、ビーストモードが切れるまで生存を優先しましょう。<br>
+                <br>
+                MP回復ができるまほうのせいすいなどのアイテムも持たせておくと安定して戦えます。
+            </div><br><br>
+
+            <div class="text-center mb-5">
+                <a href="{% url 'database:dq1_dragon' %}" class="btn-story-link">
+                    ▶ ドラゴンの攻略と推奨レベルを見る
+                </a>
+            </div>
+        </div>
+    </div><br>
+
+    <div id="story38" class="step-card"><br>
+        <div class="step-header">
+            <div class="step-number">㊳ 今作ではドラゴンと再戦できない<span class="toggle-icon">-</span></div>
+        </div>
+        <div class="step-content">
+            <img src="{% static 'database/images/dq1/dq1_2_38.jpg' %}" class="step-image">
+            <div class="step-text">原作ではローラ姫を抱えた状態で毒沼で全滅するとドラゴンと再戦できましたが、今作ではドラゴンと再戦できなくなりました。</div>
+        </div>
+    </div><br>
+
+    <div class="text-center mt-4 ">
+        <a href="{% url 'database:dq1_section1_content' %}" class="text-decoration-none fw-bold ms-3">
+            ◀ 前のチャートへ
+        </a>
+        
+        <a href="{% url 'database:dq1_section3_content' %}" class="text-decoration-none fw-bold ms-3">
+            次のチャートへ ▶
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="{% url 'database:dq1_story_list' %}" class="fw-bold text-primary text-decoration-none">
+            ▶ ストーリー一覧へ
+        </a>
+    </div>
+
+    <div class="text-start mt-4 mb-5">
+        <a href="javascript:history.back()" class="text-decoration-none fw-bold">
+            ◀ 戻る
+        </a>
+    </div>
+    </main>
+
+  </div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ステップの開閉
+  const headers = document.querySelectorAll('.step-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const icon = header.querySelector('.toggle-icon');
+      card.classList.toggle('minimized');
+      if (icon) icon.textContent = card.classList.contains('minimized') ? '+' : '-';
+    });
+  });
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+
+
+{% endblock %}

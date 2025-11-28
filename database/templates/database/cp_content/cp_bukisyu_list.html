@@ -1,0 +1,661 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}クラフトピア ストーリー攻略一覧{% endblock %}
+
+{% block content %}
+<div class="main-banner mb-4">
+    <img src="{% static 'database/cp_images/craftopia_cover1.jpg' %}" width="95%" height="50%" alt="CP" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h3 class="sidebar-section-title sub-nav-title" style="font-size:25px;">【武器種一覧】</h3>
+        <ul class="toc-list sub-toc">
+            <li><a href="#weapons1">▶ 片手剣</a></li>
+            <li><a href="#weapons2">▶ 両手剣</a></li>
+            <li><a href="#weapons3">▶ 槍</a></li>
+            <li><a href="#weapons4">▶ 二刀流</a></li>
+            <li><a href="#weapons5">▶ 刀</a></li>
+            <li><a href="#weapons6">▶ 弓</a></li>
+            <li><a href="#weapons7">▶ 銃</a></li>
+            <li><a href="#weapons8">▶ 魔法杖</a></li>
+            <li><a href="{% url 'database:cp_guide' %}#weapons-top" class="btn-story-link">▶ 戻る</a></li>
+    </aside>
+
+    <main class="main-content">
+        
+        <div class="story-header text-center my-3">
+            <div class="black-yellow-band">ここを見ればわかるストーリー攻略のカギ!</div>
+        </div>
+        <div class="chart-image-wrapper">
+           <img src="{% static 'database/cp_images/sks(3).jpg' %}" alt="ストーリー" class="story-top-image">
+        </div>
+        
+        <div class="story-header text-center my-3">
+            <br><br><div class="black-yellow-band">前提知識</div>
+        </div>
+
+
+        <div class="step-content"><br><br>
+            <div class="step-header">
+                <div class="step-number" style="margin-left: 5px;">武器種の種類<span class="toggle-icon">-</span></div>
+            </div>
+            <div class="step-content">
+                <img src="{% static 'database/cp_images/sks(4).jpg' %}" class="step-image2">
+            <div class="step-text">武器種は多く8種もあります。<br>1.片手剣<br>2.両手剣<br>3.槍<br>4.二刀流<br>5.刀<br>6.弓<br>7.銃<br>8.魔法杖<br><br>の順番で紹介しますので自分に合った武器を探してみてください。</div>
+
+        <div id="weapons1"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">片手剣</div>
+
+                <img src="{% static 'database/cp_images/sks(5).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table" style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>攻撃</td>
+                        <td>斬撃１→斬撃２→回し切り      </td>
+                        <td>                                             </td>
+                    </tr>
+                    <tr>
+                        <td>長押し攻撃</td>
+                        <td>なし</td>
+                        <td>スキル溜め切り?の予約枠斬撃1発生後の長押しは斬撃2に派生<br>(回し切りは出ない)</td>
+                    </tr>
+                    <tr>
+                        <td>しゃがみ＋攻撃</td>
+                        <td>なし</td>
+                        <td>スキル回転切り?の予約枠</td>
+                    </tr>
+                    <tr>
+                        <td>ダッシュ＋攻撃</td>
+                        <td>小ジャンプ切りかかり</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>空中で攻撃</td>
+                        <td>ジャンプ切り下ろし</td>
+                        <td>当たりによっては多重ヒット</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <div id="weapons2"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">両手剣</div>
+            
+                <img src="{% static 'database/cp_images/sks(9).jpg' %}" style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>攻撃</td>
+                        <td>切り上げ→横薙ぎ→叩きつけ</td>
+                        <td>各攻撃でスタミナ消費<br>ハイパーアーマーあり</td>
+                    </tr>
+                    <tr>
+                        <td>長押し攻撃</td>
+                        <td>なし                        </td>
+                        <td>                                             </td>
+                    </tr>
+                    <tr>
+                        <td>しゃがみ＋攻撃</td>
+                        <td>なし</td>
+                        <td>スキル回転切り?の予約枠</td>
+                    </tr>
+                    <tr>
+                        <td>ダッシュ＋攻撃</td>
+                        <td>ダッシュ回転切り→縦斬り</td>
+                        <td>スタミナ消費</td>
+                    </tr>
+                    <tr>
+                        <td>空中で攻撃</td>
+                        <td>ジャンプ斬り落とし</td>
+                        <td>スタミナ消費なし</td>
+                    </tr>
+                    <tr>
+                        <td>防御</td>
+                        <td>力溜め</td>
+                        <td>押す毎に4段階まで。スタミナ消費ハイパーアーマーあり</td>
+                    </tr>   
+                    <tr>
+                        <td>しゃがみ+防御</td>
+                        <td>なし</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>ダッシュ+防御</td>
+                        <td>ダッシュ中断→力溜め</td>
+                        <td>ダッシュを中断して力溜め押す毎に4段階まで。スタミナ消費</td>
+                    </tr>
+                    <tr>
+                        <td>空中で防御</td>
+                        <td>なし</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+                </div>
+            </div>
+
+        <div id="weapons3"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">槍</div>
+
+                <img src="{% static 'database/cp_images/sks(7).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table-wrapper">
+                <table class="custom-table" style="margin-left :-60px;">
+                    <thead>
+                        <tr>
+                            <th class="col-race">操作</th>
+                            <th class="col-exp">攻撃方法</th>
+                            <th class="col-weak">備考</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td>攻撃</td>
+                                <td>突き1→突き2→突き3<br>→振り回し＋叩きつけ</td>
+                                <td>振り回しを行うと叩きつけは止められない叩きつけヒット<br>時に槍投げバフ付与。3段階まで<br>その場方向転換キックに派生可能</td>
+                            </tr>   
+                            <tr>
+                                <td>攻撃長押し</td>
+                                <td>槍投げ</td>
+                                <td>長押し中は照準モード、離すと発射<br>槍投げバフ時威力増加+槍投げバフ全消費<br>投げた槍は要回収</td>
+                            </tr>
+                            <tr>
+                                <td>しゃがみ+攻撃</td>
+                                <td>(取得していれば)回転斬り?が出る</td>
+                                <td>スキル回転斬り?の予約枠</td>
+                            </tr>
+                            <tr>
+                                <td>ダッシュ+攻撃</td>
+                                <td>突進                        </td>
+                                <td>常時スタミナ消費。方向転換可能<br>一定時間後に速度+威力アップ(エフェクトあり)</td>
+                            </tr>
+                            <tr>
+                                <td>空中で攻撃</td>
+                                <td>空中槍振り回し→ジャンプ槍投げ</td>
+                                <td>槍投げのみ、槍投げバフ時威力増加+槍投げバフ全消費</td>
+                            </tr>
+                            <tr>
+                                <td>槍未所持</td>
+                                <td>槍召喚(回収)</td>
+                                <td>いつでも可能。空中使用可このモーションには<br>ハイパーアーマーなし</td>
+                            </tr>
+                            <tr>
+                                <td>突き中に方向+攻撃</td>
+                                <td>その場方向転換キック</td>
+                                <td>その場で回転キック。短時間の無敵があるがスタミナを少量消費<br>キャラ向き変更後若干前進<br>(70度単位で前方・後方も可能)</td>
+                            </tr>
+                            <tr>
+                                <td>突進中に攻撃</td>
+                                <td>突き2</td>
+                                <td>攻撃ボタンで突き3→振り回し+叩きつけに派生可能。またこの<br>場合のみ槍投げバフが二段階得られる。</td>
+                            </tr>   
+                            <tr>
+                                <td>突進中に方向+攻撃</td>
+                                <td>方向転換キック</td>
+                                <td>回転キックし方向転換する。突進は継続される<br>(70度単位で前方・後方も可能)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            
+        <div id="weapons4"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">二刀流</div>
+
+                <img src="{% static 'database/cp_images/sks(17).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>攻撃</td>
+                            <td>右薙ぎ→左薙ぎ1→薙ぎ払い3連  </td>
+                            <td>                                             </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>長押し攻撃</td>
+                            <td>なし</td>
+                            <td>スキル溜め切り?の予約枠左手武器でのみ行う</td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ＋攻撃</td>
+                            <td>なし</td>
+                            <td>スキル回転切り?の予約枠左手武器でのみ行う</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ＋攻撃</td>
+                            <td>地上回転切り</td>
+                            <td>スタミナを使う</td>
+                        </tr>
+                        <tr>
+                            <td>空中で攻撃</td>
+                            <td>空中回転切り</td>
+                            <td>空中ラッシュに派生(要ラッシュバフ最大)スタミナ</td>
+                        </tr>   
+                        <tr>
+                            <td>防御</td>
+                            <td>交差斬り→左薙ぎ2</td>
+                            <td>移動時に前進</td>
+                        </tr>
+                        <tr>
+                            <td>防御長押し</td>
+                            <td>交差斬り→交差斬り→...</td>
+                            <td>長押し中、前進しながら交差斬りを連発左薙ぎ2には派生しません。</td>
+                        </tr>          
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ+防御</td>
+                            <td>ダッシュ中断→交差斬り</td>
+                            <td>ダッシュを中断してから交差斬り</td>
+                        </tr>
+                        <tr>
+                            <td>空中で防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>防御しながら攻撃</td>
+                            <td>斬りあがりジャンプ</td>
+                            <td>交差斬り・左薙ぎ2のどちらからでも派生ダイブ斬りに派生</td>
+                        </tr>  
+                        <tr>
+                            <td>斬りあがり<br>ジャンプに攻撃</td>
+                            <td>ダイブ斬り</td>
+                            <td>ダイブ斬り発動中は無敵地上ラッシュに派生<br>(要ラッシュバフ最大)</td>
+                        </tr>   
+                        <tr>
+                            <td>空中回転切り中に攻撃防御同時</td>
+                            <td>空中ラッシュ</td>
+                            <td>要ラッシュバフ最大発動中は無敵</td>
+                        </tr>
+                        <tr>
+                            <td>ダイブ斬り中に攻撃防御同時</td>
+                            <td>地上ラッシュ</td>
+                            <td>要ラッシュバフ最大発動中は無敵</td>
+                        </tr>
+                    </tbody>
+            </table>
+                </div>
+            </div>
+
+        <div id="weapons5"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">刀</div>
+
+                <img src="{% static 'database/cp_images/sks(12).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>攻撃</td>
+                            <td>抜刀状態に移行</td>
+                            <td>長押しも<br>同様。続けて抜刀状態で攻撃可抜刀中は移動速度低下</td>
+                        </tr>   
+                        <tr>
+                            <td>防御</td>
+                            <td>納刀状態に移行</td>
+                            <td>長押しも<br>同様。続けて納刀状態で攻撃可納刀中は動けない</td>
+                        </tr>   
+                        <tr>
+                            <td>しゃがみ+攻撃</td>
+                            <td>なし                        </td>
+                            <td>                                             </td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ+攻撃</td>
+                            <td>居合A→居合B→斬C→<br>(見切り1以上)斬D→(見切り3以上)斬E</td>
+                            <td>納刀中攻撃と同じ</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ+防御</td>
+                            <td>納刀スプリント<br>開始と同時に納刀状態に移行</td>
+                            <td>納刀中ダッシュと同じ</td>
+                        </tr>
+                        <tr>
+                            <td>空中で攻撃</td>
+                            <td>キック</td>
+                            <td>素手と同じ</td>
+                        </tr>
+                        <tr>
+                            <td>空中で防御空中で防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中に攻撃</td>
+                            <td>斬A→斬B→斬C→<br>(見切り1以上)斬D→(見切り3以上)斬E</td>
+                            <td>すべての斬りから一本突き、剣戟、見切り(防御)<br>でのキャンセル可能</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中に防御</td>
+                            <td>納刀状態に移行</td>
+                            <td>見切り付与<br>続けて納刀状態での攻撃が可能</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中に<br>攻撃+防御</td>
+                            <td>一本突き(居合バフ4～5)<br>剣戟(居合バフMax)</td>
+                            <td>攻撃中無敵。使用後見切りバフ1消費<br>剣戟中に移動で前進可能<br>攻撃後に納刀動作でキャンセル可能</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中に<br>ダッシュ</td>
+                            <td>納刀スプリント</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中にジャンプ</td>
+                            <td>ジャンプ斬り</td>
+                            <td>打ち上げ効果。ダイブ斬りに移行可能</td>
+                        </tr>
+                        <tr>
+                            <td>抜刀中にしゃがみ</td>
+                            <td>攻撃待機状態の解除、待機状態へ</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>ジャンプ斬り中<br>に攻撃</td>
+                            <td>ダイブ斬り</td>
+                            <td>ジャンプ斬りから派生</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中攻撃</td>
+                            <td>居合A→居合B→斬C→<br>(見切り1以上)斬D→(見切り3以上)斬E</td>
+                            <td>居合A発動時に見切り<br>斬C～Eは一本突き、剣戟、見切り(防御)<br>でのキャンセル可能</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中防御</td>
+                            <td>切り上げ+衝撃派</td>
+                            <td>広範囲の衝撃派攻撃<br>レガシー版から大きく変更</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中に<br>ダッシュ</td>
+                            <td>納刀スプリント</td>
+                            <td>納刀状態に移行</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中に<br>ジャンプ</td>
+                            <td>抜刀状態に移行</td>
+                            <td>続けて抜刀状態での攻撃が可能</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中にしゃがみ	</td>
+                            <td>攻撃待機状態の解除、待機状態へ</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>納刀スプリント<br>中攻撃</td>
+                            <td>居合A→居合B→斬C→<br>(見切り1以上)斬D→(見切り3以上)斬E</td>
+                            <td>納刀攻撃と同じ</td>
+                        </tr>
+                        <tr>
+                            <td>納刀スプリント<br>中防御</td>
+                            <td>居合ダッシュA→居合ダッシュB→<br>居合ダッシュC</td>
+                            <td>居合ダッシュA発動時に見切り<br>居合ダッシュB,Cは移動しない(名前だけ)</td>
+                        </tr>
+                        <tr>
+                            <td>納刀中スキル</td>
+                            <td>居合斬り</td>
+                            <td>発動高速化<br>発動後に納刀状態に戻る<br>見切りバフにより威力が最大15%上昇</td>
+                        </tr>
+                    </tbody>
+            </table>
+                </div>
+            </div>
+
+        <div id="weapons6"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">弓</div>
+
+                <img src="{% static 'database/cp_images/sks(16).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>攻撃(長押し)</td>
+                            <td>溜め撃ち(3段階まで)</td>
+                            <td>攻撃ちょい押しだけでは構えのみで意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ＋攻撃</td>
+                            <td>なし                        </td>
+                            <td>                                             </td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ中に<br>攻撃(長押し)</td>
+                            <td>溜め撃ち(3段階まで)</td>
+                            <td>攻撃ちょい押しだけでは構えのみで意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>空中で攻撃</td>
+                            <td>エイミング※</td>
+                            <td>構えのみ。防御ちょい押しだけでは一瞬で解除され<br>意味はない</td>
+                        </tr>   
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>空中キック</td>
+                            <td>素手と同じ</td>
+                        </tr>
+                        <tr>
+                            <td>防御(長押し)</td>
+                            <td>エイミング※</td>
+                            <td>構えのみ。防御ちょい押しだけでは一瞬で解除され<br>意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ中に<br>防御(長押し)</td>
+                            <td>エイミング※</td>
+                            <td>構えのみ。防御ちょい押しだけでは<br>一瞬で解除され意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>空中で防御<br>(長押し)</td>
+                            <td>なし</td>
+                            <td>スキル「ジャンピングショット?」の予約枠。防御ちょい<br>押しでは一瞬で解除され意味はない</td>
+                        </tr>   
+                        <tr>
+                            <td>防御を<br>押しながら攻撃</td>
+                            <td>矢発射</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>防御を押しながら<br>攻撃長押し</td>
+                            <td>溜め撃ち(3段階まで)</td>
+                            <td>攻撃ちょい押しでも発射可能</td>
+                        </tr>
+                    </tbody>
+            </table>
+                </div>
+            </div>
+
+        <div id="weapons7"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">銃</div>
+
+                <img src="{% static 'database/cp_images/sks(14).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>弾数0で攻撃</td>
+                            <td>弾込め</td>
+                            <td>キャンセル可。弾数全回復。モーションが終わるまでに<br>キャンセルした場合弾込めはされない</td>
+                        </tr>   
+                        <tr>
+                            <td>攻撃(長押し)</td>
+                            <td>射撃(連射)</td>
+                            <td>攻撃ちょい押しだけでは構えのみで意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ＋攻撃</td>
+                            <td>なし                        </td>
+                            <td>                                             </td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ中に<br>攻撃(長押し)</td>
+                            <td>射撃(連射)</td>
+                            <td>攻撃ちょい押しだけでは構えのみで意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>空中で攻撃</td>
+                            <td>空中キック</td>
+                            <td>素手と同じ</td>
+                        </tr>
+                        <tr>
+                            <td>防御(長押し)</td>
+                            <td>エイミング※</td>
+                            <td>構えのみ。防御ちょい押しだけでは一瞬で解除され意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>ダッシュ中に防御<br>(長押し)</td>
+                            <td>エイミング※</td>
+                            <td>構えのみ。防御ちょい押しだけでは一瞬で解除され意味はない</td>
+                        </tr>
+                        <tr>
+                            <td>空中で防御(長押し)</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>防御を押しながら攻撃</td>
+                            <td>なし<br>（エイムのみ）</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>防御を押しながら攻撃長押し</td>
+                            <td>射撃</td>
+                            <td>攻撃ちょい押しでも発射可能</td>
+                        </tr>
+                    </tbody>
+            </table>
+                </div>
+            </div>
+
+        <div id="weapons8"></div><br><br>
+            <div class="step-content">
+                <div class="step-header">
+                    <div class="step-number" style="margin-left: -30px;">魔法杖</div>
+
+                <img src="{% static 'database/cp_images/sks(15).jpg' %}"  style="width: 100px; width: 700px; margin-left: -30px;">
+            <table class="custom-table"  style="margin-left :-60px;">
+                <thead>
+                    <tr>
+                        <th class="col-race">操作</th>
+                        <th class="col-exp">攻撃方法</th>
+                        <th class="col-weak">備考</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>攻撃</td>
+                            <td>振り回し➞振り回し</td>
+                            <td>近くに敵<br>がいるとアルカナボルトを発射できるようになります。</td>
+                        <tr>               
+                            <td>攻撃長押し</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        <tr>
+                            <td>しゃがみ+攻撃</td>
+                            <td>なし                       </td>
+                            <td>                                             </td>
+                        <tr>
+                            <td>ダッシュ+攻撃	</td>
+                            <td>横薙ぎ振り回し</td>
+                            <td>近くに敵がいるとアルカナボルトを発射できるようになります。</td>
+                        <tr>
+                            <td>空中で攻撃</td>
+                            <td>空中杖振り回し</td>
+                            <td>近くに敵がいるとアルカナボルトを発射できるようになります。</td>
+                        <tr>
+                            <td>防御</td>
+                            <td>集中</td>
+                            <td>-</td>
+                        <tr>
+                            <td>しゃがみ+防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        <tr>
+                            <td>ダッシュ+防御</td>
+                            <td>停止して集中</td>
+                            <td>-</td>
+                        <tr>
+                            <td>空中で防御</td>
+                            <td>なし</td>
+                            <td>-</td>
+                        <tr>
+                    </tbody>
+            </table>
+                </div>
+            </div>
+
+        </main>    
+
+{% endblock %}

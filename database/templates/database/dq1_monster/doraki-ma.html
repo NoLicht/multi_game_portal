@@ -1,0 +1,1242 @@
+{% extends 'database/base.html' %}
+{% load static %}
+
+{% block title %}DQ1 ドラキーマ{% endblock %}
+
+{% block content %}
+
+<!-- 上部バナー -->
+<div class="main-banner mb-4">
+    <img src="{% static 'database/images/dq1_cover1.jpg' %}" alt="DQ1" class="top-image">
+</div>
+
+<div class="content-wrapper">
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <h4>目次</h4>
+        <ul class="toc-list main-toc">
+            <li><a href="{% url 'database:dq1_guide' %}#story">▶ ストーリー攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#boss">▶ ボス攻略</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#items">▶ アイテム</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#map">▶ マップ</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#scrolls">▶ 巻物</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#monster">▶ モンスター</a></li>
+            <li><a href="{% url 'database:dq1_guide' %}#medal">▶ お役立ち機能</a></li>
+        </ul>
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="step-card">
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラキーマの出現場所</div>
+            </div>
+
+            <div class="step-content">
+                <div class="area-place-table">
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text"><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階①</a></div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text"><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a></div>
+                        </div>
+                    </div>
+
+                    <div class="apt-row">
+                        <div class="apt-cell">
+                            <div class="apt-text"><a href="{% url 'database:dq1_iwayamanodoukutu' %}">岩山の洞窟_地下2階②</a></div>
+                        </div>
+                        <div class="apt-cell">
+                            <div class="apt-text"><a href="{% url 'database:dq1_garainohaka' %}">ガライの墓_地下1階</a></div>
+                        </div>
+                    </div>
+
+                </div><br>
+
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_map_list' %}" class="btn-story-link">
+                        ▶ ドラクエⅠのマップ（地図）を見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラキーマのドロップアイテム</div>
+            </div>
+
+            <div class="step-content">
+
+                <div class="single-row-wrapper">
+                    <div class="single-row">
+                        <div class="single-cell">
+                            <div class="text"><a href="{% url 'database:item_detail' 'yakusou' %}">やくそう</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="step-header">
+                <div class="black-yellow-band text-center">ドラキーマのステータス</div>
+            </div>
+
+            <div class="unique-table-wrapper">
+                <!-- 1行目 -->
+                <div class="unique-row-1">
+                    <img src="{% static 'database/images/dq1/monster/monster31.jpg' %}" alt="画像">
+                    <div class="unique-text">ドラキーマ</div>
+                </div>
+
+                <!-- 2行目 -->
+                <div class="unique-row-2">
+                    <div class="unique-cell">HP</div>
+                    <div class="unique-cell">経験値</div>
+                    <div class="unique-cell">ゴールド</div>
+                </div>
+
+                <!-- 3行目 -->
+                <div class="unique-row-3">
+                    <div class="unique-cell">39</div>
+                    <div class="unique-cell">29</div>
+                    <div class="unique-cell">22</div>
+                </div>
+            </div><br>
+
+
+            <div class="step-header">
+                <div class="black-yellow-band text-center">関連記事</div>
+            </div>
+
+            <div class="step-content">
+                <img src="{% static 'database/images/dq1/monster/banner.jpg' %}"><br><br>
+                <div class="text-center mb-5">
+                    <a href="{% url 'database:dq1_monster_list' %}" class="btn-story-link">
+                        ▶ モンスターTOPへ戻る
+                    </a>
+                </div>
+
+                <div class="step-number text-center">経験値・お金稼ぎのモンスター</div><br>
+
+                <div class="monster-table-wrapper">
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster64.jpg' %}" alt="メタルスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'metarusuraimu' %}">メタルスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster101.jpg' %}" alt="はぐれメタル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'haguremetaru' %}">はぐれメタル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster72.jpg' %}" alt="ゴールドマン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'go-rudoman' %}">ゴールドマン</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="step-number text-center">モンスター一覧</div><br>
+
+                <div class="monster-table-wrapper">
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster1.jpg' %}" alt="スライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suraimu' %}">スライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster2.jpg' %}" alt="スライムベス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suraimubesu' %}">スライムベス</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster3.jpg' %}" alt="ドラキー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doraki-' %}">ドラキー</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster4.jpg' %}" alt="じんめんちょう">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'zinmentyou' %}">じんめんちょう</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster5.jpg' %}" alt="まほうつかい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'mahoutukai' %}">まほうつかい</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster6.jpg' %}" alt="ゴースト">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'go-suto' %}">ゴースト</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster7.jpg' %}" alt="やまねずみ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'yamanezumi' %}">やまねずみ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster8.jpg' %}" alt="バブルスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'baburusuraimu' %}">バブルスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster9.jpg' %}" alt="メーダ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'me-da' %}">メーダ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster10.jpg' %}" alt="ポイズントード">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'poizunto-do' %}">ポイズントード</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster11.jpg' %}" alt="ギズモ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'gizumo' %}">ギズモ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster12.jpg' %}" alt="ゆうれい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'yuurei' %}">ゆうれい</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster13.jpg' %}" alt="ホイミスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hoimisuraimu' %}">ホイミスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster14.jpg' %}" alt="リザードフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'riza-dohurai' %}">リザードフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster15.jpg' %}" alt="おおさそり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'oosasori' %}">おおさそり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster16.jpg' %}" alt="わらいぶくろ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'waraibukuro' %}">わらいぶくろ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster17.jpg' %}" alt="リザードフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'riza-dohurai' %}">リザードフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster18.jpg' %}" alt="おおさそり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'oosasori' %}">おおさそり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster19.jpg' %}" alt="リビングデッド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'ribingudeddo' %}">リビングデッド</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster20.jpg' %}" alt="どくイモムシ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'dokuimomushi' %}">どくイモムシ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster21.jpg' %}" alt="ぐんたいガニ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'guntaigani' %}">ぐんたいガニ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster22.jpg' %}" alt="メイジドラキー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'meizidoraki-' %}">メイジドラキー</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster23.jpg' %}" alt="あやしいかげ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'ayashiikage' %}">あやしいかげ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster24.jpg' %}" alt="おばけありくい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'obakearikui' %}">おばけありくい</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster25.jpg' %}" alt="ひとくいが">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hitokuiga' %}">ひとくいが</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster26.jpg' %}" alt="まどうし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'madoushi' %}">まどうし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster27.jpg' %}" alt="がいこつ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'gaikotu' %}">がいこつ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster28.jpg' %}" alt="ドロル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'dororu' %}">ドロル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster29.jpg' %}" alt="メトロゴースト">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'metorogo-suto' %}">メトロゴースト</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster30.jpg' %}" alt="マタンゴ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'matango' %}">マタンゴ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster31.jpg' %}" alt="ドラキーマ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doraki-ma' %}">ドラキーマ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster32.jpg' %}" alt="こうもりおとこ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'koumoriotoko' %}">こうもりおとこ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster33.jpg' %}" alt="おおねずみ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'oonezumi' %}">おおねずみ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster34.jpg' %}" alt="ひとくいばこ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hitokuibako' %}">ひとくいばこ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster35.jpg' %}" alt="バリイドドッグ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'bariidodoggu' %}">バリイドドッグ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster36.jpg' %}" alt="ベビーサタン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'bebi-satan' %}">ベビーサタン</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster37.jpg' %}" alt="リカント">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'rikanto' %}">リカント</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster38.jpg' %}" alt="しりょう">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shiryou' %}">しりょう</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster39.jpg' %}" alt="さまようよろい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'samayouyoroi' %}">さまようよろい</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster40.jpg' %}" alt="ドルイド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doruido' %}">ドルイド</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster41.jpg' %}" alt="しりょうのきし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shiryounokishi' %}">しりょうのきし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster42.jpg' %}" alt="メドーサボール">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'medo-sabo-ru' %}">メドーサボール</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster43.jpg' %}" alt="キメラ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kimera' %}">キメラ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster44.jpg' %}" alt="リカントマムル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'rikantomamuru' %}">リカントマムル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster45.jpg' %}" alt="てつのさそり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'tetunosasori' %}">てつのさそり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster46.jpg' %}" alt="アントベア">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'antobea' %}">アントベア</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster47.jpg' %}" alt="ハンターフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hanta-hurai' %}">ハンターフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster48.jpg' %}" alt="ヒートギズモ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hi-togizumo' %}">ヒートギズモ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster49.jpg' %}" alt="くさったしたい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kusattashitai' %}">くさったしたい</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster50.jpg' %}" alt="よろいのきし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'yoroinokishi' %}">よろいのきし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster51.jpg' %}" alt="かげのきし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kagenokishi' %}">かげのきし</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster52.jpg' %}" alt="しにがみ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shinigami' %}">しにがみ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster53.jpg' %}" alt="マドハンド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'madohando' %}">マドハンド</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster54.jpg' %}" alt="ドロルメイジ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'dororumeizi' %}">ドロルメイジ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster55.jpg' %}" alt="メーダロード">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'me-daro-do' %}">メーダロード</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster56.jpg' %}" alt="かえんムカデ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kaenmukade' %}">かえんムカデ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster57.jpg' %}" alt="しのさそり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shinosasori' %}">しのさそり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster58.jpg' %}" alt="おどるほうせき">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'odoruhouseki' %}">おどるほうせき</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster59.jpg' %}" alt="デスジャッカル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'desujakkaru' %}">デスジャッカル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster60.jpg' %}" alt="スライムつむり">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suraimutumuri' %}">スライムつむり</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster61.jpg' %}" alt="メイジキメラ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'meizikimera' %}">メイジキメラ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster62.jpg' %}" alt="マッドオックス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'maddookkusu' %}">マッドオックス</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster63.jpg' %}" alt="シャドー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'syado-' %}">シャドー</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster64.jpg' %}" alt="メタルスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'metarusuraimu' %}">メタルスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster65.jpg' %}" alt="げんじゅつし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'genjutushi' %}">げんじゅつし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster66.jpg' %}" alt="ゴーゴンヘッド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'go-gonheddo' %}">ゴーゴンヘッド</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster67.jpg' %}" alt="じんめんじゅ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'zinmenju' %}">じんめんじゅ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster68.jpg' %}" alt="しびれあげは">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shibireageha' %}">しびれあげは</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster69.jpg' %}" alt="ベホマスライム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'behomasuraimu' %}">ベホマスライム</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster70.jpg' %}" alt="じごくのよろい">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'zogkunoyoroi' %}">じごくのよろい</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster71.jpg' %}" alt="アンデッドマン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'andeddoman' %}">アンデッドマン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster72.jpg' %}" alt="ゴールドマン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'go-rudoman' %}">ゴールドマン</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster73.jpg' %}" alt="ゴートドン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'go-dodon' %}">ゴートドン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster74.jpg' %}" alt="きめんどうし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kimendoushi' %}">きめんどうし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster75.jpg' %}" alt="ドラゴンフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doragonhurai' %}">ドラゴンフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster76.jpg' %}" alt="ガニラス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'ganirasu' %}">ガニラス</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster77.jpg' %}" alt="しびれくらげ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shibirekurage' %}">しびれくらげ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster78.jpg' %}" alt="ミニデーモン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'minide-mon' %}">ミニデーモン</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster79.jpg' %}" alt="あくまのめだま">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'akumanomedama' %}">あくまのめだま</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster80.jpg' %}" alt="だいまどう">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'daimadou' %}">だいまどう</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster81.jpg' %}" alt="ガーゴイル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'ga-goiru' %}">ガーゴイル</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster82.jpg' %}" alt="ミミック">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'mimikku' %}">ミミック</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster83.jpg' %}" alt="がいこつけんし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'gaikotukenshi' %}">がいこつけんし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster84.jpg' %}" alt="ヘルゴースト">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'herugo-suto' %}">ヘルゴースト</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster85.jpg' %}" alt="グール">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'gu-ru' %}">グール</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster86.jpg' %}" alt="シルエト">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shirueto' %}">シルエト</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster87.jpg' %}" alt="ドラゴンゾンビ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'doragonzonbi' %}">ドラゴンゾンビ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster88.jpg' %}" alt="まおうのかげ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'maounokage' %}">まおうのかげ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster89.jpg' %}" alt="スカルゴン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'sukarugon' %}">スカルゴン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster90.jpg' %}" alt="フロストギズモ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'hurosutogizumo' %}">フロストギズモ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster91.jpg' %}" alt="ストーンマン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suto-nman' %}">ストーンマン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster92.jpg' %}" alt="スターキメラ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'suta-kimera' %}">スターキメラ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster93.jpg' %}" alt="ブラッドハンド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'buraddohando' %}">ブラッドハンド</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster94.jpg' %}" alt="トロル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'tororu' %}">トロル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster95.jpg' %}" alt="キースドラゴン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'ki-sudoragon' %}">キースドラゴン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster96.jpg' %}" alt="スカルナイト">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'sukarunaito' %}">スカルナイト</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster97.jpg' %}" alt="ウドラー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'udora-' %}">ウドラー</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster98.jpg' %}" alt="キラーリカント">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'kira-rikanto' %}">キラーリカント</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster99.jpg' %}" alt="トロルキング">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'tororukingu' %}">トロルキング</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster100.jpg' %}" alt="ソードイド">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'so-doido' %}">ソードイド</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster101.jpg' %}" alt="はぐれメタル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'haguremetaru' %}">はぐれメタル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster102.jpg' %}" alt="ダークアイ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'da-kuai' %}">ダークアイ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster103.jpg' %}" alt="しにがみのきし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'shinigaminokishi' %}">しにがみのきし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster104.jpg' %}" alt="ダースドラゴン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:monster_detail' 'da-sudoragon' %}">ダースドラゴン</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster105.jpg' %}" alt="カンダタ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_kandata' %}">カンダタ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster106.jpg' %}" alt="カンダタこぶん">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_kandata' %}">カンダタこぶん</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster107.jpg' %}" alt="ようじゅつし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_youjutsushi' %}">ようじゅつし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster108.jpg' %}" alt="ドラゴン">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_dragon' %}">ドラゴン</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster109.jpg' %}" alt="あくまのきし">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_akumanokishi' %}">あくまのきし</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster110.jpg' %}" alt="ダークドリーマー">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_darkdreamer' %}">ダークドリーマー</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster111.jpg' %}" alt="ゴーレム">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_golem' %}">ゴーレム</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster112.jpg' %}" alt="エイリアンフライ">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_alienfly' %}">エイリアンフライ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster113.jpg' %}" alt="マーダーゴイル">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_murdergoyle' %}">マーダーゴイル</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster114.jpg' %}" alt="エクソダス">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_ekusodasu' %}">エクソダス</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monster-row">
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster115.jpg' %}" alt="りゅうおう">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_ryuou' %}">りゅうおう</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                                <img src="{% static 'database/images/dq1/monster/monster116.jpg' %}" alt="竜王">
+                                <div class="monster-name">
+                                    <a href="{% url 'database:dq1_ryuou' %}">竜王</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monster-cell">
+                            <div class="monster-item">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-title">
+        マルチ攻略データベース
+    </div>
+    <div class="footer-links">
+        <a href="{% url 'database:home' %}">ホーム</a> | 
+        <a href="{% url 'database:dq1_guide' %}">DQ1 攻略</a> | 
+        <a href="{% url 'database:dq2_guide' %}">DQ2 攻略</a>
+    </div>
+    <p>© 2025 マルチ攻略データベース. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 画像拡大モーダル
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // flexで中央表示
+      modalImg.src = img.src;
+    });
+  });
+
+  // 閉じるボタン
+  closeBtn.onclick = () => { modal.style.display = 'none'; }
+
+  // 背景クリックで閉じる
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+});
+</script>
+
+{% endblock %}
